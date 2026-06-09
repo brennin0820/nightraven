@@ -7,7 +7,6 @@
 | **Portable** | **`docs/37_GODS_EYE.md`** (**God's Eye Bible**) | Laws, intent ladder, **§0 Agent quick start**, anti-patterns, Tier C, loop law |
 | **Stack map** | **`docs/GODS_EYE_UNIFIED_STACK.md`** | L0–L4 integration — Memory Bank → chain, handoff, Mem0/Zep, hooks, Plan Mode |
 | **Local (your repo)** | `docs/GODS_EYE_REPO_OVERLAY.md` | Product vocabulary, domain disambiguation, boundaries, connected chain |
-| **Stack map** | `docs/GODS_EYE_UNIFIED_STACK.md` | L0–L4 layers, adopt/adapt/reject, phased roadmap |
 | **Always-on** | `.cursor/rules/gods-eye-context-intent.mdc` | **START HERE** → §0 + overlay |
 
 **Motto:** Always watches. Watch the work. Learn from it. Waste nothing. Forget nothing.
