@@ -1,0 +1,24 @@
+---
+description: God'sEye — START HERE; always watches; +# only memory edits
+alwaysApply: true
+---
+
+# God'sEye — START HERE
+
+**God'sEye** = benevolent **project oversight** for AI agents in Cursor — durable memory, not user surveillance. **Motto:** Always watches · learn · waste nothing.
+
+## START HERE
+
+| # | Read |
+|---|------|
+| 1 | `docs/37_GODS_EYE.md` **§0** — Before / During / After / Never |
+| 2 | `docs/GODS_EYE_REPO_OVERLAY.md` — local vocabulary (if present; see `examples/overlay/` in the God's Eye repo) |
+| 3 | `docs/GODS_EYE_GRAND_SPEC.md` — router (pointers only) |
+
+**Laws:** Always watches · always learn · **`+#` only** · never `-#` · Supersedes · **always parallel** (doc 37 §2.4) · **only rules needed for the task** (doc 37 §2.5) · **this repo's app memory only** (doc 37 §2.6) · **Tier C** default (doc 37 §10)
+
+**Ladder (before code):** Memory → wire → UI/copy → code — default stops at memory unless the user names screen/label/behavior/implement (doc 37 §3)
+
+**Never:** New template/scaffold `*.md` per cycle (§9); serial reads by default; conflate user **"context"** with code `*Context` types unless a source file is named; **import handoff/paths/locks from other repos** (doc 37 §2.6)
+
+**After context-add:** Wire chain → append changelog + learning log + handoff **Recent sessions** → one clarifying question max (doc 37 §5)
