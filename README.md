@@ -43,9 +43,8 @@ The same role appears in the author's broader **BAIC / BigBrother** constitution
 3. Create **`docs/GODS_EYE_REPO_OVERLAY.md`** for local vocabulary (start from [`examples/overlay/`](examples/overlay/GODS_EYE_REPO_OVERLAY.example.md)).
 4. Optional: **`docs/GODS_EYE_GRAND_SPEC.md`** as a router; **`.cursor/gods-eye-improvement-loop.md`** as a loop pointer.
 5. Session start: rule → Bible **§0** → overlay → handoff / `AGENTS.md`.
-6. **Optional Phase 2:** copy [`.cursor/hooks.json`](.cursor/hooks.json) + [`.cursor/hooks/`](.cursor/hooks/) for soft Cursor hook nudges (three-touch + Record Everything). See [`docs/HOOKS_SETUP.md`](docs/HOOKS_SETUP.md).
 
-For a visual map of session flow and tiers, open [`docs/GODS_EYE_SESSION_TREE.md`](docs/GODS_EYE_SESSION_TREE.md).
+For adoption layers (Memory Bank mapping, Mem0/Zep, hooks roadmap), see [`docs/GODS_EYE_UNIFIED_STACK.md`](docs/GODS_EYE_UNIFIED_STACK.md). For a visual map of session flow and tiers, open [`docs/GODS_EYE_SESSION_TREE.md`](docs/GODS_EYE_SESSION_TREE.md).
 
 ---
 
@@ -58,16 +57,39 @@ docs/
   GODS_EYE_GRAND_SPEC.md      # Router
   GODS_EYE_IMPROVEMENT_LOOP.md
   GODS_EYE_SESSION_TREE.md
-  HOOKS_SETUP.md              # Optional Phase 2 hooks — enable/disable
 .cursor/
   rules/gods-eye-context-intent.mdc
   gods-eye-improvement-loop.md
-  hooks.json                  # Optional Phase 2 — see docs/HOOKS_SETUP.md
-  hooks/                      # session-start · session-stop · after-file-edit
 examples/
   overlay/                    # Illustrative local overlay
   appendix/                   # Illustrative user-context protocol
 ```
+
+---
+
+---
+
+## Related work
+
+Individual pieces of this problem exist elsewhere. God's Eye **does not replace** them — it **unifies** the doc-native slice (law, overlay, connected chain, `+#` ledger) in one portable stack.
+
+| Approach | What it optimizes | vs God's Eye |
+|----------|-------------------|--------------|
+| [Memory Bank](https://github.com/vanzan01/cursor-memory-bank) · [cursor-bank](https://github.com/tacticlaunch/cursor-bank) | Cursor rules + `memory-bank/` files, Plan/Act modes | Strong session workflow; God's Eye maps that role to **handoff / changelog / learning log** — no second memory tree |
+| [Handoff kits](https://github.com/jimozo/agent-handoff-kit) · [agent-work-mem](https://github.com/daystar7777/agent-work-mem) | Append-only `HANDOFF.md` across agents | Same compaction idea; God's Eye uses **`docs/14_SESSION_HANDOFF.md`** + **Recent sessions** inside the wired chain |
+| [Mem0](https://github.com/mem0ai/mem0) · [Zep](https://github.com/getzep/zep) | Runtime memory APIs, vector/graph recall | Useful **optional index**; **git docs stay authoritative** — index cites paths, never silently overwrites L2 |
+| [CORE](https://github.com/DariuszNewecki/CORE) · [aiConstitution](https://github.com/convergent-systems-co/aiConstitution) | Constitutional / hook governance at execution time | God's Eye is **soft-by-default** (Tier C, rules, optional Phase 3 gates); hard blocks are opt-in, not the default posture |
+| [AGENTS.md](https://agents.md/) | Standard project entry for coding agents | **Front door** in the chain; Bible + overlay remain the **law** |
+
+**Bottom line:** adopt the best ideas; reject duplicate memory trees and surveillance-shaped “oversight.” See [**Unified stack**](#unified-stack) for how layers fit together.
+
+---
+
+## Unified stack
+
+For the full layer map (L0 Bible → L4 improvement loop), competitor **adopt / adapt / reject** table, phased roadmap (doc-only → hooks/MCP → optional gates), and risks, read [**`docs/GODS_EYE_UNIFIED_STACK.md`**](docs/GODS_EYE_UNIFIED_STACK.md).
+
+Phase 1 is **doc-only today** — no external services required.
 
 ---
 
