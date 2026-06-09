@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "_comment": "God's Eye Phase 2 — optional soft hooks. See docs/HOOKS_SETUP.md. Rename or remove this file to disable.",
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": ".cursor/hooks/session-start.sh",
+        "timeout": 5
+      }
+    ],
+    "stop": [
+      {
+        "command": ".cursor/hooks/session-stop.sh",
+        "timeout": 5,
+        "loop_limit": 1
+      }
+    ],
+    "afterFileEdit": [
+      {
+        "command": ".cursor/hooks/after-file-edit.sh",
+        "timeout": 5
+      }
+    ]
+  }
+}
