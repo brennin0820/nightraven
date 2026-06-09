@@ -43,6 +43,7 @@ The same role appears in the author's broader **BAIC / BigBrother** constitution
 3. Create **`docs/GODS_EYE_REPO_OVERLAY.md`** for local vocabulary (start from [`examples/overlay/`](examples/overlay/GODS_EYE_REPO_OVERLAY.example.md)).
 4. Optional: **`docs/GODS_EYE_GRAND_SPEC.md`** as a router; **`.cursor/gods-eye-improvement-loop.md`** as a loop pointer.
 5. Session start: rule → Bible **§0** → overlay → handoff / `AGENTS.md`.
+6. **Optional Phase 2:** copy [`.cursor/hooks.json`](.cursor/hooks.json) + [`.cursor/hooks/`](.cursor/hooks/) for soft Cursor hook nudges (three-touch + Record Everything). See [`docs/HOOKS_SETUP.md`](docs/HOOKS_SETUP.md).
 
 For adoption layers (Memory Bank mapping, Mem0/Zep, hooks roadmap), see [`docs/GODS_EYE_UNIFIED_STACK.md`](docs/GODS_EYE_UNIFIED_STACK.md). For a visual map of session flow and tiers, open [`docs/GODS_EYE_SESSION_TREE.md`](docs/GODS_EYE_SESSION_TREE.md).
 
@@ -57,9 +58,12 @@ docs/
   GODS_EYE_GRAND_SPEC.md      # Router
   GODS_EYE_IMPROVEMENT_LOOP.md
   GODS_EYE_SESSION_TREE.md
+  HOOKS_SETUP.md              # Optional Phase 2 hooks — enable/disable
 .cursor/
   rules/gods-eye-context-intent.mdc
   gods-eye-improvement-loop.md
+  hooks.json                  # Optional Phase 2 — see docs/HOOKS_SETUP.md
+  hooks/                      # session-start · session-stop · after-file-edit
 examples/
   overlay/                    # Illustrative local overlay
   appendix/                   # Illustrative user-context protocol

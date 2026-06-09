@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# God's Eye Phase 2 — stop (Touch 3 · After)
+# Gods Eye Phase 2 — stop (Touch 3 · After)
 # Soft follow-up: append Recent sessions (+# only) before ending.
 
 set -euo pipefail
@@ -12,7 +12,6 @@ input="$(cat || true)"
 loop_count="$(json_number_field "$input" "loop_count")"
 loop_count="${loop_count:-0}"
 
-# Avoid follow-up loops — nudge once per agent completion.
 if [[ "${loop_count}" -gt 0 ]]; then
   printf '{}\n'
   exit 0
@@ -23,16 +22,15 @@ if [[ ! -f "${handoff_path}" ]]; then
   handoff_path="docs/14_SESSION_HANDOFF.md (create when bootstrapped)"
 fi
 
-message="$(cat <<EOF
-God's Eye · Touch 3 · AFTER — before you finish
-
-If this was a real session (tier ≥1): append one +# line to **Recent sessions** in ${handoff_path}. Keep prior session lines (newest first). Never -# or replace the whole section.
-
-Record Everything (Tier 2+): also append docs/02_ENGINEERING_CHANGELOG.md when work was meaningful; docs/04_LEARNING_LOG.md for new patterns; wire cross-links (rule ↔ Bible ↔ overlay ↔ AGENTS ↔ handoff).
-
-+# only · this repo only · no new template scaffolds per cycle.
-EOF
-)"
+message="Gods Eye · Touch 3 · AFTER — before you finish"
+message+=$'\n\n'
+message+="If this was a real session (tier >= 1): append one +# line to **Recent sessions** in ${handoff_path}. "
+message+="Keep prior session lines (newest first). Never -# or replace the whole section."
+message+=$'\n\n'
+message+="Record Everything (Tier 2+): also append docs/02_ENGINEERING_CHANGELOG.md when work was meaningful; "
+message+="docs/04_LEARNING_LOG.md for new patterns; wire cross-links (rule, Bible, overlay, AGENTS, handoff)."
+message+=$'\n\n'
+message+="+# only · this repo only · no new template scaffolds per cycle."
 
 emit_followup_message "$message"
 exit 0
