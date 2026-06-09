@@ -1,0 +1,249 @@
+#!/usr/bin/env bash
+# install.sh — Install God's Eye into a project and/or Cursor user config.
+#
+# Usage:
+#   ./install.sh [OPTIONS] [TARGET_DIR]
+#
+# Examples:
+#   ./install.sh                          # project install (cwd)
+#   ./install.sh ~/Projects/my-app        # project install (path)
+#   ./install.sh --user                   # user-level Cursor (~/.cursor)
+#   ./install.sh --user --project .       # both user + current project
+#   curl -fsSL .../install.sh | bash -s -- --user
+
+set -euo pipefail
+
+GODS_EYE_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+INSTALL_USER=0
+INSTALL_PROJECT=1
+INSTALL_HOOKS=1
+VENDOR_DOCS=1
+FORCE_RULE=0
+TARGET=""
+
+usage() {
+  cat <<EOF
+God's Eye Cursor installer
+
+Usage: $(basename "$0") [OPTIONS] [TARGET_DIR]
+
+Options:
+  --user           Install global Cursor rule + hooks under ~/.cursor/
+  --no-project     Skip project install (use with --user)
+  --no-hooks       Skip hook scripts and hooks.json
+  --no-vendor      Do not copy portable Bible/router docs into the project
+  --force-rule     Overwrite existing .cursor/rules/gods-eye-context-intent.mdc
+  -h, --help       Show this help
+
+Defaults:
+  Project target = current directory
+  Vendors docs/37_GODS_EYE.md + router when missing
+  Bootstraps handoff/changelog/learning log/AGENTS.md/overlay from templates
+
+Portable source: ${GODS_EYE_ROOT}
+EOF
+}
+
+log() { printf '==> %s\n' "$*"; }
+warn() { printf '!!> %s\n' "$*" >&2; }
+
+copy_if_missing() {
+  local src="$1" dest="$2"
+  if [[ -f "$dest" ]]; then
+    warn "exists (skip): ${dest#${TARGET}/}"
+    return 0
+  fi
+  mkdir -p "$(dirname "$dest")"
+  cp "$src" "$dest"
+  log "created: ${dest#${TARGET}/}"
+}
+
+copy_file() {
+  local src="$1" dest="$2"
+  mkdir -p "$(dirname "$dest")"
+  cp "$src" "$dest"
+  log "installed: ${dest#${TARGET}/}"
+}
+
+install_project_hooks() {
+  local dest_root="$1"
+  local src_hooks dest_hooks
+  src_hooks="$(cd "${GODS_EYE_ROOT}/.cursor/hooks" && pwd)"
+  mkdir -p "${dest_root}/.cursor/hooks"
+  dest_hooks="$(cd "${dest_root}/.cursor/hooks" && pwd)"
+  if [[ "$src_hooks" != "$dest_hooks" ]]; then
+    cp "${GODS_EYE_ROOT}/.cursor/hooks/"*.sh "${dest_root}/.cursor/hooks/"
+  fi
+  chmod +x "${dest_root}/.cursor/hooks/"*.sh
+  if [[ "${GODS_EYE_ROOT}/.cursor/hooks.json" != "${dest_root}/.cursor/hooks.json" ]]; then
+    cp -f "${GODS_EYE_ROOT}/.cursor/hooks.json" "${dest_root}/.cursor/hooks.json"
+  fi
+  log "hooks: .cursor/hooks.json + scripts"
+}
+
+merge_user_hooks_json() {
+  local user_hooks="${HOME}/.cursor/hooks.json"
+  local fragment="${GODS_EYE_ROOT}/templates/hooks.user.json"
+  if [[ ! -f "$user_hooks" ]]; then
+    cp "$fragment" "$user_hooks"
+    log "created: ~/.cursor/hooks.json"
+    return 0
+  fi
+  if grep -q 'gods-eye/session-start.sh' "$user_hooks" 2>/dev/null; then
+    warn "God's Eye hooks already present in ~/.cursor/hooks.json (skip merge)"
+    return 0
+  fi
+  if command -v python3 >/dev/null 2>&1; then
+    python3 - "$user_hooks" "$fragment" <<'PY'
+import json, sys
+user_path, frag_path = sys.argv[1], sys.argv[2]
+with open(user_path) as f:
+    user = json.load(f)
+with open(frag_path) as f:
+    frag = json.load(f)
+user.setdefault("version", 1)
+user.setdefault("hooks", {})
+for event, defs in frag.get("hooks", {}).items():
+    existing = user["hooks"].setdefault(event, [])
+    for d in defs:
+        cmd = d.get("command", "")
+        if any(cmd in (e.get("command") or "") for e in existing):
+            continue
+        existing.append(d)
+with open(user_path, "w") as f:
+    json.dump(user, f, indent=2)
+    f.write("\n")
+PY
+    log "merged God's Eye hooks into ~/.cursor/hooks.json"
+  else
+    warn "python3 not found — copy templates/hooks.user.json entries manually into ~/.cursor/hooks.json"
+  fi
+}
+
+install_user_level() {
+  log "Installing user-level Cursor config (~/.cursor/)"
+  mkdir -p "${HOME}/.cursor/rules" "${HOME}/.cursor/hooks/gods-eye"
+
+  local user_rule="${HOME}/.cursor/rules/gods-eye-context-intent.mdc"
+  if [[ -f "$user_rule" && "$FORCE_RULE" -eq 0 ]]; then
+    warn "exists (skip): ~/.cursor/rules/gods-eye-context-intent.mdc (use --force-rule to replace)"
+  else
+    sed "s|__GODS_EYE_ROOT__|${GODS_EYE_ROOT}|g" \
+      "${GODS_EYE_ROOT}/templates/gods-eye-context-intent.user.mdc" > "$user_rule"
+    log "installed: ~/.cursor/rules/gods-eye-context-intent.mdc"
+  fi
+
+  if [[ "$INSTALL_HOOKS" -eq 1 ]]; then
+    cp "${GODS_EYE_ROOT}/.cursor/hooks/"*.sh "${HOME}/.cursor/hooks/gods-eye/"
+    chmod +x "${HOME}/.cursor/hooks/gods-eye/"*.sh
+    # Bake install root so hooks resolve Bible when projects use master BAIC instead of vendoring.
+    if grep -q 'GODS_EYE_INSTALL_ROOT=' "${HOME}/.cursor/hooks/gods-eye/lib.sh" 2>/dev/null; then
+      sed -i '' "s|GODS_EYE_INSTALL_ROOT=\"\${GODS_EYE_INSTALL_ROOT:-.*}\"|GODS_EYE_INSTALL_ROOT=\"${GODS_EYE_ROOT}\"|" \
+        "${HOME}/.cursor/hooks/gods-eye/lib.sh" 2>/dev/null || \
+      sed -i "s|GODS_EYE_INSTALL_ROOT=\"\${GODS_EYE_INSTALL_ROOT:-.*}\"|GODS_EYE_INSTALL_ROOT=\"${GODS_EYE_ROOT}\"|" \
+        "${HOME}/.cursor/hooks/gods-eye/lib.sh"
+    fi
+    merge_user_hooks_json
+    log "hooks: ~/.cursor/hooks/gods-eye/*.sh"
+  fi
+}
+
+install_project() {
+  TARGET="$(cd "$TARGET" && pwd)"
+  log "Installing God's Eye into project: ${TARGET}"
+
+  mkdir -p "${TARGET}/.cursor/rules" "${TARGET}/docs"
+
+  local rule_dest="${TARGET}/.cursor/rules/gods-eye-context-intent.mdc"
+  if [[ -f "$rule_dest" && "$FORCE_RULE" -eq 0 ]]; then
+    warn "exists (skip): .cursor/rules/gods-eye-context-intent.mdc"
+  else
+    copy_file "${GODS_EYE_ROOT}/.cursor/rules/gods-eye-context-intent.mdc" "$rule_dest"
+  fi
+
+  copy_if_missing "${GODS_EYE_ROOT}/.cursor/gods-eye-improvement-loop.md" \
+    "${TARGET}/.cursor/gods-eye-improvement-loop.md"
+
+  if [[ "$VENDOR_DOCS" -eq 1 ]]; then
+    for doc in \
+      docs/37_GODS_EYE.md \
+      docs/GODS_EYE_GRAND_SPEC.md \
+      docs/GODS_EYE_SESSION_TREE.md \
+      docs/GODS_EYE_UNIFIED_STACK.md \
+      docs/GODS_EYE_IMPROVEMENT_LOOP.md \
+      docs/HOOKS_SETUP.md; do
+      copy_if_missing "${GODS_EYE_ROOT}/${doc}" "${TARGET}/${doc}"
+    done
+  fi
+
+  copy_if_missing "${GODS_EYE_ROOT}/templates/docs/14_SESSION_HANDOFF.md" \
+    "${TARGET}/docs/14_SESSION_HANDOFF.md"
+  copy_if_missing "${GODS_EYE_ROOT}/templates/docs/02_ENGINEERING_CHANGELOG.md" \
+    "${TARGET}/docs/02_ENGINEERING_CHANGELOG.md"
+  copy_if_missing "${GODS_EYE_ROOT}/templates/docs/04_LEARNING_LOG.md" \
+    "${TARGET}/docs/04_LEARNING_LOG.md"
+  copy_if_missing "${GODS_EYE_ROOT}/templates/docs/GODS_EYE_REPO_OVERLAY.md" \
+    "${TARGET}/docs/GODS_EYE_REPO_OVERLAY.md"
+  copy_if_missing "${GODS_EYE_ROOT}/templates/AGENTS.md" "${TARGET}/AGENTS.md"
+
+  if [[ "$INSTALL_HOOKS" -eq 1 ]]; then
+    install_project_hooks "$TARGET"
+  fi
+
+  cat <<EOF
+
+Project install complete: ${TARGET}
+
+Verify in Cursor:
+  • Rules: Cursor Settings → Rules → gods-eye-context-intent (alwaysApply)
+  • Hooks: Cursor Settings → Hooks (sessionStart, stop, afterFileEdit)
+  • Open a new Agent chat — Touch 1 reminder should appear
+
+Next steps:
+  1. Edit docs/GODS_EYE_REPO_OVERLAY.md for local vocabulary
+  2. Fill docs/14_SESSION_HANDOFF.md Current state / Already done
+  3. Optional: run ./install.sh --user for global rule + hooks on every project
+
+EOF
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --user) INSTALL_USER=1; shift ;;
+    --no-project) INSTALL_PROJECT=0; shift ;;
+    --no-hooks) INSTALL_HOOKS=0; shift ;;
+    --no-vendor) VENDOR_DOCS=0; shift ;;
+    --force-rule) FORCE_RULE=1; shift ;;
+    -h|--help) usage; exit 0 ;;
+    -*) warn "unknown option: $1"; usage; exit 1 ;;
+    *) TARGET="$1"; shift ;;
+  esac
+done
+
+if [[ -z "$TARGET" ]]; then
+  TARGET="."
+fi
+
+if [[ "$INSTALL_USER" -eq 1 ]]; then
+  install_user_level
+fi
+
+if [[ "$INSTALL_PROJECT" -eq 1 ]]; then
+  install_project
+fi
+
+if [[ "$INSTALL_USER" -eq 1 && "$INSTALL_PROJECT" -eq 0 ]]; then
+  cat <<EOF
+
+User-level install complete.
+
+Verify in Cursor:
+  • Settings → Rules → gods-eye-context-intent (global, alwaysApply)
+  • Settings → Hooks → sessionStart / stop / afterFileEdit
+  • GODS_EYE_ROOT defaults to: ${GODS_EYE_ROOT}
+
+Install into a project:
+  ${GODS_EYE_ROOT}/install.sh /path/to/your-app
+
+EOF
+fi

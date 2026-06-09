@@ -42,7 +42,8 @@
 | 1 | `.cursor/rules/gods-eye-context-intent.mdc` (**START HERE**) |
 | 2 | `docs/37_GODS_EYE.md` (**God's Eye Bible**) **§0** |
 | 3 | `docs/GODS_EYE_REPO_OVERLAY.md` (if present) |
-| 4 | Your domain rules → user context protocol → session handoff → `AGENTS.md` |
+| 4 | Your domain rules → user context protocol → [`docs/14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) → `AGENTS.md` (when present) |
+| 5 | Optional Phase 2: [`docs/HOOKS_SETUP.md`](HOOKS_SETUP.md) + `.cursor/hooks.json` (soft three-touch nudges) |
 
 **Loop:** Bible **§9–§10** direct execution · repo `.cursor/gods-eye-improvement-loop.md` (pointer only).
 

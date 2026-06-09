@@ -22,6 +22,7 @@ The same role appears in the author's broader **BAIC / BigBrother** constitution
 | [**Example Cursor rule**](.cursor/rules/gods-eye-context-intent.mdc) | Copy into your repo's `.cursor/rules/` (adapt paths) |
 | [**Example overlay**](examples/overlay/GODS_EYE_REPO_OVERLAY.example.md) | How to add product vocabulary on top of portable law |
 | [**Example user-context protocol**](examples/appendix/USER_CONTEXT_PROTOCOL.example.md) | Worked “add context” examples |
+| [**Cursor installer**](CURSOR_INSTALL.md) | One-command `install.sh` — user + project rules, hooks, memory bootstrap |
 | [**Optional Cursor hooks (Phase 2)**](docs/HOOKS_SETUP.md) | Soft three-touch reminders — session start, stop, after memory-doc edits |
 
 ---
@@ -37,6 +38,19 @@ The same role appears in the author's broader **BAIC / BigBrother** constitution
 ---
 
 ## Quick start in your repo
+
+**Fastest path — one command:**
+
+```bash
+git clone https://github.com/brennin0820/gods-eye.git
+cd gods-eye
+./install.sh --user              # global Cursor rule + hooks (once per machine)
+./install.sh ~/path/to/your-app  # per-project memory chain + hooks
+```
+
+See **[`docs/CURSOR_INSTALL.md`](docs/CURSOR_INSTALL.md)** for verification steps (Settings → Rules, Hooks, test session).
+
+**Manual path:**
 
 1. **Vendor or submodule** this repository, or copy `docs/37_GODS_EYE.md` plus the files you need.
 2. Add **`.cursor/rules/gods-eye-context-intent.mdc`** (from this repo) and point reads at your copy of the Bible.
@@ -58,7 +72,13 @@ docs/
   GODS_EYE_GRAND_SPEC.md      # Router
   GODS_EYE_IMPROVEMENT_LOOP.md
   GODS_EYE_SESSION_TREE.md
+  14_SESSION_HANDOFF.md       # L3 app memory — Recent sessions, Already done
+  02_ENGINEERING_CHANGELOG.md # Append-only engineering history
+  04_LEARNING_LOG.md          # Append-only durable patterns
   HOOKS_SETUP.md              # Optional Phase 2 hooks — enable/disable
+  CURSOR_INSTALL.md           # Cursor install + verify (Rules, Hooks)
+install.sh                    # One-command installer (user + project)
+templates/                    # Bootstrap AGENTS.md, handoff, overlay
 .cursor/
   rules/gods-eye-context-intent.mdc
   gods-eye-improvement-loop.md

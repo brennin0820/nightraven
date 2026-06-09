@@ -12,7 +12,8 @@ Hooks are **not** CORE hard blocks. They inject reminders and optional follow-up
 |-------|------------|
 | **Enabled (default in this repo)** | Keep `.cursor/hooks.json` — Cursor loads it automatically |
 | **Disabled** | Rename to `.cursor/hooks.json.disabled` or delete `.cursor/hooks.json` |
-| **Adopting in your app repo** | Copy `.cursor/hooks.json` and `.cursor/hooks/` when you are ready for Phase 2; skip until bootstrapped handoff exists |
+| **Adopting in your app repo** | Run `./install.sh /path/to/app` or copy `.cursor/hooks.json` + `.cursor/hooks/` when handoff exists |
+| **Global (all projects)** | `./install.sh --user --no-project` → `~/.cursor/hooks.json` + `~/.cursor/hooks/gods-eye/` — see [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) |
 
 After changing `hooks.json`, save the file. If hooks do not appear, restart Cursor and check **Settings → Hooks** or the **Hooks** output channel.
 
@@ -71,9 +72,21 @@ Use hooks to **reinforce habit**, not replace `.cursor/rules/gods-eye-context-in
 
 ---
 
+## User-level vs project-level
+
+| Location | `hooks.json` | Script paths |
+|----------|--------------|--------------|
+| **Project** | `<repo>/.cursor/hooks.json` | `.cursor/hooks/*.sh` (relative to project root) |
+| **User (global)** | `~/.cursor/hooks.json` | `./hooks/gods-eye/*.sh` (relative to `~/.cursor/`) |
+
+User-level hooks resolve the active workspace via `workspace_roots` in hook stdin JSON and set `GODS_EYE_PROJECT_ROOT` / `GODS_EYE_ROOT` at `sessionStart`. Install with `./install.sh --user` — see [`CURSOR_INSTALL.md`](../CURSOR_INSTALL.md).
+
+---
+
 ## Troubleshooting
 
-- **Hooks not firing** — confirm `.cursor/hooks.json` path is relative to project root; scripts are executable (`chmod +x .cursor/hooks/*.sh`).
+- **Hooks not firing** — confirm paths: project `.cursor/hooks/*.sh` or user `./hooks/gods-eye/*.sh`; scripts executable (`chmod +x`).
+- **Wrong project paths in reminders** — hooks need `workspace_roots` in stdin; `sessionStart` sets `GODS_EYE_PROJECT_ROOT` for later hooks.
 - **Stop follow-up loops** — `loop_limit: 1` on the `stop` hook; script skips when `loop_count > 0`.
 - **Too chatty** — remove `afterFileEdit` from `hooks.json` or disable hooks entirely.
 

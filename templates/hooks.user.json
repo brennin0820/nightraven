@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "_comment": "God's Eye user-level hooks — merged by install.sh. Paths relative to ~/.cursor/",
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": "./hooks/gods-eye/session-start.sh",
+        "timeout": 5
+      }
+    ],
+    "stop": [
+      {
+        "command": "./hooks/gods-eye/session-stop.sh",
+        "timeout": 5,
+        "loop_limit": 1
+      }
+    ],
+    "afterFileEdit": [
+      {
+        "command": "./hooks/gods-eye/after-file-edit.sh",
+        "timeout": 5
+      }
+    ]
+  }
+}

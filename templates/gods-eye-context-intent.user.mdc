@@ -1,5 +1,5 @@
 ---
-description: God'sEye — START HERE; always watches; +# only memory edits
+description: God'sEye — START HERE; always watches; +# only memory edits (global)
 alwaysApply: true
 ---
 
@@ -11,7 +11,7 @@ alwaysApply: true
 
 | # | Read |
 |---|------|
-| 1 | **Bible §0** — `docs/37_GODS_EYE.md` if vendored; else `$GODS_EYE_ROOT/docs/37_GODS_EYE.md` (default `~/Projects/gods-eye`) |
+| 1 | **Bible §0** — `docs/37_GODS_EYE.md` if vendored; else `__GODS_EYE_ROOT__/docs/37_GODS_EYE.md` |
 | 2 | `docs/GODS_EYE_REPO_OVERLAY.md` — local vocabulary (if present) |
 | 3 | `docs/14_SESSION_HANDOFF.md` → `AGENTS.md` — this repo only |
 
