@@ -14,7 +14,9 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - Templates under `templates/` for handoff, changelog, learning log, overlay, `AGENTS.md`, user rule, `hooks.user.json`
 - Lean `gods-eye-context-intent.mdc` START HERE table (Bible fallback via `GODS_EYE_ROOT`)
 
-**Cross-links:** [`CURSOR_INSTALL.md`](../CURSOR_INSTALL.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`README.md`](../README.md)
+**Cross-links:** [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`README.md`](../README.md)
+
+**Shipped:** `a14ac10` on `main` — Brent user install at `~/.cursor/rules/` + `~/.cursor/hooks/gods-eye/`; BankrollCalendar project install verified.
 
 ### Phase 2 — optional Cursor hooks (commits `1c4f1ef`, `4be2992`)
 

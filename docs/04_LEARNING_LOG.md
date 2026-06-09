@@ -19,3 +19,17 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 **Applies to:** `.cursor/hooks/*.sh` in adopters' repos on bash 3.2.
 
 **See also:** [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md)
+
+---
+
+## 2026-06-09 — `install.sh` self-install and user-level hook paths
+
+**Context:** `install.sh` must run against the gods-eye repo itself and install globally under `~/.cursor/`.
+
+**Pattern:**
+
+1. **Self-install:** skip `cp` when source and destination hook dirs or `hooks.json` are the same path — macOS `cp` exits 1 on identical files under `set -e`.
+2. **User hooks:** `~/.cursor/hooks.json` uses `./hooks/gods-eye/*.sh`; project hooks use `.cursor/hooks/*.sh` from repo root.
+3. **Project root in hooks:** prefer `CURSOR_PROJECT_DIR`, then `workspace_roots[0]` from stdin JSON, then `git rev-parse --show-toplevel`.
+
+**Applies to:** `install.sh`, `.cursor/hooks/lib.sh`, [`CURSOR_INSTALL.md`](../CURSOR_INSTALL.md).

@@ -15,11 +15,13 @@ Cursor installer shipped: `install.sh`, `CURSOR_INSTALL.md`, workspace-aware hoo
 - +# Initial public framework release (`f9928d2`) — Bible, router, session tree, improvement loop, example rule/overlay
 - +# Unified stack doc L0–L4 (`1c4f1ef`) — Memory Bank mapping, handoff pattern, hooks roadmap
 - +# Phase 2 optional hooks (`1c4f1ef`, `4be2992`) — `.cursor/hooks.json`, bash scripts, `docs/HOOKS_SETUP.md`, README wiring
+- +# Cursor installer on `main` (`a14ac10`) — `install.sh`, `CURSOR_INSTALL.md`, `templates/`, global `~/.cursor` + BankrollCalendar demo installs
 
 ---
 
 ## Recent sessions
 
+- **2026-06-09** — Touch 3 close: pushed `a14ac10`; Brent can use God's Eye immediately via `install.sh --user --no-project` + per-project install; hooks use `CURSOR_PROJECT_DIR` / `workspace_roots`.
 - **2026-06-09** — Full Cursor install: `install.sh` (user + project), `CURSOR_INSTALL.md`, lean START HERE rule, hooks resolve `workspace_roots`; installed `~/.cursor` + BankrollCalendar demo.
 - **2026-06-09** — Phase 2 hooks scaffold: `sessionStart` / `stop` / `afterFileEdit` soft reminders; `lib.sh` (no jq); fixed bash 3.2 heredoc quoting in stop/after-file-edit; pushed `4be2992` on `main`.
 - **2026-06-09** — Touch 3 bootstrap: created this handoff + engineering changelog + learning log for framework repo L3 memory.
