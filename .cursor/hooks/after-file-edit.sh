@@ -27,7 +27,12 @@ message="Gods Eye memory edit (${file_path}):"
 message+=$'\n\n'
 message+="- +# only — append; use **Supersedes** for corrections; never -# heading blocks or trim **Already done** / **Recent sessions**"
 message+=$'\n'
-message+="- If meaningful work: wire cross-links and plan Touch 3 writes (changelog, learning log, handoff Recent sessions)"
+project_root="$(gods_eye_project_root "$input")"
+if gods_eye_touch3_disabled "$project_root"; then
+  message+="- Touch 3 paused — wire cross-links when asked; no mandatory session-close batch"
+else
+  message+="- If meaningful work: wire cross-links and plan Touch 3 writes (changelog, learning log, handoff Recent sessions)"
+fi
 message+=$'\n'
 message+="- One writer per file per pass; parallel reads are fine"
 

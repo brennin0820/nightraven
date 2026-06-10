@@ -28,12 +28,17 @@ Before substantive edits:
 3. MEMORY CHECK: dedup against this repo only; never import other repos' handoff
 
 During: guard scope · +# only on memory docs · parallel independent workstreams
-After (Touch 3): append handoff Recent sessions on real exit; Record Everything at Tier 2+
-
-Portable law: ${bible_hint} · Session tree: docs/GODS_EYE_SESSION_TREE.md (or GODS_EYE_ROOT)
-GODS_EYE_ROOT=${gods_eye_root}
 EOF
 )"
+
+if gods_eye_touch3_disabled "$project_root"; then
+  message+=$'\n'"Touch 3 AFTER: **paused** (.cursor/touch3.disabled or ~/.cursor/touch3.disabled) — skip session-close follow-up batch"
+else
+  message+=$'\n'"After (Touch 3): append handoff Recent sessions on real exit; Record Everything at Tier 2+"
+fi
+
+message+=$'\n\n'"Portable law: ${bible_hint} · Session tree: docs/GODS_EYE_SESSION_TREE.md (or GODS_EYE_ROOT)"
+message+=$'\n'"GODS_EYE_ROOT=${gods_eye_root}"
 
 emit_session_start "$message" "$gods_eye_root"
 exit 0

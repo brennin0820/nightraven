@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "_comment": "God's Eye Phase 2 — optional soft hooks. See docs/HOOKS_SETUP.md. Rename or remove this file to disable.",
+  "_comment": "God's Eye Phase 2 — optional soft hooks. Pause Touch 3 via .cursor/touch3.disabled marker (session-stop.sh no-ops); do not remove stop hook. See docs/HOOKS_SETUP.md.",
   "hooks": {
     "sessionStart": [
       {

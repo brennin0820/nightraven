@@ -106,3 +106,27 @@ gods_eye_rel_path() {
     printf '%s' "(${rel} — create when bootstrapped)"
   fi
 }
+
+# Touch 3 pause: marker file or env (GODS_EYE_TOUCH3=0 / GODS_EYE_TOUCH3_DISABLED=1).
+gods_eye_touch3_disabled() {
+  case "${GODS_EYE_TOUCH3:-}" in
+    0|off|OFF|false|FALSE|no|NO) return 0 ;;
+  esac
+  case "${GODS_EYE_TOUCH3_DISABLED:-}" in
+    1|true|TRUE|yes|YES) return 0 ;;
+  esac
+  local marker
+  for marker in \
+    "${HOME}/.cursor/touch3.disabled" \
+    "${GODS_EYE_ROOT:-}/.cursor/touch3.disabled" \
+    "${GODS_EYE_INSTALL_ROOT}/.cursor/touch3.disabled"; do
+    if [[ -f "$marker" ]]; then
+      return 0
+    fi
+  done
+  local project_root="${1:-}"
+  if [[ -n "$project_root" && -f "${project_root}/.cursor/touch3.disabled" ]]; then
+    return 0
+  fi
+  return 1
+}

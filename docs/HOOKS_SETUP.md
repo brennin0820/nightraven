@@ -12,6 +12,7 @@ Hooks are **not** CORE hard blocks. They inject reminders and optional follow-up
 |-------|------------|
 | **Enabled (default in this repo)** | Keep `.cursor/hooks.json` — Cursor loads it automatically |
 | **Disabled** | Rename to `.cursor/hooks.json.disabled` or delete `.cursor/hooks.json` |
+| **Touch 3 only (paused)** | Create `.cursor/touch3.disabled` (project) and/or `~/.cursor/touch3.disabled` (global) — `session-stop.sh` no-ops; **keep** the `stop` hook in `hooks.json`. Re-enable: delete marker files only |
 | **Adopting in your app repo** | Run `./install.sh /path/to/app` or copy `.cursor/hooks.json` + `.cursor/hooks/` when handoff exists |
 | **Global (all projects)** | `./install.sh --user --no-project` → `~/.cursor/hooks.json` + `~/.cursor/hooks/gods-eye/` — see [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) |
 
@@ -39,6 +40,8 @@ Does **not** block edits or tool use.
 - Record Everything checklist at Tier 2+ (changelog, learning log, wire)
 
 Does **not** force writes; it reminds the agent before exit.
+
+**Paused:** When `.cursor/touch3.disabled` or `~/.cursor/touch3.disabled` exists, `session-stop.sh` no-ops — do not remove the `stop` hook from `hooks.json`. Marker also adjusts `sessionStart` / `afterFileEdit` Touch 3 nudges. `.cursor/touch3.disabled` is gitignored locally.
 
 ### `afterFileEdit` → `.cursor/hooks/after-file-edit.sh`
 

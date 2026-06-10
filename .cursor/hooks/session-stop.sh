@@ -9,6 +9,13 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "${SCRIPT_DIR}/lib.sh"
 
 input="$(cat || true)"
+project_root="$(gods_eye_project_root "$input")"
+
+if gods_eye_touch3_disabled "$project_root"; then
+  printf '{}\n'
+  exit 0
+fi
+
 loop_count="$(json_number_field "$input" "loop_count")"
 loop_count="${loop_count:-0}"
 
@@ -17,7 +24,6 @@ if [[ "${loop_count}" -gt 0 ]]; then
   exit 0
 fi
 
-project_root="$(gods_eye_project_root "$input")"
 handoff_path="$(gods_eye_rel_path "$project_root" "docs/14_SESSION_HANDOFF.md")"
 
 message="Gods Eye · Touch 3 · AFTER — before you finish"

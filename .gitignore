@@ -2,3 +2,4 @@
 *.zip
 .env
 .env.*
+.cursor/touch3.disabled
