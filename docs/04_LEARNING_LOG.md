@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-10 — GE vs implementation skills pack (orthogonal layers)
+
+**Signal:** Brent asked whether to merge addyosmani/agent-skills into God's Eye — high-star lifecycle skill pack overlaps naming (`context-engineering`) but not GE's project-evolution mission.
+
+**Pattern:** **Reject core merge.** God's Eye = L0–L3 intent-first memory + oversight; agent-skills = optional L4 **implementation discipline** after ship signal. Stack sentence: *GE decides what the project means and remembers; agent-skills decides how to build safely once you say ship.*
+
+**Do:** Document as Adapt (optional L4) in unified stack §2 when executing plan; point adopters to upstream cursor-setup; cherry-pick individual skills in **app overlay** only post ship-signal. **Wire complete (2026-06-10):** unified stack §2 + §6, `CURSOR_INSTALL.md` optional section, overlay + AGENTS.md Reference.
+
+**Don't:** Vendor 23 skills into framework repo; merge AGENTS.md contents; let `/build` defaults override intent ladder; collapse GE into "better prompting."
+
+**See:** `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md` · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §2 · §6 · [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · [`AGENTS.md`](../AGENTS.md)
+
+---
+
 ## 2026-06-10 — GH007: GitHub private-email push block
 
 **Signal:** `git push origin main` fails with GH007 though repo access is fine — commits expose a private Gmail in author metadata.

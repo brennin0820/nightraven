@@ -64,7 +64,7 @@ L0  Git truth (authoritative) Versioned repo docs — reviewable, append-only me
 | **L1** | **Standard entry** | `.cursor/rules/gods-eye-context-intent.mdc` (or equivalent), `AGENTS.md`, optional `GODS_EYE_GRAND_SPEC.md` router | **Yes** for bootstrapped repos |
 | **L2** | **God's Eye core** | [`37_GODS_EYE.md`](37_GODS_EYE.md) — `+#` only, intent ladder, read tiers 0–3, three-touch, overlay pattern, Tier C default | **Yes** — portable law |
 | **L3** | **Connected chain** | App memory for **this repo only**: overlay, handoff, changelog, learning log, user-context protocol, domain rules | **Yes** when bootstrapped |
-| **L4** | **Optional accelerators** | Mem0/Zep semantic recall; Cursor hooks (`sessionStart`, `stop`, `beforeSubmitPrompt`); BAIC/CORE constitution soft/hard gates | **No** — adopt when recall or enforcement needs justify cost |
+| **L4** | **Optional accelerators** | Mem0/Zep semantic recall; implementation skills pack (e.g. agent-skills, post ship-signal); Cursor hooks (`sessionStart`, `stop`, `beforeSubmitPrompt`); BAIC/CORE constitution soft/hard gates | **No** — adopt when recall or enforcement needs justify cost |
 
 ### Truth hierarchy
 
@@ -102,6 +102,7 @@ Patterns from the broader agent-memory ecosystem — how God's Eye treats each.
 | **Read tiers 0–3** | **Adopt** | L2 ceremony matched to task size (Bible §2.5) |
 | **Memory Bank folder tree** (`memory-bank/`) | **Reject duplicate** | **Adapt** roles into connected chain (§3) — one canonical path per concept |
 | **Mem0 / Zep** | **Adapt (optional)** | L4 semantic index **on top of** git — never authoritative |
+| **addyosmani/agent-skills** | **Adapt (optional L4)** | Consumer app repos only; activate **after** ship signal (`code it` / `implement` / `build`); does not replace Bible, handoff, or intent ladder — see [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) optional section |
 | **Cursor Plan Mode** | **Adapt** | Touch 1 · Before — plan before edit; no separate memory store |
 | **Cursor hooks** | **Adapt (Phase 2+)** | L4 automation — session reminders, append nudges, optional gates (§8) |
 | **BAIC / CORE constitution hooks** | **Adapt (Phase 3)** | L4 soft/hard gates — optional; must not block trivial fixes by default |
@@ -241,6 +242,10 @@ This published repository is **portable law + examples** — it may not ship a f
 | Large doc chain; agents miss connections | Phase 2 — add MCP or API ingest from handoff + overlay + logs |
 | Solo dev; small repo | **Skip** — connected chain + parallel reads suffice |
 | Multi-agent parallel writes | **Git first** — index is read-mostly; one writer per file unchanged |
+
+### Implementation skills pack (optional L4)
+
+**addyosmani/agent-skills** and similar lifecycle skill packs sit in the same L4 bucket as Mem0/Zep — **optional**, never authoritative over L0–L3 git chain. God's Eye decides *what the project means and remembers*; implementation skills decide *how to build safely once you say ship*. Same rules as §6: git wins; no vendor into framework repo; consumer app repos only after ship signal. Install pointer: [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) · plan `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md`.
 
 ---
 

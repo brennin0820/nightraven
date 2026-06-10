@@ -137,6 +137,21 @@ Disable hooks: rename `hooks.json` → `hooks.json.disabled` (user or project). 
 
 ---
 
+## Optional — implementation skills pack (post ship-signal)
+
+**Not part of God's Eye install.** The framework repo does **not** vendor [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills). Use only in **consumer app repos** when Brent explicitly says **code it** / **implement** / **build** — after God's Eye memory chain is in place.
+
+| Rule | Detail |
+|------|--------|
+| **Layer** | Optional L4 — implementation lifecycle discipline; does not replace Bible, handoff, or intent ladder |
+| **Upstream setup** | [agent-skills cursor-setup.md](https://github.com/addyosmani/agent-skills/blob/main/docs/cursor-setup.md) — marketplace plugin or copy selected `skills/` |
+| **Framework install** | `install.sh` has **no** `--with-engineering-skills` flag yet (deferred until 2+ adopters prove need) |
+| **Stack sentence** | GE decides *what the project means and remembers*; agent-skills decides *how to build safely once you say ship* |
+
+See [`GODS_EYE_UNIFIED_STACK.md`](docs/GODS_EYE_UNIFIED_STACK.md) §2 · [`GODS_EYE_REPO_OVERLAY.md`](docs/GODS_EYE_REPO_OVERLAY.md) §1 **Implementation skills pack (optional)** · plan `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md`.
+
+---
+
 ## Related
 
 - [`README.md`](README.md) — framework overview

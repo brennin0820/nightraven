@@ -25,6 +25,7 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 | **Interpretation framework** | Bible §3 — intention not words; 4 layers, continuity, ambiguity resolver, usage protection, auto-prompt builder |
 | **Composed architecture** | God's Eye positioning — synthesis of intent/context/intent-aware memory/rewrite/reflect/git-native fields; no single external product or paper matches fully |
 | **GIRMA** | Local academic handle — Governed Intent-Reconstruction Memory Architecture; optional positioning label (not portable law) |
+| **Implementation skills pack (optional)** | External lifecycle workflows (e.g. [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)) — L4 consumer add-on **after** ship signal; does not replace Bible or handoff |
 
 ---
 
@@ -46,6 +47,7 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 | MCP (optional Phase 2) | `docs/MCP_SETUP.md` · `.cursor/mcp.json` · `mcp-server/` |
 | Inventory | `docs/GODS_EYE_PROJECT_INVENTORY.md` — cross-repo scan (framework repo only) |
 | Research map (plan) | `.cursor/plans/god's_eye_research_map_b4b6f06f.plan.md` — external field overlaps vs GE differentiators |
+| agent-skills merge (plan) | `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md` — reject core merge; optional L4 adapt |
 
 ---
 

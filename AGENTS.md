@@ -193,6 +193,7 @@ When Brent gives a **concept, context, or idea** (even telegraphic) — infer: *
 - **Session handoff:** `docs/14_SESSION_HANDOFF.md` — current state, guardrails, already-done, recent sessions
 - **MCP (Phase 2, optional):** `docs/MCP_SETUP.md` — memory-chain tools (read, search, append Recent sessions); git authoritative
 - **Research map (plan):** `.cursor/plans/god's_eye_research_map_b4b6f06f.plan.md` — external field overlaps vs GE differentiators; overlay §1 **Composed architecture** · **GIRMA**
+- **agent-skills merge (plan):** `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md` — reject core vendor; optional L4 implementation skills after ship signal; overlay §1 **Implementation skills pack (optional)** · [`CURSOR_INSTALL.md`](docs/CURSOR_INSTALL.md) optional post-install pointer · [`GODS_EYE_UNIFIED_STACK.md`](docs/GODS_EYE_UNIFIED_STACK.md) §2
 - **Improvement loop:** `templates/GODS_EYE_IMPROVEMENT_LOOP.md` — cycle prompt, virtual teams, logging rules
 - **BigBrother relationship:** `docs/32_BIGBROTHER_OVERSIGHT.md` — complementary BAIC oversight checklist
 - **Repo overlay:** `docs/GODS_EYE_REPO_OVERLAY.md` — local vocabulary, code disambiguation, product boundary (if present)

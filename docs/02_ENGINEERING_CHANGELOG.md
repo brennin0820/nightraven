@@ -6,6 +6,16 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-10
 
+### agent-skills merge evaluation — reject core, optional L4
+
+- +# Brent asked merge [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) — 23 lifecycle skills (spec/build/test/review/ship) vs God's Eye oversight stack
+- +# Verdict — **reject** git vendor/subtree into gods-eye core; **Adapt (optional L4)** for consumer app repos **after** ship signal (`code it` / `implement` / `build`); GE owns intent + memory (L0–L3), agent-skills owns implementation discipline when shipping
+- +# Conflicts documented — agent-skills defaults spec/build-first vs Bible §2.8 intent ladder; `context-engineering` skill vocabulary collision with GE §3; framework bloat vs Phase 1 lean bootstrap
+- Plan artifact: `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md`; unified stack §2 row + CURSOR_INSTALL pointer **deferred** until Brent says execute plan
+- +# **Supersedes (wire complete):** Plan executed — unified stack §2 **Adapt (optional L4)** row + §6 implementation-skills blurb; `CURSOR_INSTALL.md` optional section (upstream [cursor-setup.md](https://github.com/addyosmani/agent-skills/blob/main/docs/cursor-setup.md), not vendored; no `install.sh --with-engineering-skills` yet); overlay + AGENTS.md Reference cross-links verified
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §2 · §6 · [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc)
+
 ### GH007 — push blocked by GitHub private-email protection
 
 - +# Diagnosed `git push origin main` rejection — remote **GH007**; unpushed commits `90dea74`, `6a2f405`, `b895162` all author `brentlennin0820@gmail.com` while GitHub **Keep my email private** / block CLI expose is enabled
