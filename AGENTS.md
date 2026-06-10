@@ -9,6 +9,6 @@
 5. `docs/GODS_EYE_PROJECT_INVENTORY.md` — cross-repo adoption index (framework maintenance)
 6. This file → `docs/14_SESSION_HANDOFF.md`
 
-**Laws:** `+#` only · this repo only · Tier C · **cross-app → standard** (§2.7) · **plan until code it** (§2.8) · memory + wire before code unless user names UI/copy/implementation.
+**Laws:** `+#` only · this repo only · Tier C · **cross-app → standard** (§2.7) · **plan until code it** (§2.8) · **unclear input → §3 five steps** · memory + wire before code unless user names UI/copy/implementation.
 
 **After meaningful work:** append handoff **Recent sessions**; Tier 2+ also changelog + learning log.

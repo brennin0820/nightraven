@@ -4,7 +4,7 @@
 
 | Layer | Path | Holds |
 |-------|------|-------|
-| **Portable** | **`docs/37_GODS_EYE.md`** (**God's Eye Bible**) | Laws, **§2.7 cross-app → standard**, **§2.8 task worthiness**, §0 quick start, ladder, Tier C, loop |
+| **Portable** | **`docs/37_GODS_EYE.md`** (**God's Eye Bible**) | Laws, §2.7–§2.8, **§3 five-step unclear input**, §0 quick start, ladder, Tier C, loop |
 | **Stack map** | **`docs/GODS_EYE_UNIFIED_STACK.md`** | L0–L4 integration — Memory Bank → chain, handoff, Mem0/Zep, hooks, Plan Mode |
 | **Project inventory** | **`docs/GODS_EYE_PROJECT_INVENTORY.md`** | Cross-repo adoption index — `scripts/scan-gods-eye-projects.sh` |
 | **Local (your repo)** | `docs/GODS_EYE_REPO_OVERLAY.md` | Product vocabulary, domain disambiguation, boundaries, connected chain |

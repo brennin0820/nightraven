@@ -16,6 +16,7 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 |------|---------|
 | **Standard** | Cross-app stuff in this repo + `install.sh` — adopters get it by default (§2.7) |
 | **Local** | One-app product facts — overlay only until 2+ apps prove universal |
+| **Five-step unclear input** | Bible §3 — fix English · intent · technical translate · explain · ask if truly unclear |
 
 ---
 

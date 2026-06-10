@@ -4,6 +4,16 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-10 — Five-step unclear input (Bible §3 — canonical)
+
+**Pattern:** (1) Fix English (2) Understand intent (3) Technical translate — goal/module/concept (4) Explain coding concept in plain terms (5) Ask only if truly unclear — else state likely + 1–2 alternatives. **No code** until ship signal (§2.8).
+
+**Supersedes:** separate "unclear messages" + "unclear coding ideas" subsections — one five-step card.
+
+**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §3 · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc)
+
+---
+
 ## 2026-06-09 — Task-worthiness gate (§2.8 — promoted from BankrollCalendar)
 
 **Signal:** OneDayMillionaire sessions hit ~85% context; conversation history dominated token cost; Brent codified plan-until-ship + usage batching in consumer app, then promoted to standard.

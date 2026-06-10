@@ -20,6 +20,8 @@ alwaysApply: true
 
 **Ladder:** Memory → wire → UI/copy → code — default stops at memory unless user names screen/label/behavior/implement
 
+**Unclear input (§3):** (1) Fix English (2) Understand intent (3) Technical translate — goal/module/concept (4) Explain in plain terms (5) Ask only if truly unclear. **No code** until user asks (§2.8).
+
 **Never:** New template `*.md` per cycle; serial reads; conflate user **"context"** with code `*Context` types; **import other repos' handoff**
 
 **After work:** Append handoff **Recent sessions**; changelog + learning log at Tier 2+; wire cross-links; one clarifying question max

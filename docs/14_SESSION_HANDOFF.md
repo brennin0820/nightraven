@@ -6,7 +6,7 @@
 
 ## Current state / focus
 
-§2.8 task-worthiness on `main` (`bfad585`) — promoted from BankrollCalendar `364cd1a` / `feat/onedaymillionaire-ios`. §2.7 on `main` (`40a88fe`). Inventory + hooks on `main`.
+§3 five-step unclear input wired (local). §2.8 on `main` (`bfad585`). §2.7 on `main` (`40a88fe`).
 
 ---
 
@@ -23,11 +23,17 @@
 - +# §2.7 shipped on `main` (`1efbdba`) — 9 files; rule, Bible, overlay, handoff, changelog, learning log
 - +# Touch 3 ship record on `main` (`40a88fe`) — handoff + changelog after `1efbdba` push
 - +# Bible §2.8 shipped on `main` (`bfad585`) — 15 files; rule, Bible, router, overlay §4, templates, learning log, changelog, README, CURSOR_INSTALL
+- +# Bible §3 unclear messages — rewrite, infer, disambiguate; honor intent; wired chain (`+#` only; push pending)
+- +# Bible §3 five-step unclear input — canonical card; merged §3 subsections; wired full chain (`+#` only; push pending)
 
 ---
 
 ## Recent sessions
 
+- **2026-06-10** — Touch 3 close: Bible §3 five-step unclear input complete — fix English → intent → technical translate → explain → ask if truly unclear; no code until asked; cross-links wired (`+#` only; push pending).
+- **2026-06-10** — Brent context: **five-step unclear input** (Bible §3) — fix English, intent, technical translate, explain, ask if truly unclear; no code until asked; wired chain (`+#` only).
+- **2026-06-10** — Brent context: **unclear coding ideas** (Bible §3) — rewrite, goal/module/concept, plain terms, 1–2 alternatives; no code until asked; wired rule, `AGENTS.md`, overlay, learning log (`+#` only).
+- **2026-06-10** — Brent context: **unclear messages** (Bible §3) — rewrite, infer, disambiguate; never assume wrong; wired rule, `AGENTS.md`, overlay, learning log, changelog (`+#` only).
 - **2026-06-09** — Touch 3 report: pushed `bfad585` on `main` — BankrollCalendar adoption report (source `364cd1a` / `feat/onedaymillionaire-ios`); Bible §2.8 + monolith PR split pattern; optional `model-delegation-efficiency` template; 15 files (`+#` only).
 - **2026-06-09** — Touch 3 close: promoted BankrollCalendar learnings → Bible §2.8 task-worthiness + monolith PR split pattern; wired rule, router, overlay §4, templates, learning log, changelog (`+#` only).
 - **2026-06-10** — Touch 3 close: pushed `40a88fe` on `main` — handoff + changelog ship notes for §2.7 (`1efbdba`); `+#` only.
@@ -51,3 +57,4 @@
 - **This repo only** — no cross-repo handoff bleed
 - **Phase 2 hooks** are soft nudges — CORE law remains Bible + always-on rule; see [`HOOKS_SETUP.md`](HOOKS_SETUP.md)
 - **§2.7** — cross-app → standard; Brent does not repeat "add X"
+- **§3** — five-step unclear input; no code until ship signal (§2.8)

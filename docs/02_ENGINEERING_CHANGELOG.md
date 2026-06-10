@@ -29,6 +29,31 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-10
 
+### Bible §3 — Unclear messages (honor intent)
+
+- Brent context: when message unclear — rewrite in clear English, infer meaning, list 2–3 interpretations if tied, explain ambiguity; never assume Brent is wrong
+- Added `37_GODS_EYE.md` §3 subsection + §0 Before/common mistake/anti-pattern rows; wired rule, `AGENTS.md`, overlay, learning log
+
+**Cross-links:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §3 · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`AGENTS.md`](../AGENTS.md)
+
+### Bible §3 — Unclear coding ideas (clarify before code)
+
+- Brent context: unclear coding idea → rewrite, identify goal/module/concept, likely + 1–2 alternatives, plain-term glossary; no code unless asked (§2.8)
+- Added `37_GODS_EYE.md` §3 subsection + anti-pattern; wired rule, `AGENTS.md`, overlay, learning log
+
+**Cross-links:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §3 · [`GODS_EYE_GRAND_SPEC.md`](GODS_EYE_GRAND_SPEC.md)
+
+### Bible §3 — Five-step unclear input (canonical)
+
+- Brent context: (1) fix English (2) understand intent (3) technical translate (4) explain concept (5) ask only if truly unclear; merged prior §3 subsections
+- Wired rule, `AGENTS.md`, overlay, learning log, router
+
+**Cross-links:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §3 · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc)
+
+**Touch 3 wired:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md) · [`GODS_EYE_GRAND_SPEC.md`](GODS_EYE_GRAND_SPEC.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
+---
+
 ### Bible §2.7 — Promote universal to standard
 
 - Brent context: cross-app docs/code → **published standard**; stop re-instructing "add X" every session

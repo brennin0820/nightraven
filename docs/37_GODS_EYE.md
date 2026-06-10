@@ -36,6 +36,7 @@ Related: `docs/32_BIGBROTHER_OVERSIGHT.md`, `docs/35_FAST_START.md`, `docs/36_PR
 | **→ Promote universal to standard** | **2.7** | Cross-app docs/code → published default — Brent should not re-instruct |
 | **→ Task worthiness** | **2.8** | Plan until ship signal; one Touch 3 AFTER; fresh thread when heavy |
 | **Brent's context intent ladder** | **3** | Memory + wire → UI/copy → code (default stops at memory) |
+| **→ Five-step unclear input** | **3** | Fix English · intent · technical translate · explain · ask if truly unclear |
 | **Vocabulary layers (pattern)** | **4** | Category / brand / repo / code — do not collapse |
 | **Connected chain (portable)** | **5** | Session start order; after context-add; required response |
 | **Anti-patterns index** | **6** | Unlearning, `-#`, template spam, serial reads, conflation — full table |
@@ -85,7 +86,7 @@ Related: `docs/32_BIGBROTHER_OVERSIGHT.md`, `docs/35_FAST_START.md`, `docs/36_PR
 
 | Phase | Do |
 |-------|-----|
-| **Before edit** | Classify Brent's intent on the ladder (§3) — **memory/wire default**; read overlay vocabulary + product boundary; **parallel-read** disjoint docs (§2.4) |
+| **Before edit** | If unclear → §3 **five steps** first; else classify intent on ladder — **memory/wire default**; read overlay + boundary; **parallel-read** disjoint docs (§2.4) |
 | **During** | Guard scope, locked behaviors, duplicate work; **`+#` only** on memory docs; decompose independent workstreams in parallel (§2.4) |
 | **After** | Append changelog + handoff **Recent sessions** when meaningful; learning log when a new pattern appears; wire cross-links — no orphan memory (§5) |
 | **Never** | **`-#`** on memory docs; new `templates/` or scaffold `*.md` per cycle (§9); **serial reads by default**; conflate Brent's **"context"** with code `*Context` types unless he names a `.swift` file; **import app memory from other repos** (§2.6) |
@@ -100,6 +101,7 @@ Related: `docs/32_BIGBROTHER_OVERSIGHT.md`, `docs/35_FAST_START.md`, `docs/36_PR
 | **30-doc cold start** | Tier 0: docs/35 + 36 — not full START_HERE list — §2.5 |
 | **Code before ship signal** | Exploratory Q&A ≠ implement — wait for **code it** / **implement** / **build** — §2.8 |
 | **Heavy thread cost** | Context-heavy chat (~80%+) → fresh thread + handoff; one Touch 3 AFTER per session — §2.8 |
+| **Assume Brent is wrong** | Unclear input → §3 five steps — fix English, honor intent |
 
 ---
 
@@ -289,6 +291,22 @@ Brent often sends **telegraphic** context. Infer:
 - **"On the app"** = about the product domain, not automatically "change the UI."
 - **Product boundaries** (when documented in overlay or PLAN) are law — context additions must not drift across stated positioning.
 
+### Five-step unclear input (canonical)
+
+When Brent's message or **coding idea** is unclear, do **not** assume he is wrong or ignore his intent. Run these steps **in order**:
+
+| Step | Do |
+|------|-----|
+| **1** | **Fix my English** — rewrite in clear, correct English; **same intent** |
+| **2** | **Understand my intent** — infer what he wants from conversation + chain (overlay, handoff) |
+| **3** | **Translate my idea into technical language** — state likely **goal** · **feature/module** · **technical concept** |
+| **4** | **Explain the coding concept** — plain terms; decode jargon he used or implied |
+| **5** | **Ask only when meaning is truly unclear** — if one read is strong, proceed; if tied, state **most likely** + **1–2 alternatives** and ask |
+
+**After step 5:** Default **plan/memory** — **no code** unless he asks for code (§2.8; ladder step 4). Ship signals: "code it" · "implement" · "build" · names file/behavior/test.
+
+**Never:** Dismiss telegraphic input · treat ambiguity as user error · generate code on exploratory Q&A · jargon without translation · silent guess when stakes are high.
+
 ---
 
 ## 4. Vocabulary layers (pattern — do not collapse)
@@ -378,6 +396,8 @@ Tier-0 lean repos may omit full BAIC bootstrap — point at master path and loca
 | **Per-app re-instruction of universal patterns** | Brent must not repeat "add X every session" when X is cross-app — promote to published standard + install defaults (§2.7) |
 | **Code before ship signal** | Implementing on exploratory Q&A without explicit **code it** / **implement** / **build** — §2.8 |
 | **Heavy thread continuation** | Continuing a context-heavy chat when fresh thread + handoff is cheaper — §2.8 |
+| **Assuming Brent is wrong on unclear input** | §3 five steps — fix English, honor intent |
+| **Code on unclear coding idea** | Run §3 steps 1–5 first; no code until ship signal — §2.8 |
 | **Stacked Touch 3 AFTER** | Multiple session-close memory passes in one thread — batch once per session — §2.8 |
 
 ---
