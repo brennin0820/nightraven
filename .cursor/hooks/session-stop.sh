@@ -35,6 +35,8 @@ message+="Record Everything (Tier 2+): also append docs/02_ENGINEERING_CHANGELOG
 message+="docs/04_LEARNING_LOG.md for new patterns; wire cross-links (rule, Bible, overlay, AGENTS, handoff)."
 message+=$'\n\n'
 message+="+# only · this repo only · no new template scaffolds per cycle."
+message+=$'\n\n'
+message+="Push-latency (§2.8): if memory docs changed and remote exists — push before exit, or note explicit push defer in Recent sessions."
 
 emit_followup_message "$message"
 exit 0

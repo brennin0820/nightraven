@@ -6,6 +6,18 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-09
 
+### BACKLOG #1 #8 #2 #5 — push-latency, canonical scope, snapshot lint
+
+- +# Bible §2.8 **push-latency law** — push before Touch 3 exit or explicit defer in Recent sessions
+- +# `GODS_EYE_PROJECT_INVENTORY.md` **Canonical Bible scope (#8)** — published gods-eye canonical; UAIPOS upstream; snapshot not authoritative
+- +# `scripts/sync-snapshot.sh` (LOOP step 7) + `scripts/gods-eye-lint.sh` (snapshot drift, handoff date-order heuristic)
+- Touch 3 re-enabled — removed `.cursor/touch3.disabled` markers; `session-stop.sh` push reminder
+- Loop workspace `README.md` + `LOOP_MODE.md` live-sources / authority pointers updated (outside repo)
+
+**Cross-links:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
+## 2026-06-09
+
 ### Post-merge audit + safe polish
 
 - Parallel audit: snapshot Bible/overlay/rule match live (680 lines); Bible §0 cherry-picks + §2.6 upstream pointer VERIFIED; hooks + `gods-eye-flow.png` OK

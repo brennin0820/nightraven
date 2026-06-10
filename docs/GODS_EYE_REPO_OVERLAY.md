@@ -53,5 +53,5 @@ Read Bible **§0 Agent quick start** + **§2.8**. **Agent card:** `docs/GODS_EYE
 |---------|----------|
 | **Code before ship signal** | Plan/memory until **code it** / **implement** / **build** — §2.8 |
 | **Heavy thread cost** | Context-heavy chat (~80%+) → fresh thread + handoff — §2.8 |
-| **Touch 3 paused** | Brent 2026-06-09 — `.cursor/touch3.disabled` marker; `session-stop.sh` no-ops; **stop hook stays** in `hooks.json` — delete marker to re-enable — see `HOOKS_SETUP.md` |
+| **Push-latency** | Bible §2.8 — push before Touch 3 exit or explicit defer in Recent sessions |
 | **Small-ask subagents** | Audits, vocabulary, docs-only — foreground only — §2.8 |

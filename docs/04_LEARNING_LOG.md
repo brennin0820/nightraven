@@ -4,6 +4,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-09 — Push-latency + canonical scope + snapshot lint (#1 #8 #2 #5)
+
+**Signal:** Committed memory without push = accidental unlearning; three Bible copies without declared canonical source.
+
+**Pattern:** **Push-latency law** in §2.8 — Touch 3 includes `git push` or explicit defer line. **Canonical scope:** published `gods-eye` owns portable law; UAIPOS owns upstream §2.7; snapshot sync via `sync-snapshot.sh`; `gods-eye-lint.sh` catches drift.
+
+**Do:** Run `./scripts/sync-snapshot.sh` after portable edits; `./scripts/gods-eye-lint.sh` before close; push in same session as meaningful memory writes.
+
+**Don't:** Mark handoff "shipped" with local-only commits; edit snapshot without syncing from published repo.
+
+**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) · `scripts/sync-snapshot.sh` · `scripts/gods-eye-lint.sh`
+
+---
+
 ## 2026-06-09 — Post-merge audit: verify before polish (#11)
 
 **Signal:** After big doctrine ship, stale docs claimed "stop hook removed" and "snapshot pending" while live state differed.

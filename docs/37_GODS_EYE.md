@@ -295,6 +295,8 @@ App memory = what THIS project is and where it left off (local).
 
 **Touch 3 AFTER:** **One** session-close memory pass per session — batch changelog + handoff + learning log; do not stack multiple AFTER passes in one thread.
 
+**Push-latency law:** `+#` on memory docs is **not durable** until **`git push`** (or equivalent publish) succeeds. On meaningful Touch 3 exit when the repo has a remote: **push** before closing, **or** append **Recent sessions** with an explicit defer reason (e.g. `push deferred — <why>`). Never imply shipped state in handoff while commits are only local.
+
 **Promoted from consumer app sessions (§2.7):** BankrollCalendar / OneDayMillionaire — 2026-06-09.
 
 ---
@@ -677,4 +679,4 @@ Brent is one creator. Tier C is how his **standard for work worth making** scale
 
 ---
 
-*Established 2026-06-09 as portable spec. §2.7 Promote universal to standard added 2026-06-10. §2.8 Task worthiness promoted from BankrollCalendar 2026-06-09. Elevated to **God's Eye Bible** 2026-06-09 — TOC + solo-dev loop guidance. Tier C added 2026-06-09. Default innovator posture added 2026-06-09. §0 sixty-second glance + naming added 2026-06-09. §0 Agent quick start added 2026-06-09. §2.4 Always parallel added 2026-06-09. §2.5 Task-scoped rules added 2026-06-09. §2.6 Project isolation + Tier 0 fast start wired to docs/35–36 added 2026-06-09. §1 Identity + Continuous learning & compounding added 2026-06-09. §3 Understand before respond + Interpretation framework added 2026-06-09. §0 loop cycle types + canonical-card scope cherry-picked 2026-06-09. §2.6 master upstream pointer added 2026-06-09. God'sEye always watches.*
+*Established 2026-06-09 as portable spec. §2.8 push-latency law added 2026-06-09. §2.7 Promote universal to standard added 2026-06-10. §2.8 Task worthiness promoted from BankrollCalendar 2026-06-09. Elevated to **God's Eye Bible** 2026-06-09 — TOC + solo-dev loop guidance. Tier C added 2026-06-09. Default innovator posture added 2026-06-09. §0 sixty-second glance + naming added 2026-06-09. §0 Agent quick start added 2026-06-09. §2.4 Always parallel added 2026-06-09. §2.5 Task-scoped rules added 2026-06-09. §2.6 Project isolation + Tier 0 fast start wired to docs/35–36 added 2026-06-09. §1 Identity + Continuous learning & compounding added 2026-06-09. §3 Understand before respond + Interpretation framework added 2026-06-09. §0 loop cycle types + canonical-card scope cherry-picked 2026-06-09. §2.6 master upstream pointer added 2026-06-09. God'sEye always watches.*

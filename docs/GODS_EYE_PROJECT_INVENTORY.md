@@ -20,10 +20,23 @@ Related: [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) · [`37_GODS_E
 | **~/.cursor** (user global) | Cursor-wide entry | **Phase 2** | Pointer → `Projects/gods-eye` | N/A (not a repo) | `hooks/gods-eye/` |
 
 ```text
-Experience (portable)     UAIPOS doc 37  ──sync──►  gods-eye vendored Bible
+Experience (portable)     published gods-eye doc 37  ──vendor──►  UAIPOS master (upstream §2.7)
 App memory (local)        BankrollCalendar handoff/overlay ONLY in that repo
 User global               ~/.cursor rule + hooks — applies when project lacks local rule
+Loop snapshot             GodsEye-Docs-extracted/ — reference only; sync via scripts/sync-snapshot.sh
 ```
+
+---
+
+## Canonical Bible scope (#8)
+
+| Role | Canonical source | Notes |
+|------|------------------|-------|
+| **Published portable law** | `Projects/gods-eye/docs/37_GODS_EYE.md` | §1/§3 doctrine, §2.7 promote-to-standard, §2.8, install defaults |
+| **Master BAIC upstream** | `UAIPOS/docs/37_GODS_EYE.md` | §2.7 **Upstream to master**; vendor portable sections **from** published gods-eye |
+| **Loop snapshot** | `~/God's Eye/GodsEye-Docs-extracted/` | **Not authoritative** — `sync-snapshot.sh` after cycles; `gods-eye-lint.sh snapshot` |
+
+**Release/sync step:** Edit portable law in **published gods-eye** → push → `./scripts/sync-snapshot.sh` → vendor delta to UAIPOS when master needs upstream block only.
 
 ---
 
@@ -122,7 +135,7 @@ Run `./scripts/scan-gods-eye-projects.sh --markdown` to refresh this table:
 |-------|----------|--------|------------------|-----------|
 | **L0 Git truth** | Framework docs | Master `docs/` | App + overlay/handoff | N/A |
 | **L1 Entry** | Rule + `AGENTS.md` | Rule + `AGENTS.md` | Rule + `AGENTS.md` | Global rule |
-| **L2 Core** | Vendored Bible | Canonical Bible | Pointer to UAIPOS Bible | Pointer to gods-eye |
+| **L2 Core** | **Canonical portable Bible** | Vendor from gods-eye; upstream §2.7 | Pointer to gods-eye Bible | Pointer to gods-eye |
 | **L3 Chain** | Bootstrap templates | Full BAIC chain | Overlay + handoff + protocol | — |
 | **L4 Optional** | Hooks + installer | Hooks | User-global hooks | Hooks |
 
@@ -134,6 +147,8 @@ Run `./scripts/scan-gods-eye-projects.sh --markdown` to refresh this table:
 # From gods-eye repo root
 ./scripts/scan-gods-eye-projects.sh              # human-readable report
 ./scripts/scan-gods-eye-projects.sh --markdown # paste into "Scan output" § above
+./scripts/sync-snapshot.sh                       # LOOP step 7 — loop workspace snapshot
+./scripts/gods-eye-lint.sh                       # soft checks (snapshot drift, handoff dates)
 
 # Add a new God's Eye workspace
 echo '/path/to/repo|My App|app' >> scripts/gods-eye-projects.conf
