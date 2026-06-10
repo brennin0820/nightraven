@@ -34,6 +34,7 @@ Related: `docs/32_BIGBROTHER_OVERSIGHT.md`, `docs/35_FAST_START.md`, `docs/36_PR
 | **→ Task-scoped rules** | **2.5** | Match depth to task size — align with doc 26 read tiers |
 | **→ Project isolation** | **2.6** | Experience vs app memory — no cross-repo bleed (doc 36) |
 | **→ Promote universal to standard** | **2.7** | Cross-app docs/code → published default — Brent should not re-instruct |
+| **→ Task worthiness** | **2.8** | Plan until ship signal; one Touch 3 AFTER; fresh thread when heavy |
 | **Brent's context intent ladder** | **3** | Memory + wire → UI/copy → code (default stops at memory) |
 | **Vocabulary layers (pattern)** | **4** | Category / brand / repo / code — do not collapse |
 | **Connected chain (portable)** | **5** | Session start order; after context-add; required response |
@@ -66,6 +67,7 @@ Related: `docs/32_BIGBROTHER_OVERSIGHT.md`, `docs/35_FAST_START.md`, `docs/36_PR
 | **Fast start (new/empty)?** | **Tier 0** — global rule + `docs/35_FAST_START.md` + `docs/36_PROJECT_ISOLATION.md`; **not** full chain (§5 cold start) |
 | **Other apps' memory?** | **Forbidden** — no handoff, paths, locks, or transcript bleed from other repos (§2.6; doc 36) |
 | **Universal across apps?** | Ship in `gods-eye` + install — Brent does not repeat "add X" (§2.7) |
+| **When to code?** | **Plan until ship signal** — §2.8; `code it` / `implement` / `build` drops to code |
 
 ### Naming (use consistently)
 
@@ -96,6 +98,8 @@ Related: `docs/32_BIGBROTHER_OVERSIGHT.md`, `docs/35_FAST_START.md`, `docs/36_PR
 | Renaming enums to match marketing | Vocabulary layers stay separate — §4 |
 | **Cross-repo handoff bleed** | Read **this repo's** `docs/14` only; master handoff ≠ another app's state — §2.6 |
 | **30-doc cold start** | Tier 0: docs/35 + 36 — not full START_HERE list — §2.5 |
+| **Code before ship signal** | Exploratory Q&A ≠ implement — wait for **code it** / **implement** / **build** — §2.8 |
+| **Heavy thread cost** | Context-heavy chat (~80%+) → fresh thread + handoff; one Touch 3 AFTER per session — §2.8 |
 
 ---
 
@@ -229,6 +233,21 @@ App memory = what THIS project is and where it left off (local).
 
 **Brent says:** "make it standard" / "every app should have this" → §2.7 · **+#** only. Anti-pattern: per-app re-instruction — §6.
 
+### 2.8 Task worthiness — plan until ship signal
+
+**Law:** Default **plan/memory** until the user says **code it** / **implement** / **build**. Q&A, audits, and vocabulary = **no code path** unless ship signal is explicit (§3 ladder).
+
+| Signal | Action |
+|--------|--------|
+| Exploratory question, read-only audit, vocabulary | Answer + memory/wire; **no implementation** |
+| **code it** / **implement** / **build** | Drop to code on intent ladder (§3 step 4) |
+| Context-heavy thread (~80%+ budget) | **Fresh thread** + read **this repo's** handoff — do not stack long history |
+| Multitask / subagents | **Substantial** end-to-end work only — not small asks (§2.5 Tier 0–1) |
+
+**Touch 3 AFTER:** **One** session-close memory pass per session — batch changelog + handoff + learning log; do not stack multiple AFTER passes in one thread.
+
+**Promoted from consumer app sessions (§2.7):** BankrollCalendar / OneDayMillionaire — 2026-06-09.
+
 ---
 
 ## 3. Brent's "add context" intent ladder
@@ -259,6 +278,8 @@ If step 1 or 2 applies, **do not open implementation files** unless step 3 or 4 
 | "always watches" | Affirm always-on oversight — read memory every session; log outcomes; never optional | Oversight only when named |
 | "make God'sEye portable" / "Grand Spec" | Create/update portable spec + repo overlay layering | Code change by default |
 | "make it standard" / "every app should have this" | Promote universal pattern to published gods-eye + install defaults (§2.7) | Re-instruct per session only |
+| "code it" / "implement" / "build" | Drop to code on intent ladder (§3 step 4) | Assume from exploratory chat alone |
+| "update god's eye" / Touch 3 AFTER | Memory/wire + session close (§2.8; §5 After) | Code change by default |
 
 ### Deep read — short phrases carry structure
 
@@ -355,6 +376,9 @@ Tier-0 lean repos may omit full BAIC bootstrap — point at master path and loca
 | **Creating template docs** (loop or session default) | Misreads loop mode as template scaffolding — improvements belong in **existing** chain docs via `+#`; `templates/GODS_EYE_IMPROVEMENT_LOOP.md` is optional reference only (§9 hard law) |
 | **Serializing by default** | Independent reads and workstreams should run in parallel per §2.4; serialize only when write scopes overlap or coupling requires one mental model |
 | **Per-app re-instruction of universal patterns** | Brent must not repeat "add X every session" when X is cross-app — promote to published standard + install defaults (§2.7) |
+| **Code before ship signal** | Implementing on exploratory Q&A without explicit **code it** / **implement** / **build** — §2.8 |
+| **Heavy thread continuation** | Continuing a context-heavy chat when fresh thread + handoff is cheaper — §2.8 |
+| **Stacked Touch 3 AFTER** | Multiple session-close memory passes in one thread — batch once per session — §2.8 |
 
 ---
 
@@ -521,4 +545,4 @@ Brent is one creator. Tier C is how his **standard for work worth making** scale
 
 ---
 
-*Established 2026-06-09 as portable spec. §2.7 Promote universal to standard added 2026-06-10. Elevated to **God's Eye Bible** 2026-06-09 — TOC + solo-dev loop guidance. Tier C added 2026-06-09. Default innovator posture added 2026-06-09. §0 sixty-second glance + naming added 2026-06-09. §0 Agent quick start added 2026-06-09. §2.4 Always parallel added 2026-06-09. §2.5 Task-scoped rules added 2026-06-09. §2.6 Project isolation + Tier 0 fast start wired to docs/35–36 added 2026-06-09. God'sEye always watches.*
+*Established 2026-06-09 as portable spec. §2.7 Promote universal to standard added 2026-06-10. §2.8 Task worthiness promoted from BankrollCalendar 2026-06-09. Elevated to **God's Eye Bible** 2026-06-09 — TOC + solo-dev loop guidance. Tier C added 2026-06-09. Default innovator posture added 2026-06-09. §0 sixty-second glance + naming added 2026-06-09. §0 Agent quick start added 2026-06-09. §2.4 Always parallel added 2026-06-09. §2.5 Task-scoped rules added 2026-06-09. §2.6 Project isolation + Tier 0 fast start wired to docs/35–36 added 2026-06-09. God'sEye always watches.*

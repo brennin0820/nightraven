@@ -21,6 +21,7 @@ The same role appears in the author's broader **BAIC / BigBrother** constitution
 | [**Improvement loop**](docs/GODS_EYE_IMPROVEMENT_LOOP.md) | Six virtual “teams,” one `+#` step per cycle |
 | [**Spec router**](docs/GODS_EYE_GRAND_SPEC.md) | Thin index — Bible + local overlay + Cursor rule |
 | [**Example Cursor rule**](.cursor/rules/gods-eye-context-intent.mdc) | Copy into your repo's `.cursor/rules/` (adapt paths) |
+| [**Optional delegation rule**](templates/model-delegation-efficiency.user.mdc) | Multitask + heavy-thread efficiency (Bible §2.8) |
 | [**Example overlay**](examples/overlay/GODS_EYE_REPO_OVERLAY.example.md) | How to add product vocabulary on top of portable law |
 | [**Example user-context protocol**](examples/appendix/USER_CONTEXT_PROTOCOL.example.md) | Worked “add context” examples |
 | [**Cursor installer**](CURSOR_INSTALL.md) | One-command `install.sh` — user + project rules, hooks, memory bootstrap |
@@ -34,7 +35,8 @@ The same role appears in the author's broader **BAIC / BigBrother** constitution
 2. **Always parallel** — Batch-read disjoint docs; run independent workstreams in parallel; one writer per file.
 3. **`+#` only** — Changelog, handoff, learning log: append; use **Supersedes** for corrections; never `-#` heading blocks.
 4. **Repo overlay** — Portable law stays in the Bible; your app’s names, boundaries, and disambiguation live in `docs/GODS_EYE_REPO_OVERLAY.md` (see examples).
-5. **Tier C default** — Creator-Innovator posture; Product/QA win on product boundaries.
+5. **Plan until ship signal** — Default memory/wire until the user says **code it** / **implement** / **build** ([§2.8](docs/37_GODS_EYE.md)).
+6. **Tier C default** — Creator-Innovator posture; Product/QA win on product boundaries.
 
 ---
 

@@ -6,12 +6,13 @@
 
 ## Current state / focus
 
-§2.7 on `main` (`1efbdba`) — cross-app → standard + lean chain. Inventory + hooks shipped.
+§2.8 task-worthiness promoted from BankrollCalendar (2026-06-09). §2.7 complete on `main` (`40a88fe`). Inventory + hooks on `main`.
 
 ---
 
 ## Already done
 
+- +# Bible §2.8 — task-worthiness gate (plan until code it; one Touch 3 AFTER; fresh thread when heavy) — promoted from BankrollCalendar OneDayMillionaire sessions
 - +# Initial public framework release (`f9928d2`) — Bible, router, session tree, improvement loop, example rule/overlay
 - +# Unified stack doc L0–L4 (`1c4f1ef`) — Memory Bank mapping, handoff pattern, hooks roadmap
 - +# Phase 2 optional hooks (`1c4f1ef`, `4be2992`) — `.cursor/hooks.json`, bash scripts, `docs/HOOKS_SETUP.md`, README wiring
@@ -20,11 +21,14 @@
 - +# Bible §2.7 — promote universal to standard; install/vendor defaults; anti-pattern for per-app re-instruction
 - +# §2.7 prose simplified — one rule + one table; lean chain pointers
 - +# §2.7 shipped on `main` (`1efbdba`) — 9 files; rule, Bible, overlay, handoff, changelog, learning log
+- +# Touch 3 ship record on `main` (`40a88fe`) — handoff + changelog after `1efbdba` push
 
 ---
 
 ## Recent sessions
 
+- **2026-06-09** — Touch 3 close: promoted BankrollCalendar learnings → Bible §2.8 task-worthiness + monolith PR split pattern; wired rule, router, overlay §4, templates, learning log, changelog (`+#` only).
+- **2026-06-10** — Touch 3 close: pushed `40a88fe` on `main` — handoff + changelog ship notes for §2.7 (`1efbdba`); `+#` only.
 - **2026-06-10** — Touch 3 close: pushed `1efbdba` on `main` — Bible §2.7 + simplified chain (9 files); cross-links intact (`+#` only).
 - **2026-06-10** — Touch 3 close: §2.7 prose simplified across Bible, overlay, rule, `AGENTS.md`, learning log, unified stack; law unchanged — cross-app → standard (`+#` only).
 - **2026-06-10** — Simplified §2.7 + chain pointers — one rule: cross-app → standard, no repeat "add X" (`+#` only).

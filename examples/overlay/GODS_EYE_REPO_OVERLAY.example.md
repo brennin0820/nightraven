@@ -125,7 +125,9 @@ Read after master doc 37 **§0 Agent quick start**. **Agent card:** `docs/GODS_E
 | **Brent's context ≠ Swift `*Context`** | "Add context" = agent memory (§1); `BudgetContext` etc. = ledger calculators in ViewModels |
 | **Repo folder ≠ brand** | `BankrollCalendar` = path artifact; user-facing brand = **OneDayMillionaire** |
 | **Cross-repo bleed** | Use **this repo's** handoff/changelog only — never import paths or "Already done" from other apps (master doc 37 §2.6, doc 36) |
+| **Code before ship signal** | Plan/memory until **code it** / **implement** / **build** — Bible §2.8 |
+| **Heavy thread cost** | Context-heavy chat (~80%+) → fresh thread + handoff; one Touch 3 AFTER per session — §2.8 |
 
 ---
 
-*Overlay established 2026-06-09. Portable spec: master doc 37. Agent pitfalls §10 added 2026-06-09. Cross-repo isolation pitfall added 2026-06-09.*
+*Overlay established 2026-06-09. Portable spec: master doc 37. Agent pitfalls §10 added 2026-06-09. Cross-repo isolation pitfall added 2026-06-09. Portable §2.8 pitfalls added 2026-06-09.*

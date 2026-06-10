@@ -4,6 +4,18 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ---
 
+## 2026-06-09
+
+### Bible §2.8 — Task worthiness (promoted from BankrollCalendar)
+
+- Brent: sync OneDayMillionaire God's Eye learnings → published standard
+- Added `37_GODS_EYE.md` §2.8 — plan until **code it**; one Touch 3 AFTER; fresh thread when heavy; subagents for substantial work only
+- §0 glance + Agent quick start mistakes + §3 default-meaning rows + §6 anti-patterns
+- Wired rule, template rule, router Agent card, overlay §4 pitfalls, `AGENTS.md`, optional `templates/model-delegation-efficiency.user.mdc`
+- Learning log: task-worthiness + monolith PR split pattern
+
+**Cross-links:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · [`GODS_EYE_GRAND_SPEC.md`](GODS_EYE_GRAND_SPEC.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) §4 · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
 ## 2026-06-10
 
 ### Bible §2.7 — Promote universal to standard
@@ -28,6 +40,12 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - Commit: Bible §2.7 cross-app standard law + simplified chain pointers (rule, overlay, `AGENTS.md`, handoff, unified stack)
 
 **Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.7 · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc)
+
+### Shipped on `main` — `40a88fe`
+
+- Touch 3 memory: handoff **Recent sessions** + ship note after `1efbdba` push
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`AGENTS.md`](../AGENTS.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.7
 
 ---
 

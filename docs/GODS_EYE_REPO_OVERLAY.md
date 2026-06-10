@@ -35,3 +35,15 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 | Handoff | `docs/14_SESSION_HANDOFF.md` |
 | Entry | `AGENTS.md` |
 | Inventory | `docs/GODS_EYE_PROJECT_INVENTORY.md` — cross-repo scan (framework repo only) |
+
+---
+
+## 4. Agent pitfalls (portable — quick scan)
+
+Read Bible **§0 Agent quick start** + **§2.8**. **Agent card:** `docs/GODS_EYE_GRAND_SPEC.md` (canonical — do not copy).
+
+| Pitfall | Remember |
+|---------|----------|
+| **Code before ship signal** | Plan/memory until **code it** / **implement** / **build** — §2.8 |
+| **Heavy thread cost** | Context-heavy chat (~80%+) → fresh thread + handoff; one Touch 3 AFTER per session — §2.8 |
+| **Small-ask subagents** | Audits, vocabulary, docs-only — foreground only — §2.8 |

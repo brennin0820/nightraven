@@ -4,6 +4,34 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-09 — Task-worthiness gate (§2.8 — promoted from BankrollCalendar)
+
+**Signal:** OneDayMillionaire sessions hit ~85% context; conversation history dominated token cost; Brent codified plan-until-ship + usage batching in consumer app, then promoted to standard.
+
+**Pattern:** **Default plan/memory until user says code it / implement / build.** Q&A, audits, vocabulary = no code path. **One Touch 3 AFTER per session.** Context-heavy thread (~80%+) → **fresh chat + handoff**. Multitask/subagents for substantial end-to-end work only.
+
+**Do:** Ask before coding; batch durable memory in one AFTER pass; optional `templates/model-delegation-efficiency.user.mdc` for Multitask repos.
+
+**Don't:** Spawn subagents for read-only audits; stack multiple AFTER passes; implement on exploratory questions without ship signal.
+
+**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · rule Task worthiness line · [`GODS_EYE_GRAND_SPEC.md`](GODS_EYE_GRAND_SPEC.md) Agent card
+
+---
+
+## 2026-06-09 — Monolith PR split: stacked app + parallel docs (engineering pattern)
+
+**Signal:** BankrollCalendar first GitHub push — 8-PR split of large untracked iOS monolith.
+
+**Pattern:** **Coupled foundations force stacked app PRs, not parallel slices.** Shared touchpoints block independent compile-clean app PRs — use **2-PR app stack** (scaffold → full app) plus **parallel docs/cursor PRs** off `main`.
+
+**Do:** Propose explicit merge order; parallelize only disjoint trees.
+
+**Don't:** Fake parallel app PRs when tabs/models share persistence.
+
+**Local only:** App-specific file lists stay in consumer handoff — pattern is portable.
+
+---
+
 ## 2026-06-10 — §2.7 Cross-app → standard
 
 **Pattern:** Same in every app → `gods-eye` + `install.sh`. One-app → overlay until 2+ apps prove it. Brent does not repeat "add X."

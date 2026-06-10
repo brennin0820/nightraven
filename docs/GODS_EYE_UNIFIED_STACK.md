@@ -169,6 +169,8 @@ From [`GODS_EYE_SESSION_TREE.md`](GODS_EYE_SESSION_TREE.md) §3 — decision ord
 
 **Record Everything** defaults at tier 2+. Tier 0–1 may skip heavy ceremony — still append **Recent sessions** on real exits when handoff exists.
 
+**Task worthiness (Bible §2.8):** **One** Touch 3 AFTER batch per session — do not stack multiple closes in one thread. Default plan/memory until user says **code it** / **implement** / **build**.
+
 ---
 
 ## 5. AGENTS.md — standard entry

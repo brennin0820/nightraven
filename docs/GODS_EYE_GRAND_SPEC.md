@@ -4,7 +4,7 @@
 
 | Layer | Path | Holds |
 |-------|------|-------|
-| **Portable** | **`docs/37_GODS_EYE.md`** (**God's Eye Bible**) | Laws, **§2.7 cross-app → standard**, §0 quick start, ladder, Tier C, loop |
+| **Portable** | **`docs/37_GODS_EYE.md`** (**God's Eye Bible**) | Laws, **§2.7 cross-app → standard**, **§2.8 task worthiness**, §0 quick start, ladder, Tier C, loop |
 | **Stack map** | **`docs/GODS_EYE_UNIFIED_STACK.md`** | L0–L4 integration — Memory Bank → chain, handoff, Mem0/Zep, hooks, Plan Mode |
 | **Project inventory** | **`docs/GODS_EYE_PROJECT_INVENTORY.md`** | Cross-repo adoption index — `scripts/scan-gods-eye-projects.sh` |
 | **Local (your repo)** | `docs/GODS_EYE_REPO_OVERLAY.md` | Product vocabulary, domain disambiguation, boundaries, connected chain |
@@ -21,6 +21,7 @@
 | Question | Answer |
 |----------|--------|
 | **Which rules apply?** | Match task size — Bible **§2.5**; Tier 0 only for brand-new empty repos |
+| **When to code?** | Default **plan/memory** until user says **code it** / **implement** / **build** — Bible **§2.8**; handoff § Domain decisions |
 | **App memory scope?** | **This repo only** — handoff, overlay, changelog; never another app's state (Bible §2.6) |
 
 | Phase | Do |
