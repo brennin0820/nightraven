@@ -4,6 +4,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-10 — Handoff date-order + UAIPOS vendor (#4)
+
+**Signal:** `gods-eye-lint handoff` failed on 06-09/06-10 interleaving; UAIPOS Bible lagged published gods-eye on §1/§3 by ~116 lines.
+
+**Pattern:** Reorder **Recent sessions** newest-first (date-level sort preserves all lines — no `-#`). Cherry-pick portable doctrine from published gods-eye → UAIPOS master with **Upstream note** / **Cherry-picked** markers; keep UAIPOS §2.7 upstream law distinct from gods-eye §2.7 promote-to-standard.
+
+**Do:** Run `./scripts/gods-eye-lint.sh` before Touch 3 close; vendor portable deltas to UAIPOS after gods-eye ships.
+
+**Don't:** Archive handoff without Brent approval; replace UAIPOS §2.7 with gods-eye promote-to-standard wording.
+
+**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · `scripts/gods-eye-lint.sh`
+
+---
+
 ## 2026-06-09 — Push-latency + canonical scope + snapshot lint (#1 #8 #2 #5)
 
 **Signal:** Committed memory without push = accidental unlearning; three Bible copies without declared canonical source.

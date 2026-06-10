@@ -4,6 +4,17 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ---
 
+## 2026-06-10
+
+### Update god's eye — lint green + UAIPOS §1/§3 vendor
+
+- +# Handoff **Recent sessions** date-order fixed (#4) — newest-first; `gods-eye-lint handoff` passes
+- +# UAIPOS master `docs/37_GODS_EYE.md` — cherry-pick §1 Identity + Continuous learning, §2.8 Task worthiness, §3 five-step / Understand before respond / Interpretation framework from published gods-eye
+- Snapshot sync verified; handoff Current state → `0258e44`
+- Touch 3 AFTER: global rule refresh via `install.sh --user --force-rule`; lint all green
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §1 · §2.8 · §3 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · `scripts/gods-eye-lint.sh`
+
 ## 2026-06-09
 
 ### Touch 3 session close — backlog batch on main

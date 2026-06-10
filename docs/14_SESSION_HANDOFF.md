@@ -6,7 +6,7 @@
 
 ## Current state / focus
 
-BACKLOG **#1 #8 #2 #5** shipped on `main` (`ef017d9` HEAD): push-latency law (§2.8), canonical scope in inventory, `sync-snapshot.sh` + `gods-eye-lint.sh`; Touch 3 re-enabled (markers removed). **Known debt:** handoff date-order (#4) — `gods-eye-lint handoff` fails until archive. **Next:** run lint green path · vendor §1/§3 to UAIPOS · Claude adoption kit (#15).
+BACKLOG **#1 #8 #2 #5 #4** on `main` (`3387941` HEAD): push-latency law (§2.8), canonical scope, lint scripts, handoff date-order, UAIPOS §1/§3/§2.8 vendor. **Next:** Claude adoption kit (#15) · handoff archive cycle (needs approval).
 
 ---
 
@@ -26,15 +26,30 @@ BACKLOG **#1 #8 #2 #5** shipped on `main` (`ef017d9` HEAD): push-latency law (§
 - +# Bible §3 unclear messages — rewrite, infer, disambiguate; honor intent; wired chain (`+#` only; push pending)
 - +# Bible §3 five-step unclear input — canonical card; merged §3 subsections; wired full chain (`+#` only; push pending)
 - +# §3 five-step shipped on `main` (`60b26b8`) — 8 files; rule, Bible, overlay, router, handoff, changelog, learning log
-- +# Bible §1 — God'sEye identity canon (collective legendary mastery); Tier C §10 operational expression; wired chain (`+#` only; uncommitted)
-- +# Bible §1 — Continuous learning & compounding doctrine; GE laws, co-evolution loop; wired chain (`+#` only; uncommitted)
-- +# Bible §3 — Understand before respond (mental model); wired chain (`+#` only; uncommitted)
-- +# Bible §3 — Interpretation framework (AI answers intention); wired chain (`+#` only; uncommitted)
+- +# Bible §1 — God'sEye identity canon (collective legendary mastery); Tier C §10 operational expression; wired chain — on `main`
+- +# Bible §1 — Continuous learning & compounding doctrine; GE laws, co-evolution loop; wired chain — on `main`
+- +# Bible §3 — Understand before respond (mental model); wired chain — on `main`
+- +# Bible §3 — Interpretation framework (AI answers intention); wired chain — on `main`
+- +# `AGENTS.md` framework instructions embedded (`0258e44`) — immediate agent access without full chain read
 
 ---
 
 ## Recent sessions
-
+- **2026-06-10** — Touch 3 AFTER: pushed `3387941` on `main` — #4 handoff date-order, UAIPOS §1/§3/§2.8 vendor, `gods-eye-lint` all green, global `install.sh --user` refresh; Record Everything (handoff, changelog, learning log) (`+#` only).
+- **2026-06-10** — Brent: update god's eye — handoff #4 date-order fixed (newest-first); §1/§3 cherry-picked to UAIPOS master; `gods-eye-lint` green; snapshot sync (`+#` only; push pending).
+- **2026-06-10** — Touch 3 close: pushed `60b26b8` on `main` — Bible §3 five-step unclear input (8 files); cross-links intact (`+#` only).
+- **2026-06-10** — Touch 3 close: Bible §3 five-step unclear input complete — fix English → intent → technical translate → explain → ask if truly unclear; no code until asked; cross-links wired (`+#` only; push pending).
+- **2026-06-10** — Brent context: **five-step unclear input** (Bible §3) — fix English, intent, technical translate, explain, ask if truly unclear; no code until asked; wired chain (`+#` only).
+- **2026-06-10** — Brent context: **unclear coding ideas** (Bible §3) — rewrite, goal/module/concept, plain terms, 1–2 alternatives; no code until asked; wired rule, `AGENTS.md`, overlay, learning log (`+#` only).
+- **2026-06-10** — Brent context: **unclear messages** (Bible §3) — rewrite, infer, disambiguate; never assume wrong; wired rule, `AGENTS.md`, overlay, learning log, changelog (`+#` only).
+- **2026-06-10** — Touch 3 close: pushed `40a88fe` on `main` — handoff + changelog ship notes for §2.7 (`1efbdba`); `+#` only.
+- **2026-06-10** — Touch 3 close: pushed `1efbdba` on `main` — Bible §2.7 + simplified chain (9 files); cross-links intact (`+#` only).
+- **2026-06-10** — Touch 3 close: §2.7 prose simplified across Bible, overlay, rule, `AGENTS.md`, learning log, unified stack; law unchanged — cross-app → standard (`+#` only).
+- **2026-06-10** — Simplified §2.7 + chain pointers — one rule: cross-app → standard, no repeat "add X" (`+#` only).
+- **2026-06-10** — Touch 3 close: Bible §2.7 shipped in chain — promote universal → published standard + install defaults; cross-links wired (router, `AGENTS.md`, overlay, rule, unified stack, learning log, changelog); `+#` only.
+- **2026-06-10** — Brent context: **promote universal to standard** (Bible §2.7) — cross-app docs/code → published gods-eye + install defaults; Brent should not re-instruct "add X" every session; wired overlay, rule, learning log (`+#` only).
+- **2026-06-10** — Touch 3 close: project inventory shipped `fd67015` on `main`; scan script + registry; cross-links wired (router, overlay §3, `AGENTS.md`, learning log); isolation law — metadata only, no foreign handoff paste.
+- **2026-06-10** — Project inventory: `GODS_EYE_PROJECT_INVENTORY.md` + `scripts/scan-gods-eye-projects.sh` — aggregates gods-eye, UAIPOS, BankrollCalendar, `~/.cursor` without cross-repo app memory bleed.
 - **2026-06-09** — Touch 3 AFTER: session close — recommended batch on `main` (`ef017d9`); push-latency §2.8 satisfied; `gods-eye-lint snapshot` OK; handoff date-order (#4) still open (`+#` only).
 - **2026-06-09** — Touch 3 AFTER: recommended backlog batch — §2.8 push-latency; canonical scope (#8); `sync-snapshot.sh` + `gods-eye-lint.sh`; Touch 3 markers removed; loop workspace live-sources updated; pushed `fd11c5b` on `main` (`+#` only).
 - **2026-06-09** — Touch 3 AFTER: post-merge audit + safe polish — snapshot parity VERIFIED (680 lines); fixed stale Touch 3 docs (overlay/rule said hook removed); README pointer dedup (#11); inventory rescan (`+#` only; push pending).
@@ -58,26 +73,12 @@ BACKLOG **#1 #8 #2 #5** shipped on `main` (`ef017d9` HEAD): push-latency law (§
 - **2026-06-09** — Touch 3 close: GE identity canon wired to Bible §1 (collective legendary mastery); cross-links in rule, overlay, `AGENTS.md`, README, changelog, learning log (`+#` only).
 - **2026-06-09** — Touch 3 AFTER: chat continuation — synthesized aborted subagents (handoff done, Mac cleanup incomplete, hydra pro unresolved); answered "is touch 3 working?" — yes, §2.8 memory chain on `main` (`60b26b8`); verification subagent `57c49981` aborted pre-report — no gods-eye code (`+#` only).
 - **2026-06-09** — Touch 3 AFTER: empty-window home session — "hydra pro" unclear (investigation subagent aborted); Mac cleanup subagent `73cc0b2f` launched for safe `~/` cache/trash scan then interrupted pre-report; no gods-eye code — handoff only (`+#` only).
-- **2026-06-10** — Touch 3 close: pushed `60b26b8` on `main` — Bible §3 five-step unclear input (8 files); cross-links intact (`+#` only).
-- **2026-06-10** — Touch 3 close: Bible §3 five-step unclear input complete — fix English → intent → technical translate → explain → ask if truly unclear; no code until asked; cross-links wired (`+#` only; push pending).
-- **2026-06-10** — Brent context: **five-step unclear input** (Bible §3) — fix English, intent, technical translate, explain, ask if truly unclear; no code until asked; wired chain (`+#` only).
-- **2026-06-10** — Brent context: **unclear coding ideas** (Bible §3) — rewrite, goal/module/concept, plain terms, 1–2 alternatives; no code until asked; wired rule, `AGENTS.md`, overlay, learning log (`+#` only).
-- **2026-06-10** — Brent context: **unclear messages** (Bible §3) — rewrite, infer, disambiguate; never assume wrong; wired rule, `AGENTS.md`, overlay, learning log, changelog (`+#` only).
 - **2026-06-09** — Touch 3 report: pushed `bfad585` on `main` — BankrollCalendar adoption report (source `364cd1a` / `feat/onedaymillionaire-ios`); Bible §2.8 + monolith PR split pattern; optional `model-delegation-efficiency` template; 15 files (`+#` only).
 - **2026-06-09** — Touch 3 close: promoted BankrollCalendar learnings → Bible §2.8 task-worthiness + monolith PR split pattern; wired rule, router, overlay §4, templates, learning log, changelog (`+#` only).
-- **2026-06-10** — Touch 3 close: pushed `40a88fe` on `main` — handoff + changelog ship notes for §2.7 (`1efbdba`); `+#` only.
-- **2026-06-10** — Touch 3 close: pushed `1efbdba` on `main` — Bible §2.7 + simplified chain (9 files); cross-links intact (`+#` only).
-- **2026-06-10** — Touch 3 close: §2.7 prose simplified across Bible, overlay, rule, `AGENTS.md`, learning log, unified stack; law unchanged — cross-app → standard (`+#` only).
-- **2026-06-10** — Simplified §2.7 + chain pointers — one rule: cross-app → standard, no repeat "add X" (`+#` only).
-- **2026-06-10** — Touch 3 close: Bible §2.7 shipped in chain — promote universal → published standard + install defaults; cross-links wired (router, `AGENTS.md`, overlay, rule, unified stack, learning log, changelog); `+#` only.
-- **2026-06-10** — Brent context: **promote universal to standard** (Bible §2.7) — cross-app docs/code → published gods-eye + install defaults; Brent should not re-instruct "add X" every session; wired overlay, rule, learning log (`+#` only).
-- **2026-06-10** — Touch 3 close: project inventory shipped `fd67015` on `main`; scan script + registry; cross-links wired (router, overlay §3, `AGENTS.md`, learning log); isolation law — metadata only, no foreign handoff paste.
-- **2026-06-10** — Project inventory: `GODS_EYE_PROJECT_INVENTORY.md` + `scripts/scan-gods-eye-projects.sh` — aggregates gods-eye, UAIPOS, BankrollCalendar, `~/.cursor` without cross-repo app memory bleed.
 - **2026-06-09** — Touch 3 close: pushed `a14ac10`; Brent can use God's Eye immediately via `install.sh --user --no-project` + per-project install; hooks use `CURSOR_PROJECT_DIR` / `workspace_roots`.
 - **2026-06-09** — Full Cursor install: `install.sh` (user + project), `CURSOR_INSTALL.md`, lean START HERE rule, hooks resolve `workspace_roots`; installed `~/.cursor` + BankrollCalendar demo.
 - **2026-06-09** — Phase 2 hooks scaffold: `sessionStart` / `stop` / `afterFileEdit` soft reminders; `lib.sh` (no jq); fixed bash 3.2 heredoc quoting in stop/after-file-edit; pushed `4be2992` on `main`.
 - **2026-06-09** — Touch 3 bootstrap: created this handoff + engineering changelog + learning log for framework repo L3 memory.
-
 ---
 
 ## Guardrails / locks
