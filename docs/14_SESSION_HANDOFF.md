@@ -6,7 +6,7 @@
 
 ## Current state / focus
 
-BACKLOG **#1 #8 #2 #5** shipped (`4908085`+): push-latency law (§2.8), canonical scope in inventory, `sync-snapshot.sh` + `gods-eye-lint.sh`; Touch 3 re-enabled (markers removed). **Known debt:** handoff date-order (#4) — `gods-eye-lint handoff` fails until archive. **Next:** run lint green path · vendor §1/§3 to UAIPOS · Claude adoption kit (#15).
+BACKLOG **#1 #8 #2 #5** shipped (`fd11c5b` on `main`): push-latency law (§2.8), canonical scope in inventory, `sync-snapshot.sh` + `gods-eye-lint.sh`; Touch 3 re-enabled (markers removed). **Known debt:** handoff date-order (#4) — `gods-eye-lint handoff` fails until archive. **Next:** run lint green path · vendor §1/§3 to UAIPOS · Claude adoption kit (#15).
 
 ---
 
@@ -35,7 +35,7 @@ BACKLOG **#1 #8 #2 #5** shipped (`4908085`+): push-latency law (§2.8), canonica
 
 ## Recent sessions
 
-- **2026-06-09** — Touch 3 AFTER: recommended backlog batch — §2.8 push-latency; canonical scope (#8); `sync-snapshot.sh` + `gods-eye-lint.sh`; Touch 3 markers removed; loop workspace live-sources updated (`+#` only; push pending).
+- **2026-06-09** — Touch 3 AFTER: recommended backlog batch — §2.8 push-latency; canonical scope (#8); `sync-snapshot.sh` + `gods-eye-lint.sh`; Touch 3 markers removed; loop workspace live-sources updated; pushed `fd11c5b` on `main` (`+#` only).
 - **2026-06-09** — Touch 3 AFTER: post-merge audit + safe polish — snapshot parity VERIFIED (680 lines); fixed stale Touch 3 docs (overlay/rule said hook removed); README pointer dedup (#11); inventory rescan (`+#` only; push pending).
 - **2026-06-09** — **Supersedes (Touch 3 pause — stop hook kept):** Prior line below said stop hook removed — **incorrect after e2c4885**; pause is marker-only (`.cursor/touch3.disabled`); `session-stop.sh` no-ops; stop hook remains in `hooks.json`.
 - **2026-06-09** — Touch 3 AFTER: merge prep executed — 2 commits on `main` (doctrine batch + hooks/assets); UAIPOS §0 cherry-picks; master upstream pointer; snapshot sync to loop workspace (`+#` only).
