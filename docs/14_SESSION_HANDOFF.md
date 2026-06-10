@@ -6,7 +6,7 @@
 
 ## Current state / focus
 
-§2.7 live: cross-app → `gods-eye` + install (no repeat instructions). Inventory + hooks on `main`.
+§2.7 on `main` (`1efbdba`) — cross-app → standard + lean chain. Inventory + hooks shipped.
 
 ---
 
@@ -19,11 +19,13 @@
 - +# Cross-repo project inventory (`fd67015`) — `GODS_EYE_PROJECT_INVENTORY.md`, `scripts/scan-gods-eye-projects.sh`, unified stack §12
 - +# Bible §2.7 — promote universal to standard; install/vendor defaults; anti-pattern for per-app re-instruction
 - +# §2.7 prose simplified — one rule + one table; lean chain pointers
+- +# §2.7 shipped on `main` (`1efbdba`) — 9 files; rule, Bible, overlay, handoff, changelog, learning log
 
 ---
 
 ## Recent sessions
 
+- **2026-06-10** — Touch 3 close: pushed `1efbdba` on `main` — Bible §2.7 + simplified chain (9 files); cross-links intact (`+#` only).
 - **2026-06-10** — Touch 3 close: §2.7 prose simplified across Bible, overlay, rule, `AGENTS.md`, learning log, unified stack; law unchanged — cross-app → standard (`+#` only).
 - **2026-06-10** — Simplified §2.7 + chain pointers — one rule: cross-app → standard, no repeat "add X" (`+#` only).
 - **2026-06-10** — Touch 3 close: Bible §2.7 shipped in chain — promote universal → published standard + install defaults; cross-links wired (router, `AGENTS.md`, overlay, rule, unified stack, learning log, changelog); `+#` only.

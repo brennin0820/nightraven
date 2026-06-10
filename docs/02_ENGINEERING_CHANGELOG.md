@@ -23,6 +23,12 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 **Touch 3 wired:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.7 · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`GODS_EYE_GRAND_SPEC.md`](GODS_EYE_GRAND_SPEC.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
 
+### Shipped on `main` — `1efbdba`
+
+- Commit: Bible §2.7 cross-app standard law + simplified chain pointers (rule, overlay, `AGENTS.md`, handoff, unified stack)
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.7 · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc)
+
 ---
 
 ### Project inventory — cross-repo God's Eye scan
