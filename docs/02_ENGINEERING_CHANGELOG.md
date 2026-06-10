@@ -6,6 +6,14 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-10
 
+### Touch 3 — NightRaven adoption batch session close
+
+- +# Session arc — inventory ship name → app oversight rebrand → repo folder + GitHub rename; gods-eye orchestration only for path/registry (§2.6); app overlay/handoff in NightRaven repo
+- +# **Shipped on origin:** `d4d47c5` · `f03a39a` · `53cd9f1` · `b654b68` — noreply author+committer; push-latency §2.8 satisfied
+- +# **Open:** NightRaven app memory docs uncommitted locally; Xcode target rename until **code it**
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) §3 · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §12 · [`AGENTS.md`](../AGENTS.md) · [`scripts/gods-eye-projects.conf`](../scripts/gods-eye-projects.conf)
+
 ### NightRaven — repo folder + GitHub rename
 
 - +# Brent — rename consumer app repo **BankrollCalendar → NightRaven** — local path `~/Developer/NightRaven`; GitHub `brennin0820/NightRaven` (private); `gods-eye-projects.conf` + inventory §3 + unified stack §12 updated
@@ -19,7 +27,7 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - +# **Not in scope:** gods-eye framework repo rename; Xcode target OneDayMillionaire; framework file paths (`GODS_EYE_*`, `gods-eye-context-intent.mdc`)
 - +# Inventory §3 oversight row — NightRaven (was God'sEye in app repo)
 
-**Cross-links:** [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) §3 · BankrollCalendar `docs/GODS_EYE_REPO_OVERLAY.md`
+**Cross-links:** [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) §3 · NightRaven `docs/GODS_EYE_REPO_OVERLAY.md`
 
 ### NightRaven — consumer app ship name (inventory metadata)
 
