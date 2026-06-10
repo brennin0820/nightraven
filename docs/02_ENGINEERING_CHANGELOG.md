@@ -4,6 +4,18 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ---
 
+## 2026-06-10
+
+### Project inventory — cross-repo God's Eye scan
+
+- Added `docs/GODS_EYE_PROJECT_INVENTORY.md` — gods-eye, UAIPOS, BankrollCalendar, `~/.cursor` metadata (no app-memory bleed)
+- Added `scripts/scan-gods-eye-projects.sh` + `scripts/gods-eye-projects.conf` — refreshable artifact/phase report
+- Wired `GODS_EYE_UNIFIED_STACK.md` §12, README artifact table + layout
+
+**Cross-links:** [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §12
+
+---
+
 ## 2026-06-09
 
 ### Cursor installer — `install.sh` + global `~/.cursor` path

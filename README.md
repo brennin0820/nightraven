@@ -16,6 +16,7 @@ The same role appears in the author's broader **BAIC / BigBrother** constitution
 |----------|-------------|
 | [**God's Eye Bible**](docs/37_GODS_EYE.md) | Canonical portable spec — laws, intent ladder, agent quick start, Tier C, improvement loop |
 | [**Unified stack**](docs/GODS_EYE_UNIFIED_STACK.md) | L0–L4 layers — Memory Bank mapping, handoff, Mem0/Zep, hooks, Plan Mode, phased roadmap |
+| [**Project inventory**](docs/GODS_EYE_PROJECT_INVENTORY.md) | All God's Eye workspaces — scan script, phase matrix, overlay vocabulary index |
 | [**Session tree**](docs/GODS_EYE_SESSION_TREE.md) | Visual flow: tiers, Record Everything mode, doc hierarchy (ASCII + Mermaid) |
 | [**Improvement loop**](docs/GODS_EYE_IMPROVEMENT_LOOP.md) | Six virtual “teams,” one `+#` step per cycle |
 | [**Spec router**](docs/GODS_EYE_GRAND_SPEC.md) | Thin index — Bible + local overlay + Cursor rule |
@@ -69,6 +70,7 @@ For adoption layers (Memory Bank mapping, Mem0/Zep, hooks roadmap), see [`docs/G
 docs/
   37_GODS_EYE.md              # Portable Bible (start at §0)
   GODS_EYE_UNIFIED_STACK.md   # L0–L4 stack map (Memory Bank, hooks, index)
+  GODS_EYE_PROJECT_INVENTORY.md  # Cross-repo adoption index (run scripts/scan-*.sh)
   GODS_EYE_GRAND_SPEC.md      # Router
   GODS_EYE_IMPROVEMENT_LOOP.md
   GODS_EYE_SESSION_TREE.md

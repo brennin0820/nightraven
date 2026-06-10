@@ -26,6 +26,7 @@ Related: [`37_GODS_EYE.md`](37_GODS_EYE.md) · [`GODS_EYE_GRAND_SPEC.md`](GODS_E
 | **Phased roadmap** | **9** | Phase 1 doc · Phase 2 hooks+MCP · Phase 3 gates |
 | **Risks** | **10** | Drift, bleed, shadow truth, gate fatigue |
 | **Mermaid — unified stack** | **11** | Visual layer map |
+| **Project inventory** | **12** | All workspaces with God's Eye — scan + registry |
 
 ---
 
@@ -434,6 +435,30 @@ flowchart LR
     style T1 fill:#e94560,stroke:#533483,color:#fff
     style L0G fill:#0f3460,stroke:#e94560,color:#fff
 ```
+
+---
+
+## 12. Project inventory (all God's Eye workspaces)
+
+Brent runs God's Eye across **multiple repos** plus a **user-global** Cursor install. Aggregate **metadata** lives in [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) — not a second memory tree.
+
+| Workspace | Role | Phase | Bible |
+|-----------|------|-------|-------|
+| `Projects/gods-eye` | Published framework | 2 (hooks + installer) | Vendored |
+| `Projects/Universal_AI_Project_Operating_System` | Master BAIC | 2 | Canonical source |
+| `Developer/BankrollCalendar` | OneDayMillionaire app | 1 | Pointer → UAIPOS |
+| `~/.cursor` | User-global rule + hooks | 2 | Pointer → gods-eye |
+
+**Refresh:**
+
+```bash
+./scripts/scan-gods-eye-projects.sh
+./scripts/scan-gods-eye-projects.sh --markdown   # update inventory scan table
+```
+
+Registry file: `scripts/gods-eye-projects.conf` — add a line per new bootstrapped repo.
+
+**Law:** Inventory cites paths and phase adoption only. **Never** paste another repo's handoff **Already done** or locks into this framework repo (Bible §2.6).
 
 ---
 
