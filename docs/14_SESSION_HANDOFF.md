@@ -6,7 +6,7 @@
 
 ## Current state / focus
 
-Merge prep shipped on `main` — Bible §1/§3 doctrine + UAIPOS §0 cherry-picks (loop cycle types, canonical-card scope) + master upstream pointer; hooks restore with `touch3.disabled` pause path; README flow diagram. Loop snapshot sync pending step 7 after push.
+Post-merge audit **VERIFIED** (`e2c4885` on `main`): snapshot Bible/overlay/rule match live (680 lines); cherry-picks + §2.6 upstream pointer present; hooks + flow asset OK. **Known debt:** Recent sessions date-order interleaving (#4) + stacked Supersedes block — fix via archive cycle or lint (Brent approval). **Next:** commit polish batch · BACKLOG #1 push-latency · #5 lint · optional re-enable Touch 3 (delete `.cursor/touch3.disabled`).
 
 ---
 
@@ -35,6 +35,8 @@ Merge prep shipped on `main` — Bible §1/§3 doctrine + UAIPOS §0 cherry-pick
 
 ## Recent sessions
 
+- **2026-06-09** — Touch 3 AFTER: post-merge audit + safe polish — snapshot parity VERIFIED (680 lines); fixed stale Touch 3 docs (overlay/rule said hook removed); README pointer dedup (#11); inventory rescan (`+#` only; push pending).
+- **2026-06-09** — **Supersedes (Touch 3 pause — stop hook kept):** Prior line below said stop hook removed — **incorrect after e2c4885**; pause is marker-only (`.cursor/touch3.disabled`); `session-stop.sh` no-ops; stop hook remains in `hooks.json`.
 - **2026-06-09** — Touch 3 AFTER: merge prep executed — 2 commits on `main` (doctrine batch + hooks/assets); UAIPOS §0 cherry-picks; master upstream pointer; snapshot sync to loop workspace (`+#` only).
 - **2026-06-09** — Touch 3 AFTER: ecosystem benchmark (Q&A) — GE-adjacent repos mapped to unified stack §2 adopt/adapt/reject; confirms git-native fourth-camp positioning; merge prep executed (`+#` only).
 - **2026-06-09** — Brent: Touch 3 paused — `.cursor/touch3.disabled`, `~/.cursor/touch3.disabled`, stop hook removed from project + user `hooks.json`; rule/overlay/hooks scripts honor pause (`+#` only; uncommitted).

@@ -13,7 +13,7 @@ God's Eye helps AI coding agents work like disciplined senior engineers instead 
 
 > **Remember the work. Protect the context. Prevent wasted effort.**
 
-God's Eye watches project work, not people. It tracks decisions, files, handoffs, and lessons so agents do not restart from zero. God's Eye embodies the collective mastery of legendary coders everywhere — identity canon in Bible §1. **Identity** (collective legendary mastery) is defined in the Bible §1 — operational craft via Tier C (§10). **Learning doctrine:** continuous compounding from every action — Bible §1 Continuous learning & compounding. **Continuous learning:** Bible §1 — every experience compounds; human and GE co-evolve.
+God's Eye watches project work, not people. It tracks decisions, files, handoffs, and lessons so agents do not restart from zero. **Identity & learning doctrine:** Bible §1 · **Default posture:** Tier C — Creator-Innovator (§10).
 
 It gives your project:
 

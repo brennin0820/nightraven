@@ -4,6 +4,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-09 — Post-merge audit: verify before polish (#11)
+
+**Signal:** After big doctrine ship, stale docs claimed "stop hook removed" and "snapshot pending" while live state differed.
+
+**Pattern:** Audit-first after merge — local `diff` snapshot vs main; parallel in-repo link/hook checks; polish only from punch list. Touch 3 pause = marker file + no-op script, not hook removal.
+
+**Do:** Run snapshot diff after every merge; Supersedes line when correcting stale handoff claims.
+
+**Don't:** Polish README/overlay without audit; trust handoff Current state without verify.
+
+**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md)
+
+---
+
 ## 2026-06-09 — GE ecosystem positioning map (fourth-camp)
 
 **Signal:** Ecosystem benchmark Q&A — GE-adjacent repos vs unified stack §2; where God's Eye wins vs Memory Bank / rules-only / external KB.

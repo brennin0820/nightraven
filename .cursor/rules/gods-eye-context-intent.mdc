@@ -36,6 +36,6 @@ alwaysApply: true
 
 **After work:** Append handoff **Recent sessions** when asked; changelog + learning log at Tier 2+ when meaningful; wire cross-links; one clarifying question max
 
-**Touch 3 (§2.8):** **Paused** — `.cursor/touch3.disabled` (or `~/.cursor/touch3.disabled`); skip session-close follow-up batch and mandatory Record Everything on exit until re-enabled
+**Touch 3 (§2.8):** **Paused** — `.cursor/touch3.disabled` marker (`session-stop.sh` no-ops; stop hook kept); delete marker to re-enable
 
 **Task worthiness (Bible §2.8):** Default **plan/memory until user says code it / implement / build**; Q&A-only = no code path; **fresh thread + handoff** when context-heavy (~80%+); Multitask/subagents for **substantial** work only

@@ -15,7 +15,7 @@ Related: [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) · [`37_GODS_E
 | Workspace | Role | Stack phase | Bible source | L3 chain | Hooks |
 |-----------|------|-------------|--------------|----------|-------|
 | **gods-eye** (published) | Framework | **Phase 2** | Vendored `docs/37_GODS_EYE.md` | Full bootstrap | `.cursor/hooks.json` |
-| **UAIPOS** (master BAIC) | Constitution / master | **Phase 2** | Canonical `docs/37_GODS_EYE.md` (newest) | Full BAIC `docs/` | `.cursor/hooks.json` |
+| **UAIPOS** (master BAIC) | Constitution / master | **Phase 2** | Canonical for upstream §2.7; **vendor from** published `gods-eye` for §1/§3 doctrine | Full BAIC `docs/` | `.cursor/hooks.json` |
 | **BankrollCalendar** (OneDayMillionaire) | Consumer app | **Phase 1** | Pointer → UAIPOS Bible | Overlay + handoff + protocol | Via `install.sh` demo / user global |
 | **~/.cursor** (user global) | Cursor-wide entry | **Phase 2** | Pointer → `Projects/gods-eye` | N/A (not a repo) | `hooks/gods-eye/` |
 
@@ -33,7 +33,7 @@ Run `./scripts/scan-gods-eye-projects.sh --markdown` to refresh this table:
 
 | Label | Path | Role | Phase | Bible | Artifacts | Latest Recent session |
 |-------|------|------|-------|-------|-----------|----------------------|
-| **gods-eye (published)** | `/Users/brentlenninorlanda/Projects/gods-eye` | framework | 2 | vendored | 15/16 | **2026-06-09** — Touch 3 close: pushed `a14ac10`; `install.sh --user` + per-project install |
+| **gods-eye (published)** | `/Users/brentlenninorlanda/Projects/gods-eye` | framework | 2 | vendored | 15/16 | **2026-06-09** — post-merge audit VERIFIED; polish stale Touch 3 docs (`e2c4885`) |
 | **UAIPOS (master BAIC)** | `/Users/brentlenninorlanda/Projects/Universal_AI_Project_Operating_System` | master | 2 | vendored | 6/16 | **God'sEye isolation + fast start:** doc 37 §2.6 ↔ docs/35–36; BankrollCalendar chain pointers |
 | **OneDayMillionaire (BankrollCalendar)** | `/Users/brentlenninorlanda/Developer/BankrollCalendar` | app | 1 | UAIPOS pointer | 9/16 | **Cursor rules applied:** model/delegation efficiency; deduped always-applied context |
 | **Cursor user global** | `~/.cursor` | user-global | 2 | pointer | 3/3 | Always-on rule when no project rule |

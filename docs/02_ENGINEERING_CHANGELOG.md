@@ -6,6 +6,16 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-09
 
+### Post-merge audit + safe polish
+
+- Parallel audit: snapshot Bible/overlay/rule match live (680 lines); Bible §0 cherry-picks + §2.6 upstream pointer VERIFIED; hooks + `gods-eye-flow.png` OK
+- **Fix:** stale overlay/rule/handoff lines claimed stop hook removed — corrected to marker-only pause (post `e2c4885`)
+- README identity paragraph → pointer-only (#11); inventory scan row refreshed
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md)
+
+## 2026-06-09
+
 ### Merge prep executed — doctrine batch + hooks/assets (2 commits)
 
 - Shipped uncommitted §1 Identity + Continuous learning & compounding; §3 Understand before respond + Interpretation framework
