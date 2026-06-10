@@ -6,6 +6,14 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-10
 
+### NightRaven — app repo local rebrand (orchestration)
+
+- +# Brent — replace active **God'sEye / God's Eye** labels with **NightRaven** in BankrollCalendar agent chain; ship name + local oversight unified under NightRaven
+- +# **Not in scope:** gods-eye framework repo rename; Xcode target OneDayMillionaire; framework file paths (`GODS_EYE_*`, `gods-eye-context-intent.mdc`)
+- +# Inventory §3 oversight row — NightRaven (was God'sEye in app repo)
+
+**Cross-links:** [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) §3 · BankrollCalendar `docs/GODS_EYE_REPO_OVERLAY.md`
+
 ### NightRaven — consumer app ship name (inventory metadata)
 
 - +# Brent updating product identity to **NightRaven** (BankrollCalendar adopter) — NGIA platform naming aligns with ship name; **Xcode target/scheme still OneDayMillionaire** until explicit app-repo rename

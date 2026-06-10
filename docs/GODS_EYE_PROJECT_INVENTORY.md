@@ -108,7 +108,7 @@ Run `./scripts/scan-gods-eye-projects.sh --markdown` to refresh this table:
 | Platform interaction (NGIA) | NightRaven* types (`NightRavenPlatformRoot`, …) |
 | Repo folder | BankrollCalendar |
 | Code domain | `bankroll` enums (keep after renames) |
-| Oversight (local) | God'sEye |
+| Oversight (local) | **NightRaven** (was God'sEye in app repo; framework repo unchanged) |
 | BAIC global | BigBrother |
 
 **Domain rules:** `gambling-tracker.mdc`, `model-delegation-efficiency.mdc`
