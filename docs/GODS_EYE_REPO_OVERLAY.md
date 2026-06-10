@@ -14,13 +14,14 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 
 | Term | Meaning |
 |------|---------|
-| _(add rows)_ | _(local definitions)_ |
+| **Standard** | Cross-app stuff in this repo + `install.sh` — adopters get it by default (§2.7) |
+| **Local** | One-app product facts — overlay only until 2+ apps prove universal |
 
 ---
 
 ## 2. Product boundary
 
-+# _(What agents must not change without explicit user approval.)_
+- **Cross-app → here + install** (§2.7). **One-app → consumer overlay** until proven universal.
 
 ---
 
@@ -33,3 +34,4 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 | Overlay | this file |
 | Handoff | `docs/14_SESSION_HANDOFF.md` |
 | Entry | `AGENTS.md` |
+| Inventory | `docs/GODS_EYE_PROJECT_INVENTORY.md` — cross-repo scan (framework repo only) |

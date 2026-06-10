@@ -14,8 +14,9 @@ alwaysApply: true
 | 1 | **Bible §0** — `docs/37_GODS_EYE.md` if vendored; else `$GODS_EYE_ROOT/docs/37_GODS_EYE.md` (default `~/Projects/gods-eye`) |
 | 2 | `docs/GODS_EYE_REPO_OVERLAY.md` — local vocabulary (if present) |
 | 3 | `docs/14_SESSION_HANDOFF.md` → `AGENTS.md` — this repo only |
+| 4 | `docs/GODS_EYE_PROJECT_INVENTORY.md` — when maintaining framework or scanning adopters |
 
-**Laws:** **`+#` only`** · never `-#` · Supersedes · **always parallel** · **this repo's app memory only** · **Tier C** default
+**Laws:** **`+#` only`** · never `-#` · **always parallel** · **this repo only** · **Tier C** · **cross-app → standard** (§2.7)
 
 **Ladder:** Memory → wire → UI/copy → code — default stops at memory unless user names screen/label/behavior/implement
 

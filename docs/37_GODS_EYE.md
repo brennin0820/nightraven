@@ -33,6 +33,7 @@ Related: `docs/32_BIGBROTHER_OVERSIGHT.md`, `docs/35_FAST_START.md`, `docs/36_PR
 | **→ Always parallel** | **2.4** | Default parallel reads/workstreams; one writer per file |
 | **→ Task-scoped rules** | **2.5** | Match depth to task size — align with doc 26 read tiers |
 | **→ Project isolation** | **2.6** | Experience vs app memory — no cross-repo bleed (doc 36) |
+| **→ Promote universal to standard** | **2.7** | Cross-app docs/code → published default — Brent should not re-instruct |
 | **Brent's context intent ladder** | **3** | Memory + wire → UI/copy → code (default stops at memory) |
 | **Vocabulary layers (pattern)** | **4** | Category / brand / repo / code — do not collapse |
 | **Connected chain (portable)** | **5** | Session start order; after context-add; required response |
@@ -64,6 +65,7 @@ Related: `docs/32_BIGBROTHER_OVERSIGHT.md`, `docs/35_FAST_START.md`, `docs/36_PR
 | **Which rules apply?** | **§2.5** — match God'sEye depth to task size; align with `docs/26_USAGE_EFFICIENCY.md` read tiers |
 | **Fast start (new/empty)?** | **Tier 0** — global rule + `docs/35_FAST_START.md` + `docs/36_PROJECT_ISOLATION.md`; **not** full chain (§5 cold start) |
 | **Other apps' memory?** | **Forbidden** — no handoff, paths, locks, or transcript bleed from other repos (§2.6; doc 36) |
+| **Universal across apps?** | Ship in `gods-eye` + install — Brent does not repeat "add X" (§2.7) |
 
 ### Naming (use consistently)
 
@@ -213,6 +215,20 @@ App memory = what THIS project is and where it left off (local).
 
 **QA / loop lens:** Architecture and QA audits flag cross-repo references in memory docs as **regression** (§6).
 
+### 2.7 Promote universal to standard
+
+**Law:** Same in every app → **published standard** (`gods-eye` + `install.sh`). Brent should not repeat "add X" each session.
+
+| All apps (standard) | One app (local) |
+|---------------------|-----------------|
+| Bible, install, templates, hooks, ceremony **shape** | Product names, handoff **content**, domain rules |
+
+**Promote** when 2+ apps use it or it is clearly cross-app → `Projects/gods-eye` + install defaults. **Defer** one-app experiments to that app's overlay until proven universal.
+
+**Agents:** Read shipped defaults — not optional. Use inventory scan to dedupe drift (§12 / `GODS_EYE_PROJECT_INVENTORY.md`).
+
+**Brent says:** "make it standard" / "every app should have this" → §2.7 · **+#** only. Anti-pattern: per-app re-instruction — §6.
+
 ---
 
 ## 3. Brent's "add context" intent ladder
@@ -242,6 +258,7 @@ If step 1 or 2 applies, **do not open implementation files** unless step 3 or 4 
 | "bigbrother …" / "god's eye …" / "godseye …" | Update durable docs + rules (oversight intent) | One-off chat reply only |
 | "always watches" | Affirm always-on oversight — read memory every session; log outcomes; never optional | Oversight only when named |
 | "make God'sEye portable" / "Grand Spec" | Create/update portable spec + repo overlay layering | Code change by default |
+| "make it standard" / "every app should have this" | Promote universal pattern to published gods-eye + install defaults (§2.7) | Re-instruct per session only |
 
 ### Deep read — short phrases carry structure
 
@@ -337,6 +354,7 @@ Tier-0 lean repos may omit full BAIC bootstrap — point at master path and loca
 | **Master handoff as target handoff** | Reading framework maintenance handoff as if it were a different app's state |
 | **Creating template docs** (loop or session default) | Misreads loop mode as template scaffolding — improvements belong in **existing** chain docs via `+#`; `templates/GODS_EYE_IMPROVEMENT_LOOP.md` is optional reference only (§9 hard law) |
 | **Serializing by default** | Independent reads and workstreams should run in parallel per §2.4; serialize only when write scopes overlap or coupling requires one mental model |
+| **Per-app re-instruction of universal patterns** | Brent must not repeat "add X every session" when X is cross-app — promote to published standard + install defaults (§2.7) |
 
 ---
 
@@ -503,4 +521,4 @@ Brent is one creator. Tier C is how his **standard for work worth making** scale
 
 ---
 
-*Established 2026-06-09 as portable spec. Elevated to **God's Eye Bible** 2026-06-09 — TOC + solo-dev loop guidance. Tier C added 2026-06-09. Default innovator posture added 2026-06-09. §0 sixty-second glance + naming added 2026-06-09. §0 Agent quick start added 2026-06-09. §2.4 Always parallel added 2026-06-09. §2.5 Task-scoped rules added 2026-06-09. §2.6 Project isolation + Tier 0 fast start wired to docs/35–36 added 2026-06-09. God'sEye always watches.*
+*Established 2026-06-09 as portable spec. §2.7 Promote universal to standard added 2026-06-10. Elevated to **God's Eye Bible** 2026-06-09 — TOC + solo-dev loop guidance. Tier C added 2026-06-09. Default innovator posture added 2026-06-09. §0 sixty-second glance + naming added 2026-06-09. §0 Agent quick start added 2026-06-09. §2.4 Always parallel added 2026-06-09. §2.5 Task-scoped rules added 2026-06-09. §2.6 Project isolation + Tier 0 fast start wired to docs/35–36 added 2026-06-09. God'sEye always watches.*

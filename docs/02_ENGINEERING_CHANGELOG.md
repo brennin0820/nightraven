@@ -6,6 +6,25 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-10
 
+### Bible §2.7 — Promote universal to standard
+
+- Brent context: cross-app docs/code → **published standard**; stop re-instructing "add X" every session
+- Added `37_GODS_EYE.md` §2.7, §6 anti-pattern, §3 default-meaning row, §0 glance row
+- Wired overlay vocabulary, rule law line, learning log, unified stack adopt/reject, handoff **Recent sessions**
+
+**Cross-links:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.7 · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) §1–2
+
+**Touch 3 wired:** [`GODS_EYE_GRAND_SPEC.md`](GODS_EYE_GRAND_SPEC.md) portable §2.7 note · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
+### §2.7 prose simplified (Tier C pass)
+
+- Condensed Bible §2.7 from multi-table spec to one rule + one table; same law
+- Shortened overlay, rule, `AGENTS.md`, learning log, unified stack, handoff guardrail lines
+
+**Touch 3 wired:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.7 · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`GODS_EYE_GRAND_SPEC.md`](GODS_EYE_GRAND_SPEC.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
+---
+
 ### Project inventory — cross-repo God's Eye scan
 
 - Added `docs/GODS_EYE_PROJECT_INVENTORY.md` — gods-eye, UAIPOS, BankrollCalendar, `~/.cursor` metadata (no app-memory bleed)
@@ -13,6 +32,8 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - Wired `GODS_EYE_UNIFIED_STACK.md` §12, README artifact table + layout
 
 **Cross-links:** [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §12
+
+**Touch 3 wired:** [`GODS_EYE_GRAND_SPEC.md`](GODS_EYE_GRAND_SPEC.md) inventory row · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) §3 · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc)
 
 ---
 

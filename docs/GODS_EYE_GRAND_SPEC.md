@@ -4,8 +4,9 @@
 
 | Layer | Path | Holds |
 |-------|------|-------|
-| **Portable** | **`docs/37_GODS_EYE.md`** (**God's Eye Bible**) | Laws, intent ladder, **§0 Agent quick start**, anti-patterns, Tier C, loop law |
+| **Portable** | **`docs/37_GODS_EYE.md`** (**God's Eye Bible**) | Laws, **§2.7 cross-app → standard**, §0 quick start, ladder, Tier C, loop |
 | **Stack map** | **`docs/GODS_EYE_UNIFIED_STACK.md`** | L0–L4 integration — Memory Bank → chain, handoff, Mem0/Zep, hooks, Plan Mode |
+| **Project inventory** | **`docs/GODS_EYE_PROJECT_INVENTORY.md`** | Cross-repo adoption index — `scripts/scan-gods-eye-projects.sh` |
 | **Local (your repo)** | `docs/GODS_EYE_REPO_OVERLAY.md` | Product vocabulary, domain disambiguation, boundaries, connected chain |
 | **Always-on** | `.cursor/rules/gods-eye-context-intent.mdc` | **START HERE** → §0 + overlay |
 

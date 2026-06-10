@@ -106,6 +106,7 @@ Patterns from the broader agent-memory ecosystem — how God's Eye treats each.
 | **Cursor hooks** | **Adapt (Phase 2+)** | L4 automation — session reminders, append nudges, optional gates (§8) |
 | **BAIC / CORE constitution hooks** | **Adapt (Phase 3)** | L4 soft/hard gates — optional; must not block trivial fixes by default |
 | **Chat-only context** | **Reject** | Wire into L3 or it did not happen |
+| **Cross-app pattern re-instructed every session** | **Reject** | Ship in `gods-eye` + install (§2.7) |
 | **Transcript as memory** | **Reject** | L0 git docs only; transcripts are debug, not chain |
 | **Cross-repo handoff import** | **Reject** | L3 app memory is **this repo only** |
 | **`-#` cleanup on logs** | **Reject** | Append **Supersedes** — Bible §2.3 |
