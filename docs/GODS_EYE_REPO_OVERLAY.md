@@ -47,7 +47,7 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 | MCP (optional Phase 2) | `docs/MCP_SETUP.md` · `.cursor/mcp.json` · `mcp-server/` |
 | Inventory | `docs/GODS_EYE_PROJECT_INVENTORY.md` — cross-repo scan (framework repo only) |
 | Research map (plan) | `.cursor/plans/god's_eye_research_map_b4b6f06f.plan.md` — external field overlaps vs GE differentiators |
-| agent-skills merge (plan) | `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md` — reject core merge; optional L4 adapt |
+| agent-skills merge (plan) | `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md` — reject core merge; optional L4 adapt · [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) optional section · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §2 · §6 |
 
 ---
 
