@@ -10,7 +10,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Signal:** Brent updating consumer app identity to **NightRaven** (BankrollCalendar); NGIA already uses `NightRaven*` platform types.
 
-**Pattern:** Separate **ship name** (NightRaven) from **Xcode target** (OneDayMillionaire until rename) from **repo folder** (BankrollCalendar) from **code domain** (`bankroll` enums). Gods-eye inventory may hold adoption **metadata** only; full overlay vocabulary lives in the app repo.
+**Pattern:** Separate **ship name** (NightRaven) from **Xcode target** (OneDayMillionaire until rename) from **repo folder** (NightRaven — was BankrollCalendar) from **code domain** (`bankroll` enums). Gods-eye inventory may hold adoption **metadata** only; full overlay vocabulary lives in the app repo.
 
 **Do:** Update `gods-eye-projects.conf` label + project inventory §3; note next step in app-repo overlay §2 + handoff when Brent opens BankrollCalendar or says **code it** for Xcode rename.
 

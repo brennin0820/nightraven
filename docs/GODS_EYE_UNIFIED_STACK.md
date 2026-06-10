@@ -455,7 +455,7 @@ Brent runs God's Eye across **multiple repos** plus a **user-global** Cursor ins
 |-----------|------|-------|-------|
 | `Projects/gods-eye` | Published framework | 2 (hooks + installer) | Vendored |
 | `Projects/Universal_AI_Project_Operating_System` | Master BAIC | 2 | Canonical source |
-| `Developer/BankrollCalendar` | NightRaven app (Xcode: OneDayMillionaire until rename) | 1 | Pointer → UAIPOS |
+| `Developer/NightRaven` | NightRaven app (Xcode: OneDayMillionaire until rename) | 1 | Pointer → UAIPOS |
 | `~/.cursor` | User-global rule + hooks | 2 | Pointer → gods-eye |
 
 **Refresh:**
