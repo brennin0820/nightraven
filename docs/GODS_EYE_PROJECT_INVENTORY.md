@@ -98,7 +98,7 @@ Run `./scripts/scan-gods-eye-projects.sh --markdown` to refresh this table:
 
 **Domain rules:** `gambling-tracker.mdc`, `model-delegation-efficiency.mdc`
 
-**App state (snapshot — read live handoff for current):** MVP complete (phases 0–17); 38 tests pass; Budget/Saving/Allowance/PayStub contexts shipped.
+**App state (snapshot — read live handoff for current):** MVP complete (phases 0–17); 38 tests pass; Budget/Saving/Allowance/PayStub contexts shipped. **§2.8 adopter:** task-worthiness gate source `364cd1a` → gods-eye `bfad585` (2026-06-09).
 
 **Isolation:** Handoff in this repo is **OneDayMillionaire only** — never paste into gods-eye or UAIPOS handoff.
 

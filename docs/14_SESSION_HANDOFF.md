@@ -6,7 +6,7 @@
 
 ## Current state / focus
 
-§2.8 task-worthiness promoted from BankrollCalendar (2026-06-09). §2.7 complete on `main` (`40a88fe`). Inventory + hooks on `main`.
+§2.8 task-worthiness on `main` (`bfad585`) — promoted from BankrollCalendar `364cd1a` / `feat/onedaymillionaire-ios`. §2.7 on `main` (`40a88fe`). Inventory + hooks on `main`.
 
 ---
 
@@ -22,11 +22,13 @@
 - +# §2.7 prose simplified — one rule + one table; lean chain pointers
 - +# §2.7 shipped on `main` (`1efbdba`) — 9 files; rule, Bible, overlay, handoff, changelog, learning log
 - +# Touch 3 ship record on `main` (`40a88fe`) — handoff + changelog after `1efbdba` push
+- +# Bible §2.8 shipped on `main` (`bfad585`) — 15 files; rule, Bible, router, overlay §4, templates, learning log, changelog, README, CURSOR_INSTALL
 
 ---
 
 ## Recent sessions
 
+- **2026-06-09** — Touch 3 report: pushed `bfad585` on `main` — BankrollCalendar adoption report (source `364cd1a` / `feat/onedaymillionaire-ios`); Bible §2.8 + monolith PR split pattern; optional `model-delegation-efficiency` template; 15 files (`+#` only).
 - **2026-06-09** — Touch 3 close: promoted BankrollCalendar learnings → Bible §2.8 task-worthiness + monolith PR split pattern; wired rule, router, overlay §4, templates, learning log, changelog (`+#` only).
 - **2026-06-10** — Touch 3 close: pushed `40a88fe` on `main` — handoff + changelog ship notes for §2.7 (`1efbdba`); `+#` only.
 - **2026-06-10** — Touch 3 close: pushed `1efbdba` on `main` — Bible §2.7 + simplified chain (9 files); cross-links intact (`+#` only).

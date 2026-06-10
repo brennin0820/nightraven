@@ -6,6 +6,17 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-09
 
+### §2.8 shipped on main (`bfad585`)
+
+- Touch 3 ship record after BankrollCalendar promotion commit
+- **Source adopter:** `brennin0820/BankrollCalendar` — `364cd1a` on `feat/onedaymillionaire-ios` (task-worthiness gate + Touch 3 memory chain)
+- **Portable:** Bible §2.8, rule Task worthiness, router Agent card, overlay §4, optional delegation template
+- **App-local (not promoted):** balance-card vocabulary, shortcuts audit, OneDayMillionaire domain — stay in consumer overlay
+
+**Touch 3 wired:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
+## 2026-06-09
+
 ### Bible §2.8 — Task worthiness (promoted from BankrollCalendar)
 
 - Brent: sync OneDayMillionaire God's Eye learnings → published standard
