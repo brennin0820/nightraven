@@ -4,6 +4,64 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+---
+
+## 2026-06-10 — Cross-repo R&D: plan in GE workspace, implement in adopter app
+
+**Signal:** Brent requested full NGIA R&D (NightRaven platform interaction architecture) from gods-eye workspace; deliverables are app code + app docs, not framework law.
+
+**Pattern:** (1) Author plan in `.cursor/plans/` from gods-eye session; (2) **implement in named adopter repo** (BankrollCalendar pilot) — standards, gap matrix, Swift framework; (3) Record orchestration in **this repo's** handoff/changelog/learning log only; (4) **do not** import NGIA/NightRaven vocabulary into gods-eye overlay until §2.7 cross-app proof (2+ apps).
+
+**Do:** Cite adopter paths in handoff; note build/test evidence; keep Bible §2.6 isolation.
+
+**Don't:** Paste BankrollCalendar handoff into gods-eye; promote NGIA to `install.sh` defaults prematurely; conflate NightRaven product memory with God's Eye framework memory.
+
+**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) §2 · [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.6 · §2.7 · [`AGENTS.md`](../AGENTS.md)
+
+---
+
+## 2026-06-10 — Two-pass external research validation
+
+**Signal:** Brent pasted prior synthesis for affirmation; agent must not rubber-stamp — rerun independent searches before positioning claims.
+
+**Pattern:** Research map workflow = (1) map adjacent fields to Bible §1/§3, (2) **re-validate** with fresh citations, (3) name GE differentiators (governance, intent ladder, `+#`, isolation) vs partial matches. Optional academic handle (**GIRMA**) stays overlay-local until README/unified-stack wire.
+
+**Do:** Cite STITCH/MemGuide/RECAP/GCC as partial overlaps; distinguish project-evolution oversight from session-only memory.
+
+**Don't:** Claim God's Eye = Intent Engineering or vector RAG alone; skip second pass when user shares prior research.
+
+**See:** [`.cursor/plans/god's_eye_research_map_b4b6f06f.plan.md`](../.cursor/plans/god's_eye_research_map_b4b6f06f.plan.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md)
+
+---
+
+## 2026-06-10 — Composed architecture positioning (external research map)
+
+**Signal:** Brent asked for online concepts similar to God's Eye; prior synthesis listed Intent/Context Engineering slices — needed validation against 2025–2026 papers and git-native tooling.
+
+**Pattern:** God's Eye is a **composed architecture**, not a single research field. Map overlaps explicitly (IST, CMA, STITCH, RECAP, Reflexion) but name GE differentiators: **project-evolution loop**, intent ladder default, append-only `+#` epistemology, experience vs app isolation, cross-app→standard (§2.7). Adjacent git-native tools (agentsge, agent-memory) share L0 truth; they rarely bundle interpretation engine + compounding doctrine + ship-signal gating.
+
+**Do:** Use research map for README/overlay positioning; adopt/adapt rows in unified stack §2 when wiring; cite partial matches — never claim GE = Intent Engineering alone.
+
+**Don't:** Collapse GE into "better prompting" or "vector memory"; replace Bible chain with external frameworks; treat governance/HITL tools as GE equivalents.
+
+**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §1 · §3 · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §2 · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc)
+
+---
+
+## 2026-06-10 — Phase 2 MCP: git-backed memory tools (not shadow index)
+
+**Signal:** Phase 2 roadmap named hooks + Mem0/Zep MCP; agents still miss parallel reads on large chains unless tools expose handoff/overlay directly.
+
+**Pattern:** Ship **local stdio MCP** that reads L1–L3 git paths and appends **Recent sessions** only (+# guard). Mem0/Zep stays optional L4 ingest — never substitute for handoff writes. Launcher bakes `GODS_EYE_INSTALL_ROOT`; project root from `GODS_EYE_PROJECT_ROOT` / `CURSOR_PROJECT_DIR`.
+
+**Do:** Build `mcp-server/` once; enable `.cursor/mcp.json`; use MCP for dedup search + Touch 3 append; keep Bible/overlay authoritative in git.
+
+**Don't:** Let MCP replace parallel file reads on tier 0–1; delete handoff lines via MCP; treat index hits as source of truth.
+
+**See:** [`MCP_SETUP.md`](MCP_SETUP.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §6 · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · `mcp-server/`
+
+---
+
 ## 2026-06-10 — Handoff date-order + UAIPOS vendor (#4)
 
 **Signal:** `gods-eye-lint handoff` failed on 06-09/06-10 interleaving; UAIPOS Bible lagged published gods-eye on §1/§3 by ~116 lines.

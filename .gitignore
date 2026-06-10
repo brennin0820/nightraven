@@ -3,3 +3,5 @@
 .env
 .env.*
 .cursor/touch3.disabled
+mcp-server/node_modules/
+mcp-server/dist/

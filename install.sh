@@ -17,6 +17,7 @@ GODS_EYE_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 INSTALL_USER=0
 INSTALL_PROJECT=1
 INSTALL_HOOKS=1
+INSTALL_MCP=1
 VENDOR_DOCS=1
 FORCE_RULE=0
 TARGET=""
@@ -31,6 +32,7 @@ Options:
   --user           Install global Cursor rule + hooks under ~/.cursor/
   --no-project     Skip project install (use with --user)
   --no-hooks       Skip hook scripts and hooks.json
+  --no-mcp         Skip MCP launcher and .cursor/mcp.json
   --no-vendor      Do not copy portable Bible/router docs into the project
   --force-rule     Overwrite existing .cursor/rules/gods-eye-context-intent.mdc
   -h, --help       Show this help
@@ -63,6 +65,30 @@ copy_file() {
   mkdir -p "$(dirname "$dest")"
   cp "$src" "$dest"
   log "installed: ${dest#${TARGET}/}"
+}
+
+install_project_mcp() {
+  local dest_root="$1"
+  mkdir -p "${dest_root}/.cursor/mcp"
+  cat > "${dest_root}/.cursor/mcp/run-gods-eye-mcp.sh" <<EOF
+#!/usr/bin/env bash
+# Launch God's Eye MCP server (stdio) for Cursor.
+set -euo pipefail
+
+GODS_EYE_INSTALL_ROOT="${GODS_EYE_ROOT}"
+SERVER_JS="\${GODS_EYE_INSTALL_ROOT}/mcp-server/dist/index.js"
+
+if [[ ! -f "\$SERVER_JS" ]]; then
+  echo "gods-eye MCP server not built: \${SERVER_JS}" >&2
+  echo "Run: cd \"\${GODS_EYE_INSTALL_ROOT}/mcp-server\" && npm install && npm run build" >&2
+  exit 1
+fi
+
+exec node "\$SERVER_JS"
+EOF
+  chmod +x "${dest_root}/.cursor/mcp/run-gods-eye-mcp.sh"
+  copy_if_missing "${GODS_EYE_ROOT}/templates/mcp.json" "${dest_root}/.cursor/mcp.json"
+  log "mcp: .cursor/mcp.json + run-gods-eye-mcp.sh (build mcp-server/ first — see docs/MCP_SETUP.md)"
 }
 
 install_project_hooks() {
@@ -171,7 +197,8 @@ install_project() {
       docs/GODS_EYE_SESSION_TREE.md \
       docs/GODS_EYE_UNIFIED_STACK.md \
       docs/GODS_EYE_IMPROVEMENT_LOOP.md \
-      docs/HOOKS_SETUP.md; do
+      docs/HOOKS_SETUP.md \
+      docs/MCP_SETUP.md; do
       copy_if_missing "${GODS_EYE_ROOT}/${doc}" "${TARGET}/${doc}"
     done
   fi
@@ -190,6 +217,10 @@ install_project() {
     install_project_hooks "$TARGET"
   fi
 
+  if [[ "$INSTALL_MCP" -eq 1 ]]; then
+    install_project_mcp "$TARGET"
+  fi
+
   cat <<EOF
 
 Project install complete: ${TARGET}
@@ -197,6 +228,7 @@ Project install complete: ${TARGET}
 Verify in Cursor:
   • Rules: Cursor Settings → Rules → gods-eye-context-intent (alwaysApply)
   • Hooks: Cursor Settings → Hooks (sessionStart, stop, afterFileEdit)
+  • MCP: Cursor Settings → MCP → gods-eye (after: cd mcp-server && npm install && npm run build)
   • Open a new Agent chat — Touch 1 reminder should appear
 
 Next steps:
@@ -212,6 +244,7 @@ while [[ $# -gt 0 ]]; do
     --user) INSTALL_USER=1; shift ;;
     --no-project) INSTALL_PROJECT=0; shift ;;
     --no-hooks) INSTALL_HOOKS=0; shift ;;
+    --no-mcp) INSTALL_MCP=0; shift ;;
     --no-vendor) VENDOR_DOCS=0; shift ;;
     --force-rule) FORCE_RULE=1; shift ;;
     -h|--help) usage; exit 0 ;;

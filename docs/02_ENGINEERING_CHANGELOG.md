@@ -6,6 +6,32 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-10
 
+### NightRaven NGIA — cross-repo R&D orchestration (plan + adopter pilot)
+
+- +# Brent **NightRaven Global Interaction Architecture (NGIA)** — platform-wide editable-component interaction framework; R&D plan authored in gods-eye workspace (`.cursor/plans/nightraven_ngia_r&d_283a8de5.plan.md`)
+- +# **Implementation isolated to BankrollCalendar pilot** — `docs/NGIA/` (standards, gap matrix, HIG/Material/Fluent research, architecture, POC doc) + `OneDayMillionaire/NGIA/` (InteractionEngine, EditableContainer, NightRavenPlatformRoot); `EntryListItem` migrated; build + 38 tests pass — **not** gods-eye framework code (§2.6 app memory)
+- +# §2.7 defer — NGIA vocabulary stays adopter-local until 2+ apps prove universal; no overlay slot in this repo
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) §2 · [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.6 · §2.7 · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc)
+
+### External research map — God's Eye positioning vs adjacent fields
+
+- +# Online synthesis — no single paper/product matches God's Eye; closest partial overlaps: Intent Engineering, Intent Signal Theory (arXiv:2605.25058), Continuum Memory Architecture (arXiv:2601.09913), STITCH/MemGuide/MemFlow (intent-aware retrieval), RECAP (conversation→goal rewrite), Reflexion/MPR/Memento 2 (reflective compounding), git-native agent memory (AGENTS.md, agentsge, agent-memory)
+- +# Distinctive GE stack confirmed: interpretation engine (Bible §3) + compounding loop (§1) + intent ladder + `+#` epistemology + project isolation (§2.6) + git L0 truth — **project-evolution oversight**, not session-only agent memory
+- Plan artifact: `.cursor/plans/god's_eye_research_map_b4b6f06f.plan.md`; optional wire to overlay/unified stack §2 deferred
+- +# Second-pass validation (continuation thread) — independent web search affirmed composed architecture; expanded citations (Goal-Mem, PRISM, GCC); proposed **GIRMA** (Governed Intent-Reconstruction Memory Architecture); overlay §1 vocabulary wired
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §1 · §3 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §2 · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc)
+
+### Phase 2 MCP — memory-chain tools (stdio)
+
+- +# `mcp-server/` — TypeScript stdio MCP: `gods_eye_list_memory_slots`, `gods_eye_get_read_order`, `gods_eye_read_memory`, `gods_eye_search_memory`, `gods_eye_append_recent_session` (+# only on handoff)
+- +# `.cursor/mcp.json` + `.cursor/mcp/run-gods-eye-mcp.sh` — Cursor registration; `install.sh` installs per project (`--no-mcp` to skip)
+- +# `docs/MCP_SETUP.md` — build, enable, path resolution (`GODS_EYE_PROJECT_ROOT`, `GODS_EYE_INSTALL_ROOT`); git authoritative over any external index
+- README layout + `docs/CURSOR_INSTALL.md` MCP verification step wired
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`MCP_SETUP.md`](MCP_SETUP.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §9 Phase 2 · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · `mcp-server/` · `install.sh`
+
 ### Update god's eye — lint green + UAIPOS §1/§3 vendor
 
 - +# Handoff **Recent sessions** date-order fixed (#4) — newest-first; `gods-eye-lint handoff` passes

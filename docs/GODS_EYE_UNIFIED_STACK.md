@@ -325,6 +325,7 @@ Adopt the stack incrementally. Each phase assumes the prior phase is stable.
 |-------------|-------|
 | `sessionStart` soft hook — read-order reminder | L4 |
 | `stop` soft hook — "append Recent sessions?" nudge | L4 |
+| **God's Eye MCP** — read/search/append memory chain (`mcp-server/`) — see [`MCP_SETUP.md`](MCP_SETUP.md) | L4 |
 | Optional Mem0/Zep MCP — ingest from handoff + overlay + logs | L4 |
 | Re-ingest script on `+#` commits (CI or manual) | L4 |
 

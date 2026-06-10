@@ -12,6 +12,7 @@ Step-by-step setup so God's Eye works in Cursor on day one: **global user config
 | **User hooks** (optional) | `~/.cursor/hooks.json` + `~/.cursor/hooks/gods-eye/` | Soft three-touch reminders globally |
 | **Project rule** | `.cursor/rules/gods-eye-context-intent.mdc` | Same law, project-relative paths |
 | **Project hooks** (optional) | `.cursor/hooks.json` + `.cursor/hooks/` | Team-shareable Phase 2 hooks |
+| **Project MCP** (optional) | `.cursor/mcp.json` + `.cursor/mcp/run-gods-eye-mcp.sh` | Memory-chain tools — see [`MCP_SETUP.md`](MCP_SETUP.md) |
 | **Doc chain** | `docs/14_*`, `docs/02_*`, `docs/04_*`, overlay, `AGENTS.md` | L3 app memory (`+#` only) |
 | **Portable Bible** | `docs/37_GODS_EYE.md` (vendored) or `$GODS_EYE_ROOT` | Portable law |
 
@@ -76,7 +77,15 @@ chmod +x ~/.cursor/hooks/gods-eye/*.sh
 chmod +x .cursor/hooks/*.sh   # per project
 ```
 
-### 3. No settings.json toggle required
+### 3. MCP (optional Phase 2)
+
+1. Build once from your God's Eye clone: `cd mcp-server && npm install && npm run build`
+2. Open **Cursor Settings → MCP** — confirm **`gods-eye`** is listed and connected.
+3. In Agent chat, invoke `gods_eye_read_memory` with `slot: handoff` or `gods_eye_list_memory_slots`.
+
+Full tool list and env vars: [`docs/MCP_SETUP.md`](MCP_SETUP.md). Skip with `./install.sh --no-mcp`.
+
+### 4. No settings.json toggle required
 
 Cursor loads hooks from `hooks.json` automatically. You do **not** need a `settings.json` flag. Optional: enable **Hooks** output channel for debugging.
 

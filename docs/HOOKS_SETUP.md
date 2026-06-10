@@ -98,5 +98,6 @@ User-level hooks resolve the active workspace via `workspace_roots` in hook stdi
 ## Related docs
 
 - [God's Eye Bible §0](37_GODS_EYE.md) — Agent quick start (Before / During / After)
+- [MCP setup](MCP_SETUP.md) — Phase 2 memory-chain tools (optional; complements hooks)
 - [Session tree](GODS_EYE_SESSION_TREE.md) — Three-touch + Record Everything
 - [Create-hook skill](https://cursor.com/docs) — Cursor hooks reference (project: `.cursor/hooks.json`)

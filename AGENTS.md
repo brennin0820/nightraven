@@ -191,6 +191,8 @@ When Brent gives a **concept, context, or idea** (even telegraphic) — infer: *
 - **Fast start:** `docs/35_FAST_START.md` — Tier 0 cold-start for new/empty repos
 - **Project isolation:** `docs/36_PROJECT_ISOLATION.md` — experience vs app memory, cross-repo rules
 - **Session handoff:** `docs/14_SESSION_HANDOFF.md` — current state, guardrails, already-done, recent sessions
+- **MCP (Phase 2, optional):** `docs/MCP_SETUP.md` — memory-chain tools (read, search, append Recent sessions); git authoritative
+- **Research map (plan):** `.cursor/plans/god's_eye_research_map_b4b6f06f.plan.md` — external field overlaps vs GE differentiators; overlay §1 **Composed architecture** · **GIRMA**
 - **Improvement loop:** `templates/GODS_EYE_IMPROVEMENT_LOOP.md` — cycle prompt, virtual teams, logging rules
 - **BigBrother relationship:** `docs/32_BIGBROTHER_OVERSIGHT.md` — complementary BAIC oversight checklist
 - **Repo overlay:** `docs/GODS_EYE_REPO_OVERLAY.md` — local vocabulary, code disambiguation, product boundary (if present)

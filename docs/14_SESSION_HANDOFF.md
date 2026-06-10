@@ -6,7 +6,7 @@
 
 ## Current state / focus
 
-BACKLOG **#1 #8 #2 #5 #4** committed locally (`90dea74` HEAD; ahead of `origin/main`): lint #4, UAIPOS §1/§3/§2.8 vendor, Record Everything. **Push deferred** — GH007 private-email protection on `origin`. **Next:** fix GitHub email setting or amend author · Claude adoption kit (#15) · handoff archive (needs approval).
+Phase 2 **MCP memory-chain tools** shipped in working tree (uncommitted): `mcp-server/` (5 tools), `.cursor/mcp.json`, `docs/MCP_SETUP.md`, `install.sh --no-mcp`. Prior batch **`6a2f405`** + **`90dea74`** ahead of `origin/main`. **Push deferred** — GH007 private-email protection on `origin`. **Next:** commit MCP batch · fix GitHub email or amend author · Claude adoption kit (#15).
 
 ---
 
@@ -31,11 +31,15 @@ BACKLOG **#1 #8 #2 #5 #4** committed locally (`90dea74` HEAD; ahead of `origin/m
 - +# Bible §3 — Understand before respond (mental model); wired chain — on `main`
 - +# Bible §3 — Interpretation framework (AI answers intention); wired chain — on `main`
 - +# `AGENTS.md` framework instructions embedded (`0258e44`) — immediate agent access without full chain read
+- +# Phase 2 MCP memory-chain tools (uncommitted) — `mcp-server/` stdio server, `.cursor/mcp.json`, `docs/MCP_SETUP.md`, `install.sh` MCP wiring; git authoritative (+# append only)
 
 ---
 
 ## Recent sessions
-- **2026-06-10** — Touch 3 AFTER: committed `90dea74` on `main` — #4 handoff date-order, UAIPOS §1/§3/§2.8 vendor, `gods-eye-lint` all green, global install refresh; Record Everything (`+#` only); **push deferred — GH007 private-email protection on origin**.
+- **2026-06-10** — Touch 3 AFTER: **NightRaven NGIA** R&D — plan + implement Phases 1–3 POC; standards/gap/research docs + Swift `NGIA/` pilot in **BankrollCalendar** (`docs/NGIA/`, `EntryListItem` → `EditableContainer`, `NightRavenPlatformRoot`); plan `.cursor/plans/nightraven_ngia_r&d_283a8de5.plan.md`; gods-eye **orchestration only** — no NGIA app vocabulary here (§2.6); build + 38 tests pass; Record Everything (`+#` only); **push deferred — GH007 private-email protection on origin** (uncommitted memory + MCP batch).
+- **2026-06-10** — Touch 3 AFTER: research map **independent re-validation** — Brent synthesis + corrected ask affirmed; expanded overlaps (Goal-Mem, PRISM, GCC, **GIRMA** naming); no full academic match — composed **project-evolution** architecture; plan `.cursor/plans/god's_eye_research_map_b4b6f06f.plan.md`; overlay vocabulary wired; Record Everything (`+#` only); **push deferred — GH007 private-email protection on origin** (uncommitted memory + MCP batch).
+- **2026-06-10** — Touch 3 AFTER: online research map — God's Eye vs Intent Engineering, IST, CMA, STITCH/MemGuide, RECAP, reflective agents, git-native memory (agents.md/agentsge); no single full match — composed **project-evolution** architecture; plan `.cursor/plans/god's_eye_research_map_b4b6f06f.plan.md`; Record Everything (`+#` only); **push deferred — GH007 private-email protection on origin** (uncommitted memory + MCP batch).
+- **2026-06-10** — Touch 3 AFTER: Phase 2 MCP — `mcp-server/` (list/read/search/append Recent sessions), `.cursor/mcp.json`, `docs/MCP_SETUP.md`, install.sh + README + CURSOR_INSTALL wired; build verified; Record Everything (`+#` only); **push deferred — GH007 private-email protection on origin** (MCP + prior commits uncommitted/unpushed).
 - **2026-06-10** — Brent: update god's eye — handoff #4 date-order fixed (newest-first); §1/§3 cherry-picked to UAIPOS master; `gods-eye-lint` green; snapshot sync (`+#` only; push pending).
 - **2026-06-10** — Touch 3 close: pushed `60b26b8` on `main` — Bible §3 five-step unclear input (8 files); cross-links intact (`+#` only).
 - **2026-06-10** — Touch 3 close: Bible §3 five-step unclear input complete — fix English → intent → technical translate → explain → ask if truly unclear; no code until asked; cross-links wired (`+#` only; push pending).

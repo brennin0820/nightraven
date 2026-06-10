@@ -132,6 +132,7 @@ See **[`docs/CURSOR_INSTALL.md`](docs/CURSOR_INSTALL.md)** for verification step
 4. Optional: **`docs/GODS_EYE_GRAND_SPEC.md`** as a router; **`.cursor/gods-eye-improvement-loop.md`** as a loop pointer.
 5. Session start: rule → Bible **§0** → overlay → handoff / `AGENTS.md`.
 6. **Optional Phase 2:** copy [`.cursor/hooks.json`](.cursor/hooks.json) + [`.cursor/hooks/`](.cursor/hooks/) for soft Cursor hook nudges (three-touch + Record Everything). See [`docs/HOOKS_SETUP.md`](docs/HOOKS_SETUP.md).
+7. **Optional Phase 2 MCP:** build [`mcp-server/`](mcp-server/) and enable [`.cursor/mcp.json`](.cursor/mcp.json) for memory-chain tools (read handoff, search, append Recent sessions). See [`docs/MCP_SETUP.md`](docs/MCP_SETUP.md).
 
 For adoption layers (Memory Bank mapping, Mem0/Zep, hooks roadmap), see [`docs/GODS_EYE_UNIFIED_STACK.md`](docs/GODS_EYE_UNIFIED_STACK.md). For a visual map of session flow and tiers, open [`docs/GODS_EYE_SESSION_TREE.md`](docs/GODS_EYE_SESSION_TREE.md).
 
@@ -152,12 +153,16 @@ docs/
   02_ENGINEERING_CHANGELOG.md # Append-only engineering history
   04_LEARNING_LOG.md          # Append-only durable patterns
   HOOKS_SETUP.md              # Optional Phase 2 hooks — enable/disable
+  MCP_SETUP.md                # Optional Phase 2 MCP — memory-chain tools
   CURSOR_INSTALL.md           # Cursor install + verify (Rules, Hooks)
 install.sh                    # One-command installer (user + project)
-templates/                    # Bootstrap AGENTS.md, handoff, overlay
+mcp-server/                   # Phase 2 MCP — read/search/append memory chain
+templates/                    # Bootstrap AGENTS.md, handoff, overlay, mcp.json
 .cursor/
   rules/gods-eye-context-intent.mdc
   gods-eye-improvement-loop.md
+  mcp.json                    # Optional Phase 2 — see docs/MCP_SETUP.md
+  mcp/run-gods-eye-mcp.sh     # MCP launcher (installed per project)
   hooks.json                  # Optional Phase 2 — see docs/HOOKS_SETUP.md
   hooks/                      # session-start · session-stop · after-file-edit
 examples/

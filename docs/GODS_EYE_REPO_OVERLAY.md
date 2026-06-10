@@ -23,6 +23,8 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 | **Five-step unclear input** | Bible §3 — fix English · intent · technical translate · explain · ask if truly unclear |
 | **Understand before respond** | Bible §3 — mental model (concept, context, vision, philosophy, evolution); explain before recommend |
 | **Interpretation framework** | Bible §3 — intention not words; 4 layers, continuity, ambiguity resolver, usage protection, auto-prompt builder |
+| **Composed architecture** | God's Eye positioning — synthesis of intent/context/intent-aware memory/rewrite/reflect/git-native fields; no single external product or paper matches fully |
+| **GIRMA** | Local academic handle — Governed Intent-Reconstruction Memory Architecture; optional positioning label (not portable law) |
 
 ---
 
@@ -41,7 +43,9 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 | Overlay | this file |
 | Handoff | `docs/14_SESSION_HANDOFF.md` |
 | Entry | `AGENTS.md` |
+| MCP (optional Phase 2) | `docs/MCP_SETUP.md` · `.cursor/mcp.json` · `mcp-server/` |
 | Inventory | `docs/GODS_EYE_PROJECT_INVENTORY.md` — cross-repo scan (framework repo only) |
+| Research map (plan) | `.cursor/plans/god's_eye_research_map_b4b6f06f.plan.md` — external field overlaps vs GE differentiators |
 
 ---
 
