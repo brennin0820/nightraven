@@ -6,6 +6,12 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-10
 
+### agent-skills plan — status Q&A session close
+
+- +# Brent @-referenced merge-decision plan; agent verified wire already complete at `2fd264c` (unified stack §2·§6, overlay, `CURSOR_INSTALL.md`, `AGENTS.md`); no new vendor or wire this session — deferred items unchanged (install flag, research-map todos)
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md`
+
 ### agent-skills merge evaluation — reject core, optional L4
 
 - +# Brent asked merge [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) — 23 lifecycle skills (spec/build/test/review/ship) vs God's Eye oversight stack
