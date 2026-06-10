@@ -6,7 +6,7 @@
 
 ## Current state / focus
 
-BACKLOG **#1 #8 #2 #5 #4** on `main` (`3387941` HEAD): push-latency law (§2.8), canonical scope, lint scripts, handoff date-order, UAIPOS §1/§3/§2.8 vendor. **Next:** Claude adoption kit (#15) · handoff archive cycle (needs approval).
+BACKLOG **#1 #8 #2 #5 #4** committed locally (`90dea74` HEAD; ahead of `origin/main`): lint #4, UAIPOS §1/§3/§2.8 vendor, Record Everything. **Push deferred** — GH007 private-email protection on `origin`. **Next:** fix GitHub email setting or amend author · Claude adoption kit (#15) · handoff archive (needs approval).
 
 ---
 
@@ -35,7 +35,7 @@ BACKLOG **#1 #8 #2 #5 #4** on `main` (`3387941` HEAD): push-latency law (§2.8),
 ---
 
 ## Recent sessions
-- **2026-06-10** — Touch 3 AFTER: pushed `3387941` on `main` — #4 handoff date-order, UAIPOS §1/§3/§2.8 vendor, `gods-eye-lint` all green, global `install.sh --user` refresh; Record Everything (handoff, changelog, learning log) (`+#` only).
+- **2026-06-10** — Touch 3 AFTER: committed `90dea74` on `main` — #4 handoff date-order, UAIPOS §1/§3/§2.8 vendor, `gods-eye-lint` all green, global install refresh; Record Everything (`+#` only); **push deferred — GH007 private-email protection on origin**.
 - **2026-06-10** — Brent: update god's eye — handoff #4 date-order fixed (newest-first); §1/§3 cherry-picked to UAIPOS master; `gods-eye-lint` green; snapshot sync (`+#` only; push pending).
 - **2026-06-10** — Touch 3 close: pushed `60b26b8` on `main` — Bible §3 five-step unclear input (8 files); cross-links intact (`+#` only).
 - **2026-06-10** — Touch 3 close: Bible §3 five-step unclear input complete — fix English → intent → technical translate → explain → ask if truly unclear; no code until asked; cross-links wired (`+#` only; push pending).
