@@ -6,6 +6,17 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-10
 
+### GH007 — push blocked by GitHub private-email protection
+
+- +# Diagnosed `git push origin main` rejection — remote **GH007**; unpushed commits `90dea74`, `6a2f405`, `b895162` all author `brentlennin0820@gmail.com` while GitHub **Keep my email private** / block CLI expose is enabled
+- +# Remediation documented — (A) [github.com/settings/emails](https://github.com/settings/emails) allow push or public email; (B) rebase amend author to `172115324+brennin0820@users.noreply.github.com`; set `user.email` noreply for future commits
+- +# Push-latency §2.8 — still **deferred** until Brent applies A or B (3 commits ahead; MCP `b895162` committed locally)
+- +# **Supersedes (push landed):** Push-latency §2.8 — still **deferred** until Brent applies A or B (3 commits ahead; MCP `b895162` committed locally)
+- +# **GH007 resolved** — rebase `origin/main..HEAD` with noreply author **and** `GIT_COMMITTER_EMAIL` on amend; pushed `614ff27` · `4bd993a` · `20adc26` to `origin/main`; author-only amend insufficient (committer still exposed Gmail)
+- +# Follow-up — `origin/main` clean but `git config user.email` still private Gmail; agents must set noreply on commit (env or repo config) or GH007 returns on next push
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc)
+
 ### NightRaven NGIA — cross-repo R&D orchestration (plan + adopter pilot)
 
 - +# Brent **NightRaven Global Interaction Architecture (NGIA)** — platform-wide editable-component interaction framework; R&D plan authored in gods-eye workspace (`.cursor/plans/nightraven_ngia_r&d_283a8de5.plan.md`)

@@ -6,7 +6,7 @@
 
 ## Current state / focus
 
-Phase 2 **MCP memory-chain tools** shipped in working tree (uncommitted): `mcp-server/` (5 tools), `.cursor/mcp.json`, `docs/MCP_SETUP.md`, `install.sh --no-mcp`. Prior batch **`6a2f405`** + **`90dea74`** ahead of `origin/main`. **Push deferred** — GH007 private-email protection on `origin`. **Next:** commit MCP batch · fix GitHub email or amend author · Claude adoption kit (#15).
+Phase 2 **MCP memory-chain tools** on `origin/main` (`20adc26`). **GH007** push landed (noreply author + committer on rebased commits). **Open:** `git config user.email` still `brentlennin0820@gmail.com` (global + repo) — next commit re-exposes Gmail unless Brent sets noreply or agents use env on commit. **Next:** Brent sets noreply (`172115324+brennin0820@users.noreply.github.com`) · Claude adoption kit (#15).
 
 ---
 
@@ -31,11 +31,15 @@ Phase 2 **MCP memory-chain tools** shipped in working tree (uncommitted): `mcp-s
 - +# Bible §3 — Understand before respond (mental model); wired chain — on `main`
 - +# Bible §3 — Interpretation framework (AI answers intention); wired chain — on `main`
 - +# `AGENTS.md` framework instructions embedded (`0258e44`) — immediate agent access without full chain read
-- +# Phase 2 MCP memory-chain tools (uncommitted) — `mcp-server/` stdio server, `.cursor/mcp.json`, `docs/MCP_SETUP.md`, `install.sh` MCP wiring; git authoritative (+# append only)
+- +# Phase 2 MCP memory-chain tools shipped on `origin/main` (`20adc26`) — `mcp-server/` stdio server, `.cursor/mcp.json`, `docs/MCP_SETUP.md`, install.sh MCP wiring; git authoritative (+# append only)
+- +# **Supersedes (MCP now on origin `20adc26`):** Phase 2 MCP memory-chain tools (uncommitted) — `mcp-server/` stdio server, `.cursor/mcp.json`, `docs/MCP_SETUP.md`, `install.sh` MCP wiring; git authoritative (+# append only)
 
 ---
 
 ## Recent sessions
+- **2026-06-10** — Touch 3 AFTER: **GH007 follow-up** — Brent pasted remediation card (not subscription); verified `origin/main` synced at `20adc26` with noreply metadata; flagged **recurrence risk** — `user.email` still private Gmail globally + locally; Record Everything (`+#` only); memory batch committed this session with noreply author/committer env; push §2.8 below.
+- **2026-06-10** — Touch 3 AFTER: **GH007 fixed + pushed** — rebase amended author **and committer** to `172115324+brennin0820@users.noreply.github.com` on `614ff27`→`20adc26`; `git push origin main` succeeded; push-latency §2.8 satisfied for MCP batch; memory docs (NGIA orchestration + GH007) staged this commit; Record Everything (`+#` only).
+- **2026-06-10** — Touch 3 AFTER: **GH007 push blocker** diagnosed — `git push origin main` rejected; commits `90dea74` · `6a2f405` · `b895162` author `brentlennin0820@gmail.com` vs GitHub private-email protection; fix paths documented (settings toggle or noreply rebase `172115324+brennin0820@users.noreply.github.com`); MCP batch now committed locally; Record Everything (`+#` only); **push deferred — awaiting email fix** (3 commits ahead of origin).
 - **2026-06-10** — Touch 3 AFTER: **NightRaven NGIA** R&D — plan + implement Phases 1–3 POC; standards/gap/research docs + Swift `NGIA/` pilot in **BankrollCalendar** (`docs/NGIA/`, `EntryListItem` → `EditableContainer`, `NightRavenPlatformRoot`); plan `.cursor/plans/nightraven_ngia_r&d_283a8de5.plan.md`; gods-eye **orchestration only** — no NGIA app vocabulary here (§2.6); build + 38 tests pass; Record Everything (`+#` only); **push deferred — GH007 private-email protection on origin** (uncommitted memory + MCP batch).
 - **2026-06-10** — Touch 3 AFTER: research map **independent re-validation** — Brent synthesis + corrected ask affirmed; expanded overlaps (Goal-Mem, PRISM, GCC, **GIRMA** naming); no full academic match — composed **project-evolution** architecture; plan `.cursor/plans/god's_eye_research_map_b4b6f06f.plan.md`; overlay vocabulary wired; Record Everything (`+#` only); **push deferred — GH007 private-email protection on origin** (uncommitted memory + MCP batch).
 - **2026-06-10** — Touch 3 AFTER: online research map — God's Eye vs Intent Engineering, IST, CMA, STITCH/MemGuide, RECAP, reflective agents, git-native memory (agents.md/agentsge); no single full match — composed **project-evolution** architecture; plan `.cursor/plans/god's_eye_research_map_b4b6f06f.plan.md`; Record Everything (`+#` only); **push deferred — GH007 private-email protection on origin** (uncommitted memory + MCP batch).

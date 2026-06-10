@@ -6,6 +6,48 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-10 — GH007: GitHub private-email push block
+
+**Signal:** `git push origin main` fails with GH007 though repo access is fine — commits expose a private Gmail in author metadata.
+
+**Pattern:** When **push-latency §2.8** defers repeatedly, verify author email on `origin/main..HEAD` (`git log origin/main..HEAD --format='%h %ae'`). GitHub blocks pushes that publish private addresses unless settings allow or commits use **noreply** (`{id}+{login}@users.noreply.github.com`).
+
+**Do:** Document fix paths in handoff; note exact commits blocked; defer push explicitly until Brent chooses settings vs rebase.
+
+**Don't:** Assume auth/permission failure; rewrite pushed history without user OK; change global git config without request; amend **author only** — GitHub GH007 also checks **committer** email.
+
+**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · [`AGENTS.md`](../AGENTS.md)
+
+---
+
+## 2026-06-10 — GH007 fix: amend author and committer together
+
+**Signal:** Author-only rebase still failed push — `git log --format='%ae %ce'` showed committer still `brentlennin0820@gmail.com`.
+
+**Pattern:** On rebase fix, run exec with `GIT_COMMITTER_EMAIL` + `GIT_COMMITTER_NAME` alongside `--author=...` on `git commit --amend`. Verify both fields before push. Noreply: `172115324+brennin0820@users.noreply.github.com`.
+
+**Do:** `git rebase origin/main --exec 'GIT_COMMITTER_EMAIL=... GIT_COMMITTER_NAME=... git commit --amend --author="..." --no-edit'` then push.
+
+**Don't:** Stop after author amend; use private Gmail on either metadata field.
+
+**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · [`AGENTS.md`](../AGENTS.md)
+
+---
+
+## 2026-06-10 — GH007: config drift after rebase fix
+
+**Signal:** `git log -1` shows noreply on pushed commits, but `git config user.email` is still private Gmail — next commit will GH007 again.
+
+**Pattern:** After a successful noreply rebase push, always check **config**, not only HEAD metadata. GH007 is not auth/subscription failure — GitHub blocks publishing private addresses in commit metadata.
+
+**Do:** Set repo or global `user.email` to `{id}+{login}@users.noreply.github.com`; or one-shot `GIT_AUTHOR_EMAIL` + `GIT_COMMITTER_EMAIL` on agent commits until Brent sets config.
+
+**Don't:** Assume push success means email problem is permanently fixed; confuse GH007 with Copilot/subscription errors.
+
+**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · [`AGENTS.md`](../AGENTS.md)
+
+---
+
 ## 2026-06-10 — Cross-repo R&D: plan in GE workspace, implement in adopter app
 
 **Signal:** Brent requested full NGIA R&D (NightRaven platform interaction architecture) from gods-eye workspace; deliverables are app code + app docs, not framework law.
