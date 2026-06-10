@@ -6,6 +6,14 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-09
 
+### Touch 3 session close — backlog batch on main
+
+- Session exit: `ef017d9` pushed; push-latency §2.8 satisfied; snapshot lint OK; handoff #4 date-order deferred
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8
+
+## 2026-06-09
+
 ### BACKLOG #1 #8 #2 #5 — push-latency, canonical scope, snapshot lint
 
 - +# Bible §2.8 **push-latency law** — push before Touch 3 exit or explicit defer in Recent sessions
