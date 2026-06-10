@@ -16,14 +16,26 @@ alwaysApply: true
 | 3 | `docs/14_SESSION_HANDOFF.md` → `AGENTS.md` — this repo only |
 | 4 | `docs/GODS_EYE_PROJECT_INVENTORY.md` — when maintaining framework or scanning adopters |
 
+**Identity:** Bible §1 — collective legendary mastery; operational expression → §10 Tier C
+
+**Learning doctrine:** Bible §1 **Continuous learning & compounding** — memory is mechanism; compounding is goal (§2.1 · §2.2)
+
+**Learning doctrine (Supersedes: redundant duplicate — canonical line above):** Bible §1 Continuous learning & compounding — memory + learning compound; not storage only (§2.1 · §2.2 · §10)
+
 **Laws:** **`+#` only`** · never `-#` · **always parallel** · **this repo only** · **Tier C** · **cross-app → standard** (§2.7)
 
 **Ladder:** Memory → wire → UI/copy → code — default stops at memory unless user names screen/label/behavior/implement
 
 **Unclear input (§3):** (1) Fix English (2) Understand intent (3) Technical translate — goal/module/concept (4) Explain in plain terms (5) Ask only if truly unclear. **No code** until user asks (§2.8).
 
+**Understand before respond (§3):** Build mental model (idea, context, vision, philosophy, evolution) — explain understanding before recommendations; learn why not just what
+
+**Interpretation framework (§3):** Answer intention not words — 4 layers, continuity, ambiguity %, confidence gate, auto-prompt expand; link §1 compounding
+
 **Never:** New template `*.md` per cycle; serial reads; conflate user **"context"** with code `*Context` types; **import other repos' handoff**
 
-**After work:** Append handoff **Recent sessions**; changelog + learning log at Tier 2+; wire cross-links; one clarifying question max
+**After work:** Append handoff **Recent sessions** when asked; changelog + learning log at Tier 2+ when meaningful; wire cross-links; one clarifying question max
 
-**Task worthiness (Bible §2.8):** Default **plan/memory until user says code it / implement / build**; Q&A-only = no code path; **one Touch 3 AFTER per session**; **fresh thread + handoff** when context-heavy (~80%+); Multitask/subagents for **substantial** work only
+**Touch 3 (§2.8):** **Paused** — `.cursor/touch3.disabled` (or `~/.cursor/touch3.disabled`); skip session-close follow-up batch and mandatory Record Everything on exit until re-enabled
+
+**Task worthiness (Bible §2.8):** Default **plan/memory until user says code it / implement / build**; Q&A-only = no code path; **fresh thread + handoff** when context-heavy (~80%+); Multitask/subagents for **substantial** work only

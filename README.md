@@ -1,12 +1,83 @@
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Cursor](https://img.shields.io/badge/Built%20for-Cursor-blue)
+![AI Agents](https://img.shields.io/badge/AI-AgentOps-purple)
+![Local First](https://img.shields.io/badge/Local--First-Memory-green)
+
 # God's Eye
 
-**Portable AI agent oversight for Cursor** — durable project memory that watches work, compounds knowledge, and prevents wasted repeat effort.
+**AI agents forget. God's Eye makes your repo remember.**
 
-> **Motto:** *Always watches.* Watch the work. Learn from it. Waste nothing. **Forget nothing.**
+**Local-first memory, coordination, and oversight for AI coding agents.**
 
-God's Eye is **not** user surveillance. It is a **benevolent oversight model** for coding agents: classify what the user meant, read the right docs in parallel, guard scope, and append outcomes with **`+#` only** (never delete history from memory docs).
+God's Eye helps AI coding agents work like disciplined senior engineers instead of forgetful code generators.
 
-The same role appears in the author's broader **BAIC / BigBrother** constitution; **God's Eye** is the **portable, repo-local name** you can adopt in any project.
+> **Remember the work. Protect the context. Prevent wasted effort.**
+
+God's Eye watches project work, not people. It tracks decisions, files, handoffs, and lessons so agents do not restart from zero. God's Eye embodies the collective mastery of legendary coders everywhere — identity canon in Bible §1. **Identity** (collective legendary mastery) is defined in the Bible §1 — operational craft via Tier C (§10). **Learning doctrine:** continuous compounding from every action — Bible §1 Continuous learning & compounding. **Continuous learning:** Bible §1 — every experience compounds; human and GE co-evolve.
+
+It gives your project:
+
+- **Durable project memory** — handoff, changelog, and learning logs that survive sessions
+- **Append-only implementation logs** — history compounds; corrections use Supersedes, never deletion
+- **No-conflict agent coordination** — claim files before editing; avoid overlapping active work
+- **Intent classification before coding** — plan and wire memory until the user says ship
+- **Cursor rules and optional hooks** — install once; soft nudges at session start, stop, and memory edits
+- **Repo-specific overlays** — portable law plus your product vocabulary and boundaries
+- **Handoff docs for long-running projects** — Recent sessions, already-done, next safest step
+- **Anti-repetition and anti-overwrite workflow** — read memory first; do not duplicate solved work
+
+Works with **Cursor** today, and can be adapted for **Claude**, **Codex**, **ChatGPT**, **Copilot**, and other AI coding agents.
+
+---
+
+## Before / After
+
+### Before God's Eye
+
+- Agent forgets previous decisions
+- Agent edits files another agent is touching
+- Agent repeats already-finished work
+- Agent ignores architecture
+- Agent gives vague final reports
+
+### After God's Eye
+
+- Agent reads durable memory first
+- Agent claims files before editing
+- Agent appends learning instead of deleting history
+- Agent checks already-done work
+- Agent reports exactly what changed and what remains
+
+---
+
+## How it works
+
+![God's Eye agent flow](docs/assets/gods-eye-flow.png)
+
+**User request** → **Intent ladder** → **Read project memory** → **Claim files / avoid conflicts** → **Implement or plan** → **Validate** → **Append changelog + handoff + learning log**
+
+---
+
+## Copy-paste starter prompt
+
+```
+You are working inside a God's Eye repo.
+
+Before coding:
+1. Read AGENTS.md.
+2. Read docs/14_SESSION_HANDOFF.md.
+3. Read docs/02_ENGINEERING_CHANGELOG.md.
+4. Check for already-done work.
+5. Claim files before editing.
+6. Avoid overlapping with active work.
+7. Append outcomes using the project's append-only memory rules.
+
+Do not rewrite unrelated files.
+Do not delete historical memory.
+Do not duplicate existing functionality.
+
+Think like a senior engineer.
+```
 
 ---
 
@@ -24,7 +95,7 @@ The same role appears in the author's broader **BAIC / BigBrother** constitution
 | [**Optional delegation rule**](templates/model-delegation-efficiency.user.mdc) | Multitask + heavy-thread efficiency (Bible §2.8) |
 | [**Example overlay**](examples/overlay/GODS_EYE_REPO_OVERLAY.example.md) | How to add product vocabulary on top of portable law |
 | [**Example user-context protocol**](examples/appendix/USER_CONTEXT_PROTOCOL.example.md) | Worked “add context” examples |
-| [**Cursor installer**](CURSOR_INSTALL.md) | One-command `install.sh` — user + project rules, hooks, memory bootstrap |
+| [**Cursor installer**](docs/CURSOR_INSTALL.md) | One-command `install.sh` — user + project rules, hooks, memory bootstrap |
 | [**Optional Cursor hooks (Phase 2)**](docs/HOOKS_SETUP.md) | Soft three-touch reminders — session start, stop, after memory-doc edits |
 
 ---
@@ -71,6 +142,7 @@ For adoption layers (Memory Bank mapping, Mem0/Zep, hooks roadmap), see [`docs/G
 ```text
 docs/
   37_GODS_EYE.md              # Portable Bible (start at §0)
+  assets/gods-eye-flow.png    # Public flow diagram (README)
   GODS_EYE_UNIFIED_STACK.md   # L0–L4 stack map (Memory Bank, hooks, index)
   GODS_EYE_PROJECT_INVENTORY.md  # Cross-repo adoption index (run scripts/scan-*.sh)
   GODS_EYE_GRAND_SPEC.md      # Router
@@ -95,8 +167,6 @@ examples/
 
 ---
 
----
-
 ## Related work
 
 Individual pieces of this problem exist elsewhere. God's Eye **does not replace** them — it **unifies** the doc-native slice (law, overlay, connected chain, `+#` ledger) in one portable stack.
@@ -109,7 +179,7 @@ Individual pieces of this problem exist elsewhere. God's Eye **does not replace*
 | [CORE](https://github.com/DariuszNewecki/CORE) · [aiConstitution](https://github.com/convergent-systems-co/aiConstitution) | Constitutional / hook governance at execution time | God's Eye is **soft-by-default** (Tier C, rules, optional Phase 3 gates); hard blocks are opt-in, not the default posture |
 | [AGENTS.md](https://agents.md/) | Standard project entry for coding agents | **Front door** in the chain; Bible + overlay remain the **law** |
 
-**Bottom line:** adopt the best ideas; reject duplicate memory trees and surveillance-shaped “oversight.” See [**Unified stack**](#unified-stack) for how layers fit together.
+**Bottom line:** adopt the best ideas; reject duplicate memory trees. See [**Unified stack**](#unified-stack) for how layers fit together.
 
 ---
 
@@ -133,4 +203,4 @@ The Bible references **BAIC doc 37** and **BigBrother** as the author's master c
 
 ---
 
-*God's Eye always watches — so the next agent does not start from zero.*
+*Remember the work. Protect the context. Prevent wasted effort.*

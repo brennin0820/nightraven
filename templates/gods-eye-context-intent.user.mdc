@@ -21,6 +21,8 @@ alwaysApply: true
 
 **Never:** New template `*.md` per cycle; serial reads; conflate user **"context"** with code `*Context` types; **import other repos' handoff**
 
-**After work:** Append handoff **Recent sessions**; changelog + learning log at Tier 2+; wire cross-links; one clarifying question max
+**After work:** Append handoff **Recent sessions** when asked; changelog + learning log at Tier 2+ when meaningful; wire cross-links; one clarifying question max
 
-**Task worthiness (Bible §2.8):** Default **plan/memory until user says code it / implement / build**; Q&A-only = no code path; **one Touch 3 AFTER per session**; **fresh thread + handoff** when context-heavy (~80%+); Multitask/subagents for **substantial** work only
+**Touch 3 (§2.8):** **Paused** — `~/.cursor/touch3.disabled` or project `.cursor/touch3.disabled`; skip session-close follow-up batch until re-enabled
+
+**Task worthiness (Bible §2.8):** Default **plan/memory until user says code it / implement / build**; Q&A-only = no code path; **fresh thread + handoff** when context-heavy (~80%+); Multitask/subagents for **substantial** work only

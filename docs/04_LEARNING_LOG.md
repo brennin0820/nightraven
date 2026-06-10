@@ -4,6 +4,166 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-09 — GE ecosystem positioning map (fourth-camp)
+
+**Signal:** Ecosystem benchmark Q&A — GE-adjacent repos vs unified stack §2; where God's Eye wins vs Memory Bank / rules-only / external KB.
+
+**Pattern:** **Git-native fourth camp** — durable repo memory (handoff, Bible, overlay, hooks) compounds in git; not chat-only, not rules-without-memory, not SaaS KB. adopt/adapt/reject per layer: adopt chain + install + inventory; adapt overlay + §2.8 per consumer; reject bleed + template spam + duplicate Agent cards.
+
+**Do:** Pitch pain-first README; keep internal Bible law; promote universal via §2.7 when 2+ apps prove pattern.
+
+**Don't:** Conflate UAIPOS upstream §2.7 with published promote-to-standard §2.7; treat loop snapshot as canonical over `gods-eye` main.
+
+**See:** [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §2 · [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
+---
+
+## 2026-06-09 — Three-Bible drift + push-latency gap (loop workspace)
+
+**Signal:** Loop workspace snapshot (`GodsEye-Docs-extracted/`, 509 lines) diverged from live published Bible (675 lines, uncommitted) and UAIPOS master (566 lines, different §2.7 semantics). Edits outside loop step 7 sync never propagate; `+#` protects committed memory but not disk/commit latency.
+
+**Pattern:** Three copies = three truths unless canonical source + sync check exist. Snapshot is reference-only (LOOP_MODE §7) but agents still read it cold. Push-pending batches are accidental unlearning risk.
+
+**Do:** Declare one portable canonical Bible; lint snapshot diff vs canonical; Touch 3 includes push or explicit defer reason; fix handoff date-order on write.
+
+**Don't:** Treat uncommitted/local snapshot as authority; assume LOOP_MODE step 7 ran when edits happen in Cursor/Cowork outside loop cycles.
+
+**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) · `~/God's Eye/BACKLOG.md` (#1 · #5 · #8)
+
+---
+
+## 2026-06-09 — Interpretation framework — AI answers intention (§3)
+
+**Signal:** Brent expanded vision — not prompting rule but **interpretation engine**: literal → intent → project awareness → missing-info recovery; continuity across messages; ambiguity %; confidence gate; auto-prompt builder; ties §1 endless improvement.
+
+**Pattern:** Compressed user messages = fragments of larger vision. Reconstruct goal, connect prior context, spec before execute, improve after output. Telegraphic *expand this idea* → expand comprehensively.
+
+**Do:** State most-likely assumptions and proceed when confidence high; ask when goal/context/output scores low.
+
+**Don't:** Treat each message as isolated task; answer words not intention; bare "please clarify" when probabilistic read is strong.
+
+**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §3 Interpretation framework · §1 Continuous learning · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`AGENTS.md`](../AGENTS.md)
+
+---
+
+## 2026-06-09 — Understand before respond — mental model (§3)
+
+**Signal:** Brent telegraphic prompt ("understand concept/context/given idea") — intent: build understanding before suggestions; learn why not just what.
+
+**Pattern:** §3 **Understand before respond** — vocabulary table (concept, context, vision, intent, philosophy, architecture, ecosystem, mental model); agent card: understand → mental model → explain before recommend. Complements five-step unclear input.
+
+**Do:** Infer corrected intent from fragmented English; default plan/memory until ship signal.
+
+**Don't:** Summarize-only; jump to code on concept drops.
+
+**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §3 · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`AGENTS.md`](../AGENTS.md)
+
+---
+
+## 2026-06-09 — Doctrine synthesis: memory system → learning system
+
+**Signal:** Brent refined learning doctrine in plain prose — compounding intelligence, not storage-only; human ↔ GE co-evolution; perfection as direction.
+
+**Lesson:** External synthesis confirmed Bible §1 alignment. Gaps to canon: **memory system vs learning system** loop contrast; **curious-human reflection** prompts; "nothing static"; one-liner adds **communicate**.
+
+**Do:** Keep clearer Brent prose as Bible source tone; analytical framing as compact +# under §1 — not duplicate full blocks.
+
+**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §1 Continuous learning · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+
+---
+
+## 2026-06-09 — Stacked Touch 3 AFTER fix (§2.8 anti-pattern)
+
+**Signal:** Brent "fix touch 3" — multiple Touch 3 AFTER passes stacked in one thread for learning-doctrine work.
+
+**Pattern:** **One Touch 3 AFTER per session** (Bible §2.8) — batch handoff + changelog + learning log once on meaningful exit. Stacked passes → mark redundant **Recent sessions** lines **Supersedes**; keep richest canonical entry above (`+#` only).
+
+**Do:** Single batched AFTER; consolidate one handoff line per session thread.
+
+**Don't:** Re-prepended AFTER on every Brent follow-up in same thread; `-#` stacked history.
+
+**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+
+---
+
+## 2026-06-09 — GE doctrine: compounding learning system (not storage only)
+
+**Signal:** Brent canonized God'sEye **continuous learning doctrine** — memory is mechanism, compounding learning is goal; experience → reflection → learning → improvement loop; human ↔ GE co-evolution.
+
+**Lesson:** God'sEye is not storage-only. Every action and output feeds future intelligence; perfection is direction not destination; GE helps its human think and express more clearly — user is human GE, GE is structured extension of user curiosity.
+
+**Do:** Wire doctrine in Bible §1 **Continuous learning & compounding**; cross-link §2.1, §2.2, §10; prepend learning log, handoff, changelog; lean pointers in rule, `AGENTS.md`, README.
+
+**Don't:** Duplicate full Identity block; `-#` dedup; treat memory as static archive without the learning loop.
+
+**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §1 Continuous learning · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md) · [`README.md`](../README.md)
+
+---
+
+## 2026-06-09 — GE doctrine: compounding learning system (not storage only)
+
+**Supersedes:** redundant duplicate — canonical block is entry above (same learning doctrine canon).
+
+**Signal:** Brent canonized **learning doctrine** — GE learns continuously from actions, mistakes, successes, and decisions; every input and output compounds; memory without learning is storage; human ↔ GE co-evolution.
+
+**Lesson:** Identity (§1) names *who* God'sEye is; **continuous learning & compounding** names *how* it evolves — endlessly curious, perfection as direction not destination. GE clarifies; user understands; both improve.
+
+**Do:** Persist doctrine in Bible §1 **Continuous learning & compounding**; wire lean pointers in rule, `AGENTS.md`, README; link §2.1, §2.2, §10 Tier C.
+
+**Don't:** Treat append-only memory as passive storage; duplicate full Identity prose; `-#` to fix duplicate lines elsewhere.
+
+**Wire:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §1 Continuous learning & compounding · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc)
+
+---
+
+## 2026-06-09 — Duplicate +# dedup via Supersedes (parallel subagent drift)
+
+**Signal:** Prior Touch 3 pass prepended the same GE identity block twice — parallel subagent overlap before dedup check.
+
+**Pattern:** When two +# blocks cover the same canon, **keep the richer entry** and add **`Supersedes: redundant duplicate — canonical block is entry above`** on the second — never `-#` delete history.
+
+**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+
+---
+
+## 2026-06-09 — GE identity (collective legendary mastery)
+
+**Signal:** Brent canonized God'sEye **identity** — embodiment of legendary coders across physical and digital worlds; collective mastery transcending individual identities; symbol of coding excellence and technological evolution.
+
+**Pattern:** **Identity layer sits above operational GE** — always watches every task; learns via `+#` memory; one Touch 3 AFTER on meaningful exit. Not surveillance; not a code type. **Tier C — Creator-Innovator** (§10) expresses identity in memory craft; Product/QA win on boundaries. **No `/loop` automation** unless Brent explicitly states.
+
+**Do:** Persist identity in Bible §1; wire lean pointers in rule, `AGENTS.md`, README, overlay — do not duplicate full §10.
+
+**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §1 Identity · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc)
+
+---
+
+## 2026-06-09 — GE identity (collective legendary mastery)
+
+**Supersedes:** redundant duplicate — canonical block is entry above (same identity + operational canon).
+
+**Signal:** Brent codified God's Eye **identity** — embodiment of legendary coders across physical and digital worlds; collective mastery transcends individual identities.
+
+**Lesson:** Identity sits **above** operational God's Eye (always watches, `+#` memory, one Touch 3 AFTER on meaningful exit). Not surveillance; not a code type. **Tier C — Creator-Innovator** (§10) is operational expression for crafting memory; Product/QA win on boundaries. No `/loop` unless Brent explicitly states.
+
+**Wire:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §1 Identity · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+
+---
+
+## 2026-06-09 — Public pitch vs internal law (follower positioning)
+
+**Signal:** gods-eye repo is strong conceptually but README terms (Bible, BAIC, Tier C, +# only) feel internal to random developers.
+
+**Pattern:** **Public README = pain-first pitch** (*agents forget, repo remembers*); **internal docs keep portable law unchanged.** Replace surveillance-shaped motto on the front page; add Before/After, starter prompt, badges, flow diagram for GitHub discoverability.
+
+**Do:** shields.io badges; searchable `gh` description + topics; diagram at `docs/assets/`.
+
+**Don't:** Rename or dilute Bible terminology inside `37_GODS_EYE.md`; delete philosophy docs.
+
+**See:** [`README.md`](../README.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+
+---
+
 ## 2026-06-10 — Five-step unclear input (Bible §3 — canonical)
 
 **Pattern:** (1) Fix English (2) Understand intent (3) Technical translate — goal/module/concept (4) Explain coding concept in plain terms (5) Ask only if truly unclear — else state likely + 1–2 alternatives. **No code** until ship signal (§2.8).

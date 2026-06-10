@@ -2,9 +2,13 @@
 
 **Local layer only.** Portable laws live in **`docs/37_GODS_EYE.md`** (vendored or at `$GODS_EYE_ROOT`).
 
-This file holds **this project's** vocabulary, boundaries, and disambiguation. Do not duplicate portable content — cross-link the Bible.
+This file holds **this project's** vocabulary, boundaries, and disambiguation. Do not duplicate portable content — cross-link the Bible. **Portable identity:** Bible §1 **Identity** (collective legendary mastery) — do not duplicate full prose here.
 
 **Router:** `docs/GODS_EYE_GRAND_SPEC.md` (if present)
+
+**Identity (portable):** Bible §1 — collective legendary mastery; do not duplicate full prose here.
+
+**Learning doctrine (portable):** Bible §1 **Continuous learning & compounding** — memory is mechanism; compounding is goal (§2.1 · §2.2 · §10); do not duplicate full prose here.
 
 **Default posture:** **Tier C — Creator-Innovator** (Bible §10). Product/QA win on product boundaries.
 
@@ -17,6 +21,8 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 | **Standard** | Cross-app stuff in this repo + `install.sh` — adopters get it by default (§2.7) |
 | **Local** | One-app product facts — overlay only until 2+ apps prove universal |
 | **Five-step unclear input** | Bible §3 — fix English · intent · technical translate · explain · ask if truly unclear |
+| **Understand before respond** | Bible §3 — mental model (concept, context, vision, philosophy, evolution); explain before recommend |
+| **Interpretation framework** | Bible §3 — intention not words; 4 layers, continuity, ambiguity resolver, usage protection, auto-prompt builder |
 
 ---
 
@@ -46,5 +52,6 @@ Read Bible **§0 Agent quick start** + **§2.8**. **Agent card:** `docs/GODS_EYE
 | Pitfall | Remember |
 |---------|----------|
 | **Code before ship signal** | Plan/memory until **code it** / **implement** / **build** — §2.8 |
-| **Heavy thread cost** | Context-heavy chat (~80%+) → fresh thread + handoff; one Touch 3 AFTER per session — §2.8 |
+| **Heavy thread cost** | Context-heavy chat (~80%+) → fresh thread + handoff — §2.8 |
+| **Touch 3 paused** | Brent 2026-06-09 — `.cursor/touch3.disabled` + `~/.cursor/touch3.disabled`; stop hook removed; skip session-close batch until re-enabled — see `HOOKS_SETUP.md` |
 | **Small-ask subagents** | Audits, vocabulary, docs-only — foreground only — §2.8 |
