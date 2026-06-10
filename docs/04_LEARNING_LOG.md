@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-10 — NightRaven ship name vs Xcode target (adopter vocabulary)
+
+**Signal:** Brent updating consumer app identity to **NightRaven** (BankrollCalendar); NGIA already uses `NightRaven*` platform types.
+
+**Pattern:** Separate **ship name** (NightRaven) from **Xcode target** (OneDayMillionaire until rename) from **repo folder** (BankrollCalendar) from **code domain** (`bankroll` enums). Gods-eye inventory may hold adoption **metadata** only; full overlay vocabulary lives in the app repo.
+
+**Do:** Update `gods-eye-projects.conf` label + project inventory §3; note next step in app-repo overlay §2 + handoff when Brent opens BankrollCalendar or says **code it** for Xcode rename.
+
+**Don't:** Rename Xcode target from gods-eye workspace without ship signal; collapse NGIA platform layer with product category (Gambling Tracker).
+
+**See:** [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) §3 · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §12 · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`AGENTS.md`](../AGENTS.md)
+
+---
+
 ## 2026-06-10 — GE vs implementation skills pack (orthogonal layers)
 
 **Signal:** Brent asked whether to merge addyosmani/agent-skills into God's Eye — high-star lifecycle skill pack overlaps naming (`context-engineering`) but not GE's project-evolution mission.

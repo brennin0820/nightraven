@@ -16,12 +16,12 @@ Related: [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) · [`37_GODS_E
 |-----------|------|-------------|--------------|----------|-------|
 | **gods-eye** (published) | Framework | **Phase 2** | Vendored `docs/37_GODS_EYE.md` | Full bootstrap | `.cursor/hooks.json` |
 | **UAIPOS** (master BAIC) | Constitution / master | **Phase 2** | Canonical for upstream §2.7; **vendor from** published `gods-eye` for §1/§3 doctrine | Full BAIC `docs/` | `.cursor/hooks.json` |
-| **BankrollCalendar** (OneDayMillionaire) | Consumer app | **Phase 1** | Pointer → UAIPOS Bible | Overlay + handoff + protocol | Via `install.sh` demo / user global |
+| **NightRaven (BankrollCalendar)** | Consumer app | **Phase 1** | Pointer → UAIPOS Bible | Overlay + handoff + protocol | Via `install.sh` demo / user global |
 | **~/.cursor** (user global) | Cursor-wide entry | **Phase 2** | Pointer → `Projects/gods-eye` | N/A (not a repo) | `hooks/gods-eye/` |
 
 ```text
 Experience (portable)     published gods-eye doc 37  ──vendor──►  UAIPOS master (upstream §2.7)
-App memory (local)        BankrollCalendar handoff/overlay ONLY in that repo
+App memory (local)        BankrollCalendar handoff/overlay ONLY in that repo (ship name **NightRaven**; Xcode target OneDayMillionaire until rename)
 User global               ~/.cursor rule + hooks — applies when project lacks local rule
 Loop snapshot             GodsEye-Docs-extracted/ — reference only; sync via scripts/sync-snapshot.sh
 ```
@@ -48,7 +48,7 @@ Run `./scripts/scan-gods-eye-projects.sh --markdown` to refresh this table:
 |-------|------|------|-------|-------|-----------|----------------------|
 | **gods-eye (published)** | `/Users/brentlenninorlanda/Projects/gods-eye` | framework | 2 | vendored | 15/16 | **2026-06-09** — post-merge audit VERIFIED; polish stale Touch 3 docs (`e2c4885`) |
 | **UAIPOS (master BAIC)** | `/Users/brentlenninorlanda/Projects/Universal_AI_Project_Operating_System` | master | 2 | vendored | 6/16 | **God'sEye isolation + fast start:** doc 37 §2.6 ↔ docs/35–36; BankrollCalendar chain pointers |
-| **OneDayMillionaire (BankrollCalendar)** | `/Users/brentlenninorlanda/Developer/BankrollCalendar` | app | 1 | UAIPOS pointer | 9/16 | **Cursor rules applied:** model/delegation efficiency; deduped always-applied context |
+| **NightRaven (BankrollCalendar)** | `/Users/brentlenninorlanda/Developer/BankrollCalendar` | app | 1 | UAIPOS pointer | 9/16 | **Ship name → NightRaven** — Xcode target still OneDayMillionaire until app-repo rename |
 | **Cursor user global** | `~/.cursor` | user-global | 2 | pointer | 3/3 | Always-on rule when no project rule |
 
 ---
@@ -88,12 +88,12 @@ Run `./scripts/scan-gods-eye-projects.sh --markdown` to refresh this table:
 
 ---
 
-### 3. BankrollCalendar / OneDayMillionaire (consumer app)
+### 3. BankrollCalendar / NightRaven (consumer app)
 
 | Field | Value |
 |-------|-------|
 | **Path** | `/Users/brentlenninorlanda/Developer/BankrollCalendar` |
-| **Product** | **Gambling Tracker** · brand **OneDayMillionaire** · repo folder `BankrollCalendar` |
+| **Product** | **Gambling Tracker** · ship name **NightRaven** · Xcode target **OneDayMillionaire** (until rename) · repo folder `BankrollCalendar` |
 | **L0–L4** | L0 app git · L1 `AGENTS.md` + rules · L2 Bible via **UAIPOS pointer** · L3 full overlay/handoff/protocol · L4 none in-repo (user global hooks) |
 | **Tier** | Tier 0 lean — principles via user constitution + master pointers |
 | **Bible pointer** | Overlay → `/Users/brentlenninorlanda/Projects/Universal_AI_Project_Operating_System/docs/37_GODS_EYE.md` |
@@ -103,7 +103,9 @@ Run `./scripts/scan-gods-eye-projects.sh --markdown` to refresh this table:
 | Layer | Name |
 |-------|------|
 | Product / category | Gambling Tracker |
-| Brand / Xcode target | OneDayMillionaire |
+| Brand / ship name | **NightRaven** |
+| Xcode target (until rename) | OneDayMillionaire |
+| Platform interaction (NGIA) | NightRaven* types (`NightRavenPlatformRoot`, …) |
 | Repo folder | BankrollCalendar |
 | Code domain | `bankroll` enums (keep after renames) |
 | Oversight (local) | God'sEye |
@@ -111,9 +113,9 @@ Run `./scripts/scan-gods-eye-projects.sh --markdown` to refresh this table:
 
 **Domain rules:** `gambling-tracker.mdc`, `model-delegation-efficiency.mdc`
 
-**App state (snapshot — read live handoff for current):** MVP complete (phases 0–17); 38 tests pass; Budget/Saving/Allowance/PayStub contexts shipped. **§2.8 adopter:** task-worthiness gate source `364cd1a` → gods-eye `bfad585` (2026-06-09).
+**App state (snapshot — read live handoff for current):** MVP complete (phases 0–17); NGIA POC (Phases 1–3); 38 tests pass; Budget/Saving/Allowance/PayStub contexts shipped. **§2.8 adopter:** task-worthiness gate source `364cd1a` → gods-eye `bfad585` (2026-06-09).
 
-**Isolation:** Handoff in this repo is **OneDayMillionaire only** — never paste into gods-eye or UAIPOS handoff.
+**Isolation:** Handoff in BankrollCalendar is **NightRaven app memory only** — never paste into gods-eye or UAIPOS handoff.
 
 ---
 

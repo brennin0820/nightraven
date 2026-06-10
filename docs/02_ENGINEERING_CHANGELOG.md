@@ -6,6 +6,13 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-10
 
+### NightRaven — consumer app ship name (inventory metadata)
+
+- +# Brent updating product identity to **NightRaven** (BankrollCalendar adopter) — NGIA platform naming aligns with ship name; **Xcode target/scheme still OneDayMillionaire** until explicit app-repo rename
+- +# Framework repo wired — `scripts/gods-eye-projects.conf` label, `GODS_EYE_PROJECT_INVENTORY.md` summary + §3 vocabulary layers; app overlay/handoff/changelog remain in BankrollCalendar (§2.6)
+
+**Cross-links:** [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §12 · [`scripts/gods-eye-projects.conf`](../scripts/gods-eye-projects.conf) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`AGENTS.md`](../AGENTS.md)
+
 ### agent-skills plan — status Q&A session close
 
 - +# Brent @-referenced merge-decision plan; agent verified wire already complete at `2fd264c` (unified stack §2·§6, overlay, `CURSOR_INSTALL.md`, `AGENTS.md`); no new vendor or wire this session — deferred items unchanged (install flag, research-map todos)

@@ -6,7 +6,7 @@
 
 ## Current state / focus
 
-Phase 2 **MCP memory-chain tools** on `origin/main` (`20adc26`). **GH007** push landed (noreply author + committer on rebased commits). **Open:** `git config user.email` still `brentlennin0820@gmail.com` (global + repo) — next commit re-exposes Gmail unless Brent sets noreply or agents use env on commit. **Next:** Brent sets noreply (`172115324+brennin0820@users.noreply.github.com`) · Claude adoption kit (#15).
+Phase 2 **MCP memory-chain tools** on `origin/main`. **Consumer app ship name:** **NightRaven** (BankrollCalendar repo; Xcode target still OneDayMillionaire until app-repo rename). **Open:** `git config user.email` still Gmail — GH007 risk on push without noreply env. **Next:** NightRaven app overlay/handoff vocabulary in BankrollCalendar · Brent noreply · Claude adoption kit (#15).
 
 ---
 
@@ -37,6 +37,7 @@ Phase 2 **MCP memory-chain tools** on `origin/main` (`20adc26`). **GH007** push 
 ---
 
 ## Recent sessions
+- **2026-06-10** — Touch 3 AFTER: **NightRaven ship name** — Brent updating consumer app identity to NightRaven (BankrollCalendar); wired `gods-eye-projects.conf`, `GODS_EYE_PROJECT_INVENTORY.md` §3, unified stack §12; Xcode target OneDayMillionaire unchanged until app-repo **code it**; app overlay/handoff deferred (§2.6); Record Everything (`+#` only); push-latency §2.8 pending this commit.
 - **2026-06-10** — Touch 3 AFTER: **agent-skills plan @ review** — Brent referenced `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md`; verified prior wire complete (`2fd264c`); summarized reject-core / optional-L4 verdict + deferred paths (install flag, research-map todos); Q&A only; Record Everything (`+#` only); pushed `7b90839` noreply author+committer; push-latency §2.8 satisfied.
 - **2026-06-10** — Touch 3 AFTER: **agent-skills plan wire complete + pushed** — unified stack §2 + §6, overlay vocabulary + chain, `CURSOR_INSTALL.md` optional pointer (upstream cursor-setup, not vendored), AGENTS.md Reference; pushed `8f3afe5` noreply author+committer; push-latency §2.8 satisfied; Record Everything (`+#` only).
 - **2026-06-10** — Touch 3 AFTER: **agent-skills plan executed** — unified stack §2 Adapt (optional L4) row + §6 blurb; overlay vocabulary + chain verified; `CURSOR_INSTALL.md` optional post-install pointer (upstream cursor-setup, not vendored); AGENTS.md Reference wired; Record Everything (`+#` only); **push deferred — uncommitted memory append** (origin synced at `97ecfbc`).
