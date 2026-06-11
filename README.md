@@ -148,6 +148,7 @@ git clone https://github.com/brennin0820/gods-eye.git
 cd gods-eye
 ./install.sh --user              # global Cursor rule + hooks (once per machine)
 ./install.sh ~/path/to/your-app  # per-project memory chain + hooks
+./scripts/install-gods-eye-nightraven.sh --user ~/path/to/your-app  # God's Eye + NightRaven Core
 ```
 
 See **[`docs/CURSOR_INSTALL.md`](docs/CURSOR_INSTALL.md)** for verification steps (Settings → Rules, Hooks, test session). If you are evaluating first, read the [Bible §0](docs/37_GODS_EYE.md) and the [example overlay](examples/overlay/GODS_EYE_REPO_OVERLAY.example.md) before installing.

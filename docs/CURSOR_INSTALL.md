@@ -154,9 +154,25 @@ See [`GODS_EYE_UNIFIED_STACK.md`](docs/GODS_EYE_UNIFIED_STACK.md) §2 · [`GODS_
 
 ---
 
+## God's Eye + NightRaven Core (combined)
+
+**Recommendation:** Install **both layers** on app projects — God's Eye for memory (handoff, hooks, Bible); **NightRaven Core** for adaptive orchestration (Builder/Auditor, ledgers). Do not merge repos; stack them.
+
+```bash
+cd ~/Projects/gods-eye   # or path to this clone
+chmod +x install.sh scripts/install-gods-eye-nightraven.sh
+
+# Once per machine + target app (e.g. NightRaven consumer repo)
+./scripts/install-gods-eye-nightraven.sh --user ~/Developer/NightRaven
+```
+
+Adds `.claude/skills/nightraven/`, `docs/ledgers/`, and overlay/AGENTS cross-links. Generic projects can use `./install.sh` only.
+
+---
+
 ## Claude Code adoption
 
-For **Claude Code** (not Cursor), see **[`docs/CLAUDE_ADOPTION.md`](docs/CLAUDE_ADOPTION.md)** — same vendor list (Bible, overlay, handoff, AGENTS), optional MCP, noreply git author (`172115324+brennin0820@users.noreply.github.com`), and hooks parity notes. Run `./install.sh` then wire `CLAUDE.md` entry points.
+For **Claude Code** (not Cursor), see **[`docs/CLAUDE_ADOPTION.md`](docs/CLAUDE_ADOPTION.md)** — same vendor list (Bible, overlay, handoff, AGENTS), optional MCP, noreply git author (`172115324+brennin0820@users.noreply.github.com`), and hooks parity notes. Run `./install.sh` then wire `CLAUDE.md` entry points. For NightRaven Core, run `./scripts/install-gods-eye-nightraven.sh` instead of `./install.sh` alone.
 
 ---
 
