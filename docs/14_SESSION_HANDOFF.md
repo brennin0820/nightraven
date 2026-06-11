@@ -115,6 +115,6 @@ Phase 2 **MCP memory-chain tools** on `origin/main`. **Consumer app:** **NightRa
 
 - **`+#` only** on memory docs — never `-#` or collapse **Recent sessions** / **Already done**
 - **This repo only** — no cross-repo handoff bleed
-- **Phase 2 hooks** — `sessionStart`/`stop` run Always Sync autosync (real git pull / safe-path commit / push, fail-open); `afterFileEdit` remains soft nudge; CORE law remains Bible + always-on rule; see [`HOOKS_SETUP.md`](HOOKS_SETUP.md)
+- **Phase 2 hooks** — `sessionStart`/`stop` run Always Sync autosync (real git pull / safe-path commit / push, fail-open); `afterFileEdit` remains soft nudge; CORE law remains Bible + always-on rule; see [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`.vscode/README.md`](../.vscode/README.md) (workspace editor settings)
 - **§2.7** — cross-app → standard; Brent does not repeat "add X"
 - **§3** — five-step unclear input; no code until ship signal (§2.8)

@@ -21,6 +21,14 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 **Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
 
+### Cursor/VS Code workspace editor settings (`4f7d808`)
+
+- +# **User vs workspace split** — global Cursor user `settings.json` for cross-project prefs; repo `.vscode/settings.json` for God's Eye docs/memory workflow
+- +# Workspace choices — `docs/` searchable; `mcp-server` build + secrets excluded; markdown no format-on-save (`+#` law); `.mdc` as markdown; PowerShell default terminal (matches Windows hooks); `git.autofetch` complements hook pull/push
+- +# Added `.vscode/settings.json`, `extensions.json`, [`.vscode/README.md`](../.vscode/README.md); `HOOKS_SETUP.md` ↔ workspace settings cross-link
+
+**Cross-links:** [`.vscode/README.md`](../.vscode/README.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
 ### Cursor Always Sync autosync hooks
 
 - +# **Always Sync enforcement in hooks** — `session-start.ps1` runs `git pull --ff-only`; `session-stop.ps1` runs pull → safe-path stage/commit → `git push origin HEAD` (fail-open; never force push; no `--no-verify`)

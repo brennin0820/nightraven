@@ -34,6 +34,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Cursor vs VS Code workspace settings split
+
+**Signal:** Brent asked to optimize editor settings for God's Eye agent workflow without breaking append-only memory docs or hook alignment.
+
+**Pattern:** Cursor and VS Code share `settings.json` schema but serve different scopes — **user** settings for global agent/perf prefs; **workspace** `.vscode/` for repo-specific docs indexing, `mcp-server` excludes, markdown format-on-save off, PowerShell terminal, and `git.autofetch` as light fetch between hook-driven Always Sync. Document the split in `.vscode/README.md`; wire `HOOKS_SETUP.md` ↔ workspace README so agents find both hook git behavior and editor config.
+
+**Do:** Keep `docs/` searchable; exclude only build artifacts and secrets; disable markdown format-on-save on memory chain; match default terminal to `hooks.json` on Windows.
+
+**Don't:** Put repo-specific God's Eye paths in user settings only; enable format-on-save on `+#` memory docs; treat `git.autofetch` as a substitute for session-boundary hook sync.
+
+**See:** [`.vscode/README.md`](../.vscode/README.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
+---
+
 ## 2026-06-11 — Governed Bypass Protocol
 
 **Signal:** Brent stated "rules are meant to be broken" and requested a formal bypass mechanism.
