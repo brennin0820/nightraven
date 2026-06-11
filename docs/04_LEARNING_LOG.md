@@ -6,6 +6,16 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Framework vs consumer app (God's Eye vs NightRaven Q&A)
+
+**Signal:** Brent asked how NightRaven and God's Eye relate — not a rename or merge question.
+
+**Pattern:** **God's Eye** = portable memory/oversight framework (this repo); **NightRaven** = consumer app + NightRaven Core orchestration (adopter repo, §2.6). Inventory may cite paths; never merge app handoff into framework memory. Division taxonomy TBD is a scope gate inside GE, not a product-version split.
+
+**See:** [`36_PROJECT_ISOLATION.md`](36_PROJECT_ISOLATION.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md)
+
+---
+
 ## 2026-06-11 — Claude adoption kit (#15) as chain doc, not template scaffold
 
 **Signal:** Strategic Q&A lane #15 — Claude Code adopters need same memory chain as Cursor without new `templates/` per cycle (§9 hard law).

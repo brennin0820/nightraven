@@ -6,6 +6,14 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Touch 3 AFTER — hook close (NightRaven vs God's Eye Q&A)
+
+- +# Brent asked relationship between **NightRaven** and **God's Eye**
+- +# Core clarified — God's Eye = memory/oversight **framework repo** (Bible, adoption, `+#` chain); NightRaven = **consumer app** + NightRaven Core orchestration in separate repo (§2.6); three division maps remain vocabulary layers; portable vs NightRaven-scoped taxonomy **TBD** unchanged
+- +# Hook stop — pull OK · no safe dirty · push skipped (not ahead); Q&A only; no code
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`36_PROJECT_ISOLATION.md`](36_PROJECT_ISOLATION.md) · [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md)
+
 ### Touch 3 AFTER — hook close (Q&A division scope + clean tree)
 
 - +# Brent asked whether portable standard vs NightRaven-scoped division maps and background subagent batches are "different versions"

@@ -37,6 +37,7 @@ Phase 2 **MCP memory-chain tools** on `origin/main`. **Consumer app:** **NightRa
 ---
 
 ## Recent sessions
+- **2026-06-11** — Touch 3 AFTER: **hook close — NightRaven vs God's Eye Q&A** — Brent asked relationship between NightRaven and God's Eye; Core clarified framework (memory, Bible, adoption) vs consumer app (NightRaven Core orchestration, separate repo §2.6); division taxonomy TBD unchanged; autosync clean tree; no code (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: **hook close — Q&A division scope + clean tree** — Brent asked whether portable vs NightRaven-scoped / subagent batches are "different versions"; Core clarified vocabulary layers vs scope slots vs sequential commits; autosync pull OK · no safe dirty · push skipped (not ahead); no code (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: **strategic Q&A recommendations batch** — executed all lanes (`35885eb`, `4f9f9b7`): Architect Division + repeated intentions + division taxonomy scope (overlay §1); Bible §9 Architect pointer; [`CLAUDE_ADOPTION.md`](CLAUDE_ADOPTION.md) (#15); Composer Brief §4 refresh; Windows autosync `lib.ps1` git-add fix; wired CURSOR_INSTALL + README + AGENTS; pushed `origin/main`; push-latency §2.8 satisfied (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: **strategic Q&A — what's next + session close** — Brent asked what God's Eye should do now; Core answered priority lanes (#15 Claude adoption kit · Architect Division memory wire · repeated intentions → overlay · autosync Windows hardening · fresh thread at ~80%); Ask mode — guidance only; (`+#` only).
