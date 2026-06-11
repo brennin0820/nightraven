@@ -6,6 +6,34 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Gap-fill polish answers reader decisions, not doctrine
+
+**Signal:** After the first README polish, Brent asked whether the gaps needed filling.
+
+**Pattern:** Public polish is incomplete if it only improves the slogan and first paragraph. The README also needs to answer the reader's next practical decisions: **Is this for my repo?** and **What does an agent actually do each session?** Add fit/session guidance before install rather than expanding the Bible.
+
+**Do:** Fill decision gaps with lightweight README sections and concrete artifact names.
+
+**Don't:** Use gap-filling as permission to add new framework laws, templates, or implementation behavior.
+
+**See:** [`README.md`](../README.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
+---
+
+## 2026-06-11 — Public polish should sharpen entry path, not expand doctrine
+
+**Signal:** Brent asked if God's Eye needed polish, then asked to save a backup before proceeding.
+
+**Pattern:** When the framework is structurally complete, Tier C polish should improve first-minute clarity and trust without inventing new layers: create a backup ref, tighten public README framing, remove duplicate headings, and leave memory law untouched except for one append-only Touch 3 record.
+
+**Do:** Prefer README/entry-path copy edits; record backup branch/HEAD; keep docs human-world useful.
+
+**Don't:** Treat polish as permission to rewrite the Bible, add templates, or trim append-only memory history.
+
+**See:** [`README.md`](../README.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §10
+
+---
+
 ## 2026-06-11 — External candidate shortlist (adjacent "god-tier" coders)
 
 **Signal:** Local registry is currently saturated at `gods-eye`, `UAIPOS`, `NightRaven`, and `~/.cursor`; the next useful expansion is outside this repo.

@@ -9,11 +9,18 @@
 
 **Local-first memory, coordination, and oversight for AI coding agents.**
 
-God's Eye helps AI coding agents work like disciplined senior engineers instead of forgetful code generators.
+God's Eye helps AI coding agents work like disciplined senior engineers instead of forgetful code generators. It watches **project work, not people**: decisions, files, handoffs, and lessons stay in the repo so agents do not restart from zero.
 
 > **Remember the work. Protect the context. Prevent wasted effort.**
 
-God's Eye watches project work, not people. It tracks decisions, files, handoffs, and lessons so agents do not restart from zero. **Identity & learning doctrine:** Bible §1 · **Default posture:** Tier C — Creator-Innovator (§10).
+## In 60 seconds
+
+- **What it is:** a portable, repo-native memory system for AI coding agents.
+- **What it is not:** user surveillance, a replacement for git, or a demand to code before the user asks.
+- **How agents use it:** read the rule + handoff first, classify intent, avoid duplicate work, validate changes, then append outcomes.
+- **How teams adopt it:** install the Cursor rule, add a repo overlay, keep handoff/changelog/learning logs append-only.
+
+**Identity & learning doctrine:** Bible §1 · **Default posture:** Tier C — Creator-Innovator (§10).
 
 It gives your project:
 
@@ -50,7 +57,27 @@ Works with **Cursor** today, and can be adapted for **Claude**, **Codex**, **Cha
 
 ---
 
-## How it works
+## Fit check
+
+God's Eye is a good fit when your repo has long-running AI work, multiple agent sessions, repeated context loss, or decisions that need to survive beyond one chat. Keep it lightweight for throwaway prototypes or one-off scripts where a short `AGENTS.md` note is enough.
+
+| If you need... | God's Eye gives you... |
+|----------------|------------------------|
+| Agents to remember prior decisions | `docs/14_SESSION_HANDOFF.md` plus append-only changelog and learning log |
+| Project-specific vocabulary | `docs/GODS_EYE_REPO_OVERLAY.md`, separate from portable law |
+| Safer multi-session work | Intent ladder, file-claiming discipline, and Recent sessions |
+| Optional automation later | Cursor hooks and MCP tools without making external services mandatory |
+
+## Normal agent session
+
+1. **Read first:** `AGENTS.md`, the God's Eye rule, the handoff, and relevant overlay.
+2. **Classify intent:** memory/wire by default; UI/copy or code only when the user asks for those layers.
+3. **Do the work:** avoid duplicate effort, respect project boundaries, validate the change.
+4. **Record the outcome:** append changelog, handoff, and learning log when the work changes durable project knowledge.
+
+---
+
+## Flow
 
 ![God's Eye agent flow](docs/assets/gods-eye-flow.png)
 
@@ -100,7 +127,7 @@ Think like a senior engineer.
 
 ---
 
-## How it works (60 seconds)
+## Operating rules (60 seconds)
 
 1. **Intent ladder** — Default stop: **memory + wire** (update durable docs and cross-links). Drop to UI/copy or code only when the user names those layers. See [§3 in the Bible](docs/37_GODS_EYE.md).
 2. **Always parallel** — Batch-read disjoint docs; run independent workstreams in parallel; one writer per file.
@@ -113,7 +140,7 @@ Think like a senior engineer.
 
 ## Quick start in your repo
 
-**Fastest path — one command:**
+**Fastest path:**
 
 ```bash
 git clone https://github.com/brennin0820/gods-eye.git
@@ -122,7 +149,7 @@ cd gods-eye
 ./install.sh ~/path/to/your-app  # per-project memory chain + hooks
 ```
 
-See **[`docs/CURSOR_INSTALL.md`](docs/CURSOR_INSTALL.md)** for verification steps (Settings → Rules, Hooks, test session).
+See **[`docs/CURSOR_INSTALL.md`](docs/CURSOR_INSTALL.md)** for verification steps (Settings → Rules, Hooks, test session). If you are evaluating first, read the [Bible §0](docs/37_GODS_EYE.md) and the [example overlay](examples/overlay/GODS_EYE_REPO_OVERLAY.example.md) before installing.
 
 **Manual path:**
 
