@@ -37,6 +37,7 @@
 ---
 
 ## Recent sessions
+- **2026-06-11** — Touch 3 AFTER: **Compass scope Q&A** — Brent **is scope monitor going to work** (meant Compass); read-only: Phase 1 dashboard scope works (`scopeWarnings` · scope locked · Not Now · ready-to-build); **Scope Map** nav + **Auditor Queue** = placeholders · mock only · no GE/git wire; verified `apps/compass` `npm install` + `npm run build` locally; no repo file changes; autosync stop: nothing to sync · `origin/main` @ `b1b139e` (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: **open HimFLer environment** — Brent **open environment for me**; `cursor E:\NightRaven\HimFLer` (new window · bootstrap stack ready); offered Compass `npm run dev` / Explorer — no repo file changes; autosync stop: nothing to sync · `origin/main` @ `b835806` (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: **HimFLer bootstrap shipped** — autosync stop: pull up to date · committed+pushed `origin/main` @ `044928a` (bootstrap script · hook `apps/*` safe paths · monorepo stragglers · memory); **Supersedes** "commit pending" on line below; **still local:** `.gitignore` (`apps/*/node_modules` etc.) — staged this close (`+#` only).
 - **2026-06-11** — **HimFLer bootstrap** — Brent **put ready for new project HimFLer**; shipped `scripts/bootstrap-nightraven-project.sh`; ran → `E:\NightRaven\HimFLer` (God's Eye + NightRaven Core · overlay · handoff · `PROJECT_QUICKSTART.md` · hooks · ledgers · git init); wired CURSOR_INSTALL · README · registry · autosync `apps/*` safe path; shipped `044928a`.

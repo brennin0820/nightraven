@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Compass “scope monitor” ≠ Scope Map (Phase 1 vs Later)
+
+**Signal:** Brent asked if **scope monitor** works — meant **NightRaven Compass** (`apps/compass/`).
+
+**Pattern:** Phase 1 scope guardrails live on the **Dashboard** only: `scopeWarnings.ts` · `isTaskReadyToBuild()` · scope locked · Not Now cards · mock `scopeProgress`. Sidebar **Scope Map** (`phase: Later`) and **Auditor Queue** (Phase 5) are **placeholder pages** — not live monitors. No repo or God's Eye handoff integration in MVP.
+
+**Do:** Run `cd apps/compass && npm install && npm run dev` for Phase 1 UI; point to [`MVP_ROADMAP.md`](../apps/compass/docs/MVP_ROADMAP.md) for Scope Map / Auditor Queue timing.
+
+**Don't:** Promise dedicated scope-monitor page or live creep detection until Phase 4–5 ship.
+
+**See:** [`apps/compass/README.md`](../apps/compass/README.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
+---
+
 ## 2026-06-11 — Greenfield NightRaven consumer via bootstrap script
 
 **Signal:** Brent asked to **put ready for use** a new project **HimFLer** — not another monorepo `apps/` subtree; separate consumer repo with full God's Eye + NightRaven Core stack.
