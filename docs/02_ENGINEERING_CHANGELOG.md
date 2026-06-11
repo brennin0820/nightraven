@@ -6,6 +6,14 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Touch 3 AFTER — hook close (Q&A division scope + clean tree)
+
+- +# Brent asked whether portable standard vs NightRaven-scoped division maps and background subagent batches are "different versions"
+- +# Core clarified — three division maps are **vocabulary layers** (GE proposal · NightRaven runtime · Bible §9 virtual teams), not product forks; portable vs NightRaven-scoped is a **scope slot** (overlay §1 TBD), not a version split; sequential subagent commits are timeline, not competing versions
+- +# Hook stop — pull OK · commit skipped (no safe dirty) · push skipped (not ahead); Q&A only; no code
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md)
+
 ### Touch 3 AFTER — strategic Q&A recommendations batch (execute all lanes)
 
 - +# **Architect Division** — overlay §1 vocabulary; Bible §9 pointer (gap map, not seventh virtual team); AGENTS Reference wired
