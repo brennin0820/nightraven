@@ -22,6 +22,8 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ## 2026-06-11 — Session-start pull skip mirrors stop fast path
 
+**Supersedes:** duplicate — canonical entry is the block above (lines 9–19).
+
 **Signal:** Improvements review ranked install parity and session-start pull skip after tasking-speed hooks shipped on stop/after-file-edit.
 
 **Pattern:** Autosync pull-skip is one policy (`GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC` + `.cursor/.autosync-session`) shared by **both** session-start and session-stop — avoids back-to-back pulls when opening multiple Agent chats or when stop runs on a clean tree right after start.
