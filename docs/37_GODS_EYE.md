@@ -35,6 +35,7 @@ Related: `docs/32_BIGBROTHER_OVERSIGHT.md`, `docs/35_FAST_START.md`, `docs/36_PR
 | **→ Project isolation** | **2.6** | Experience vs app memory — no cross-repo bleed (doc 36) |
 | **→ Promote universal to standard** | **2.7** | Cross-app docs/code → published default — Brent should not re-instruct |
 | **→ Task worthiness** | **2.8** | Plan until ship signal; one Touch 3 AFTER; fresh thread when heavy |
+| **→ Always sync + Governed bypass + Local vs cloud** | **2.9** | Pull before work; push after change; bypass needs approval; local = serial only |
 | **Brent's context intent ladder** | **3** | Memory + wire → UI/copy → code (default stops at memory) |
 | **→ Five-step unclear input** | **3** | Fix English · intent · technical translate · explain · ask if truly unclear |
 | **Vocabulary layers (pattern)** | **4** | Category / brand / repo / code — do not collapse |
@@ -70,6 +71,9 @@ Related: `docs/32_BIGBROTHER_OVERSIGHT.md`, `docs/35_FAST_START.md`, `docs/36_PR
 | **Other apps' memory?** | **Forbidden** — no handoff, paths, locks, or transcript bleed from other repos (§2.6; doc 36) |
 | **Universal across apps?** | Ship in `gods-eye` + install — Brent does not repeat "add X" (§2.7) |
 | **When to code?** | **Plan until ship signal** — §2.8; `code it` / `implement` / `build` drops to code |
+| **Sync?** | **Always sync** — pull before work; commit + push after every change (§2.9) |
+| **Override a rule?** | **Governed bypass** — explicit Brent approval first; no silent bypasses (§2.9) |
+| **Local LLM (LM Studio)?** | Serial only; no subagents; strict context pruning — `docs/GODS_EYE_LOCAL_VS_CLOUD.md` (§2.9) |
 
 ### Naming (use consistently)
 
@@ -298,6 +302,37 @@ App memory = what THIS project is and where it left off (local).
 **Push-latency law:** `+#` on memory docs is **not durable** until **`git push`** (or equivalent publish) succeeds. On meaningful Touch 3 exit when the repo has a remote: **push** before closing, **or** append **Recent sessions** with an explicit defer reason (e.g. `push deferred — <why>`). Never imply shipped state in handoff while commits are only local.
 
 **Promoted from consumer app sessions (§2.7):** BankrollCalendar / OneDayMillionaire — 2026-06-09.
+
+### 2.9 Always sync + Governed bypass + Local vs cloud
+
+**Always sync — pull before work; push after every change.**
+The git remote is the authoritative source of truth (§2 L0). Stale local state causes the next agent to re-derive what was already done.
+
+| Event | Action |
+|-------|--------|
+| Start of every session | `git pull` (or equivalent fetch + merge) before touching any file |
+| After every commit | `git push origin <branch>` before closing or writing handoff |
+| Push deferred | Append explicit defer reason to **Recent sessions** — never imply pushed state while local-only |
+
+**Governed bypass — explicit approval first; no silent overrides.**
+Every God'sEye law — including `+#` only, read tiers, and session-close protocol — may be bypassed **if and only if** Brent explicitly approves before the bypass is executed and the bypass demonstrably improves the codebase or workflow.
+
+| Step | Requirement |
+|------|-------------|
+| 1 | State the specific rule to be bypassed and the reason |
+| 2 | Ask Brent for explicit approval (a clear "yes" or "approved") |
+| 3 | Execute the bypass only after approval is granted |
+| 4 | Append a `+#` Governed Bypass log note to the learning log or handoff |
+
+**Local vs cloud — execution mode governs discipline, not memory.**
+The memory chain (Bible, overlay, handoff, rules) operates identically in both modes. What changes is how aggressively the agent reads context and whether it spawns subagents.
+
+| Mode | Provider | Discipline |
+|------|----------|------------|
+| **Local** | LM Studio (localhost) | Serial only; no subagents; Tiers 0–2 read gating; MCP snippet retrieval |
+| **Cloud** | Anthropic / Google / OpenAI | Full parallel reads + subagents; fresh thread at ~80% context capacity |
+
+Full rules, model recommendations, and LM Studio quickstart: [`docs/GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md).
 
 ---
 

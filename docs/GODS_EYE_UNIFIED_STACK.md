@@ -85,6 +85,8 @@ If L4 recall disagrees with git, **git wins**. Re-index or append a `+#` correct
 | **This-repo isolation** | L3 — no cross-repo handoff bleed (Bible §2.6) |
 | **Tier C default** | L2 — Creator-Innovator; Product/QA win on boundaries |
 | **Always parallel** | L1–L3 — batch-read disjoint paths; one writer per file |
+| **Always sync** | L0 — pull before work; commit + push after every change |
+| **Governed bypass** | L2 — any rule override requires explicit Brent approval first |
 
 ---
 
@@ -370,6 +372,9 @@ Phase 1 ──► Phase 2 ──► Phase 3
 | **Template spam** | New checklist files per session | Bible §9 — existing docs only |
 | **Tier creep** | Full chain read for one-line fix | Match tier to task (§2.5) |
 | **Hook law fork** | Hook prose duplicates Bible | Hooks enforce pointers to §0 — don't rewrite law |
+| **Forgotten sync** | Changes committed but not pushed; next agent reads stale state | Always Sync law — pull + push every change |
+| **Silent bypass** | Agent skips `+#` rule without asking | Governed Bypass requires explicit approval first |
+| **Local-mode subagents** | Spawning parallel agents under LM Studio; VRAM contention, hangs | Serial only in local mode — `docs/GODS_EYE_LOCAL_VS_CLOUD.md` §4 |
 
 ---
 
@@ -481,9 +486,11 @@ Registry file: `scripts/gods-eye-projects.conf` — add a line per new bootstrap
 
 **Session start (parallel):** rule → Bible §0 → overlay → handoff → `AGENTS.md`
 
-**Every real task:** three-touch · intent ladder default · `+#` only · this-repo dedup
+**Every real task:** three-touch · intent ladder default · `+#` only · this-repo dedup · always sync
 
 **Index disagreement:** git wins · append Supersedes · re-ingest
+
+**Local vs cloud:** `docs/GODS_EYE_LOCAL_VS_CLOUD.md` — LM Studio = serial + strict pruning; cloud = parallel + subagents + 80% fresh-thread rule
 
 ---
 

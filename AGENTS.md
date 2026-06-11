@@ -32,10 +32,12 @@
 - **Always watches** — every session reads chain, guards scope, appends outcomes
 - **Always learn** — append-only memory; **Supersedes** for corrections; never delete history
 - **Always parallel** — decompose independent workstreams; serialize only when write scopes overlap
+- **Always sync** — pull before work; commit + push after every change; no local-only commits (§2.3)
 - **This repo only** — no cross-repo app memory bleed (§2.6 · doc 36)
 - **Tier C leads** — craft, coherence, elegance, human-world gate (§10)
 - **Cross-app → standard** — promote universal patterns to published defaults (§2.7)
 - **Plan until code it** — default memory/wire until user says **code it** / **implement** / **build** (§2.8)
+- **Governed bypass** — any rule may be bypassed *only* with explicit Brent approval first; bypass must demonstrably improve the codebase
 - **Unclear input → §3 five steps** — fix English → understand intent → translate technical → explain plain → ask only if truly unclear
 
 ### Intent Ladder (answer **intention**, not words alone)
@@ -122,6 +124,9 @@ Every addition at one layer must **not** silently rename another.
 | **Assume Brent is wrong** | Run §3 five steps — fix English, honor intent |
 | **Stacked AFTER passes** | Batch once per session; do not add multiple memory updates in one thread |
 | **Unlearning** | No delete, trim, or rewrite of history — **Supersedes** for corrections |
+| **Forgetting to sync** | Always pull before work; always push after commit — no silent local-only state |
+| **Silent rule bypass** | Governed Bypass requires explicit Brent approval *first* — never assume implicit permission |
+| **Local-mode parallelization** | Serial only on LM Studio — no subagents; see `docs/GODS_EYE_LOCAL_VS_CLOUD.md` §4 |
 
 ---
 
@@ -192,6 +197,7 @@ When Brent gives a **concept, context, or idea** (even telegraphic) — infer: *
 - **Project isolation:** `docs/36_PROJECT_ISOLATION.md` — experience vs app memory, cross-repo rules
 - **Session handoff:** `docs/14_SESSION_HANDOFF.md` — current state, guardrails, already-done, recent sessions
 - **MCP (Phase 2, optional):** `docs/MCP_SETUP.md` — memory-chain tools (read, search, append Recent sessions); git authoritative
+- **Local vs Cloud execution:** `docs/GODS_EYE_LOCAL_VS_CLOUD.md` — LM Studio vs cloud frontier modes; model recommendations; agent rules by provider; LM Studio quickstart
 - **Research map (plan):** `.cursor/plans/god's_eye_research_map_b4b6f06f.plan.md` — external field overlaps vs GE differentiators; overlay §1 **Composed architecture** · **GIRMA**
 - **agent-skills merge (plan):** `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md` — reject core vendor; optional L4 implementation skills after ship signal; overlay §1 **Implementation skills pack (optional)** · [`CURSOR_INSTALL.md`](docs/CURSOR_INSTALL.md) optional post-install pointer · [`GODS_EYE_UNIFIED_STACK.md`](docs/GODS_EYE_UNIFIED_STACK.md) §2
 - **Improvement loop:** `templates/GODS_EYE_IMPROVEMENT_LOOP.md` — cycle prompt, virtual teams, logging rules
