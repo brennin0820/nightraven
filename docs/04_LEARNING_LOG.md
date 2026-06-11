@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Claude adoption kit (#15) as chain doc, not template scaffold
+
+**Signal:** Strategic Q&A lane #15 — Claude Code adopters need same memory chain as Cursor without new `templates/` per cycle (§9 hard law).
+
+**Pattern:** Ship adoption as **existing-chain doc** [`CLAUDE_ADOPTION.md`](CLAUDE_ADOPTION.md) + cross-links in `CURSOR_INSTALL.md` / README — not a new template folder. Contents: vendor list (37, overlay, handoff, AGENTS), optional MCP, noreply git author, hooks parity table (Cursor vs Claude manual discipline).
+
+**Do:** Wire overlay §3 chain row; AGENTS Reference pointer; keep install.sh path shared with Cursor.
+
+**Don't:** Create `templates/claude-*` scaffold; collapse Claude hooks into Cursor-only docs without parity note.
+
+**See:** [`CLAUDE_ADOPTION.md`](CLAUDE_ADOPTION.md) · [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md)
+
+---
+
 ## 2026-06-11 — Repeated intentions catalog (continuity engine)
 
 **Signal:** Brent asked for pre-coding orchestration **and** "repeated intentions" — not a feature build.

@@ -6,6 +6,24 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Touch 3 AFTER — strategic Q&A recommendations batch (execute all lanes)
+
+- +# **Architect Division** — overlay §1 vocabulary; Bible §9 pointer (gap map, not seventh virtual team); AGENTS Reference wired
+- +# **Repeated intentions (continuity engine)** — overlay §1 one-row Tier 1 summary; pointer handoff + Bible §3
+- +# **Division taxonomy scope** — overlay §1 marked **TBD** (portable standard vs NightRaven-scoped); no decision for Brent
+- +# **Claude adoption kit (#15)** — [`CLAUDE_ADOPTION.md`](CLAUDE_ADOPTION.md); CURSOR_INSTALL + README cross-links
+- +# **Composer Brief §4** — refreshed current state (MCP shipped, autosync, pre-coding plan, division taxonomy memory)
+- +# **Windows autosync fix** — `lib.ps1` `Invoke-GitSessionCommit` uses `Invoke-GitInRoot` batch add + per-file fallback; quoted path strip in `Get-SafeDirtyFiles`; `HOOKS_SETUP.md` troubleshooting (+#)
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`CLAUDE_ADOPTION.md`](CLAUDE_ADOPTION.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
+### Touch 3 AFTER — strategic Q&A session close (guidance only)
+
+- +# Brent asked what's next for God's Eye — Core answered five priority lanes: #15 Claude adoption kit · Architect Division memory wire · repeated intentions → overlay · autosync Windows hardening · fresh thread at ~80%
+- +# Ask mode — guidance only; execution deferred to follow-up agent run (`+#` only)
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`GODS_EYE_COMPOSER_BRIEF.md`](GODS_EYE_COMPOSER_BRIEF.md) §4
+
 ### Touch 3 AFTER — hook close (recommendations batch flush)
 
 - +# Hook stop — pull OK · commit skipped (no safe dirty at stop) · push skipped (not ahead)
