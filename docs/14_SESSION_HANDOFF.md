@@ -37,7 +37,9 @@ Phase 2 **MCP memory-chain tools** on `origin/main`. **Consumer app:** **NightRa
 ---
 
 ## Recent sessions
+- **2026-06-11** — Brent context: **design local vs cloud execution** — created local vs cloud execution design spec (`docs/GODS_EYE_LOCAL_VS_CLOUD.md`), detailed LM Studio optimizations, context pruning, and multi-agent resource allocations (`+#` only).
 - **2026-06-11** — Brent context: **always sync changes** — wired Always Sync rule into overlay vocabulary and rule files; all repository changes must be pulled and pushed immediately (`+#` only).
+
 - **2026-06-11** — Brent context: **rules are meant to be broken (Governed Bypass)** — wired Governed Bypass protocol into overlay vocabulary and rule files; agents may request rule bypasses if they obtain explicit approval first (`+#` only).
 
 - **2026-06-11** — Brent context: **always communicate to nightrave core** — wired rule (`gods-eye-context-intent.mdc`), added Nightrave core to overlay vocabulary (`GODS_EYE_REPO_OVERLAY.md`), and logged to session handoff (`+#` only).

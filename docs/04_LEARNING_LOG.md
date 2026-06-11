@@ -6,7 +6,22 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Local Offline vs Cloud Execution Gating
+
+**Signal:** Brent asked how to design God's Eye behavior "with and without LM Studio".
+
+**Pattern:** Resource availability (local VRAM/CPU/context size) dictation dictates agent workflow constraints. Local mode requires low-overhead serial executions, high handoff compaction, and strict context pruning. Cloud mode allows deep reasoning, large context continuity, and parallel multi-perspective loops but requires strict cost discipline.
+
+**Do:** Author standard environment-aware execution guidelines; check for local environments to bypass multi-agent loops and enforce strict context pruning.
+
+**Don't:** Deploy massive files or spawn parallel subagents in local execution spaces.
+
+**See:** [`GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
+---
+
 ## 2026-06-11 — Always Sync repository changes to prevent drift
+
 
 **Signal:** Brent requested "always download and upload all changes to repo every changes happens".
 

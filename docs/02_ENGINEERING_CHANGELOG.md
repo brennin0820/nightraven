@@ -6,7 +6,16 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Design local vs cloud execution modes
+
+- +# Authored local vs cloud execution design spec ([`GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md))
+- +# Detailed hardware, context window, and concurrency constraints for LM Studio local sessions
+- +# Documented parallel subagent loops, long-context continuity, and token-cost discipline for Cloud execution
+
+**Cross-links:** [`GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
 ### Always Sync changes workflow
+
 
 - +# Added **Always Sync** rule to overlay vocabulary (`GODS_EYE_REPO_OVERLAY.md`) and rule files (`gods-eye-context-intent.mdc`)
 - +# Configured workflow to run `git pull` followed by git add/commit/push on every change
