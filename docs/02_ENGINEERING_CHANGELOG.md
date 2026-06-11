@@ -25,8 +25,18 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - +# Built Phase 1 dashboard: app shell, sidebar placeholders, project status, current phase, next best action, progress, blocker, decision, Not Now, and recommended prompt card.
 - +# Verification: `npm run build` pass · `npm run lint` pass · desktop/mobile Chrome screenshots checked; Vite watcher ignores `.codex` after temp-profile crash.
 - +# No cloud remote configured for the new Compass repo this pass.
+- +# Brent local full-folder backup `E:\NightRaven\nightraven-compass.rar` (2026-06-11) — includes `.git` + `node_modules` + `.codex`; prefer git remote or slim archive (exclude `node_modules`, `.codex`, `dist`) for portable backups.
 
 **Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
+### Repository backup — local + cloud (20260611-132907)
+
+- +# Brent **make a backup** — synced `origin/main`; committed pending memory (Compass RAR Q&A) + this receipt
+- +# **Cloud:** annotated tag `backup/20260611-132907` pushed to `origin`
+- +# **Local:** `E:\NightRaven\gods-eye-1-backup-20260611-132907.zip` (`git archive`, tracked source only) + `E:\NightRaven\gods-eye-1-backup-20260611-132907.bundle` (full git history)
+- +# Scope — operational backup only; no product/law behavior changes
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
 
 ### Repository backup — local + cloud
 

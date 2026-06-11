@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Slim local backups for sibling repos without remote
+
+**Signal:** Brent shared `nightraven-compass.rar` (~181 MB) — full-folder backup of Compass while git remote still unset; bulk was `node_modules` + `.codex` Chrome profiles, not source.
+
+**Pattern:** For app repos with no cloud remote, **RAR/zip full tree** works as emergency restore but bloats fast. Prefer: (1) git remote + push, or (2) archive **source only** — exclude `node_modules`, `dist`, `.codex`, browser profiles; include `.git` if history matters.
+
+**Do:** Document backup path in gods-eye handoff (experience slot); restore via extract + `npm install`.
+
+**Don't:** Treat 180 MB RAR as the long-term sync mechanism when git remote is one command away.
+
+**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) (Compass Phase 1)
+
+---
+
 ## 2026-06-11 — Stop hooks must fail-open before followup_message
 
 **Signal:** Hooks review flagged `set -euo pipefail` on `session-stop.sh` — a failed handoff defer append could abort before `emit_followup_message`, silencing Touch 3 / Always Sync status.
