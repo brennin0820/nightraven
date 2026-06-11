@@ -216,6 +216,17 @@ gods_eye_git_session_commit() {
   if git -C "${project_root}" commit -m "chore(sync): session autosync [cursor hook]" 2>/dev/null; then
     printf 'Autosync commit: chore(sync): session autosync [cursor hook] (%s file(s)).' "${#safe_files[@]}"
   else
+    local last_author name email
+    last_author="$(git -C "${project_root}" log -1 --format='%an <%ae>' 2>/dev/null || true)"
+    if [[ "$last_author" =~ ^(.+)\ \<(.+)\>$ ]]; then
+      name="${BASH_REMATCH[1]}"
+      email="${BASH_REMATCH[2]}"
+      if git -C "${project_root}" -c "user.name=${name}" -c "user.email=${email}" \
+        commit -m "chore(sync): session autosync [cursor hook]" 2>/dev/null; then
+        printf 'Autosync commit: chore(sync): session autosync [cursor hook] (%s file(s)).' "${#safe_files[@]}"
+        return 0
+      fi
+    fi
     printf '%s' "Autosync commit failed (fail-open)."
   fi
 }
