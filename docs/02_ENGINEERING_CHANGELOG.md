@@ -6,6 +6,22 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### README gap-fill follow-up
+
+- +# Saved follow-up backup branch `backup/pre-gap-fill-20260611-184524` at `2251fdf9a9859b6e8a1bed717eaa298acb018412` before edits
+- +# Filled README decision gaps after polish feedback — added **Fit check** and **Normal agent session** sections so new readers can decide when to use God's Eye and see the concrete session loop before install
+- +# Scope stayed public README + append-only memory; no law rewrite, no new templates, no implementation files
+
+**Cross-links:** [`README.md`](../README.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
+### Tier C README polish + backup ref
+
+- +# Saved pre-polish backup branch `backup/pre-polish-20260611-184206` at `73fd0b27dd670f485d9f995a8959fda3cec2acc5` before edits
+- +# README first-minute polish — added **In 60 seconds** evaluation block, clarified project-work-not-people framing, renamed duplicate **How it works** heading to **Flow**, and tightened quick-start evaluation path
+- +# Scope stayed public-copy/entry-path only; no framework-law rewrite, no new templates, no implementation files
+
+**Cross-links:** [`README.md`](../README.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
 ### External candidate shortlist — adjacent "god-tier" coders
 
 - +# Local registry remains limited to `gods-eye`, `UAIPOS`, `NightRaven`, and `~/.cursor`; no new adopters found in-repo
