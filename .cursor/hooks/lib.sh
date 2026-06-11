@@ -463,8 +463,16 @@ gods_eye_git_session_commit() {
   fi
 
   if ! git -C "${project_root}" add -- "${safe_files[@]}" 2>/dev/null; then
-    printf '%s' "Autosync commit skipped — git add failed."
-    return 0
+    local added_any=0 path
+    for path in "${safe_files[@]}"; do
+      if git -C "${project_root}" add -- "$path" 2>/dev/null; then
+        added_any=1
+      fi
+    done
+    if [[ "$added_any" -eq 0 ]]; then
+      printf '%s' "Autosync commit skipped — git add failed."
+      return 0
+    fi
   fi
   if git -C "${project_root}" diff --cached --quiet 2>/dev/null; then
     printf '%s' "Autosync commit skipped — nothing staged after safe-path filter."
@@ -547,6 +555,6 @@ gods_eye_append_push_defer() {
     awk -v insert="$line" '
       /^## Recent sessions/ { print; print insert; next }
       { print }
-    ' "$handoff" > "$tmp" && mv "$tmp" "$handoff"
+    ' "$handoff" > "$tmp" 2>/dev/null && mv "$tmp" "$handoff" 2>/dev/null || true
   fi
 }

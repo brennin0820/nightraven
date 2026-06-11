@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "_comment": "God's Eye Phase 2 — project hooks for Unix/macOS/Git Bash. Installed by install.sh on non-Windows targets. Pause Touch 3 via .cursor/touch3.disabled. See docs/HOOKS_SETUP.md.",
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": ".cursor/hooks/run-hook.sh session-start",
+        "timeout": 30
+      }
+    ],
+    "stop": [
+      {
+        "command": ".cursor/hooks/run-hook.sh session-stop",
+        "timeout": 60,
+        "loop_limit": 1
+      }
+    ],
+    "afterFileEdit": [
+      {
+        "command": ".cursor/hooks/run-hook.sh after-file-edit",
+        "timeout": 5
+      }
+    ]
+  }
+}

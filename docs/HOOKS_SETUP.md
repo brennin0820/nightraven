@@ -48,6 +48,8 @@ Does **not** block edits or tool use.
 
 Does **not** force agent memory writes beyond autosync commit; Touch 3 follow-up is a reminder.
 
+**Autosync commit vs in-session commits:** On **stop**, hooks may auto-commit **safe paths only** (docs, `.cursor/`, memory chain, etc.) so session work is not left local-only — this is **Always Sync** at the session boundary. **During** a session, agents still follow the user/project rule: commit when Brent asks (or when explicitly instructed). Autosync never stages `.env`, credentials, keys, or paths outside the safe allowlist. If Brent says **do not commit** for in-flight work, that applies to the agent — the stop hook still runs fail-open autosync for already-saved safe files unless hooks are disabled.
+
 **Paused:** When `.cursor/touch3.disabled` or `~/.cursor/touch3.disabled` exists, Touch 3 follow-up batch is skipped — **autosync still runs**. Marker also adjusts `sessionStart` / `afterFileEdit` Touch 3 nudges. `.cursor/touch3.disabled` is gitignored locally.
 
 ### `afterFileEdit` → `.cursor/hooks/after-file-edit.ps1` (Windows) · `after-file-edit.sh` (Unix)
@@ -101,7 +103,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .cursor/hooks/session-start.
 powershell -NoProfile -ExecutionPolicy Bypass -File .cursor/hooks/session-stop.ps1
 ```
 
-**Unix / macOS / Git Bash:** point `hooks.json` at `.cursor/hooks/run-hook.sh session-start` (or call `.sh` directly). Shared logic lives in `lib.sh` / `lib.ps1`.
+**Unix / macOS / Git Bash:** `install.sh` copies `templates/hooks.project.unix.json` → `.cursor/hooks.json` with `run-hook.sh` dispatchers. Manual setup: point each hook at `.cursor/hooks/run-hook.sh session-start` (etc.). Shared logic lives in `lib.sh` / `lib.ps1`.
 
 **Manual setup:** Cursor **Settings → Hooks** must show the project hooks enabled. After editing `hooks.json`, restart Cursor or reload the window if hooks do not fire. Timeouts: 30s start, 60s stop (git network).
 
@@ -114,7 +116,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .cursor/hooks/session-stop.p
 | **Project** | `<repo>/.cursor/hooks.json` | `.cursor/hooks/*.ps1` (Windows) · `.cursor/hooks/*.sh` + `run-hook.sh` (Unix) |
 | **User (global)** | `~/.cursor/hooks.json` | `./hooks/gods-eye/*.sh` + `*.ps1` (relative to `~/.cursor/`) |
 
-`install.sh` copies **both** bash (`.sh`, `lib.sh`) and PowerShell (`.ps1`, `lib.ps1`) hook scripts for Windows/Unix parity. Project install uses `hooks.json` with PowerShell commands on Windows; user install defaults to bash paths in `templates/hooks.user.json` — swap to `.ps1` on Windows if preferred.
+`install.sh` copies **both** bash (`.sh`, `lib.sh`) and PowerShell (`.ps1`, `lib.ps1`) hook scripts for Windows/Unix parity. **Project install:** on Windows, `.cursor/hooks.json` uses PowerShell; on Unix/macOS/Git Bash, `templates/hooks.project.unix.json` → `run-hook.sh` dispatchers. User install defaults to bash paths in `templates/hooks.user.json` — swap to `.ps1` on Windows if preferred.
 
 User-level hooks resolve the active workspace via `workspace_roots` in hook stdin JSON and set `GODS_EYE_PROJECT_ROOT` / `GODS_EYE_ROOT` at `sessionStart`. Install with `./install.sh --user` — see [`CURSOR_INSTALL.md`](../CURSOR_INSTALL.md).
 

@@ -2,7 +2,8 @@
 # Gods Eye Phase 2 — stop (Touch 3 · After) + Always Sync commit/push
 # Soft follow-up: append Recent sessions (+# only) before ending. Fail-open on git errors.
 
-set -euo pipefail
+# Fail-open: never abort before followup_message (no set -e).
+set -uo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 # shellcheck source=lib.sh
@@ -30,7 +31,7 @@ else
 
   if [[ "$push_msg" == Autosync\ push\ failed* ]]; then
     reason="${push_msg#Autosync push failed (fail-open): }"
-    gods_eye_append_push_defer "$project_root" "$reason"
+    gods_eye_append_push_defer "$project_root" "$reason" || true
     sync_lines+=("Push defer recorded in docs/14_SESSION_HANDOFF.md Recent sessions (+# only).")
   fi
 fi
@@ -54,7 +55,7 @@ fi
 
 handoff_path="$(gods_eye_rel_path "$project_root" "docs/14_SESSION_HANDOFF.md")"
 
-message="Gods Eye · Touch 3 · AFTER — before you finish"
+message="God's Eye · Touch 3 · AFTER — before you finish"
 message+=$'\n\n'"**Always Sync [cursor hook]**"
 message+=$'\n'"${sync_block}"
 message+=$'\n\n'

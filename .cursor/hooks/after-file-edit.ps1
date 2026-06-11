@@ -41,7 +41,7 @@ if (-not (Test-MemoryChainPath $filePath)) {
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 . (Join-Path $ScriptDir 'lib.ps1')
 
-$message = "Gods Eye memory edit ($filePath):"
+$message = "God's Eye memory edit ($filePath):"
 $message += "`n`n- +# only - append; use **Supersedes** for corrections; never -# heading blocks or trim **Already done** / **Recent sessions**"
 $projectRoot = Get-GodsEyeProjectRoot $inputJson
 if (Test-GodsEyeTouch3Disabled $projectRoot) {

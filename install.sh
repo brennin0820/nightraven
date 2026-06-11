@@ -93,9 +93,16 @@ EOF
   log "mcp: .cursor/mcp.json + run-gods-eye-mcp.js/sh (build mcp-server/ first — see docs/MCP_SETUP.md)"
 }
 
+hooks_os_is_windows() {
+  case "$(uname -s 2>/dev/null)" in
+    MINGW*|MSYS*|CYGWIN*) return 0 ;;
+  esac
+  [[ "${OS:-}" == "Windows_NT" ]]
+}
+
 install_project_hooks() {
   local dest_root="$1"
-  local src_hooks dest_hooks
+  local src_hooks dest_hooks hooks_manifest
   src_hooks="$(cd "${GODS_EYE_ROOT}/.cursor/hooks" && pwd)"
   mkdir -p "${dest_root}/.cursor/hooks"
   dest_hooks="$(cd "${dest_root}/.cursor/hooks" && pwd)"
@@ -104,10 +111,18 @@ install_project_hooks() {
     cp "${GODS_EYE_ROOT}/.cursor/hooks/"*.ps1 "${dest_root}/.cursor/hooks/" 2>/dev/null || true
   fi
   chmod +x "${dest_root}/.cursor/hooks/"*.sh
-  if [[ "${GODS_EYE_ROOT}/.cursor/hooks.json" != "${dest_root}/.cursor/hooks.json" ]]; then
-    cp -f "${GODS_EYE_ROOT}/.cursor/hooks.json" "${dest_root}/.cursor/hooks.json"
+  hooks_manifest="${GODS_EYE_ROOT}/.cursor/hooks.json"
+  if ! hooks_os_is_windows; then
+    hooks_manifest="${GODS_EYE_ROOT}/templates/hooks.project.unix.json"
   fi
-  log "hooks: .cursor/hooks.json + .sh/.ps1 scripts (Windows: PowerShell; Unix: bash via run-hook.sh)"
+  if [[ "${hooks_manifest}" != "${dest_root}/.cursor/hooks.json" ]]; then
+    cp -f "${hooks_manifest}" "${dest_root}/.cursor/hooks.json"
+  fi
+  if hooks_os_is_windows; then
+    log "hooks: .cursor/hooks.json (PowerShell) + .sh/.ps1 scripts"
+  else
+    log "hooks: .cursor/hooks.json (run-hook.sh) + .sh/.ps1 scripts"
+  fi
 }
 
 merge_user_hooks_json() {

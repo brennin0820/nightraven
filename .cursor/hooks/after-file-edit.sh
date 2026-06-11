@@ -35,7 +35,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 # shellcheck source=lib.sh
 source "${SCRIPT_DIR}/lib.sh"
 
-message="Gods Eye memory edit (${file_path}):"
+message="God's Eye memory edit (${file_path}):"
 message+=$'\n\n'
 message+="- +# only — append; use **Supersedes** for corrections; never -# heading blocks or trim **Already done** / **Recent sessions**"
 project_root="$(gods_eye_project_root "$input")"
