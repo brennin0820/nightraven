@@ -6,6 +6,16 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Framework vs consumer merge ("become one")
+
+**Signal:** Brent asked what if NightRaven and God's Eye become only one — a scope decision, not a rename.
+
+**Pattern:** **"Become one"** = scope decision, not vocabulary collapse. Sane shapes: **monorepo + two boundaries** (`packages/gods-eye` + `apps/ios`), **brand-only merge**, or **absorption** paths. Do not collapse vocabulary layers (product/category · brand · repo · code domain · oversight). **Critical** governance if Brent chooses true product merge. Prefer NightRaven-scoped runtime + portable standard **or** monorepo with explicit package boundaries.
+
+**See:** entry below (framework vs consumer Q&A) · [`36_PROJECT_ISOLATION.md`](36_PROJECT_ISOLATION.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+
+---
+
 ## 2026-06-11 — Framework vs consumer app (God's Eye vs NightRaven Q&A)
 
 **Signal:** Brent asked how NightRaven and God's Eye relate — not a rename or merge question.

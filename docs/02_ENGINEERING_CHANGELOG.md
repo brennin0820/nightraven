@@ -6,6 +6,15 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Touch 3 AFTER — hook close (merge-to-one Q&A)
+
+- +# Brent asked what if **NightRaven** and **God's Eye** become only one
+- +# Core answered merge types (repo/brand/orchestrator/product), gains/losses, sane shapes (monorepo two boundaries, brand-only, absorption); recommended NightRaven-scoped runtime + portable standard **or** monorepo with `packages/gods-eye` + `apps/ios`
+- +# Do not collapse vocabulary layers; **Critical** governance if true product merge
+- +# Hook stop — pull OK · no safe dirty · push skipped (not ahead); Q&A only; no code
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`36_PROJECT_ISOLATION.md`](36_PROJECT_ISOLATION.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
 ### Touch 3 AFTER — hook close (NightRaven vs God's Eye Q&A)
 
 - +# Brent asked relationship between **NightRaven** and **God's Eye**
