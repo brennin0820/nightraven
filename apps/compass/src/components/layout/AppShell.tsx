@@ -17,7 +17,7 @@ export function AppShell({ activeView, children, onViewChange }: AppShellProps) 
       <main className="app-main">
         <header className="app-header">
           <div>
-            <p className="eyebrow">Phase 1 static dashboard</p>
+            <p className="eyebrow">{activeItem.phase} · NightRaven Compass</p>
             <h1>{activeItem.label}</h1>
           </div>
           <div className="header-status" aria-label="Current MVP constraints">

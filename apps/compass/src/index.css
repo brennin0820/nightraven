@@ -477,13 +477,228 @@ button {
   color: #475569;
 }
 
+.scope-page,
+.auditor-page {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.scope-page__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.scope-page h3,
+.auditor-page h3,
+.scope-table-card h3 {
+  margin: 0 0 10px;
+  color: #111827;
+  font-size: 15px;
+}
+
+.scope-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.scope-stats span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #334155;
+  font-size: 13px;
+  padding: 8px 10px;
+}
+
+.scope-stats strong {
+  color: #64748b;
+  font-size: 10px;
+  text-transform: uppercase;
+  margin-right: 4px;
+}
+
+.scope-list {
+  margin: 0;
+  padding-left: 18px;
+  color: #475569;
+  font-size: 13px;
+  display: grid;
+  gap: 6px;
+}
+
+.scope-list--in li {
+  color: #166534;
+}
+
+.scope-list--out li {
+  color: #7c2d12;
+}
+
+.scope-table-wrap {
+  overflow-x: auto;
+}
+
+.scope-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.scope-table th,
+.scope-table td {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 10px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.scope-table th {
+  color: #64748b;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.scope-table tbody tr[data-severity='block'] {
+  background: #fff1f2;
+}
+
+.scope-table tbody tr[data-severity='warn'] {
+  background: #fffbeb;
+}
+
+.scope-table-issues {
+  margin: 0;
+  padding-left: 16px;
+  color: #7c2d12;
+}
+
+.scope-table-ok {
+  color: #166534;
+  font-weight: 650;
+}
+
+.scope-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 750;
+  padding: 4px 8px;
+}
+
+.scope-badge--ok {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.scope-badge--warn {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.scope-badge--block {
+  background: #ffe4e6;
+  color: #be123c;
+}
+
+.scope-link-btn {
+  border: 1px solid #bfd1e8;
+  border-radius: 8px;
+  background: #e8f1ff;
+  color: #12315f;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 12px;
+}
+
+.scope-link-btn:hover {
+  background: #dbeafe;
+}
+
+.auditor-list {
+  display: grid;
+  gap: 12px;
+}
+
+.auditor-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.auditor-card__head h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.auditor-status {
+  border-radius: 999px;
+  background: #fff1f2;
+  color: #be123c;
+  font-size: 11px;
+  font-weight: 750;
+  padding: 5px 9px;
+  white-space: nowrap;
+}
+
+.auditor-status[data-forward='true'] {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.auditor-findings {
+  border: 1px solid #fde68a;
+  border-radius: 8px;
+  background: #fffbeb;
+  padding: 10px;
+  margin-top: 8px;
+}
+
+.auditor-findings--creep {
+  border-color: #fecdd3;
+  background: #fff1f2;
+}
+
+.auditor-findings strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #111827;
+  font-size: 12px;
+}
+
+.auditor-findings ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #475569;
+  font-size: 13px;
+}
+
+.auditor-clean {
+  margin: 0;
+  color: #166534;
+  font-size: 13px;
+  font-weight: 650;
+}
+
 @media (max-width: 1180px) {
   .app-shell {
     grid-template-columns: 250px minmax(0, 1fr);
   }
 
   .dashboard__summary,
-  .dashboard__grid {
+  .dashboard__grid,
+  .scope-page__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -513,6 +728,7 @@ button {
   .app-header,
   .dashboard__summary,
   .dashboard__grid,
+  .scope-page__grid,
   .split-list,
   .meta-grid,
   .meta-grid--two {

@@ -49,14 +49,14 @@ type NavItem = {
 
 export const navItems: NavItem[] = [
   { id: 'dashboard', label: 'Dashboard', phase: 'Phase 1', icon: Home },
-  { id: 'scope-map', label: 'Scope Map', phase: 'Later', icon: Map },
+  { id: 'scope-map', label: 'Scope Map', phase: 'Phase 1', icon: Map },
   { id: 'roadmap', label: 'Roadmap', phase: 'Phase 2', icon: Route },
   { id: 'priority-board', label: 'Priority Board', phase: 'Phase 2', icon: Columns3 },
   { id: 'coder-tasks', label: 'Coder Tasks', phase: 'Phase 2', icon: Code2 },
   { id: 'next-prompt', label: 'Next Prompt', phase: 'Phase 3', icon: MessageSquare },
   { id: 'ge-queue', label: "God's Eye Queue", phase: 'Phase 3', icon: Eye },
   { id: 'nr-queue', label: 'NR Queue', phase: 'Phase 3', icon: Hammer },
-  { id: 'auditor-queue', label: 'Auditor Queue', phase: 'Phase 5', icon: ShieldCheck },
+  { id: 'auditor-queue', label: 'Auditor Queue', phase: 'Phase 1', icon: ShieldCheck },
   { id: 'research-queue', label: 'Research Queue', phase: 'Later', icon: Search },
   { id: 'decisions', label: 'Decisions', phase: 'Phase 4', icon: GitBranch },
   { id: 'blockers', label: 'Blockers', phase: 'Phase 4', icon: AlertTriangle },

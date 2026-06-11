@@ -9,6 +9,7 @@ import {
   mockNotNowItems,
 } from '../../data/mockProject'
 import { calculateAuditProgress, calculateBuildProgress, calculateDecisionProgress } from '../../utils/progress'
+import type { NavItemId } from '../layout/navigation'
 import { PromptCard } from '../prompts/PromptCard'
 import { BlockerCard } from './BlockerCard'
 import { CurrentPhaseCard } from './CurrentPhaseCard'
@@ -17,8 +18,9 @@ import { NextBestActionCard } from './NextBestActionCard'
 import { NotNowCard } from './NotNowCard'
 import { ProgressSummaryCard } from './ProgressSummaryCard'
 import { ProjectStatusCard } from './ProjectStatusCard'
+import { ScopeMonitorCard } from './ScopeMonitorCard'
 
-export function DashboardPage() {
+export function DashboardPage({ onViewChange }: { onViewChange?: (view: NavItemId) => void }) {
   const currentPhase =
     mockPhases.find((phase) => phase.id === mockProject.currentPhaseId) ?? mockPhases[0]
   const nextBestTask =
@@ -42,6 +44,7 @@ export function DashboardPage() {
       </div>
 
       <div className="dashboard__grid">
+        <ScopeMonitorCard onOpenScopeMap={(view) => onViewChange?.(view)} />
         <CurrentPhaseCard phase={currentPhase} />
         <ProgressSummaryCard progress={calculatedProgress} />
         <BlockerCard blocker={blocker} />
