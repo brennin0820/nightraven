@@ -142,12 +142,12 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 **Cross-links:** Full wiring pass across `docs/` + `templates/` + AGENTS.md · commit `bb54d80` + `cf5b3db`
 
-
+### MCP launcher automatic dependency installation
 
 - +# Added automatic dependency installation (`npm install`) and compile build (`npm run build`) logic directly into Node MCP launcher
 - +# Updated template (`templates/mcp/run-gods-eye-mcp.js`) and active workspace instance (`.cursor/mcp/run-gods-eye-mcp.js`)
 
-**Cross-links:** [`templates/mcp/run-gods-eye-mcp.js`](../templates/mcp/run-gods-eye-mcp.js) · [`.cursor/mcp/run-gods-eye-mcp.js`](run-gods-eye-mcp.js) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+**Cross-links:** [`templates/mcp/run-gods-eye-mcp.js`](../templates/mcp/run-gods-eye-mcp.js) · [`.cursor/mcp/run-gods-eye-mcp.js`](../.cursor/mcp/run-gods-eye-mcp.js) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
 
 ### Design local vs cloud execution modes
 
