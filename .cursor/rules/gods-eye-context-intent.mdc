@@ -22,22 +22,14 @@ alwaysApply: true
 
 **Learning doctrine (Supersedes: redundant duplicate — canonical line above):** Bible §1 Continuous learning & compounding — memory + learning compound; not storage only (§2.1 · §2.2 · §10)
 
-**Laws:** **`+#` only`** · never `-#` · **always parallel** · **this repo only** · **Tier C** · **cross-app → standard** (§2.7)
-
+**Laws:** **`+#` only** · never `-#` · **always parallel** · **always sync** · **this repo only** · **Tier C** · **cross-app → standard** (§2.7)
 **Ladder:** Memory → wire → UI/copy → code — default stops at memory unless user names screen/label/behavior/implement
-
 **Unclear input (§3):** (1) Fix English (2) Understand intent (3) Technical translate — goal/module/concept (4) Explain in plain terms (5) Ask only if truly unclear. **No code** until user asks (§2.8).
-
 **Understand before respond (§3):** Build mental model (idea, context, vision, philosophy, evolution) — explain understanding before recommendations; learn why not just what
-
 **Interpretation framework (§3):** Answer intention not words — 4 layers, continuity, ambiguity %, confidence gate, auto-prompt expand; link §1 compounding
-
 **Never:** New template `*.md` per cycle; serial reads; conflate user **"context"** with code `*Context` types; **import other repos' handoff**
-
 **After work:** Append handoff **Recent sessions** when asked; changelog + learning log at Tier 2+ when meaningful; wire cross-links; one clarifying question max
-
 **Touch 3 (§2.8):** One AFTER per session; **push-latency** — push or explicit defer in Recent sessions (Bible §2.8)
-
 **Task worthiness (Bible §2.8):** Default **plan/memory until user says code it / implement / build**; Q&A-only = no code path; **fresh thread + handoff** when context-heavy (~80%+); Multitask/subagents for **substantial** work only
 
 **Nightrave core:** Always communicate context, status, and findings to the nightrave core.
@@ -45,4 +37,3 @@ alwaysApply: true
 **Governed Bypass:** Rules (including `+#` only) may be bypassed *if and only if* explicit user approval is requested and granted, and the change is demonstrably for the better.
 
 **Always Sync:** Always download (pull/fetch) and upload (commit/push) all changes to the repository every time a change happens.
-
