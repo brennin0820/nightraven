@@ -1,23 +1,23 @@
 {
   "version": 1,
-  "_comment": "God's Eye Phase 2 — optional soft hooks. Pause Touch 3 via .cursor/touch3.disabled marker (session-stop.sh no-ops); do not remove stop hook. See docs/HOOKS_SETUP.md.",
+  "_comment": "God's Eye Phase 2 — soft hooks + Always Sync autosync (git pull/commit/push). Windows: PowerShell; Unix: run-hook.sh dispatcher. Pause Touch 3 via .cursor/touch3.disabled. See docs/HOOKS_SETUP.md.",
   "hooks": {
     "sessionStart": [
       {
-        "command": ".cursor/hooks/session-start.sh",
-        "timeout": 5
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .cursor/hooks/session-start.ps1",
+        "timeout": 30
       }
     ],
     "stop": [
       {
-        "command": ".cursor/hooks/session-stop.sh",
-        "timeout": 5,
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .cursor/hooks/session-stop.ps1",
+        "timeout": 60,
         "loop_limit": 1
       }
     ],
     "afterFileEdit": [
       {
-        "command": ".cursor/hooks/after-file-edit.sh",
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .cursor/hooks/after-file-edit.ps1",
         "timeout": 5
       }
     ]

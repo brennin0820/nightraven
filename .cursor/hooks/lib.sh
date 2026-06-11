@@ -130,3 +130,137 @@ gods_eye_touch3_disabled() {
   fi
   return 1
 }
+
+# --- Always Sync (git autosync; fail-open) ---
+
+gods_eye_is_git_repo() {
+  local project_root="$1"
+  [[ -d "${project_root}/.git" ]]
+}
+
+gods_eye_is_secret_path() {
+  local path="${1//\\//}"
+  case "$path" in
+    .env|.env.*|*/.env|*/.env.*|credentials.json|*/credentials.json|\
+    *.pem|*/secrets/*|secrets/*|*/id_rsa|*/id_rsa.*|*/.npmrc|auth.json|*/auth.json)
+      return 0 ;;
+  esac
+  return 1
+}
+
+gods_eye_is_safe_autosync_path() {
+  local path="${1//\\//}"
+  if gods_eye_is_secret_path "$path"; then
+    return 1
+  fi
+  case "$path" in
+    docs/*|.cursor/*|templates/*|examples/*|scripts/*|mcp-server/*|\
+    AGENTS.md|README.md|CHANGELOG.md|LICENSE|install.sh)
+      return 0 ;;
+  esac
+  return 1
+}
+
+gods_eye_git_pull_ff_only() {
+  local project_root="$1"
+  if ! gods_eye_is_git_repo "$project_root"; then
+    printf '%s' "Autosync pull skipped — not a git repository."
+    return 0
+  fi
+  local output
+  if output="$(git -C "${project_root}" pull --ff-only 2>&1)"; then
+    local summary
+    summary="$(printf '%s\n' "$output" | tail -n 3 | tr '\n' ' ')"
+    [[ -z "$summary" ]] && summary="Already up to date."
+    printf 'Autosync pull: %s' "$summary"
+  else
+    local detail
+    detail="$(printf '%s\n' "$output" | tail -n 2 | tr '\n' ' ')"
+    printf 'Autosync pull failed (fail-open): %s' "$detail"
+  fi
+}
+
+gods_eye_git_session_commit() {
+  local project_root="$1"
+  local safe_files=() line path
+  if ! gods_eye_is_git_repo "$project_root"; then
+    printf '%s' "Autosync commit skipped — not a git repository."
+    return 0
+  fi
+  while IFS= read -r line; do
+    [[ -z "$line" ]] && continue
+    path="${line:3}"
+    path="${path# }"
+    if [[ "$path" == *" -> "* ]]; then
+      path="${path##* -> }"
+    fi
+    path="${path//\\//}"
+    if gods_eye_is_safe_autosync_path "$path"; then
+      safe_files+=("$path")
+    fi
+  done < <(git -C "${project_root}" status --porcelain 2>/dev/null || true)
+
+  if [[ ${#safe_files[@]} -eq 0 ]]; then
+    printf '%s' "Autosync commit skipped — no safe tracked changes (docs/.cursor/AGENTS/README or secret paths excluded)."
+    return 0
+  fi
+
+  if ! git -C "${project_root}" add -- "${safe_files[@]}" 2>/dev/null; then
+    printf '%s' "Autosync commit skipped — git add failed."
+    return 0
+  fi
+  if git -C "${project_root}" diff --cached --quiet 2>/dev/null; then
+    printf '%s' "Autosync commit skipped — nothing staged after safe-path filter."
+    return 0
+  fi
+  if git -C "${project_root}" commit -m "chore(sync): session autosync [cursor hook]" 2>/dev/null; then
+    printf 'Autosync commit: chore(sync): session autosync [cursor hook] (%s file(s)).' "${#safe_files[@]}"
+  else
+    printf '%s' "Autosync commit failed (fail-open)."
+  fi
+}
+
+gods_eye_git_push_if_ahead() {
+  local project_root="$1"
+  local branch upstream ahead output
+  if ! gods_eye_is_git_repo "$project_root"; then
+    printf '%s' "Autosync push skipped — not a git repository."
+    return 0
+  fi
+  branch="$(git -C "${project_root}" rev-parse --abbrev-ref HEAD 2>/dev/null || true)"
+  [[ -z "$branch" ]] && { printf '%s' "Autosync push skipped — could not resolve branch."; return 0; }
+  upstream="origin/${branch}"
+  if ! git -C "${project_root}" rev-parse --verify "${upstream}" >/dev/null 2>&1; then
+    printf 'Autosync push skipped — no upstream %s.' "$upstream"
+    return 0
+  fi
+  ahead="$(git -C "${project_root}" rev-list --count "${upstream}..HEAD" 2>/dev/null || echo 0)"
+  if [[ "${ahead}" -le 0 ]]; then
+    printf 'Autosync push skipped — not ahead of %s.' "$upstream"
+    return 0
+  fi
+  if output="$(git -C "${project_root}" push origin HEAD 2>&1)"; then
+    printf 'Autosync push: origin/%s (%s commit(s)).' "$branch" "$ahead"
+  else
+    local detail
+    detail="$(printf '%s\n' "$output" | tail -n 2 | tr '\n' ' ')"
+    printf 'Autosync push failed (fail-open): %s' "$detail"
+  fi
+}
+
+gods_eye_append_push_defer() {
+  local project_root="$1"
+  local reason="$2"
+  local handoff="${project_root}/docs/14_SESSION_HANDOFF.md"
+  local today line tmp
+  [[ -f "$handoff" ]] || return 0
+  today="$(date +%Y-%m-%d)"
+  line="- **${today}** — Autosync push deferred [cursor hook]: ${reason}"
+  if grep -q '## Recent sessions' "$handoff" 2>/dev/null; then
+    tmp="${handoff}.autosync.tmp"
+    awk -v insert="$line" '
+      /^## Recent sessions/ { print; print insert; next }
+      { print }
+    ' "$handoff" > "$tmp" && mv "$tmp" "$handoff"
+  fi
+}

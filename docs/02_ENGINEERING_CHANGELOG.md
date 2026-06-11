@@ -6,6 +6,17 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Cursor Always Sync autosync hooks
+
+- +# **Always Sync enforcement in hooks** — `session-start.ps1` runs `git pull --ff-only`; `session-stop.ps1` runs pull → safe-path stage/commit → `git push origin HEAD` (fail-open; never force push; no `--no-verify`)
+- +# Added `.cursor/hooks/lib.ps1`, `session-start.ps1`, `session-stop.ps1`, `after-file-edit.ps1`; updated bash `lib.sh`, `session-start.sh`, `session-stop.sh`; added `run-hook.sh` Unix dispatcher
+- +# Updated `.cursor/hooks.json` — PowerShell commands, 30s/60s timeouts for git network
+- +# Safe commit scope: `docs/`, `.cursor/`, templates, examples, scripts, mcp-server, AGENTS.md, README.md; excludes `.env` and secret patterns
+- +# Push failure appends defer line to `docs/14_SESSION_HANDOFF.md` Recent sessions (+# only)
+- +# `docs/HOOKS_SETUP.md` — Always Sync autosync section, Windows vs Unix paths, troubleshooting
+
+**Cross-links:** [`.cursor/hooks.json`](../.cursor/hooks.json) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
 ### Bible §2.9 — Always Sync + Governed Bypass + Local vs Cloud
 
 - +# Added **§2.9** to `37_GODS_EYE.md` as a new portable law section covering Always Sync, Governed Bypass protocol, and Local vs Cloud execution modes

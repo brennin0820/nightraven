@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# God's Eye Phase 2 — sessionStart (Touch 1 · Before)
-# Soft reminder: read handoff + chain before substantive work.
+# God's Eye Phase 2 — sessionStart (Touch 1 · Before) + Always Sync pull
+# Soft reminder: read handoff + chain before substantive work. Fail-open on git errors.
 
 set -euo pipefail
 
@@ -17,8 +17,12 @@ if [[ ! -f "${project_root}/${bible_hint}" ]]; then
   bible_hint="${gods_eye_root}/docs/37_GODS_EYE.md"
 fi
 
+pull_msg="$(gods_eye_git_pull_ff_only "$project_root")"
+
 message="$(cat <<EOF
 God's Eye · Touch 1 · BEFORE (soft reminder — not a hard block)
+
+Always Sync · session start: ${pull_msg}
 
 Three-touch: Before → During → After on every real task.
 
