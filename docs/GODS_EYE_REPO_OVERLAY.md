@@ -29,7 +29,8 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 | **Nightrave core** | The central communication hub/engine for the NightRaven ecosystem; agents must always communicate context/status to this core |
 | **Governed Bypass** | Rules (such as `+#` only) may be bypassed if the agent explicitly obtains Brent's approval first and the bypass benefits the codebase/workflow |
 | **Always Sync** | Always download (pull/fetch) and upload (commit/push) all changes to the repository every time a change happens |
-
+| **Local mode** | Agent execution under LM Studio — serial, strict context pruning, no subagents; see [`GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md) |
+| **Cloud mode** | Agent execution under cloud frontier models — parallel reads, subagents allowed, fresh thread at 80% context; see [`GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md) |
 
 ---
 
@@ -67,3 +68,6 @@ Read Bible **§0 Agent quick start** + **§2.8**. **Agent card:** `docs/GODS_EYE
 | **Heavy thread cost** | Context-heavy chat (~80%+) → fresh thread + handoff — §2.8 |
 | **Push-latency** | Bible §2.8 — push before Touch 3 exit or explicit defer in Recent sessions |
 | **Small-ask subagents** | Audits, vocabulary, docs-only — foreground only — §2.8 |
+| **Forgetting Always Sync** | Every change must be pulled then pushed — no local-only commits when remote is configured |
+| **Rule bypass without approval** | Governed Bypass requires explicit Brent approval first — never silently bypass `+#` only |
+| **Local mode parallelization** | No subagents or parallel reads on LM Studio — serial only; see `GODS_EYE_LOCAL_VS_CLOUD.md` §4 |
