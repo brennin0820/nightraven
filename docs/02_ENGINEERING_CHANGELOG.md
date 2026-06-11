@@ -6,6 +6,13 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Touch 3 AFTER — changelog orphaned MCP section fix (`3a0e23f`)
+
+- +# Bug report lines 114–117 — **not orphaned** (belongs to Cursor Always Sync autosync hooks section)
+- +# Fixed real orphan — MCP launcher bullets lacked `###` heading; added **MCP launcher automatic dependency installation**; corrected `.cursor/mcp/run-gods-eye-mcp.js` cross-link
+
+**Cross-links:** [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
 ### Touch 3 AFTER — combined God's Eye + NightRaven installer (`276fe5e`)
 
 - +# Shipped [`scripts/install-gods-eye-nightraven.sh`](../scripts/install-gods-eye-nightraven.sh) — wraps `install.sh`, adds NightRaven skill + ledgers + overlay/AGENTS cross-links
