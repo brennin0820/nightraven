@@ -39,6 +39,39 @@ Analyze: **user intent · complexity · risk · scope · affected systems · req
 | **LOW + ≤2 files + user said code it** | Condensed assessment (5 lines max) — divisions/agents/tools enumerated; no re-approval if bounds still hold |
 | **Read-only Q&A / audit** | Phase 0 read-only only — no Build Ledger; no approval gate |
 
+### Pre-coding gate (before mutating writes on MEDIUM+ or UI work)
+
+When Brent runs the pre-coding card or scope touches UI/UX, run this **read-only** sequence before Phase 0 approval:
+
+1. **Correct** — fix English; confirm literal vs intended ask
+2. **Intent** — one-line goal; ladder layer (memory / wire / UI / code)
+3. **Domains** — affected paths, modules, risk surfaces
+4. **Division combos** — pick minimum execution path (table below)
+5. **God's Eye Final Report** — present verdict block; wait for approval on MEDIUM+
+
+### Execution-path combo matrix (runtime — minimum set)
+
+| Combo | When | Divisions |
+|---|---|---|
+| **Builder** | TRIVIAL/LOW non-UI logic; user said code it | Builder (Feature Builder) |
+| **Builder + Auditor** | LOW default; any logic change | Builder + General Auditor |
+| **Builder + Design** | UI copy, layout, tokens, components, screens | Builder + Design (read-only first) |
+| **Builder + Auditor + Design** | MEDIUM UI feature or visible behavior change | All three — Design before Builder implements |
+| **+ Planning / Research** | MEDIUM+ new feature, unknown API, architecture | Add per Adaptive Division Activation Matrix |
+
+**UI domain tag:** any task naming screen, label, component, layout, or design system → minimum **Builder + Design**.
+
+### Risk label map (user/protocol → NightRaven matrix)
+
+| User / protocol label | NightRaven complexity | Notes |
+|---|---|---|
+| Low | TRIVIAL or LOW | Use LOW bounds (≤2 files, ≤50 lines, no schema/auth) |
+| Medium | MEDIUM | Planning + approval gate |
+| High | HIGH | Security/Performance auditors as matrix requires |
+| Critical | CRITICAL | Full matrix; `/audit` only on user request or CRITICAL ask |
+
+Do **not** replace the TRIVIAL→CRITICAL matrix — this table reconciles external labels only.
+
 Produce a **Task Assessment Report** and present it to the user **before the first write occurs — at every level, including TRIVIAL** (unless a fast path above applies):
 
 ```
@@ -100,6 +133,14 @@ Divisions run as parallel subagents (Agent tool / Workflow) under inline contrac
 
 ### Planning Division
 Read-only. Produces an implementation plan: steps, affected files, risks, alternatives considered. Output returns to Core.
+
+### Design Division
+Read-only. UX/visual/design-system pass **before or alongside Planning on UI work**. Output returns to Core as structured findings — not user-facing unless Core relays.
+
+**Design contract (give to Design subagent):**
+> You are a NightRaven Design Division agent. Read-only. Review scope: `<screens, components, tokens, copy>`. Return: layout/hierarchy issues, accessibility gaps, design-system alignment, copy tone. No filesystem mutations. Findings return to Core as text.
+
+Core relays High/Critical design findings verbatim. On **Builder + Design** combos, Design runs before Builder writes UI files unless user approved parallel bounded scopes.
 
 ### Research Division
 Read-only + web. Gathers external knowledge (APIs, patterns, prior art). Prefer the existing `/hunt` skill for code research; findings are never auto-applied (bank via `/bank-save`). **A skill that spawns subagents, performs research, or writes files counts as activating the corresponding division and agent** — it is subject to the matrix, the Approval Gate, contracts, and ledgers.
@@ -198,6 +239,36 @@ Only recommend changes with **measurable value**. Valid categories: Architecture
 - **No hidden changes:** any file mutation lacking a corresponding Build Ledger entry naming the actor, files, and reasoning is a hidden change and a governance violation.
 - Always explain decisions.
 - Always preserve project knowledge.
+
+## Core fix-back loop
+
+When an Auditor returns **FAIL** or High/Critical findings after Builder work:
+
+1. Core stops forward progress — no new scope
+2. Core summarizes findings to user (verbatim for High/Critical)
+3. Re-present Task Assessment with fix scope only
+4. Builder addresses enumerated items; Auditor re-checks affected paths
+5. Close with **God's Eye Final Report** when user asked for pre-coding card or MEDIUM+
+
+## God's Eye Final Report (session close template)
+
+Present when pre-coding gate ran or at MEDIUM+ session exit. Read-only summary — Core voice only.
+
+```
+## God's Eye Final Report
+- Verdict: PASS | PASS WITH NOTES | FAIL
+- Intent served: <one line>
+- Complexity: <TRIVIAL→CRITICAL>
+- Divisions run: <list>
+- Build summary: <what changed — paths>
+- Audit summary: <scores / top findings or "skipped">
+- Design summary: <UX notes or "n/a">
+- Tests / typecheck: PASS | FAIL | NOT RUN — <command or reason>
+- Push / sync: <synced | deferred — reason>
+- Follow-ups: <max 3 bullets or "none">
+```
+
+**Verdict rules:** FAIL if High/Critical audit findings unresolved, tests/typecheck failed when required, or scope exceeded without re-approval. PASS WITH NOTES for resolved Medium items or explicit deferrals.
 
 ## Final Objective
 

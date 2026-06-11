@@ -5,8 +5,26 @@ alwaysApply: true
 
 # Model selection and delegation efficiency
 
-- Pick the best-fit model for each task—not merely adequate. When delegating subagents, set an explicit model only if the user requests it or the task clearly benefits.
-- In Multitask Mode: delegate substantial work via Task with `run_in_background=true`; one coherent worker per request; no redundant sibling agents or foreground duplication; minimize wasted tokens and context.
-- **Small asks:** audits, vocabulary, docs-only, single-file Q&A — handle in foreground; do not spawn subagents (God's Eye Bible §2.8).
-- **Subagent workers:** inherit parent task scope — no duplicate Phase 0 / NightRaven re-assessment unless scope changed (NightRaven skill · tasking fast paths).
-- **Heavy threads:** when retained conversation history dominates cost, prefer a **new chat** and read `docs/14_SESSION_HANDOFF.md` instead of continuing the same thread (§2.8).
+## Before spawning a subagent
+
+- [ ] Task is **substantial** end-to-end work — not audit, vocabulary, docs-only, or single-file Q&A (God's Eye Bible §2.8)
+- [ ] Parent has already classified tier + scope — worker inherits it (NightRaven tasking fast paths)
+- [ ] One coherent worker per request — no redundant sibling agents or foreground duplication
+- [ ] `run_in_background=true` in Multitask Mode unless user needs live interaction
+- [ ] Explicit model only when user requests it or task clearly benefits — otherwise default routing
+
+## Foreground vs delegate
+
+| Handle in foreground | Delegate via Task |
+|---|---|
+| Audits, copy review, memory/wire, single-file fix | Cross-cutting feature, multi-file refactor, parallel research + build |
+| Read-only Q&A, handoff dedup | Independent workstreams with non-overlapping write scopes |
+| Tier 0–1 trivial (≤2 files, user said **code it**) | Tier 2+ with verification loop or CI watch |
+
+## Heavy threads
+
+When retained conversation history dominates cost (~80%+), prefer a **new chat** and read `docs/14_SESSION_HANDOFF.md` instead of continuing the same thread (§2.8).
+
+## Pick the best-fit model
+
+Choose the model that fits the task — not merely adequate. Subagents inherit parent assessment; do not re-run NightRaven Phase 0 unless scope changed.

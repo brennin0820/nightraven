@@ -101,12 +101,13 @@ install_project_hooks() {
   dest_hooks="$(cd "${dest_root}/.cursor/hooks" && pwd)"
   if [[ "$src_hooks" != "$dest_hooks" ]]; then
     cp "${GODS_EYE_ROOT}/.cursor/hooks/"*.sh "${dest_root}/.cursor/hooks/"
+    cp "${GODS_EYE_ROOT}/.cursor/hooks/"*.ps1 "${dest_root}/.cursor/hooks/" 2>/dev/null || true
   fi
   chmod +x "${dest_root}/.cursor/hooks/"*.sh
   if [[ "${GODS_EYE_ROOT}/.cursor/hooks.json" != "${dest_root}/.cursor/hooks.json" ]]; then
     cp -f "${GODS_EYE_ROOT}/.cursor/hooks.json" "${dest_root}/.cursor/hooks.json"
   fi
-  log "hooks: .cursor/hooks.json + scripts"
+  log "hooks: .cursor/hooks.json + .sh/.ps1 scripts (Windows: PowerShell; Unix: bash via run-hook.sh)"
 }
 
 merge_user_hooks_json() {
@@ -163,6 +164,7 @@ install_user_level() {
 
   if [[ "$INSTALL_HOOKS" -eq 1 ]]; then
     cp "${GODS_EYE_ROOT}/.cursor/hooks/"*.sh "${HOME}/.cursor/hooks/gods-eye/"
+    cp "${GODS_EYE_ROOT}/.cursor/hooks/"*.ps1 "${HOME}/.cursor/hooks/gods-eye/" 2>/dev/null || true
     chmod +x "${HOME}/.cursor/hooks/gods-eye/"*.sh
     # Bake install root so hooks resolve Bible when projects use master BAIC instead of vendoring.
     if grep -q 'GODS_EYE_INSTALL_ROOT=' "${HOME}/.cursor/hooks/gods-eye/lib.sh" 2>/dev/null; then
@@ -172,7 +174,7 @@ install_user_level() {
         "${HOME}/.cursor/hooks/gods-eye/lib.sh"
     fi
     merge_user_hooks_json
-    log "hooks: ~/.cursor/hooks/gods-eye/*.sh"
+    log "hooks: ~/.cursor/hooks/gods-eye/*.sh + *.ps1 (lib.ps1/lib.sh parity)"
   fi
 }
 

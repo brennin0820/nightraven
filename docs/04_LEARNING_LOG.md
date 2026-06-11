@@ -6,6 +6,34 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Session-start pull skip mirrors stop fast path
+
+**Signal:** Improvements review gap #2 — redundant pulls on back-to-back Agent chats.
+
+**Pattern:** Reuse `.cursor/.autosync-session` marker + `GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC` for **both** session-start and stop — same "recent successful pull" window; do not refresh marker when skipping.
+
+**Do:** Document in HOOKS_SETUP; alias `gods_eye_should_skip_recent_pull` in bash for readability.
+
+**Don't:** Skip pull when marker shows failed pull (`|0`).
+
+**See:** [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`install.sh`](../install.sh) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
+---
+
+## 2026-06-11 — Session-start pull skip mirrors stop fast path
+
+**Signal:** Improvements review ranked install parity and session-start pull skip after tasking-speed hooks shipped on stop/after-file-edit.
+
+**Pattern:** Autosync pull-skip is one policy (`GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC` + `.cursor/.autosync-session`) shared by **both** session-start and session-stop — avoids back-to-back pulls when opening multiple Agent chats or when stop runs on a clean tree right after start.
+
+**Do:** Reuse `gods_eye_should_skip_stop_pull` as `gods_eye_should_skip_recent_pull`; document start+stop in HOOKS_SETUP; copy `*.ps1` in install.sh for Windows parity.
+
+**Don't:** Separate markers or windows for start vs stop.
+
+**See:** [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
+---
+
 ## 2026-06-11 — Execution orchestration spec vs three vocabulary layers
 
 **Signal:** Brent pasted Builder/Auditor/Design/Core workflow + Final Report template and asked to add what is missing.

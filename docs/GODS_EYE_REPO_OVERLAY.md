@@ -34,6 +34,10 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 | **Architect Division** | Structural/design oversight gap between Brent's **11-division proposal** (Product, Research, Architect, Builder, Design, QA, Security, Auditor, Documentation, DevOps + Core), **NightRaven runtime** divisions, and Bible **§9 six virtual teams**; Phase 0 = memory wire only — see Bible §9 pointer · handoff Recent sessions |
 | **Repeated intentions (continuity engine)** | Stable intent tiers agents load at Tier 2+ cold start; synthesized from handoff + Bible §3 — interpretation engine · memory-before-code · Always Sync · `+#` only · Touch 3 · §2.7 standard · isolation · Governed Bypass · NightRaven Core · local/cloud · division taxonomy · Tier C · compounding; pointer: handoff Recent sessions · Bible §3 |
 | **Division taxonomy scope** | Open question — portable God's Eye standard vs NightRaven-scoped runtime mapping; **TBD** (do not decide for Brent); Phase 0 memory only |
+| **Execution-path combos** | NightRaven runtime overlay — Builder · +Auditor · +Design · +all; not a rename of Bible §9 virtual teams or 11-division product taxonomy |
+| **Design Division (runtime)** | Read-only UX/visual pass before or after Builder on UI-touched work; distinct from Bible §9 **Design/UX** virtual team (loop readability) |
+| **Pre-coding gate** | NightRaven card — correct → intent → domains → division combos → God's Eye Final Report before mutating writes |
+| **Risk label map** | User/protocol Low→Critical maps to NightRaven TRIVIAL→CRITICAL matrix — see NightRaven skill mapping table; do not replace matrix |
 
 ---
 

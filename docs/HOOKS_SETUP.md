@@ -26,7 +26,7 @@ After changing `hooks.json`, save the file. If hooks do not appear, restart Curs
 
 **Touch 1 · Before** — injects `additional_context` at session start:
 
-- **Always Sync autosync:** runs `git pull --ff-only` in the project root (fail-open — offline/conflict/auth errors are reported in context, not blocking)
+- **Always Sync autosync:** runs `git pull --ff-only` in the project root when no recent successful pull marker exists (fail-open — offline/conflict/auth errors are reported in context, not blocking). Skips redundant pull when `.cursor/.autosync-session` shows a successful pull within `GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC` (default 30 min).
 - Parallel-read chain: rule → Bible §0 → overlay → router → handoff → `AGENTS.md`
 - Tier + intent ladder reminder (memory + wire default)
 - This-repo-only dedup; no cross-repo handoff bleed
@@ -87,8 +87,10 @@ Use hooks to **reinforce habit**, not replace `.cursor/rules/gods-eye-context-in
 
 | Hook | Git actions | Safe commit scope |
 |------|-------------|-------------------|
-| `sessionStart` | `git pull --ff-only` | — |
+| `sessionStart` | `git pull --ff-only` (skip when recent marker) | — |
 | `stop` | pull → stage safe paths → commit → push if ahead | `docs/`, `.cursor/`, memory-chain paths; excludes `.env` / secrets |
+
+**Session pull skip (start + stop):** When `.cursor/.autosync-session` contains `timestamp|1` and age ≤ `GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC` (default `1800`), both `sessionStart` and `stop` skip redundant `git pull`. Stop also skips commit/push when tree has no safe dirty files and branch is not ahead.
 
 **Commit messages:** `lib.ps1` / `lib.sh` inspect safe dirty paths before commit and emit a conventional subject (`docs` / `fix(hooks)` / `chore`) plus an optional body listing up to eight files. Mixed hook + memory-doc sessions get summaries like `chore: session sync — hooks, memory docs`. Generic `chore(sync): session autosync [cursor hook]` is fallback only when no paths match.
 
@@ -110,7 +112,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .cursor/hooks/session-stop.p
 | Location | `hooks.json` | Script paths |
 |----------|--------------|--------------|
 | **Project** | `<repo>/.cursor/hooks.json` | `.cursor/hooks/*.ps1` (Windows) · `.cursor/hooks/*.sh` + `run-hook.sh` (Unix) |
-| **User (global)** | `~/.cursor/hooks.json` | `./hooks/gods-eye/*.sh` or `.ps1` (relative to `~/.cursor/`) |
+| **User (global)** | `~/.cursor/hooks.json` | `./hooks/gods-eye/*.sh` + `*.ps1` (relative to `~/.cursor/`) |
+
+`install.sh` copies **both** bash (`.sh`, `lib.sh`) and PowerShell (`.ps1`, `lib.ps1`) hook scripts for Windows/Unix parity. Project install uses `hooks.json` with PowerShell commands on Windows; user install defaults to bash paths in `templates/hooks.user.json` — swap to `.ps1` on Windows if preferred.
 
 User-level hooks resolve the active workspace via `workspace_roots` in hook stdin JSON and set `GODS_EYE_PROJECT_ROOT` / `GODS_EYE_ROOT` at `sessionStart`. Install with `./install.sh --user` — see [`CURSOR_INSTALL.md`](../CURSOR_INSTALL.md).
 
@@ -125,8 +129,9 @@ User-level hooks resolve the active workspace via `workspace_roots` in hook stdi
 - **Stop follow-up loops** — `loop_limit: 1` on the `stop` hook; script skips when `loop_count > 0`.
 - **Too chatty** — remove `afterFileEdit` from `hooks.json` or disable hooks entirely.
 - **Slow session stop (clean tree)** — stop hook skips pull/commit/push when there are no safe dirty files, branch is not ahead, and session-start pulled recently (`.cursor/.autosync-session`, default 30 min). `afterFileEdit` exits immediately (`{}`) for non-memory paths without loading hook libs.
+- **Slow session start (repeat chats)** — session-start skips pull when the same recent marker applies — avoids back-to-back pulls when opening multiple Agent chats.
 - **Generic autosync commit messages** — fixed: session-stop now auto-generates conventional subjects from safe dirty paths (`Get-GodsEyeAutosyncCommitMessage` / `gods_eye_autosync_commit_message` in hook libs).
-- **Tune stop-pull skip window** — set `GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC` (seconds; default `1800`).
+- **Tune pull-skip window** — set `GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC` (seconds; default `1800`; applies to session-start and stop).
 
 ---
 

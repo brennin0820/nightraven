@@ -14,14 +14,19 @@ if (-not (Test-Path -LiteralPath (Join-Path $projectRoot $bibleHint))) {
     $bibleHint = Join-Path $godsEyeRoot "docs/37_GODS_EYE.md"
 }
 
-$pullResult = Invoke-GitPullFfOnly $projectRoot
-Set-GodsEyeSessionPulled $projectRoot $pullResult.Ok
+if (Test-GodsEyeShouldSkipStopPull $projectRoot) {
+    $pullMessage = "Autosync pull skipped - session recent (see .cursor/.autosync-session)."
+} else {
+    $pullResult = Invoke-GitPullFfOnly $projectRoot
+    Set-GodsEyeSessionPulled $projectRoot $pullResult.Ok
+    $pullMessage = $pullResult.Message
+}
 Update-GodsEyeTouch3Cache $projectRoot
 
 $message = @"
 God's Eye - Touch 1 - BEFORE (soft reminder, not a hard block)
 
-Always Sync - session start: $($pullResult.Message)
+Always Sync - session start: $pullMessage
 
 Three-touch: Before -> During -> After on every real task.
 

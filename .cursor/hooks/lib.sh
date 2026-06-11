@@ -184,6 +184,27 @@ gods_eye_should_skip_stop_pull() {
   [[ "$age" -ge 0 && "$age" -le "${GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC}" ]]
 }
 
+# Same window as stop-pull skip — session-start skips redundant pull when marker is fresh.
+gods_eye_should_skip_recent_pull() {
+  gods_eye_should_skip_stop_pull "$@"
+}
+
+gods_eye_normalize_porcelain_path() {
+  local path="$1"
+  path="${path# }"
+  if [[ "$path" == \"*\" ]]; then
+    path="${path:1:${#path}-2}"
+  fi
+  if [[ "$path" == *" -> "* ]]; then
+    path="${path##* -> }"
+    path="${path# }"
+    if [[ "$path" == \"*\" ]]; then
+      path="${path:1:${#path}-2}"
+    fi
+  fi
+  printf '%s' "${path//\\//}"
+}
+
 gods_eye_write_touch3_cache() {
   local project_root="$1"
   local disabled="$2"
@@ -210,12 +231,7 @@ gods_eye_has_safe_dirty_files() {
   local project_root="$1" line path
   while IFS= read -r line; do
     [[ -z "$line" ]] && continue
-    path="${line:3}"
-    path="${path# }"
-    if [[ "$path" == *" -> "* ]]; then
-      path="${path##* -> }"
-    fi
-    path="${path//\\//}"
+    path="$(gods_eye_normalize_porcelain_path "${line:3}")"
     if gods_eye_is_safe_autosync_path "$path"; then
       return 0
     fi
@@ -334,7 +350,7 @@ gods_eye_autosync_commit_message() {
         has_hooks=1
         hook_names+=("hooks.json")
         ;;
-      .cursor/rules/*|.cursor/rules/*/*) has_rules=1 ;;
+      .cursor/rules/*) has_rules=1 ;;
       docs/*) has_other_docs=1 ;;
       AGENTS.md) has_agents=1 ;;
       README.md) has_readme=1 ;;
@@ -435,12 +451,7 @@ gods_eye_git_session_commit() {
   fi
   while IFS= read -r line; do
     [[ -z "$line" ]] && continue
-    path="${line:3}"
-    path="${path# }"
-    if [[ "$path" == *" -> "* ]]; then
-      path="${path##* -> }"
-    fi
-    path="${path//\\//}"
+    path="$(gods_eye_normalize_porcelain_path "${line:3}")"
     if gods_eye_is_safe_autosync_path "$path"; then
       safe_files+=("$path")
     fi

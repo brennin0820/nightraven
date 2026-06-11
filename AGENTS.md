@@ -141,6 +141,19 @@ Every addition at one layer must **not** silently rename another.
 
 **Always (all tiers):** `+#` only on memory docs · parallel-read disjoint paths · intent ladder default · dedup scoped to **this repo only**.
 
+### Tasking fast paths (non-/nightraven sessions)
+
+Mirror [NightRaven skill](.claude/skills/nightraven/SKILL.md) **Tasking fast paths** — use without full Phase 0 when:
+
+| Situation | Fast path |
+|---|---|
+| **Subagent / Task worker** | Inherit parent scope — no duplicate assessment or full Bible chain |
+| **TRIVIAL + explicit code it** | One-line intent · tier · scope — proceed under God's Eye Tier 1 |
+| **LOW + ≤2 files + code it** | Condensed read: rule → handoff → affected files only |
+| **Read-only Q&A / audit** | Memory/wire layer only — no code until **code it** / **implement** / **build** |
+
+**Multitask:** substantial end-to-end work only (§2.8) — see optional [`templates/model-delegation-efficiency.user.mdc`](templates/model-delegation-efficiency.user.mdc).
+
 ---
 
 ## Project Isolation (no cross-repo bleed)

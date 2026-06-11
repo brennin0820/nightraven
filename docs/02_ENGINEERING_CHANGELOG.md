@@ -6,6 +6,19 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Polish + gap-fill — hooks, install, orchestration wire
+
+- +# **Install parity** — `install.sh` copies `*.ps1` + `lib.ps1` alongside `*.sh`/`lib.sh` for project + `~/.cursor/hooks/gods-eye/` user install
+- +# **Session-start pull skip** — skip redundant pull when `.cursor/.autosync-session` recent + OK; `gods_eye_should_skip_recent_pull` alias in `lib.sh`
+- +# **Tier 0–1 cold start** — lean-read line in always-on rule + AGENTS **Tasking fast paths** table (non-/nightraven)
+- +# **Multitask gate** — checklist polish in `templates/model-delegation-efficiency.user.mdc`
+- +# **Division orchestration execute** — overlay §1 combos · NightRaven skill (pre-coding gate, Design Division, combo matrix, risk map, Final Report, fix-back loop) · Bible §9 runtime pointer; no new template scaffold
+- +# **HOOKS_SETUP** — session-start pull skip, install parity, env var docs
+- +# **lib.sh polish** — quoted porcelain paths; commit-msg parity with `lib.ps1`
+- +# Verification — PS: after-file-edit `{}` fast path · commit-msg T2/T3 · session-start pull skip T4
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`.claude/skills/nightraven/SKILL.md`](../.claude/skills/nightraven/SKILL.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
 ### Division orchestration wire — plan (memory only)
 
 - +# Brent supplied execution protocol — pre-coding gate (correct → intent → domains → division combos), Builder/Auditor/Design contracts, Core fix-back loop, adaptive combos, **God's Eye Final Report**

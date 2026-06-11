@@ -17,11 +17,15 @@ if [[ ! -f "${project_root}/${bible_hint}" ]]; then
   bible_hint="${gods_eye_root}/docs/37_GODS_EYE.md"
 fi
 
-pull_msg="$(gods_eye_git_pull_ff_only "$project_root")"
-if [[ "$pull_msg" == Autosync\ pull\ failed* ]]; then
-  gods_eye_mark_session_pulled "$project_root" 0
+if gods_eye_should_skip_recent_pull "$project_root"; then
+  pull_msg="Autosync pull skipped — session recent (see .cursor/.autosync-session)."
 else
-  gods_eye_mark_session_pulled "$project_root" 1
+  pull_msg="$(gods_eye_git_pull_ff_only "$project_root")"
+  if [[ "$pull_msg" == Autosync\ pull\ failed* ]]; then
+    gods_eye_mark_session_pulled "$project_root" 0
+  else
+    gods_eye_mark_session_pulled "$project_root" 1
+  fi
 fi
 gods_eye_touch3_disabled_cached "$project_root" >/dev/null || true
 
