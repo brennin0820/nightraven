@@ -350,7 +350,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Supersedes:** separate "unclear messages" + "unclear coding ideas" subsections — one five-step card.
 
-**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §3 · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc)
+**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §3 · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) — `60b26b8`
 
 ---
 
