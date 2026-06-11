@@ -4,6 +4,17 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ---
 
+## 2026-06-11
+
+### External candidate shortlist — adjacent "god-tier" coders
+
+- +# Local registry remains limited to `gods-eye`, `UAIPOS`, `NightRaven`, and `~/.cursor`; no new adopters found in-repo
+- +# External shortlist for further hunting: memory layers (`Mem0`, `Letta`, `Memori`, `OpenViking`), git-native repo memory (`GitAgent`, `Agents Remember`, `AGENTS.md`), and coding agents (`OpenCode`, `Goose`, `Plandex`, `PR-Agent`)
+- +# Use these as comparison points for the research map or future inventory expansion, not as local app memory
+- +# NightRaven practical lane narrowed by Brent: **PR-Agent** for PR review automation; **Plandex / Goose** for coding-session execution workflows; defer memory-layer candidates
+
+**Cross-links:** [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md)
+
 ## 2026-06-10
 
 ### Touch 3 — NightRaven adoption batch session close

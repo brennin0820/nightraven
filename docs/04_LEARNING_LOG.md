@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — External candidate shortlist (adjacent "god-tier" coders)
+
+**Signal:** Local registry is currently saturated at `gods-eye`, `UAIPOS`, `NightRaven`, and `~/.cursor`; the next useful expansion is outside this repo.
+
+**Pattern:** When hunting for more high-signal coder references, prioritize adjacent systems that match God's Eye's memory + tooling shape: memory layers (`Mem0`, `Letta`, `Memori`, `OpenViking`), git-native repo memory (`GitAgent`, `Agents Remember`, `AGENTS.md`), and coding agents (`OpenCode`, `Goose`, `Plandex`, `PR-Agent`).
+
+**NightRaven lane:** Brent narrowed the practical integration shortlist to **PR-Agent** for PR review automation and **Plandex / Goose** for stronger coding-session execution workflows. Memory-layer candidates stay research-only unless NightRaven hits a concrete git-native memory limit.
+
+**Do:** Use these as external comparison points for research maps or future adopter scans.
+
+**Don't:** Treat them as local app memory or paste their repo state into this framework.
+
+**See:** [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+
 ## 2026-06-10 — Adopter repo rename orchestration (gods-eye registry)
 
 **Signal:** Brent — **change repo name also** after NightRaven ship/oversight rebrand.
