@@ -37,8 +37,10 @@ Phase 2 **MCP memory-chain tools** on `origin/main`. **Consumer app:** **NightRa
 ---
 
 ## Recent sessions
+- **2026-06-11** — Brent context: **auto-setup MCP launcher** — updated node MCP launcher template and project instance (`run-gods-eye-mcp.js`) to automatically trigger `npm install` and `npm run build` inside `mcp-server` if the target build is missing (`+#` only).
 - **2026-06-11** — Brent context: **design local vs cloud execution** — created local vs cloud execution design spec (`docs/GODS_EYE_LOCAL_VS_CLOUD.md`), detailed LM Studio optimizations, context pruning, and multi-agent resource allocations (`+#` only).
 - **2026-06-11** — Brent context: **always sync changes** — wired Always Sync rule into overlay vocabulary and rule files; all repository changes must be pulled and pushed immediately (`+#` only).
+
 
 - **2026-06-11** — Brent context: **rules are meant to be broken (Governed Bypass)** — wired Governed Bypass protocol into overlay vocabulary and rule files; agents may request rule bypasses if they obtain explicit approval first (`+#` only).
 

@@ -6,7 +6,22 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Self-healing / Auto-setup Developer Tools
+
+**Signal:** Brent requested "a launcher that will automatically setup its environment".
+
+**Pattern:** Requiring manual setup steps (`npm install && npm run build`) for developer utility scripts/launchers creates friction and execution failure points. Design launchers as self-healing processes: check for build output/dependencies, synchronously bootstrapper/compile if missing, and then proceed with execution.
+
+**Do:** Add automatic `execSync` scripts inside MCP runners to install node packages and compile TypeScript if compiled build is missing.
+
+**Don't:** Fail execution with manual instructions when the runtime language (Node/Python) is available to build itself.
+
+**See:** [`templates/mcp/run-gods-eye-mcp.js`](templates/mcp/run-gods-eye-mcp.js) · [`.cursor/mcp/run-gods-eye-mcp.js`](.cursor/mcp/run-gods-eye-mcp.js) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
+---
+
 ## 2026-06-11 — Local Offline vs Cloud Execution Gating
+
 
 **Signal:** Brent asked how to design God's Eye behavior "with and without LM Studio".
 

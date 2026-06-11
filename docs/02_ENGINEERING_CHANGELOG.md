@@ -6,7 +6,15 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Auto-setup MCP Launcher
+
+- +# Added automatic dependency installation (`npm install`) and compile build (`npm run build`) logic directly into Node MCP launcher
+- +# Updated template (`templates/mcp/run-gods-eye-mcp.js`) and active workspace instance (`.cursor/mcp/run-gods-eye-mcp.js`)
+
+**Cross-links:** [`templates/mcp/run-gods-eye-mcp.js`](../templates/mcp/run-gods-eye-mcp.js) · [`.cursor/mcp/run-gods-eye-mcp.js`](run-gods-eye-mcp.js) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
 ### Design local vs cloud execution modes
+
 
 - +# Authored local vs cloud execution design spec ([`GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md))
 - +# Detailed hardware, context window, and concurrency constraints for LM Studio local sessions
