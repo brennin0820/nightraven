@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Repeated intentions catalog (continuity engine)
+
+**Signal:** Brent asked for pre-coding orchestration **and** "repeated intentions" — not a feature build.
+
+**Pattern:** Hook-delivered Touch 3 AFTER + explicit "repeated intentions" request = **extract stable intent tiers** from Recent sessions (not re-summarize the latest line). Tier 1 laws (interpretation, memory-before-code, Always Sync, +# only, Touch 3) recur most; Tier 3 (division taxonomy, Architect gap) is roadmap memory. Agents should load this as **continuity**, not treat each telegraphic "add X" as isolated.
+
+**Do:** Run pre-coding card before implementation; surface repeated intentions when Brent asks or at Tier 2+ cold start; defer code until ship signal.
+
+**Don't:** Collapse the three division vocabularies in one answer; open implementation files on orchestration-only sessions.
+
+**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §3 · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+
+---
+
 ## 2026-06-11 — Cursor autosync hooks enforce Always Sync at session boundaries
 
 **Signal:** Brent asked to fix Always Sync — prior hooks were policy + soft nudges only; user rule also requires commit-on-request (not agent-proactive).
