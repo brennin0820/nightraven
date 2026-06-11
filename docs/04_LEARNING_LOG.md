@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Greenfield NightRaven consumer via bootstrap script
+
+**Signal:** Brent asked to **put ready for use** a new project **HimFLer** — not another monorepo `apps/` subtree; separate consumer repo with full God's Eye + NightRaven Core stack.
+
+**Pattern:** **`scripts/bootstrap-nightraven-project.sh`** — one command: `install-gods-eye-nightraven.sh --no-mcp` → seed overlay · handoff · README · `PROJECT_QUICKSTART.md` · `.gitignore` → `git init` if needed → register in `scripts/gods-eye-projects.conf`. Consumer lives **sibling** to framework (`E:/NightRaven/<AppName>/`), not under `apps/`.
+
+**Do:** Document in CURSOR_INSTALL · README · `NIGHTRAVEN_UNIFIED_PRODUCT.md`; first session = read AGENTS + handoff, **plan until code it**.
+
+**Don't:** Collapse HimFLer into framework `docs/14`; paste framework handoff into consumer; ship feature code before Brent says **code it** / **implement** / **build**.
+
+**See:** [`bootstrap-nightraven-project.sh`](../scripts/bootstrap-nightraven-project.sh) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+
+---
+
 ## 2026-06-11 — Monorepo merge without collapsing memory layers
 
 **Signal:** Brent asked to merge God's Eye, NightRaven Core, and Compass into **one NightRaven** — prior merge Q&A warned against collapsing vocabulary layers.

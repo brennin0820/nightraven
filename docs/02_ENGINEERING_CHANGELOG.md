@@ -13,8 +13,9 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - +# Created `E:\NightRaven\HimFLer` — git init · full God's Eye + NightRaven Core stack
 - +# Registry: `scripts/gods-eye-projects.conf` · CURSOR_INSTALL · README · `NIGHTRAVEN_UNIFIED_PRODUCT.md`
 - +# Autosync: extended safe paths to `apps/*` in hook libs
+- +# Touch 3 AFTER: stop-hook shipped `origin/main` @ `044928a`; `.gitignore` app ignores committed in follow-up close
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md)
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
 
 ### NightRaven monorepo — Compass merge
 
