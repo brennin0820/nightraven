@@ -23,7 +23,17 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - +# Docs — [`HOOKS_SETUP.md`](HOOKS_SETUP.md) troubleshooting; `.gitignore` hook markers (`.cursor/.autosync-session`, `.cursor/.touch3-cache`)
 - +# Verification — clean stop ~1.7s vs ~3.8s; hook test autosync committed+pushed hook batch (`0e5c51e`); **remaining uncommitted:** `.gitignore`, `.claude/skills/nightraven/SKILL.md`, handoff
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md)
+### Touch 3 AFTER — tasking-speed push-latency close (`f4b6a9f`)
+
+- +# **Supersedes** "remaining uncommitted" above — Brent "fix commit push"; session-stop hook autosync committed+pushed 5 files (`f4b6a9f`); `origin/main` clean; prior division-orchestration memory in `21d9cd2`
+
+### Autosync conventional commit messages (session-stop)
+
+- +# Brent asked descriptive autosync commits — replace generic `chore(sync): session autosync [cursor hook]` with path-aware conventional subjects (`docs` / `fix(hooks)` / `chore: session sync - …`) + optional file body
+- +# `lib.ps1` — `Get-GodsEyeAutosyncCommitMessage`; `lib.sh` — `gods_eye_autosync_commit_message`; wired into `Invoke-GitSessionCommit` / `gods_eye_git_session_commit`
+- +# Docs — [`HOOKS_SETUP.md`](HOOKS_SETUP.md) stop hook + troubleshooting; fast path unchanged when nothing to sync
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md)
 
 ### Touch 3 AFTER — changelog orphaned MCP section fix (`3a0e23f`)
 

@@ -384,6 +384,120 @@ function Get-SafeDirtyFiles {
     }
 }
 
+function Get-GodsEyeAutosyncCommitMessage {
+    param([string[]]$SafeFiles)
+    $normalized = @($SafeFiles | ForEach-Object { ($_ -replace '\\', '/').Trim() } | Where-Object { $_ } | Select-Object -Unique)
+    if ($normalized.Count -eq 0) {
+        return @{ Subject = 'chore(sync): session autosync [cursor hook]'; Body = '' }
+    }
+
+    $flags = @{
+        Handoff = $false; Changelog = $false; Learning = $false
+        Hooks = $false; Rules = $false; OtherDocs = $false
+        Agents = $false; Readme = $false; Templates = $false
+        Scripts = $false; Mcp = $false; Examples = $false
+    }
+    $hookNames = @()
+
+    foreach ($path in $normalized) {
+        switch -Regex ($path) {
+            '^docs/14_SESSION_HANDOFF\.md$' { $flags.Handoff = $true; continue }
+            '^docs/02_ENGINEERING_CHANGELOG\.md$' { $flags.Changelog = $true; continue }
+            '^docs/04_LEARNING_LOG\.md$' { $flags.Learning = $true; continue }
+            '^\.cursor/hooks/' {
+                $flags.Hooks = $true
+                $hookNames += [System.IO.Path]::GetFileName($path)
+                continue
+            }
+            '^\.cursor/hooks\.json$' {
+                $flags.Hooks = $true
+                $hookNames += 'hooks.json'
+                continue
+            }
+            '^\.cursor/rules/' { $flags.Rules = $true; continue }
+            '^docs/' { $flags.OtherDocs = $true; continue }
+            '^AGENTS\.md$' { $flags.Agents = $true; continue }
+            '^README\.md$' { $flags.Readme = $true; continue }
+            '^templates/' { $flags.Templates = $true; continue }
+            '^scripts/' { $flags.Scripts = $true; continue }
+            '^mcp-server/' { $flags.Mcp = $true; continue }
+            '^examples/' { $flags.Examples = $true; continue }
+        }
+    }
+
+    $memoryDocCount = @($flags.Handoff, $flags.Changelog, $flags.Learning) | Where-Object { $_ } | Measure-Object | Select-Object -ExpandProperty Count
+    $nonHookAreas = @()
+    if ($flags.Handoff -or $flags.Changelog -or $flags.Learning) { $nonHookAreas += 'memory docs' }
+    if ($flags.OtherDocs) { $nonHookAreas += 'docs' }
+    if ($flags.Rules) { $nonHookAreas += 'rules' }
+    if ($flags.Agents) { $nonHookAreas += 'AGENTS' }
+    if ($flags.Readme) { $nonHookAreas += 'README' }
+    if ($flags.Templates) { $nonHookAreas += 'templates' }
+    if ($flags.Scripts) { $nonHookAreas += 'scripts' }
+    if ($flags.Mcp) { $nonHookAreas += 'mcp-server' }
+    if ($flags.Examples) { $nonHookAreas += 'examples' }
+
+    $subject = ''
+    if ($flags.Hooks -and $nonHookAreas.Count -eq 0) {
+        $hookSubject = 'session hook updates'
+        $lowerHooks = @($hookNames | ForEach-Object { $_.ToLower() })
+        $hasStop = @($lowerHooks | Where-Object { $_ -match 'session-stop' }).Count -gt 0
+        $hasStart = @($lowerHooks | Where-Object { $_ -match 'session-start' }).Count -gt 0
+        $hasAfter = @($lowerHooks | Where-Object { $_ -match 'after-file-edit' }).Count -gt 0
+        $hasLib = @($lowerHooks | Where-Object { $_ -match '^lib\.(ps1|sh)$' }).Count -gt 0
+        if ($hasStop -and $hasLib) {
+            $hookSubject = 'auto-generate autosync commit messages on session stop'
+        } elseif ($hasStop) {
+            $hookSubject = 'autosync on session stop'
+        } elseif ($hasAfter) {
+            $hookSubject = 'after-file-edit fast paths'
+        } elseif ($hasStart) {
+            $hookSubject = 'session-start autosync fast paths'
+        } elseif ($hasLib) {
+            $hookSubject = 'autosync hook helpers'
+        }
+        $subject = "fix(hooks): $hookSubject"
+    } elseif (-not $flags.Hooks -and $memoryDocCount -gt 0 -and -not ($flags.OtherDocs -or $flags.Rules -or $flags.Agents -or $flags.Readme -or $flags.Templates -or $flags.Scripts -or $flags.Mcp -or $flags.Examples)) {
+        $touchParts = @()
+        if ($flags.Handoff) { $touchParts += 'handoff' }
+        if ($flags.Changelog) { $touchParts += 'changelog' }
+        if ($flags.Learning) { $touchParts += 'learning log' }
+        if ($touchParts.Count -eq 1 -and $flags.Handoff) {
+            $subject = 'docs: Touch 3 AFTER handoff'
+        } elseif ($touchParts.Count -eq 1 -and $flags.Changelog) {
+            $subject = 'docs: engineering changelog'
+        } elseif ($touchParts.Count -eq 1 -and $flags.Learning) {
+            $subject = 'docs: learning log'
+        } elseif ($flags.Handoff -and $flags.Changelog) {
+            $subject = 'docs: Touch 3 AFTER handoff and changelog'
+        } else {
+            $subject = "docs: Touch 3 AFTER $($touchParts -join ' and ')"
+        }
+    } elseif ($flags.Hooks -and $nonHookAreas.Count -gt 0) {
+        $areas = @('hooks') + $nonHookAreas
+        $subject = "chore: session sync - $($areas -join ', ')"
+    } elseif (-not $flags.Hooks -and $flags.OtherDocs -and $memoryDocCount -eq 0) {
+        $subject = 'docs: update project documentation'
+    } else {
+        $areas = @()
+        if ($flags.Hooks) { $areas += 'hooks' }
+        $areas += $nonHookAreas
+        if ($areas.Count -eq 0) { $areas = @('memory chain') }
+        $subject = "chore: session sync - $($areas -join ', ')"
+    }
+
+    $body = ''
+    if ($normalized.Count -gt 1) {
+        $listed = $normalized | Select-Object -First 8
+        $body = ($listed | ForEach-Object { "- $_" }) -join "`n"
+        if ($normalized.Count -gt 8) {
+            $body += "`n- ... and $($normalized.Count - 8) more"
+        }
+    }
+
+    return @{ Subject = $subject; Body = $body }
+}
+
 function Invoke-GitSessionCommit {
     param([string]$ProjectRoot)
     $result = @{
@@ -415,17 +529,23 @@ function Invoke-GitSessionCommit {
         $result.Message = "Autosync commit skipped - nothing staged after safe-path filter."
         return $result
     }
-    $commitMsg = "chore(sync): session autosync [cursor hook]"
-    $gitCommit = Invoke-GitInRoot $ProjectRoot @('commit', '-m', $commitMsg)
+    $commitParts = Get-GodsEyeAutosyncCommitMessage $safeFiles
+    $commitMsg = $commitParts.Subject
+    $commitBody = $commitParts.Body
+    $commitArgs = @('commit', '-m', $commitMsg)
+    if (-not [string]::IsNullOrWhiteSpace($commitBody)) {
+        $commitArgs += @('-m', $commitBody)
+    }
+    $gitCommit = Invoke-GitInRoot $ProjectRoot $commitArgs
     if ($gitCommit.ExitCode -ne 0 -and (($gitCommit.Output -join ' ') -match 'Author identity unknown|unable to auto-detect email')) {
         $lastAuthorResult = Invoke-GitInRoot $ProjectRoot @('log', '-1', '--format=%an <%ae>')
         $lastAuthor = ($lastAuthorResult.Output | Select-Object -First 1).Trim()
         if ($lastAuthor -match '^(.+) <(.+)>$') {
-            $gitCommit = Invoke-GitInRoot $ProjectRoot @(
+            $retryArgs = @(
                 '-c', "user.name=$($Matches[1])",
-                '-c', "user.email=$($Matches[2])",
-                'commit', '-m', $commitMsg
-            )
+                '-c', "user.email=$($Matches[2])"
+            ) + $commitArgs
+            $gitCommit = Invoke-GitInRoot $ProjectRoot $retryArgs
         }
     }
     if ($gitCommit.ExitCode -eq 0) {

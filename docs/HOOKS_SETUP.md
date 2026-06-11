@@ -40,7 +40,7 @@ Does **not** block edits or tool use.
 - **Always Sync autosync (runs even when Touch 3 is paused):**
   1. `git pull --ff-only`
   2. If dirty tree: stage **safe paths only** — `docs/`, `.cursor/`, `templates/`, `examples/`, `scripts/`, `mcp-server/`, `AGENTS.md`, `README.md`, etc.; **never** `.env`, credentials, keys, or other secret patterns
-  3. Commit with `chore(sync): session autosync [cursor hook]` (hooks not skipped)
+  3. Commit with an **auto-generated conventional message** from staged safe paths (e.g. `docs: Touch 3 AFTER handoff and changelog`, `fix(hooks): autosync on session stop`, `chore: session sync — hooks, memory docs`); optional body lists key files (hooks not skipped)
   4. `git push origin HEAD` when ahead of upstream (never force push)
   5. On push failure: append **push defer** line to **Recent sessions** in `docs/14_SESSION_HANDOFF.md` (+# only)
 - Append **Recent sessions** reminder in follow-up when Touch 3 active
@@ -90,6 +90,8 @@ Use hooks to **reinforce habit**, not replace `.cursor/rules/gods-eye-context-in
 | `sessionStart` | `git pull --ff-only` | — |
 | `stop` | pull → stage safe paths → commit → push if ahead | `docs/`, `.cursor/`, memory-chain paths; excludes `.env` / secrets |
 
+**Commit messages:** `lib.ps1` / `lib.sh` inspect safe dirty paths before commit and emit a conventional subject (`docs` / `fix(hooks)` / `chore`) plus an optional body listing up to eight files. Mixed hook + memory-doc sessions get summaries like `chore: session sync — hooks, memory docs`. Generic `chore(sync): session autosync [cursor hook]` is fallback only when no paths match.
+
 **Windows (this repo):** `.cursor/hooks.json` invokes PowerShell:
 
 ```text
@@ -123,6 +125,7 @@ User-level hooks resolve the active workspace via `workspace_roots` in hook stdi
 - **Stop follow-up loops** — `loop_limit: 1` on the `stop` hook; script skips when `loop_count > 0`.
 - **Too chatty** — remove `afterFileEdit` from `hooks.json` or disable hooks entirely.
 - **Slow session stop (clean tree)** — stop hook skips pull/commit/push when there are no safe dirty files, branch is not ahead, and session-start pulled recently (`.cursor/.autosync-session`, default 30 min). `afterFileEdit` exits immediately (`{}`) for non-memory paths without loading hook libs.
+- **Generic autosync commit messages** — fixed: session-stop now auto-generates conventional subjects from safe dirty paths (`Get-GodsEyeAutosyncCommitMessage` / `gods_eye_autosync_commit_message` in hook libs).
 - **Tune stop-pull skip window** — set `GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC` (seconds; default `1800`).
 
 ---
