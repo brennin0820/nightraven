@@ -6,7 +6,15 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Always Sync changes workflow
+
+- +# Added **Always Sync** rule to overlay vocabulary (`GODS_EYE_REPO_OVERLAY.md`) and rule files (`gods-eye-context-intent.mdc`)
+- +# Configured workflow to run `git pull` followed by git add/commit/push on every change
+
+**Cross-links:** [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
 ### README gap-fill follow-up
+
 
 - +# Saved follow-up backup branch `backup/pre-gap-fill-20260611-184524` at `2251fdf9a9859b6e8a1bed717eaa298acb018412` before edits
 - +# Filled README decision gaps after polish feedback — added **Fit check** and **Normal agent session** sections so new readers can decide when to use God's Eye and see the concrete session loop before install

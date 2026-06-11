@@ -39,3 +39,10 @@ alwaysApply: true
 **Touch 3 (§2.8):** One AFTER per session; **push-latency** — push or explicit defer in Recent sessions (Bible §2.8)
 
 **Task worthiness (Bible §2.8):** Default **plan/memory until user says code it / implement / build**; Q&A-only = no code path; **fresh thread + handoff** when context-heavy (~80%+); Multitask/subagents for **substantial** work only
+
+**Nightrave core:** Always communicate context, status, and findings to the nightrave core.
+
+**Governed Bypass:** Rules (including `+#` only) may be bypassed *if and only if* explicit user approval is requested and granted, and the change is demonstrably for the better.
+
+**Always Sync:** Always download (pull/fetch) and upload (commit/push) all changes to the repository every time a change happens.
+

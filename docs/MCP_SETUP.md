@@ -42,7 +42,8 @@ node mcp-server/dist/index.js
 When you run `./install.sh` on a bootstrapped project, it copies:
 
 - `.cursor/mcp.json` — MCP server registration
-- `.cursor/mcp/run-gods-eye-mcp.sh` — launcher (uses `GODS_EYE_INSTALL_ROOT` or repo-relative path)
+- `.cursor/mcp/run-gods-eye-mcp.js` — cross-platform launcher (runs natively on Windows, macOS, Linux)
+- `.cursor/mcp/run-gods-eye-mcp.sh` — bash fallback launcher
 
 **Enable in Cursor:**
 
@@ -60,8 +61,8 @@ If the server fails to start, build `mcp-server/` as above. The launcher prints 
 {
   "mcpServers": {
     "gods-eye": {
-      "command": "bash",
-      "args": [".cursor/mcp/run-gods-eye-mcp.sh"]
+      "command": "node",
+      "args": [".cursor/mcp/run-gods-eye-mcp.js"]
     }
   }
 }
@@ -73,8 +74,8 @@ Set `GODS_EYE_INSTALL_ROOT` in the MCP env block if the portable Bible lives out
 {
   "mcpServers": {
     "gods-eye": {
-      "command": "bash",
-      "args": [".cursor/mcp/run-gods-eye-mcp.sh"],
+      "command": "node",
+      "args": [".cursor/mcp/run-gods-eye-mcp.js"],
       "env": {
         "GODS_EYE_INSTALL_ROOT": "/path/to/gods-eye",
         "GODS_EYE_PROJECT_ROOT": "/path/to/your-app"

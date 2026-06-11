@@ -26,6 +26,10 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 | **Composed architecture** | God's Eye positioning — synthesis of intent/context/intent-aware memory/rewrite/reflect/git-native fields; no single external product or paper matches fully |
 | **GIRMA** | Local academic handle — Governed Intent-Reconstruction Memory Architecture; optional positioning label (not portable law) |
 | **Implementation skills pack (optional)** | External lifecycle workflows (e.g. [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)) — L4 consumer add-on **after** ship signal; does not replace Bible or handoff |
+| **Nightrave core** | The central communication hub/engine for the NightRaven ecosystem; agents must always communicate context/status to this core |
+| **Governed Bypass** | Rules (such as `+#` only) may be bypassed if the agent explicitly obtains Brent's approval first and the bypass benefits the codebase/workflow |
+| **Always Sync** | Always download (pull/fetch) and upload (commit/push) all changes to the repository every time a change happens |
+
 
 ---
 

@@ -87,8 +87,10 @@ fi
 exec node "\$SERVER_JS"
 EOF
   chmod +x "${dest_root}/.cursor/mcp/run-gods-eye-mcp.sh"
+  copy_file "${GODS_EYE_ROOT}/templates/mcp/run-gods-eye-mcp.js" "${dest_root}/.cursor/mcp/run-gods-eye-mcp.js"
+  chmod +x "${dest_root}/.cursor/mcp/run-gods-eye-mcp.js"
   copy_if_missing "${GODS_EYE_ROOT}/templates/mcp.json" "${dest_root}/.cursor/mcp.json"
-  log "mcp: .cursor/mcp.json + run-gods-eye-mcp.sh (build mcp-server/ first — see docs/MCP_SETUP.md)"
+  log "mcp: .cursor/mcp.json + run-gods-eye-mcp.js/sh (build mcp-server/ first — see docs/MCP_SETUP.md)"
 }
 
 install_project_hooks() {

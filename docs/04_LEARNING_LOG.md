@@ -6,7 +6,22 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Always Sync repository changes to prevent drift
+
+**Signal:** Brent requested "always download and upload all changes to repo every changes happens".
+
+**Pattern:** In git-native memory systems, disk/commit latency is a source of unlearning if changes are not synchronized immediately. Always pull before pushing, and commit and push immediately after any rule, overlay, or code modification.
+
+**Do:** Add Always Sync rules to the rule file and overlay vocabulary; execute `git pull`, `git add`, `git commit`, and `git push` immediately when changes occur.
+
+**Don't:** Leave memory modifications local/unpushed when a remote origin is configured.
+
+**See:** [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+
+---
+
 ## 2026-06-11 — Gap-fill polish answers reader decisions, not doctrine
+
 
 **Signal:** After the first README polish, Brent asked whether the gaps needed filling.
 

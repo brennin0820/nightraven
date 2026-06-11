@@ -37,6 +37,10 @@ Phase 2 **MCP memory-chain tools** on `origin/main`. **Consumer app:** **NightRa
 ---
 
 ## Recent sessions
+- **2026-06-11** — Brent context: **always sync changes** — wired Always Sync rule into overlay vocabulary and rule files; all repository changes must be pulled and pushed immediately (`+#` only).
+- **2026-06-11** — Brent context: **rules are meant to be broken (Governed Bypass)** — wired Governed Bypass protocol into overlay vocabulary and rule files; agents may request rule bypasses if they obtain explicit approval first (`+#` only).
+
+- **2026-06-11** — Brent context: **always communicate to nightrave core** — wired rule (`gods-eye-context-intent.mdc`), added Nightrave core to overlay vocabulary (`GODS_EYE_REPO_OVERLAY.md`), and logged to session handoff (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: README gap-fill follow-up — saved `backup/pre-gap-fill-20260611-184524` at `2251fdf`; added **Fit check** and **Normal agent session** so public README answers when to use God's Eye and what agents do before install; public-copy only, no law/templates/implementation; Record Everything (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: README Tier C polish after backup — saved `backup/pre-polish-20260611-184206` at `73fd0b27`; tightened public first-minute framing, added **In 60 seconds**, renamed duplicate flow heading, and clarified evaluation path; scope public-copy only (no law rewrite/templates/implementation); Record Everything (`+#` only).
 - **2026-06-11** — External candidate shortlist: local inventory saturated at gods-eye / UAIPOS / NightRaven / `~/.cursor`; gathered outside comparison set (`Mem0`, `Letta`, `Memori`, `OpenViking`, `GitAgent`, `Agents Remember`, `AGENTS.md`, `OpenCode`, `Goose`, `Plandex`, `PR-Agent`) for future research-map expansion; Brent narrowed NightRaven practical lane to **PR-Agent** review automation + **Plandex / Goose** coding-session workflows; no app-memory import.
