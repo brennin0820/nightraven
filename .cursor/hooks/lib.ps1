@@ -118,6 +118,16 @@ function Get-GodsEyeRelPath {
 
 function Test-GodsEyeTouch3Disabled {
     param([string]$ProjectRoot = "")
+    if ($ProjectRoot) {
+        $cachePath = Join-Path $ProjectRoot ".cursor\.touch3-cache"
+        if (Test-Path -LiteralPath $cachePath) {
+            $cached = (Get-Content -LiteralPath $cachePath -Raw).Trim()
+            switch ($cached) {
+                '1' { return $true }
+                '0' { return $false }
+            }
+        }
+    }
     switch -Regex ($env:GODS_EYE_TOUCH3) {
         '^(0|off|OFF|false|FALSE|no|NO)$' { return $true }
     }
@@ -142,6 +152,122 @@ function Test-GodsEyeTouch3Disabled {
         }
     }
     return $false
+}
+
+function Set-GodsEyeTouch3Cache {
+    param(
+        [string]$ProjectRoot,
+        [bool]$Disabled
+    )
+    if ([string]::IsNullOrWhiteSpace($ProjectRoot)) { return }
+    $cachePath = Join-Path $ProjectRoot ".cursor\.touch3-cache"
+    $dir = Split-Path -Parent $cachePath
+    if (-not (Test-Path -LiteralPath $dir)) {
+        New-Item -ItemType Directory -Path $dir -Force | Out-Null
+    }
+    Set-Content -LiteralPath $cachePath -Value ($(if ($Disabled) { '1' } else { '0' })) -NoNewline
+}
+
+function Update-GodsEyeTouch3Cache {
+    param([string]$ProjectRoot = "")
+    Set-GodsEyeTouch3Cache $ProjectRoot (Test-GodsEyeTouch3Disabled $ProjectRoot)
+}
+
+$script:GodsEyeAutosyncSkipStopPullSec = if ($env:GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC) {
+    [int]$env:GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC
+} else {
+    1800
+}
+
+function Get-GodsEyeAutosyncSessionMarker {
+    param([string]$ProjectRoot)
+    return Join-Path $ProjectRoot ".cursor\.autosync-session"
+}
+
+function Get-UnixTimestamp {
+    $origin = [datetime]'1970-01-01T00:00:00Z'
+    return [int]([datetime]::UtcNow - $origin).TotalSeconds
+}
+
+function Set-GodsEyeSessionPulled {
+    param(
+        [string]$ProjectRoot,
+        [bool]$PullOk = $true
+    )
+    $marker = Get-GodsEyeAutosyncSessionMarker $ProjectRoot
+    $dir = Split-Path -Parent $marker
+    if (-not (Test-Path -LiteralPath $dir)) {
+        New-Item -ItemType Directory -Path $dir -Force | Out-Null
+    }
+    $line = "{0}|{1}" -f (Get-UnixTimestamp), $(if ($PullOk) { '1' } else { '0' })
+    Set-Content -LiteralPath $marker -Value $line -NoNewline
+}
+
+function Test-GodsEyeShouldSkipStopPull {
+    param([string]$ProjectRoot)
+    $marker = Get-GodsEyeAutosyncSessionMarker $ProjectRoot
+    if (-not (Test-Path -LiteralPath $marker)) { return $false }
+    $parts = (Get-Content -LiteralPath $marker -Raw).Trim() -split '\|', 2
+    if ($parts.Count -lt 2 -or $parts[1] -ne '1') { return $false }
+    $fileTs = [int]$parts[0]
+    $age = (Get-UnixTimestamp) - $fileTs
+    return ($age -ge 0 -and $age -le $script:GodsEyeAutosyncSkipStopPullSec)
+}
+
+function Test-HasSafeDirtyFiles {
+    param([string]$ProjectRoot)
+    Push-Location -LiteralPath $ProjectRoot
+    try {
+        $porcelain = git status --porcelain 2>$null
+        if ($LASTEXITCODE -ne 0) { return $false }
+        foreach ($line in ($porcelain -split "`n")) {
+            if ([string]::IsNullOrWhiteSpace($line)) { continue }
+            $path = $line.Substring(3).Trim()
+            if ($path.StartsWith('"') -and $path.EndsWith('"')) {
+                $path = $path.Substring(1, $path.Length - 2)
+            }
+            if ($path -match ' -> ') {
+                $path = ($path -split ' -> ')[-1].Trim()
+                if ($path.StartsWith('"') -and $path.EndsWith('"')) {
+                    $path = $path.Substring(1, $path.Length - 2)
+                }
+            }
+            $path = $path -replace '\\', '/'
+            if (Test-SafeAutosyncPath $path) { return $true }
+        }
+        return $false
+    } finally {
+        Pop-Location
+    }
+}
+
+function Test-IsAheadOfUpstream {
+    param([string]$ProjectRoot)
+    Push-Location -LiteralPath $ProjectRoot
+    try {
+        $branch = (git rev-parse --abbrev-ref HEAD 2>$null).Trim()
+        if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($branch)) { return $false }
+        $upstream = "origin/$branch"
+        git rev-parse --verify $upstream 2>$null | Out-Null
+        if ($LASTEXITCODE -ne 0) { return $false }
+        $ahead = git rev-list --count "$upstream..HEAD" 2>$null
+        return ($LASTEXITCODE -eq 0 -and [int]$ahead -gt 0)
+    } finally {
+        Pop-Location
+    }
+}
+
+function Get-GodsEyeSessionSyncFastPath {
+    param([string]$ProjectRoot)
+    if (-not (Test-Path -LiteralPath (Join-Path $ProjectRoot ".git"))) {
+        return "Autosync stop skipped - not a git repository."
+    }
+    if (Test-HasSafeDirtyFiles $ProjectRoot) { return $null }
+    if (Test-IsAheadOfUpstream $ProjectRoot) { return $null }
+    if (Test-GodsEyeShouldSkipStopPull $ProjectRoot) {
+        return "Autosync stop: nothing to sync (no safe dirty, not ahead; pull skipped - session-start recent)."
+    }
+    return "Autosync stop: nothing to sync (no safe dirty, not ahead)."
 }
 
 function Test-SecretPath {

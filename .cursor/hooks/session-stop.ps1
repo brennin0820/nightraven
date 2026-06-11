@@ -12,18 +12,27 @@ if ([string]::IsNullOrWhiteSpace($loopCount)) { $loopCount = "0" }
 
 $syncLines = @()
 
-$pullResult = Invoke-GitPullFfOnly $projectRoot
-$syncLines += $pullResult.Message
+$fastPath = Get-GodsEyeSessionSyncFastPath $projectRoot
+if ($fastPath) {
+    $syncLines += $fastPath
+} else {
+    if (-not (Test-GodsEyeShouldSkipStopPull $projectRoot)) {
+        $pullResult = Invoke-GitPullFfOnly $projectRoot
+        $syncLines += $pullResult.Message
+    } else {
+        $syncLines += "Autosync pull skipped - session-start recent (see .cursor/.autosync-session)."
+    }
 
-$commitResult = Invoke-GitSessionCommit $projectRoot
-$syncLines += $commitResult.Message
+    $commitResult = Invoke-GitSessionCommit $projectRoot
+    $syncLines += $commitResult.Message
 
-$pushResult = Invoke-GitPushIfAhead $projectRoot
-$syncLines += $pushResult.Message
+    $pushResult = Invoke-GitPushIfAhead $projectRoot
+    $syncLines += $pushResult.Message
 
-if ($pushResult.Deferred) {
-    Add-PushDeferToHandoff $projectRoot $pushResult.Reason
-    $syncLines += "Push defer recorded in docs/14_SESSION_HANDOFF.md Recent sessions (+# only)."
+    if ($pushResult.Deferred) {
+        Add-PushDeferToHandoff $projectRoot $pushResult.Reason
+        $syncLines += "Push defer recorded in docs/14_SESSION_HANDOFF.md Recent sessions (+# only)."
+    }
 }
 
 if ([int]$loopCount -gt 0) {

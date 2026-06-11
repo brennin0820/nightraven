@@ -1,25 +1,45 @@
 # Gods Eye Phase 2 - afterFileEdit
 # Soft nudge when memory-chain files change: +# only, consider exit writes.
+# Fast path: skip lib load when edit is outside memory-chain paths.
 
 $ErrorActionPreference = 'Continue'
-$ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-. (Join-Path $ScriptDir 'lib.ps1')
 
-$inputJson = Read-HookInput
-$filePath = Get-JsonField $inputJson "file_path"
+function Read-HookInputFast {
+    try { return [Console]::In.ReadToEnd() } catch { return "" }
+}
+
+function Get-JsonFieldFast {
+    param([string]$Json, [string]$Field)
+    if ([string]::IsNullOrWhiteSpace($Json)) { return "" }
+    if ($Json -match "`"$([regex]::Escape($Field))`"\s*:\s*`"([^`"]*)`"") {
+        return $Matches[1]
+    }
+    return ""
+}
+
+function Test-MemoryChainPath {
+    param([string]$FilePath)
+    if ([string]::IsNullOrWhiteSpace($FilePath)) { return $false }
+    $normalized = $FilePath -replace '\\', '/'
+    foreach ($prefix in @('docs/', '.cursor/rules/', 'examples/overlay/')) {
+        if ($normalized -like "$prefix*") { return $true }
+    }
+    return ($normalized -eq 'AGENTS.md')
+}
+
+$inputJson = Read-HookInputFast
+$filePath = Get-JsonFieldFast $inputJson "file_path"
 if ([string]::IsNullOrWhiteSpace($filePath)) {
-    $filePath = Get-JsonField $inputJson "path"
+    $filePath = Get-JsonFieldFast $inputJson "path"
 }
 
-$normalized = $filePath -replace '\\', '/'
-$matchesPath = $false
-foreach ($prefix in @('docs/', '.cursor/rules/', 'examples/overlay/')) {
-    if ($normalized -like "$prefix*") { $matchesPath = $true; break }
-}
-if (-not $matchesPath -and $normalized -notin @('AGENTS.md')) {
+if (-not (Test-MemoryChainPath $filePath)) {
     Write-Output '{}'
     exit 0
 }
+
+$ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+. (Join-Path $ScriptDir 'lib.ps1')
 
 $message = "Gods Eye memory edit ($filePath):"
 $message += "`n`n- +# only - append; use **Supersedes** for corrections; never -# heading blocks or trim **Already done** / **Recent sessions**"

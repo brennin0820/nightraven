@@ -18,6 +18,12 @@ if [[ ! -f "${project_root}/${bible_hint}" ]]; then
 fi
 
 pull_msg="$(gods_eye_git_pull_ff_only "$project_root")"
+if [[ "$pull_msg" == Autosync\ pull\ failed* ]]; then
+  gods_eye_mark_session_pulled "$project_root" 0
+else
+  gods_eye_mark_session_pulled "$project_root" 1
+fi
+gods_eye_touch3_disabled_cached "$project_root" >/dev/null || true
 
 message="$(cat <<EOF
 God's Eye · Touch 1 · BEFORE (soft reminder — not a hard block)
@@ -28,6 +34,7 @@ Three-touch: Before → During → After on every real task.
 
 Before substantive edits:
 1. Parallel-read: always-on rule → ${bible_hint} §0 → overlay (if any) → router (if any) → ${handoff_hint} → AGENTS.md
+   Tier 0–1 fast path: rule + handoff scan only — skip full Bible chain unless scope is cross-cutting
 2. Classify tier (0–3) and intent ladder — default stop: memory + wire
 3. MEMORY CHECK: dedup against this repo only; never import other repos' handoff
 

@@ -15,6 +15,8 @@ if (-not (Test-Path -LiteralPath (Join-Path $projectRoot $bibleHint))) {
 }
 
 $pullResult = Invoke-GitPullFfOnly $projectRoot
+Set-GodsEyeSessionPulled $projectRoot $pullResult.Ok
+Update-GodsEyeTouch3Cache $projectRoot
 
 $message = @"
 God's Eye - Touch 1 - BEFORE (soft reminder, not a hard block)
@@ -25,6 +27,7 @@ Three-touch: Before -> During -> After on every real task.
 
 Before substantive edits:
 1. Parallel-read: always-on rule -> $bibleHint section 0 -> overlay (if any) -> router (if any) -> $handoffHint -> AGENTS.md
+   Tier 0-1 fast path: rule + handoff scan only — skip full Bible chain unless scope is cross-cutting
 2. Classify tier (0-3) and intent ladder - default stop: memory + wire
 3. MEMORY CHECK: dedup against this repo only; never import other repos' handoff
 

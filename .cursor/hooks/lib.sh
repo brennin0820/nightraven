@@ -109,6 +109,14 @@ gods_eye_rel_path() {
 
 # Touch 3 pause: marker file or env (GODS_EYE_TOUCH3=0 / GODS_EYE_TOUCH3_DISABLED=1).
 gods_eye_touch3_disabled() {
+  local project_root="${1:-}" cached
+  if [[ -n "$project_root" ]]; then
+    cached="$(gods_eye_read_touch3_cache "$project_root" 2>/dev/null || true)"
+    case "$cached" in
+      1) return 0 ;;
+      0) return 1 ;;
+    esac
+  fi
   case "${GODS_EYE_TOUCH3:-}" in
     0|off|OFF|false|FALSE|no|NO) return 0 ;;
   esac
@@ -124,14 +132,126 @@ gods_eye_touch3_disabled() {
       return 0
     fi
   done
-  local project_root="${1:-}"
   if [[ -n "$project_root" && -f "${project_root}/.cursor/touch3.disabled" ]]; then
     return 0
   fi
   return 1
 }
 
+gods_eye_touch3_disabled_cached() {
+  local project_root="${1:-}"
+  if gods_eye_touch3_disabled "$project_root"; then
+    [[ -n "$project_root" ]] && gods_eye_write_touch3_cache "$project_root" 1
+    return 0
+  fi
+  [[ -n "$project_root" ]] && gods_eye_write_touch3_cache "$project_root" 0
+  return 1
+}
+
 # --- Always Sync (git autosync; fail-open) ---
+
+GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC="${GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC:-1800}"
+
+gods_eye_autosync_session_marker() {
+  local project_root="$1"
+  printf '%s/.cursor/.autosync-session' "$project_root"
+}
+
+gods_eye_touch3_cache_path() {
+  local project_root="$1"
+  printf '%s/.cursor/.touch3-cache' "$project_root"
+}
+
+gods_eye_mark_session_pulled() {
+  local project_root="$1"
+  local pull_ok="${2:-1}"
+  local marker dir
+  marker="$(gods_eye_autosync_session_marker "$project_root")"
+  dir="$(dirname "$marker")"
+  mkdir -p "$dir" 2>/dev/null || true
+  printf '%s|%s\n' "$(date +%s)" "$pull_ok" > "$marker" 2>/dev/null || true
+}
+
+gods_eye_should_skip_stop_pull() {
+  local project_root="$1"
+  local marker now_ts file_ts age pull_ok
+  marker="$(gods_eye_autosync_session_marker "$project_root")"
+  [[ -f "$marker" ]] || return 1
+  IFS='|' read -r file_ts pull_ok < "$marker" || return 1
+  [[ "$pull_ok" == "1" ]] || return 1
+  now_ts="$(date +%s)"
+  age=$((now_ts - file_ts))
+  [[ "$age" -ge 0 && "$age" -le "${GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC}" ]]
+}
+
+gods_eye_write_touch3_cache() {
+  local project_root="$1"
+  local disabled="$2"
+  local cache dir
+  cache="$(gods_eye_touch3_cache_path "$project_root")"
+  dir="$(dirname "$cache")"
+  mkdir -p "$dir" 2>/dev/null || true
+  printf '%s\n' "$disabled" > "$cache" 2>/dev/null || true
+}
+
+gods_eye_read_touch3_cache() {
+  local project_root="$1"
+  local cache val
+  cache="$(gods_eye_touch3_cache_path "$project_root")"
+  [[ -f "$cache" ]] || return 1
+  val="$(tr -d ' \r\n' < "$cache" 2>/dev/null || true)"
+  case "$val" in
+    0|1) printf '%s' "$val"; return 0 ;;
+  esac
+  return 1
+}
+
+gods_eye_has_safe_dirty_files() {
+  local project_root="$1" line path
+  while IFS= read -r line; do
+    [[ -z "$line" ]] && continue
+    path="${line:3}"
+    path="${path# }"
+    if [[ "$path" == *" -> "* ]]; then
+      path="${path##* -> }"
+    fi
+    path="${path//\\//}"
+    if gods_eye_is_safe_autosync_path "$path"; then
+      return 0
+    fi
+  done < <(git -C "${project_root}" status --porcelain 2>/dev/null || true)
+  return 1
+}
+
+gods_eye_is_ahead_of_upstream() {
+  local project_root="$1" branch upstream ahead
+  branch="$(git -C "${project_root}" rev-parse --abbrev-ref HEAD 2>/dev/null || true)"
+  [[ -n "$branch" ]] || return 1
+  upstream="origin/${branch}"
+  git -C "${project_root}" rev-parse --verify "${upstream}" >/dev/null 2>&1 || return 1
+  ahead="$(git -C "${project_root}" rev-list --count "${upstream}..HEAD" 2>/dev/null || echo 0)"
+  [[ "${ahead}" -gt 0 ]]
+}
+
+gods_eye_session_sync_fast_path() {
+  local project_root="$1"
+  if ! gods_eye_is_git_repo "$project_root"; then
+    printf '%s' "Autosync stop skipped — not a git repository."
+    return 0
+  fi
+  if gods_eye_has_safe_dirty_files "$project_root"; then
+    return 1
+  fi
+  if gods_eye_is_ahead_of_upstream "$project_root"; then
+    return 1
+  fi
+  if gods_eye_should_skip_stop_pull "$project_root"; then
+    printf '%s' "Autosync stop: nothing to sync (no safe dirty, not ahead; pull skipped — session-start recent)."
+  else
+    printf '%s' "Autosync stop: nothing to sync (no safe dirty, not ahead)."
+  fi
+  return 0
+}
 
 gods_eye_is_git_repo() {
   local project_root="$1"

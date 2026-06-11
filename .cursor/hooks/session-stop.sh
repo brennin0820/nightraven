@@ -15,15 +15,24 @@ loop_count="$(json_number_field "$input" "loop_count")"
 loop_count="${loop_count:-0}"
 
 sync_lines=()
-sync_lines+=("$(gods_eye_git_pull_ff_only "$project_root")")
-sync_lines+=("$(gods_eye_git_session_commit "$project_root")")
-push_msg="$(gods_eye_git_push_if_ahead "$project_root")"
-sync_lines+=("$push_msg")
+fast_path="$(gods_eye_session_sync_fast_path "$project_root" || true)"
+if [[ -n "$fast_path" ]]; then
+  sync_lines+=("$fast_path")
+else
+  if gods_eye_should_skip_stop_pull "$project_root"; then
+    sync_lines+=("Autosync pull skipped — session-start recent (see .cursor/.autosync-session).")
+  else
+    sync_lines+=("$(gods_eye_git_pull_ff_only "$project_root")")
+  fi
+  sync_lines+=("$(gods_eye_git_session_commit "$project_root")")
+  push_msg="$(gods_eye_git_push_if_ahead "$project_root")"
+  sync_lines+=("$push_msg")
 
-if [[ "$push_msg" == Autosync\ push\ failed* ]]; then
-  reason="${push_msg#Autosync push failed (fail-open): }"
-  gods_eye_append_push_defer "$project_root" "$reason"
-  sync_lines+=("Push defer recorded in docs/14_SESSION_HANDOFF.md Recent sessions (+# only).")
+  if [[ "$push_msg" == Autosync\ push\ failed* ]]; then
+    reason="${push_msg#Autosync push failed (fail-open): }"
+    gods_eye_append_push_defer "$project_root" "$reason"
+    sync_lines+=("Push defer recorded in docs/14_SESSION_HANDOFF.md Recent sessions (+# only).")
+  fi
 fi
 
 sync_block="$(printf '%s\n' "${sync_lines[@]}")"

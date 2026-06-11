@@ -8,4 +8,5 @@ alwaysApply: true
 - Pick the best-fit model for each task—not merely adequate. When delegating subagents, set an explicit model only if the user requests it or the task clearly benefits.
 - In Multitask Mode: delegate substantial work via Task with `run_in_background=true`; one coherent worker per request; no redundant sibling agents or foreground duplication; minimize wasted tokens and context.
 - **Small asks:** audits, vocabulary, docs-only, single-file Q&A — handle in foreground; do not spawn subagents (God's Eye Bible §2.8).
+- **Subagent workers:** inherit parent task scope — no duplicate Phase 0 / NightRaven re-assessment unless scope changed (NightRaven skill · tasking fast paths).
 - **Heavy threads:** when retained conversation history dominates cost, prefer a **new chat** and read `docs/14_SESSION_HANDOFF.md` instead of continuing the same thread (§2.8).

@@ -122,6 +122,8 @@ User-level hooks resolve the active workspace via `workspace_roots` in hook stdi
 - **Wrong project paths in reminders** — hooks need `workspace_roots` in stdin; `sessionStart` sets `GODS_EYE_PROJECT_ROOT` for later hooks.
 - **Stop follow-up loops** — `loop_limit: 1` on the `stop` hook; script skips when `loop_count > 0`.
 - **Too chatty** — remove `afterFileEdit` from `hooks.json` or disable hooks entirely.
+- **Slow session stop (clean tree)** — stop hook skips pull/commit/push when there are no safe dirty files, branch is not ahead, and session-start pulled recently (`.cursor/.autosync-session`, default 30 min). `afterFileEdit` exits immediately (`{}`) for non-memory paths without loading hook libs.
+- **Tune stop-pull skip window** — set `GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC` (seconds; default `1800`).
 
 ---
 
