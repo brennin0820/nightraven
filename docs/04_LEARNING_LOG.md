@@ -6,6 +6,34 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Stop hooks must fail-open before followup_message
+
+**Signal:** Hooks review flagged `set -euo pipefail` on `session-stop.sh` — a failed handoff defer append could abort before `emit_followup_message`, silencing Touch 3 / Always Sync status.
+
+**Pattern:** Session **stop** hooks are infrastructure, not product logic — never use `set -e`. Use `set -uo pipefail` only; wrap best-effort side effects (`gods_eye_append_push_defer`, awk/mv) with fail-open guards.
+
+**Do:** Emit followup even when git defer or handoff append fails; report sync lines in the message either way.
+
+**Don't:** Let `set -e` on stop hooks — agents lose the autosync summary and Touch 3 reminder.
+
+**See:** [`.cursor/hooks/session-stop.sh`](../.cursor/hooks/session-stop.sh) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+
+---
+
+## 2026-06-11 — Install picks hooks manifest by OS
+
+**Signal:** Committed `.cursor/hooks.json` was PowerShell-only — Unix adopters had to hand-edit `run-hook.sh` paths after `install.sh`.
+
+**Pattern:** Project install copies **Windows** → repo `hooks.json` (PowerShell); **non-Windows** → `templates/hooks.project.unix.json` with `run-hook.sh` dispatchers. Detect via `uname` / `OS=Windows_NT`.
+
+**Do:** Ship both manifests; document in HOOKS_SETUP user-level vs project-level table.
+
+**Don't:** Assume all adopters run Cursor on Windows — bash scripts already shipped; manifest must match platform.
+
+**See:** [`install.sh`](../install.sh) · [`templates/hooks.project.unix.json`](../templates/hooks.project.unix.json) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md)
+
+---
+
 ## 2026-06-11 — Keep browser verification temp profiles outside watched Vite repos
 
 **Signal:** NightRaven Compass Phase 1 verification used headless Chrome screenshots; Vite crashed when Chrome profile temp files were created under the app's `.codex` directory and the dev server tried to watch them.

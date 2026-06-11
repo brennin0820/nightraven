@@ -6,6 +6,18 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Hooks review + parallel gap-fill (post-review)
+
+- +# Brent **REVIEW addition** — read-only review of Phase 2 hooks: after-file-edit fast path, session sync fast path, autosync conventional commit messages, bash/PS parity gaps
+- +# Brent **in parallel** — executed review fixes without serial blocking: fail-open `session-stop.sh` (no `set -e`; defer append `|| true`; `gods_eye_append_push_defer` awk/mv fail-open)
+- +# **Unix project install** — `templates/hooks.project.unix.json` (`run-hook.sh` dispatchers); `install.sh` `hooks_os_is_windows()` picks PowerShell vs Unix manifest on project install
+- +# **HOOKS_SETUP** — autosync safe-path commit on stop vs in-session "commit when asked" boundary documented
+- +# **lib.sh parity** — per-file `git add` fallback when batch add fails (matches `lib.ps1`)
+- +# **Copy** — `God's Eye` branding aligned in `after-file-edit` bash/PS
+- +# Code shipped `e2094ec`; memory append this Touch 3 pass
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`install.sh`](../install.sh) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
 ### NightRaven Compass Phase 1 sibling app
 
 - +# Brent said **"in parallel"** after the Compass build packet; interpreted as execute Phase 1 with parallelized setup / implementation / verification workstreams.
