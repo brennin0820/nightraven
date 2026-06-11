@@ -1,0 +1,53 @@
+{
+  // God's Eye workspace — repo-specific. Global perf + Cursor prefs: %APPDATA%\Cursor\User\settings.json
+  // See .vscode/README.md for user vs workspace split and manual Cursor UI toggles.
+
+  "files.associations": {
+    "*.mdc": "markdown"
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.encoding": "utf8",
+
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.formatOnSave": false,
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    }
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[json]": {
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.formatOnSave": true
+  },
+
+  // Keep docs/ indexed for agents; exclude build artifacts and secrets only
+  "search.exclude": {
+    "**/mcp-server/node_modules": true,
+    "**/mcp-server/dist": true,
+    "**/.env": true,
+    "**/.env.*": true,
+    "**/backup/**": true
+  },
+  "files.watcherExclude": {
+    "**/mcp-server/node_modules/**": true,
+    "**/mcp-server/dist/**": true,
+    "**/backup/**": true
+  },
+
+  // Complements Always Sync hooks (session-start pull / session-stop push) — no conflict
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": false,
+
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "markdown.validate.enabled": true
+}

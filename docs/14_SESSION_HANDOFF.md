@@ -37,6 +37,8 @@ Phase 2 **MCP memory-chain tools** on `origin/main`. **Consumer app:** **NightRa
 ---
 
 ## Recent sessions
+- **2026-06-11** — **Cursor/VS Code settings shipped** — `.vscode/settings.json`, `extensions.json`, `README.md` (docs indexed, mcp-server build + secrets excluded, markdown no format-on-save, PowerShell terminal, git.autofetch complements hooks); user settings: `.env` search exclude, PowerShell default, git.autofetch; `HOOKS_SETUP.md` cross-link (`+#` only).
+- **2026-06-11** — Touch 3 AFTER: **division taxonomy + Always Sync + autosync hooks** — Brent proposed 11-division GE structure (Product, Research, Architect, Builder, Design, QA, Security, Auditor, Documentation, DevOps + Core); gap map: NightRaven 4 runtime divisions · Bible §9 six virtual teams · **Architect Division** top gap; Phase 0 = overlay/Bible §9.x memory wire only (portable standard vs NightRaven-scoped **TBD**); Always Sync verdict **PARTIAL** before fix (policy + soft nudges; user rule commit-on-request conflict); shipped Cursor autosync PS/bash hooks (`ed7f200`, `7aa4df3`) — real pull / safe-path commit / push fail-open; Cursor vs Code settings optimization — no `.vscode/` land in repo; Record Everything (`+#` only); push-latency §2.8 satisfied.
 - **2026-06-11** — **Cursor Always Sync autosync** — PowerShell hooks (`session-start.ps1`, `session-stop.ps1`, `lib.ps1`, `after-file-edit.ps1`) run real git pull / safe-path commit / push on session boundaries; bash `.sh` + `run-hook.sh` parity; `hooks.json` Windows PowerShell commands; `docs/HOOKS_SETUP.md` autosync section (`+#` only).
 - **2026-06-11** — Brent context: **auto-setup MCP launcher** — updated node MCP launcher template and project instance (`run-gods-eye-mcp.js`) to automatically trigger `npm install` and `npm run build` inside `mcp-server` if the target build is missing (`+#` only).
 - **2026-06-11** — Brent context: **design local vs cloud execution** — created local vs cloud execution design spec (`docs/GODS_EYE_LOCAL_VS_CLOUD.md`), detailed LM Studio optimizations, context pruning, and multi-agent resource allocations (`+#` only).
@@ -113,6 +115,6 @@ Phase 2 **MCP memory-chain tools** on `origin/main`. **Consumer app:** **NightRa
 
 - **`+#` only** on memory docs — never `-#` or collapse **Recent sessions** / **Already done**
 - **This repo only** — no cross-repo handoff bleed
-- **Phase 2 hooks** are soft nudges — CORE law remains Bible + always-on rule; see [`HOOKS_SETUP.md`](HOOKS_SETUP.md)
+- **Phase 2 hooks** — `sessionStart`/`stop` run Always Sync autosync (real git pull / safe-path commit / push, fail-open); `afterFileEdit` remains soft nudge; CORE law remains Bible + always-on rule; see [`HOOKS_SETUP.md`](HOOKS_SETUP.md)
 - **§2.7** — cross-app → standard; Brent does not repeat "add X"
 - **§3** — five-step unclear input; no code until ship signal (§2.8)

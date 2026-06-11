@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "yzhang.markdown-all-in-one",
+    "DavidAnson.vscode-markdownlint",
+    "ms-vscode.powershell",
+    "timonwong.shellcheck"
+  ],
+  "unwantedRecommendations": [
+    "eamodio.gitlens"
+  ]
+}
