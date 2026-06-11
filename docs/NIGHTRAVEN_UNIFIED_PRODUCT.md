@@ -14,6 +14,7 @@
 | **Memory framework** | **God's Eye** | Repo-native agent memory — Bible, handoff, hooks, `+#` | Repo root · `install.sh` |
 | **Orchestration** | **NightRaven Core** | Adaptive Builder/Auditor — `/nightraven` | `.claude/skills/nightraven/SKILL.md` |
 | **Guidance UI** | **NightRaven Compass** | Next-step dashboard for non-coder builder | `apps/compass/` |
+| **Greenfield app** | **HimFLer** | New consumer project (bootstrapped) | `E:\NightRaven\HimFLer` |
 | **Consumer app** | **NightRaven** (iOS) | Gambling tracker · ship name; Xcode target TBD | **External repo** — merge pending |
 
 **Motto chain (Compass identity):** God's Eye thinks · NightRaven builds · Auditor verifies · Compass points.

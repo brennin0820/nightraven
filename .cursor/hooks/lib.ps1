@@ -300,7 +300,8 @@ function Test-SafeAutosyncPath {
         'templates/',
         'examples/',
         'scripts/',
-        'mcp-server/'
+        'mcp-server/',
+        'apps/'
     )
     foreach ($prefix in $safePrefixes) {
         if ($normalized -like "$prefix*") { return $true }

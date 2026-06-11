@@ -20,6 +20,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Autosync safe paths omit `apps/` after monorepo merge
+
+**Signal:** Hook autosync on stop committed memory/docs but left `.gitignore`, `apps/README.md`, and `apps/compass/README.md` local — `apps/*` not in `gods_eye_is_safe_autosync_path` / `Test-SafeAutosyncPath`.
+
+**Pattern:** Monorepo adds `apps/<product>/` — extend hook safe allowlist to `apps/*` (same tier as `docs/`, `scripts/`) or agents must **commit** app-folder files explicitly.
+
+**Do:** Add `apps/*` to lib.sh + lib.ps1 safe paths when monorepo is canonical; document in HOOKS_SETUP.
+
+**Don't:** Assume session-stop autosync picks up new top-level app folders automatically.
+
+**See:** [`.cursor/hooks/lib.sh`](../.cursor/hooks/lib.sh) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md)
+
+---
+
 ## 2026-06-11 — Slim local backups for sibling repos without remote
 
 **Signal:** Brent shared `nightraven-compass.rar` (~181 MB) — full-folder backup of Compass while git remote still unset; bulk was `node_modules` + `.codex` Chrome profiles, not source.

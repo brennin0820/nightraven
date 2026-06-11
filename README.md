@@ -13,6 +13,7 @@
 | **NightRaven Core** | Adaptive orchestration (`/nightraven`) | `.claude/skills/nightraven/` |
 | **NightRaven Compass** | Project guidance dashboard (Phase 1) | [`apps/compass/`](apps/compass/) |
 | **NightRaven app** | Consumer iOS app | External repo — monorepo merge pending |
+| **New consumer project** | Bootstrap script | `./scripts/bootstrap-nightraven-project.sh <Name> [path]` — e.g. **HimFLer** @ `E:\NightRaven\HimFLer` |
 
 Full map: [`docs/NIGHTRAVEN_UNIFIED_PRODUCT.md`](docs/NIGHTRAVEN_UNIFIED_PRODUCT.md)
 

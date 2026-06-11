@@ -1,5 +1,7 @@
 # NightRaven Compass
 
+> **Monorepo path:** `apps/compass/` in the [NightRaven platform repo](https://github.com/brennin0820/gods-eye) (GitHub rename pending). Sibling folder `E:\NightRaven\nightraven-compass` is superseded after subtree merge.
+
 NightRaven Compass is a project-guidance app for a non-coder builder using God's Eye and NightRaven to build software with AI agents.
 
 ## Purpose

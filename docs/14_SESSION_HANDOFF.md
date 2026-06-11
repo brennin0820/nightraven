@@ -6,7 +6,7 @@
 
 ## Current state / focus
 
-Phase 2 **MCP memory-chain tools** on `origin/main`. **Consumer app:** **NightRaven** at `~/Developer/NightRaven` (GitHub `brennin0820/NightRaven`; was BankrollCalendar). **Xcode target** still OneDayMillionaire until app-repo rename. **Next:** Division taxonomy scope (portable vs NightRaven-scoped) — Brent TBD · Claude adoption kit shipped (#15).
+**NightRaven platform monorepo** on `origin/main` — God's Eye framework at root · NightRaven Core skill · **Compass** in `apps/compass/`. **HimFLer** greenfield bootstrapped @ `E:\NightRaven\HimFLer` (`bootstrap-nightraven-project.sh`). Map: [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md). **Next:** HimFLer product scope · iOS into `apps/ios/` · GitHub rename (Brent TBD).
 
 ---
 
@@ -37,7 +37,9 @@ Phase 2 **MCP memory-chain tools** on `origin/main`. **Consumer app:** **NightRa
 ---
 
 ## Recent sessions
-- **2026-06-11** — Touch 3 AFTER: **NightRaven monorepo merge — Compass in** — Brent **merge all make all one to be NightRaven**; `git subtree` squash → `apps/compass/` (Phase 1); shipped [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md) · README umbrella · overlay §1 · unified stack §13 · `apps/README.md`; God's Eye stays L2 framework name; iOS app + GitHub rename **pending**; subtree commits local (**uncommitted** wire + memory this pass); say **commit** + push (`+#` only).
+- **2026-06-11** — **HimFLer bootstrap** — Brent **put ready for new project HimFLer**; shipped `scripts/bootstrap-nightraven-project.sh`; ran → `E:\NightRaven\HimFLer` (God's Eye + NightRaven Core · overlay · handoff · `PROJECT_QUICKSTART.md` · hooks · ledgers · git init); wired CURSOR_INSTALL · README · registry · autosync `apps/*` safe path (`+#` only; commit pending).
+- **2026-06-11** — Touch 3 AFTER: **monorepo merge shipped** — autosync stop: pull skipped (session-start recent) · committed+pushed 3 commits to `origin/main` (`213eaba` subtree · `a6a9ded` wire/memory); **Supersedes** "uncommitted" on line below; **still local:** `.gitignore` (`apps/*` ignores) · `apps/README.md` · `apps/compass/README.md` monorepo note — not in hook safe-path allowlist; say **commit** or extend autosync (`+#` only).
+- **2026-06-11** — Touch 3 AFTER: **NightRaven monorepo merge — Compass in** — Brent **merge all make all one to be NightRaven**; `git subtree` squash → `apps/compass/` (Phase 1); shipped [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md) · README umbrella · overlay §1 · unified stack §13 · `apps/README.md`; God's Eye stays L2 framework name; iOS app + GitHub rename **pending**; pushed `origin/main` @ `a6a9ded` (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: **session close — backup thread** — autosync stop: nothing to sync (no safe dirty · not ahead · pull skipped session-start recent); all work on `origin/main` @ `397f544` · tag `backup/20260611-132907`; no new deltas (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: **repository backup — local + cloud** — Brent **make a backup**; synced `main`; committed pending Compass RAR memory + backup receipt; cloud tag `backup/20260611-132907` @ HEAD pushed `origin`; local artifacts `E:\NightRaven\gods-eye-1-backup-20260611-132907.zip` (git archive) + `E:\NightRaven\gods-eye-1-backup-20260611-132907.bundle` (full history); operational only (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: **Compass local RAR backup — inventory Q&A** — Brent pasted `E:\NightRaven\nightraven-compass.rar` (~181 MB RAR5, ~463 MB unpacked, 11k+ files); read-only compare vs live `E:\NightRaven\nightraven-compass` @ `c91a315` — archive includes `.git`, `node_modules`, `.codex` Chrome profiles (bulk); live repo intact · still no cloud remote; offered restore / slim re-pack / push remote / continue dev — no action chosen; prior hook memory pushed `82ca821`; this append (`+#` only).

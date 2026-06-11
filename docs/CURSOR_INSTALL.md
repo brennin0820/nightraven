@@ -160,9 +160,13 @@ See [`GODS_EYE_UNIFIED_STACK.md`](docs/GODS_EYE_UNIFIED_STACK.md) §2 · [`GODS_
 
 ```bash
 cd ~/Projects/gods-eye   # or path to this clone
-chmod +x install.sh scripts/install-gods-eye-nightraven.sh
+chmod +x install.sh scripts/install-gods-eye-nightraven.sh scripts/bootstrap-nightraven-project.sh
 
-# Once per machine + target app (e.g. NightRaven consumer repo)
+# New greenfield project (overlay + handoff + quickstart seeded)
+./scripts/bootstrap-nightraven-project.sh HimFLer
+# default path: ../HimFLer next to framework; or pass explicit path as 2nd arg
+
+# Existing app repo
 ./scripts/install-gods-eye-nightraven.sh --user ~/Developer/NightRaven
 ```
 

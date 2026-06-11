@@ -290,7 +290,7 @@ gods_eye_is_safe_autosync_path() {
     return 1
   fi
   case "$path" in
-    docs/*|.cursor/*|templates/*|examples/*|scripts/*|mcp-server/*|\
+    docs/*|.cursor/*|templates/*|examples/*|scripts/*|mcp-server/*|apps/*|\
     AGENTS.md|README.md|CHANGELOG.md|LICENSE|install.sh)
       return 0 ;;
   esac

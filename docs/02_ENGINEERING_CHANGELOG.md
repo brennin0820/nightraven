@@ -6,12 +6,23 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### HimFLer — greenfield project bootstrap
+
+- +# Brent asked to **put ready for use** new project **HimFLer**
+- +# Shipped `scripts/bootstrap-nightraven-project.sh` — wraps `install-gods-eye-nightraven.sh` + seeds overlay · handoff · README · `docs/PROJECT_QUICKSTART.md` · `.gitignore`
+- +# Created `E:\NightRaven\HimFLer` — git init · full God's Eye + NightRaven Core stack
+- +# Registry: `scripts/gods-eye-projects.conf` · CURSOR_INSTALL · README · `NIGHTRAVEN_UNIFIED_PRODUCT.md`
+- +# Autosync: extended safe paths to `apps/*` in hook libs
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md)
+
 ### NightRaven monorepo — Compass merge
 
 - +# Brent **merge all into NightRaven** — umbrella brand at public README; **God's Eye** remains portable memory framework (vocabulary layers preserved)
 - +# **Compass merged** — `git subtree add --prefix=apps/compass` from sibling `nightraven-compass` @ `c91a315` (squash)
 - +# **Docs** — [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md) (layout · merge status · memory isolation); unified stack §13; overlay §1; [`apps/README.md`](../apps/README.md)
 - +# **Deferred** — NightRaven iOS app into `apps/ios/` (repo not on machine); GitHub `gods-eye` → `NightRaven` rename; archive sibling `E:\NightRaven\nightraven-compass`
+- +# **Shipped** `origin/main` @ `a6a9ded` — subtree `213eaba` + wire/memory autosync; **local stragglers:** `.gitignore`, `apps/README.md`, `apps/compass/README.md` (outside autosync safe paths)
 
 **Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
 
