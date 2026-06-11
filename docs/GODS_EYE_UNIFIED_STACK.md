@@ -27,6 +27,7 @@ Related: [`37_GODS_EYE.md`](37_GODS_EYE.md) · [`GODS_EYE_GRAND_SPEC.md`](GODS_E
 | **Risks** | **10** | Drift, bleed, shadow truth, gate fatigue |
 | **Mermaid — unified stack** | **11** | Visual layer map |
 | **Project inventory** | **12** | All workspaces with God's Eye — scan + registry |
+| **NightRaven monorepo** | **13** | Umbrella brand · `apps/compass` · merge status |
 
 ---
 
@@ -491,6 +492,24 @@ Registry file: `scripts/gods-eye-projects.conf` — add a line per new bootstrap
 **Index disagreement:** git wins · append Supersedes · re-ingest
 
 **Local vs cloud:** `docs/GODS_EYE_LOCAL_VS_CLOUD.md` — LM Studio = serial + strict pruning; cloud = parallel + subagents + 80% fresh-thread rule
+
+---
+
+## 13. NightRaven monorepo (umbrella brand)
+
+**NightRaven** is Brent's unified product name. **God's Eye** remains the portable **memory framework** name (L2) — do not rename Bible or `+#` chain to "NightRaven memory."
+
+| Component | Layer | Path |
+|-----------|-------|------|
+| NightRaven (umbrella) | Brand | [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md) |
+| God's Eye | L2 framework | Repo root · `docs/37` |
+| NightRaven Core | Orchestration | `.claude/skills/nightraven/` |
+| NightRaven Compass | App (guidance UI) | `apps/compass/` |
+| NightRaven iOS | App (consumer) | External — merge to `apps/ios/` pending |
+
+**Install stack:** `./scripts/install-gods-eye-nightraven.sh TARGET` — still **two layers** (memory + Core); monorepo adds **apps** without collapsing handoffs.
+
+**Cross-links:** [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md) · [`apps/README.md`](../apps/README.md) · overlay §1
 
 ---
 

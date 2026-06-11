@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Monorepo merge without collapsing memory layers
+
+**Signal:** Brent asked to merge God's Eye, NightRaven Core, and Compass into **one NightRaven** — prior merge Q&A warned against collapsing vocabulary layers.
+
+**Pattern:** **Brand umbrella** + **monorepo layout** — public README leads with NightRaven; **God's Eye** stays L2 framework/Bible name; **NightRaven Core** stays orchestration skill; apps under `apps/` with **separate app memory** (`apps/compass/docs/` vs framework `docs/14`). Use `git subtree add --prefix=apps/<name>` for sibling repos.
+
+**Do:** [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md) as canonical merge map; cross-link in overlay · unified stack §13 · AGENTS.
+
+**Don't:** Rename Bible/`+#` chain to NightRaven; paste Compass handoff into framework `docs/14`; delete sibling folder until monorepo verified.
+
+**See:** [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
+---
+
 ## 2026-06-11 — Slim local backups for sibling repos without remote
 
 **Signal:** Brent shared `nightraven-compass.rar` (~181 MB) — full-folder backup of Compass while git remote still unset; bulk was `node_modules` + `.codex` Chrome profiles, not source.

@@ -6,6 +6,15 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### NightRaven monorepo — Compass merge
+
+- +# Brent **merge all into NightRaven** — umbrella brand at public README; **God's Eye** remains portable memory framework (vocabulary layers preserved)
+- +# **Compass merged** — `git subtree add --prefix=apps/compass` from sibling `nightraven-compass` @ `c91a315` (squash)
+- +# **Docs** — [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md) (layout · merge status · memory isolation); unified stack §13; overlay §1; [`apps/README.md`](../apps/README.md)
+- +# **Deferred** — NightRaven iOS app into `apps/ios/` (repo not on machine); GitHub `gods-eye` → `NightRaven` rename; archive sibling `E:\NightRaven\nightraven-compass`
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
 ### Hooks review + parallel gap-fill (post-review)
 
 - +# Brent **REVIEW addition** — read-only review of Phase 2 hooks: after-file-edit fast path, session sync fast path, autosync conventional commit messages, bash/PS parity gaps

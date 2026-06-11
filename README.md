@@ -3,7 +3,22 @@
 ![AI Agents](https://img.shields.io/badge/AI-AgentOps-purple)
 ![Local First](https://img.shields.io/badge/Local--First-Memory-green)
 
-# God's Eye
+# NightRaven
+
+**Agent-native engineering — memory, orchestration, guidance, and apps in one ecosystem.**
+
+| Component | What it does | Where |
+|-----------|--------------|--------|
+| **God's Eye** | Repo-native agent memory & oversight | This repo (framework root) |
+| **NightRaven Core** | Adaptive orchestration (`/nightraven`) | `.claude/skills/nightraven/` |
+| **NightRaven Compass** | Project guidance dashboard (Phase 1) | [`apps/compass/`](apps/compass/) |
+| **NightRaven app** | Consumer iOS app | External repo — monorepo merge pending |
+
+Full map: [`docs/NIGHTRAVEN_UNIFIED_PRODUCT.md`](docs/NIGHTRAVEN_UNIFIED_PRODUCT.md)
+
+---
+
+# God's Eye (framework)
 
 **AI agents forget. God's Eye makes your repo remember.**
 

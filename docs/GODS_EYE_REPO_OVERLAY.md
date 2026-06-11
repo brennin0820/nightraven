@@ -38,6 +38,8 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 | **Design Division (runtime)** | Read-only UX/visual pass before or after Builder on UI-touched work; distinct from Bible §9 **Design/UX** virtual team (loop readability) |
 | **Pre-coding gate** | NightRaven card — correct → intent → domains → division combos → God's Eye Final Report before mutating writes |
 | **Risk label map** | User/protocol Low→Critical maps to NightRaven TRIVIAL→CRITICAL matrix — see NightRaven skill mapping table; do not replace matrix |
+| **NightRaven (umbrella brand)** | Brent's unified product family — memory (God's Eye) + orchestration (Core) + Compass + iOS app; **monorepo** at repo root · see [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md) |
+| **NightRaven monorepo** | `apps/compass/` merged Phase 1; framework at root; iOS merge pending; GitHub rename deferred |
 
 ---
 
@@ -62,6 +64,7 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 | agent-skills merge (plan) | `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md` — reject core merge; optional L4 adapt · [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) optional section · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §2 · §6 |
 | Claude adoption (#15) | [`CLAUDE_ADOPTION.md`](CLAUDE_ADOPTION.md) — Claude Code install path · vendor list · MCP optional · noreply git author · hooks parity |
 | Local vs Cloud | [`GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md) — local vs cloud execution design |
+| NightRaven unified product | [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md) — umbrella brand · monorepo layout · merge status |
 
 
 ---

@@ -1,6 +1,8 @@
 # AGENTS.md — coding agent instructions
 
-**Public pitch:** [README.md](README.md) — *AI agents forget. God's Eye makes your repo remember.*
+**Public pitch:** [README.md](README.md) — **NightRaven** ecosystem · God's Eye memory at repo root.
+
+**NightRaven monorepo map:** [`docs/NIGHTRAVEN_UNIFIED_PRODUCT.md`](docs/NIGHTRAVEN_UNIFIED_PRODUCT.md) · Compass app: [`apps/compass/`](apps/compass/)
 
 ---
 
@@ -18,6 +20,7 @@
 | 4 | `docs/GODS_EYE_GRAND_SPEC.md` — router (if present) |
 | 5 | `docs/GODS_EYE_PROJECT_INVENTORY.md` — cross-repo adoption (framework maintenance) |
 | 6 | `docs/14_SESSION_HANDOFF.md` — current state & guardrails (this repo only) |
+| 7 | `docs/NIGHTRAVEN_UNIFIED_PRODUCT.md` — umbrella brand · monorepo · app boundaries (when working across `apps/`) |
 
 ---
 
