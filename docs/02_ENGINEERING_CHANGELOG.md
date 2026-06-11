@@ -6,6 +6,13 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Repository backup — local + cloud
+
+- +# Brent asked for a cloud and local backup of this repo; synced `main` with `origin/main`, then prepared a final pushed commit plus a timestamped local backup artifact and cloud tag.
+- +# Scope — operational backup only; no product/law behavior changes.
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
 ### Polish + gap-fill — hooks, install, orchestration wire
 
 - +# **Install parity** — `install.sh` copies `*.ps1` + `lib.ps1` alongside `*.sh`/`lib.sh` for project + `~/.cursor/hooks/gods-eye/` user install
