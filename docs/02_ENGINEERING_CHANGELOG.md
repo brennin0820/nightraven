@@ -6,6 +6,18 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Compass — scope monitor live (Scope Map + Auditor Queue)
+
+- +# Brent **in parallel MAKE IT WORK** — replace Scope Map / Auditor Queue placeholders with working UI
+- +# **`scopeMonitor.ts`** — `buildScopeMonitorSnapshot` · per-task reports · `detectScopeCreep`
+- +# **`ScopeMapPage`** — health % · in/out scope lists · phase constraints · task scope table
+- +# **`AuditorQueuePage`** — pre-build scope gate · creep signals · pass/hold
+- +# **Dashboard** — `ScopeMonitorCard` + link to Scope Map; nav **Phase 1** for scope-map · auditor-queue
+- +# Verified `npm run build` + `eslint`; shipped `origin/main` @ `b3a2583`
+- +# **Still mock** — no God's Eye handoff or git integration yet
+
+**Cross-links:** [`apps/compass/README.md`](../apps/compass/README.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
 ### HimFLer — greenfield project bootstrap
 
 - +# Brent asked to **put ready for use** new project **HimFLer**

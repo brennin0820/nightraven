@@ -6,7 +6,7 @@
 
 ## Current state / focus
 
-**NightRaven platform monorepo** on `origin/main` — God's Eye framework at root · NightRaven Core skill · **Compass** in `apps/compass/`. **HimFLer** greenfield bootstrapped @ `E:\NightRaven\HimFLer` (`bootstrap-nightraven-project.sh`). Map: [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md). **Next:** HimFLer product scope · iOS into `apps/ios/` · GitHub rename (Brent TBD).
+**NightRaven platform monorepo** on `origin/main` — God's Eye framework at root · NightRaven Core skill · **Compass** in `apps/compass/` (**Scope Map + Auditor Queue live** · mock data). **HimFLer** greenfield @ `E:\NightRaven\HimFLer`. Map: [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md). **Next:** HimFLer product scope · GE/git wire for Compass · iOS · GitHub rename (Brent TBD).
 
 ---
 
@@ -37,6 +37,7 @@
 ---
 
 ## Recent sessions
+- **2026-06-11** — Touch 3 AFTER: **Compass scope monitor shipped** — Brent **in parallel MAKE IT WORK**; shipped live **Scope Map** (`scopeMonitor.ts` · health · in/out scope · task table) · **Auditor Queue** (scope warnings · creep detection) · dashboard **Scope monitor** card · nav Phase 1 routing; `npm run build` + `lint` pass · dev @ `:5174`; autosync stop: committed+pushed `origin/main` @ `b3a2583` (9 files); **Supersedes** placeholder claim on Compass scope Q&A line below; still mock · no GE/git wire (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: **Compass scope Q&A** — Brent **is scope monitor going to work** (meant Compass); read-only: Phase 1 dashboard scope works (`scopeWarnings` · scope locked · Not Now · ready-to-build); **Scope Map** nav + **Auditor Queue** = placeholders · mock only · no GE/git wire; verified `apps/compass` `npm install` + `npm run build` locally; no repo file changes; autosync stop: nothing to sync · `origin/main` @ `b1b139e` (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: **open HimFLer environment** — Brent **open environment for me**; `cursor E:\NightRaven\HimFLer` (new window · bootstrap stack ready); offered Compass `npm run dev` / Explorer — no repo file changes; autosync stop: nothing to sync · `origin/main` @ `b835806` (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: **HimFLer bootstrap shipped** — autosync stop: pull up to date · committed+pushed `origin/main` @ `044928a` (bootstrap script · hook `apps/*` safe paths · monorepo stragglers · memory); **Supersedes** "commit pending" on line below; **still local:** `.gitignore` (`apps/*/node_modules` etc.) — staged this close (`+#` only).

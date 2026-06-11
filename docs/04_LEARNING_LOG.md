@@ -6,6 +6,22 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Compass scope monitor: mock engine before GE wire
+
+**Supersedes:** learning entry “Compass scope monitor ≠ Scope Map (Phase 1 vs Later)” — Scope Map and Auditor Queue are **live** as of `b3a2583`; still mock data only.
+
+**Signal:** Brent asked scope monitor to work, then **MAKE IT WORK in parallel** — placeholders were blocking trust in Compass.
+
+**Pattern:** Ship **scope logic as pure utils** (`scopeMonitor.ts` reuses `scopeWarnings.ts`) → **dedicated pages** (Scope Map · Auditor Queue) → **dashboard summary card** with nav handoff. Promote nav items from `Later` / Phase 5 to **Phase 1** when UI is real. Keep mock data until GE handoff/git wire is a separate phase.
+
+**Do:** `cd apps/compass && npm run dev`; Scope Map for full monitor · Auditor Queue for pre-build gate.
+
+**Don't:** Claim live repo monitoring; collapse Scope Map into dashboard-only after shipping both.
+
+**See:** [`scopeMonitor.ts`](../apps/compass/src/utils/scopeMonitor.ts) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+
+---
+
 ## 2026-06-11 — Compass “scope monitor” ≠ Scope Map (Phase 1 vs Later)
 
 **Signal:** Brent asked if **scope monitor** works — meant **NightRaven Compass** (`apps/compass/`).
