@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Execution orchestration spec vs three vocabulary layers
+
+**Signal:** Brent pasted Builder/Auditor/Design/Core workflow + Final Report template and asked to add what is missing.
+
+**Pattern:** **Execution-path combos** (Builder / +Auditor / +Design / +all) are a NightRaven runtime overlay — not a rename of Bible §9 virtual teams or the 11-division product taxonomy. Wire gaps into skill + overlay; add Design Division as first-class read-only runtime; embed Final Report in NightRaven skill (no new template file). Reconcile Low→Critical risk labels with TRIVIAL→CRITICAL matrix via mapping table, don't replace matrix.
+
+**Do:** Gap map explicitly; phased plan before code; UI domain tag triggers Builder+Design minimum.
+
+**Don't:** Collapse §9 Design/UX team into "Design Division"; stub Architect Division empty in same pass.
+
+**See:** Plan `division_orchestration_wire_3a1b9706` · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`.claude/skills/nightraven/SKILL.md`](../.claude/skills/nightraven/SKILL.md)
+
+---
+
 ## 2026-06-11 — Tasking speed: hook fast paths before full autosync
 
 **Signal:** Brent asked faster tasking; bottlenecks were hook git on every stop, after-file-edit on all paths, and full NightRaven Phase 0 for trivial/subagent work.

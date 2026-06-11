@@ -6,6 +6,15 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Division orchestration wire — plan (memory only)
+
+- +# Brent supplied execution protocol — pre-coding gate (correct → intent → domains → division combos), Builder/Auditor/Design contracts, Core fix-back loop, adaptive combos, **God's Eye Final Report**
+- +# Gap map — NightRaven has Builder/Auditor (+ UI auditor in `/audit`); missing Design Division, structured Builder/Auditor/Design reports, PASS/FAIL verdicts, test/typecheck gates, Final Report close
+- +# Plan — phased wire: overlay §1 taxonomy + combos · Bible §9.x pointer · extend `nightraven` skill · new `design` skill · no new `templates/` scaffold; reconcile 4-combo table with TRIVIAL→CRITICAL matrix
+- +# Execution deferred — plan mode; Brent says **code it** to ship
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.claude/skills/nightraven/SKILL.md`](../.claude/skills/nightraven/SKILL.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §9 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
 ### Tasking speed — hook + orchestration fast paths (`0e5c51e` partial)
 
 - +# **Tasking** = agent work cycle (Cursor hooks Touch 1/3 + autosync, NightRaven Phase 0, §2.8 subagent discipline) — not a task queue

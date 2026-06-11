@@ -30,7 +30,16 @@ Operate adaptively. The smallest solution capable of **safely** completing the t
 
 Analyze: **user intent · complexity · risk · scope · affected systems · required skills · required tools · required memories.**
 
-Produce a **Task Assessment Report** and present it to the user **before the first write occurs — at every level, including TRIVIAL**:
+### Tasking fast paths (minimize orchestration overhead)
+
+| Situation | Fast path |
+|---|---|
+| **Subagent / Task tool worker** | Inherit parent Task Assessment — do **not** re-run Phase 0 or re-present to user; execute scoped contract only |
+| **TRIVIAL + explicit user request** | One-line assessment inline (intent · complexity · scope) — skip full report block; proceed under Feature Builder contract |
+| **LOW + ≤2 files + user said code it** | Condensed assessment (5 lines max) — divisions/agents/tools enumerated; no re-approval if bounds still hold |
+| **Read-only Q&A / audit** | Phase 0 read-only only — no Build Ledger; no approval gate |
+
+Produce a **Task Assessment Report** and present it to the user **before the first write occurs — at every level, including TRIVIAL** (unless a fast path above applies):
 
 ```
 ## Task Assessment
