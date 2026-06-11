@@ -40,6 +40,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Combined install script (God's Eye + NightRaven Core)
+
+**Signal:** Brent asked for recommendation + one command to integrate both on a project.
+
+**Pattern:** **Stack, don't merge** — `install.sh` for portable memory chain; optional `install-gods-eye-nightraven.sh` adds NightRaven Core skill + BUILD/AUDIT ledgers + overlay/AGENTS wiring. Generic adopters use `install.sh` only; app repos (NightRaven) use combined script with `--user` once per machine.
+
+**Do:** Promote combined path via CURSOR_INSTALL + README; append overlay section on install (+# only if missing).
+
+**Don't:** Collapse God's Eye and NightRaven into one repo or one memory chain.
+
+**See:** [`scripts/install-gods-eye-nightraven.sh`](../scripts/install-gods-eye-nightraven.sh) · [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
+---
+
 ## 2026-06-11 — Repeated intentions catalog (continuity engine)
 
 **Signal:** Brent asked for pre-coding orchestration **and** "repeated intentions" — not a feature build.

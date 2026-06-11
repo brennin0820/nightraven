@@ -6,6 +6,14 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Touch 3 AFTER — combined God's Eye + NightRaven installer (`276fe5e`)
+
+- +# Shipped [`scripts/install-gods-eye-nightraven.sh`](../scripts/install-gods-eye-nightraven.sh) — wraps `install.sh`, adds NightRaven skill + ledgers + overlay/AGENTS cross-links
+- +# Recommendation — stack both on app projects; `install.sh` only for generic repos
+- +# Wired [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) + [`README.md`](../README.md)
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
 ### Touch 3 AFTER — hook close (merge-to-one Q&A)
 
 - +# Brent asked what if **NightRaven** and **God's Eye** become only one
