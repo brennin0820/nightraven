@@ -123,6 +123,7 @@ Think like a senior engineer.
 | [**Example overlay**](examples/overlay/GODS_EYE_REPO_OVERLAY.example.md) | How to add product vocabulary on top of portable law |
 | [**Example user-context protocol**](examples/appendix/USER_CONTEXT_PROTOCOL.example.md) | Worked “add context” examples |
 | [**Cursor installer**](docs/CURSOR_INSTALL.md) | One-command `install.sh` — user + project rules, hooks, memory bootstrap |
+| [**Claude Code adoption**](docs/CLAUDE_ADOPTION.md) | Same memory chain for Claude — vendor list, noreply author, hooks parity |
 | [**Optional Cursor hooks (Phase 2)**](docs/HOOKS_SETUP.md) | Soft three-touch reminders — session start, stop, after memory-doc edits |
 
 ---

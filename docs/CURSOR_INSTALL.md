@@ -154,6 +154,12 @@ See [`GODS_EYE_UNIFIED_STACK.md`](docs/GODS_EYE_UNIFIED_STACK.md) §2 · [`GODS_
 
 ---
 
+## Claude Code adoption
+
+For **Claude Code** (not Cursor), see **[`docs/CLAUDE_ADOPTION.md`](docs/CLAUDE_ADOPTION.md)** — same vendor list (Bible, overlay, handoff, AGENTS), optional MCP, noreply git author (`172115324+brennin0820@users.noreply.github.com`), and hooks parity notes. Run `./install.sh` then wire `CLAUDE.md` entry points.
+
+---
+
 ## Related
 
 - [`README.md`](README.md) — framework overview

@@ -203,6 +203,8 @@ When Brent gives a **concept, context, or idea** (even telegraphic) — infer: *
 - **Improvement loop:** `templates/GODS_EYE_IMPROVEMENT_LOOP.md` — cycle prompt, virtual teams, logging rules
 - **BigBrother relationship:** `docs/32_BIGBROTHER_OVERSIGHT.md` — complementary BAIC oversight checklist
 - **Repo overlay:** `docs/GODS_EYE_REPO_OVERLAY.md` — local vocabulary, code disambiguation, product boundary (if present)
+- **Architect Division (Phase 0 memory):** overlay §1 **Architect Division** · Bible §9 pointer — structural gap between 11-division proposal, NightRaven runtime, §9 virtual teams; not a renamed virtual team
+- **Claude adoption (#15):** [`docs/CLAUDE_ADOPTION.md`](docs/CLAUDE_ADOPTION.md) — Claude Code install, vendor list, noreply author, hooks parity
 
 ---
 

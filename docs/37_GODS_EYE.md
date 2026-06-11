@@ -602,6 +602,8 @@ Each loop run audits **six perspectives** (Architecture, Engineering, Design/UX,
 | **Product / context** | Intent ladder default, vocabulary layers, repo boundaries |
 | **Tier C — Creator-Innovator** | Perfection in creation — craft, coherence, elegance; **human-world gate** (§10) — **default posture** (§10) |
 
++# **Architect Division (overlay pointer — not a seventh virtual team):** Brent's **11-division proposal** includes a distinct **Architect** lane (structural/design oversight) that sits between the Bible §9 **Architecture** virtual team (layering, chain integrity) and **NightRaven runtime** divisions. Do **not** collapse names — §9 virtual teams stay six; Architect Division is a **gap map** term until Phase 1+ wiring. Vocabulary: [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) §1 **Architect Division** · handoff Recent sessions.
+
 **Default posture — Tier C Innovator (mandatory):** God'sEye's **primary lens** is **Creator-Innovator (Tier C)** — not optional, not one peer among equals. When watching work, reading Brent's context, or running this loop, agents **lead with perfection in creation and the human-world gate** (§10). Architecture, Engineering, Design/UX, QA, and Product **support** Tier C — structure, dedup, readability, regression guard, intent ladder, and boundary slots. Tier C **opens** each cycle (frames craft + human-world bar) and **leads synthesis** when picking the one `+#` step.
 
 **Product/QA override (unchanged):** Default innovator does **not** weaken repo boundaries, protected paths, ladder defaults, or §6 anti-patterns. When Tier C conflicts with boundary or anti-pattern risk, **Product and QA win** — Tier C revises the proposal, not the law (§10 conflict resolution).

@@ -238,8 +238,14 @@ function Get-SafeDirtyFiles {
         foreach ($line in ($porcelain -split "`n")) {
             if ([string]::IsNullOrWhiteSpace($line)) { continue }
             $path = $line.Substring(3).Trim()
+            if ($path.StartsWith('"') -and $path.EndsWith('"')) {
+                $path = $path.Substring(1, $path.Length - 2)
+            }
             if ($path -match ' -> ') {
                 $path = ($path -split ' -> ')[-1].Trim()
+                if ($path.StartsWith('"') -and $path.EndsWith('"')) {
+                    $path = $path.Substring(1, $path.Length - 2)
+                }
             }
             $path = $path -replace '\\', '/'
             if (Test-SafeAutosyncPath $path) {
@@ -258,41 +264,51 @@ function Invoke-GitSessionCommit {
         Committed = $false
         Message = ""
     }
-    $safeFiles = Get-SafeDirtyFiles $ProjectRoot
+    $safeFiles = @(Get-SafeDirtyFiles $ProjectRoot)
     if ($safeFiles.Count -eq 0) {
         $result.Message = "Autosync commit skipped - no safe tracked changes (docs/.cursor/AGENTS/README or secret paths excluded)."
         return $result
     }
-    Push-Location -LiteralPath $ProjectRoot
-    try {
-        & git add -- @safeFiles 2>&1 | Out-Null
-        if ($LASTEXITCODE -ne 0) {
-            $result.Message = "Autosync commit skipped - git add failed."
+    $addArgs = @('add', '--') + @($safeFiles)
+    $gitAdd = Invoke-GitInRoot $ProjectRoot $addArgs
+    if ($gitAdd.ExitCode -ne 0) {
+        $addedAny = $false
+        foreach ($file in $safeFiles) {
+            $singleAdd = Invoke-GitInRoot $ProjectRoot @('add', '--', $file)
+            if ($singleAdd.ExitCode -eq 0) { $addedAny = $true }
+        }
+        if (-not $addedAny) {
+            $detail = ($gitAdd.Output | Select-Object -Last 2) -join ' '
+            if ([string]::IsNullOrWhiteSpace($detail)) { $detail = "git add failed" }
+            $result.Message = "Autosync commit skipped - git add failed: $detail"
             return $result
         }
-        git diff --cached --quiet 2>$null | Out-Null
-        if ($LASTEXITCODE -eq 0) {
-            $result.Message = "Autosync commit skipped - nothing staged after safe-path filter."
-            return $result
+    }
+    $gitDiff = Invoke-GitInRoot $ProjectRoot @('diff', '--cached', '--quiet')
+    if ($gitDiff.ExitCode -eq 0) {
+        $result.Message = "Autosync commit skipped - nothing staged after safe-path filter."
+        return $result
+    }
+    $commitMsg = "chore(sync): session autosync [cursor hook]"
+    $gitCommit = Invoke-GitInRoot $ProjectRoot @('commit', '-m', $commitMsg)
+    if ($gitCommit.ExitCode -ne 0 -and (($gitCommit.Output -join ' ') -match 'Author identity unknown|unable to auto-detect email')) {
+        $lastAuthorResult = Invoke-GitInRoot $ProjectRoot @('log', '-1', '--format=%an <%ae>')
+        $lastAuthor = ($lastAuthorResult.Output | Select-Object -First 1).Trim()
+        if ($lastAuthor -match '^(.+) <(.+)>$') {
+            $gitCommit = Invoke-GitInRoot $ProjectRoot @(
+                '-c', "user.name=$($Matches[1])",
+                '-c', "user.email=$($Matches[2])",
+                'commit', '-m', $commitMsg
+            )
         }
-        $commitMsg = "chore(sync): session autosync [cursor hook]"
-        $commitOut = @(& git commit -m $commitMsg 2>&1 | ForEach-Object { "$_" })
-        if ($LASTEXITCODE -ne 0 -and ($commitOut -join ' ') -match 'Author identity unknown|unable to auto-detect email') {
-            $lastAuthor = (git log -1 --format="%an <%ae>" 2>$null).Trim()
-            if ($lastAuthor -match '^(.+) <(.+)>$') {
-                $commitOut = @(& git -c "user.name=$($Matches[1])" -c "user.email=$($Matches[2])" commit -m $commitMsg 2>&1 | ForEach-Object { "$_" })
-            }
-        }
-        if ($LASTEXITCODE -eq 0) {
-            $result.Committed = $true
-            $result.Message = "Autosync commit: $commitMsg ($($safeFiles.Count) file(s))."
-        } else {
-            $detail = ($commitOut | Select-Object -Last 2) -join ' '
-            if ([string]::IsNullOrWhiteSpace($detail)) { $detail = "commit rejected" }
-            $result.Message = "Autosync commit failed (fail-open): $detail"
-        }
-    } finally {
-        Pop-Location
+    }
+    if ($gitCommit.ExitCode -eq 0) {
+        $result.Committed = $true
+        $result.Message = "Autosync commit: $commitMsg ($($safeFiles.Count) file(s))."
+    } else {
+        $detail = ($gitCommit.Output | Select-Object -Last 2) -join ' '
+        if ([string]::IsNullOrWhiteSpace($detail)) { $detail = "commit rejected" }
+        $result.Message = "Autosync commit failed (fail-open): $detail"
     }
     return $result
 }

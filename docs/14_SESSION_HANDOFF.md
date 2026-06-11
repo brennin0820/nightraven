@@ -6,7 +6,7 @@
 
 ## Current state / focus
 
-Phase 2 **MCP memory-chain tools** on `origin/main`. **Consumer app:** **NightRaven** at `~/Developer/NightRaven` (GitHub `brennin0820/NightRaven`; was BankrollCalendar). **Xcode target** still OneDayMillionaire until app-repo rename. **Next:** Brent noreply · Claude adoption kit (#15).
+Phase 2 **MCP memory-chain tools** on `origin/main`. **Consumer app:** **NightRaven** at `~/Developer/NightRaven` (GitHub `brennin0820/NightRaven`; was BankrollCalendar). **Xcode target** still OneDayMillionaire until app-repo rename. **Next:** Division taxonomy scope (portable vs NightRaven-scoped) — Brent TBD · Claude adoption kit shipped (#15).
 
 ---
 
@@ -37,6 +37,7 @@ Phase 2 **MCP memory-chain tools** on `origin/main`. **Consumer app:** **NightRa
 ---
 
 ## Recent sessions
+- **2026-06-11** — Touch 3 AFTER: **hook close — recommendations batch flush** — hook stop reported pull OK · no safe dirty · push skipped (not ahead); **unexpected local uncommitted** from prior background agent (Architect Division wire · repeated intentions overlay · `CLAUDE_ADOPTION.md` · composer brief polish · `lib.ps1` quoted-path autosync fix · install/README cross-links); Touch 3 agent staging+commit+push this pass (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: **session close — Final Report + autosync green** — re-delivered pre-coding orchestration God's Eye Final Report (read-only, no code); memory batch autosync-committed+pushed (`a5a9d1f` — handoff, changelog, learning log); hook stop: pull OK · commit 3 files · push origin/main; **Supersedes** push-defer on pre-coding orchestration line below; push-latency §2.8 satisfied (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: **pre-coding orchestration + repeated intentions** — Brent ran God's Eye / NightRaven pre-coding card (correct → intent → domains → divisions → Final Report); synthesized **14 recurring intention tiers** from handoff/Bible §3 (interpretation engine, memory-before-code, Always Sync, +# only, Touch 3, §2.7 standard, isolation, Governed Bypass, NightRaven Core, local/cloud, division taxonomy, Tier C, compounding); plan `.cursor/plans/pre-coding_orchestration_report_830f7a0e.plan.md`; autosync hook git add failed on stop (fail-open); **push deferred — uncommitted memory append** (`+#` only).
 - **2026-06-11** — Q&A: **list all divisions** — three-layer answer without collapse (GE 11-division proposal + Core · NightRaven 4 runtime + Builder/Auditor sub-agents · Bible §9 six virtual teams); **Architect Division** top gap; cross-ref prior taxonomy memory; no code (`+#` only).

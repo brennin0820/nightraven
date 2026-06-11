@@ -118,6 +118,7 @@ User-level hooks resolve the active workspace via `workspace_roots` in hook stdi
 
 - **Hooks not firing** — confirm paths: project `.cursor/hooks/*.ps1` (Windows) or `.cursor/hooks/run-hook.sh` (Unix); **Settings → Hooks** enabled; restart Cursor after `hooks.json` edits.
 - **Autosync pull/push fails** — check network, auth, and branch upstream; hooks fail open and report in `additional_context` / `followup_message`. Push failure appends defer line to handoff Recent sessions.
+- **Windows `git add failed` on stop** — fixed in `lib.ps1`: batch add via `Invoke-GitInRoot` with per-file fallback; quoted paths from `git status --porcelain` stripped before staging.
 - **Wrong project paths in reminders** — hooks need `workspace_roots` in stdin; `sessionStart` sets `GODS_EYE_PROJECT_ROOT` for later hooks.
 - **Stop follow-up loops** — `loop_limit: 1` on the `stop` hook; script skips when `loop_count > 0`.
 - **Too chatty** — remove `afterFileEdit` from `hooks.json` or disable hooks entirely.

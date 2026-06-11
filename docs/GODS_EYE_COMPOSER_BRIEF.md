@@ -88,19 +88,19 @@ God's Eye is an **AI agent memory framework** built into your git repo. It gives
 
 ## 4. Current State (as of 2026-06-11)
 
-**Phase:** Phase 2 — MCP memory-chain tools on `origin/main`.
+**Phase:** Phase 2 complete on `origin/main` — **MCP memory-chain tools** shipped · **Always Sync autosync hooks** (PowerShell + bash) · **pre-coding orchestration** plan (`.cursor/plans/pre-coding_orchestration_report_830f7a0e.plan.md`) · **division taxonomy** memory wired (Architect Division · repeated intentions · scope TBD).
 
-**What was just completed this session:**
-- `docs/GODS_EYE_LOCAL_VS_CLOUD.md` — New design spec for local vs cloud execution (model table, agent rules, LM Studio quickstart)
-- `AGENTS.md` — `Always Sync` + `Governed Bypass` laws merged into Core Laws and Common Mistakes
-- `docs/37_GODS_EYE.md` — New **§2.9** (Always Sync + Governed Bypass + Local vs cloud) added to the Bible
-- `docs/GODS_EYE_UNIFIED_STACK.md` — §1 cross-layer laws + §10 Risks updated with new laws
-- `docs/GODS_EYE_REPO_OVERLAY.md` — Vocabulary extended; pitfall table extended
-- `.cursor/rules/gods-eye-context-intent.mdc` — Reformatted; duplicate Supersedes line removed; Local vs Cloud pointer added
+**Recently shipped:**
+- Phase 2 MCP — `mcp-server/`, `.cursor/mcp.json`, [`MCP_SETUP.md`](MCP_SETUP.md)
+- Always Sync autosync — session-start pull · session-stop safe-path commit/push · [`HOOKS_SETUP.md`](HOOKS_SETUP.md)
+- Pre-coding orchestration — 14 recurring intention tiers cataloged for continuity engine
+- Division taxonomy Phase 0 — overlay §1 **Architect Division** · **Repeated intentions** · **Division taxonomy scope (TBD)**
+- Claude adoption kit (#15) — [`CLAUDE_ADOPTION.md`](CLAUDE_ADOPTION.md)
+- Windows autosync hardening — `lib.ps1` git add via `Invoke-GitInRoot` + per-file fallback
 
 **Consumer app:** NightRaven (`brennin0820/NightRaven`) — formerly BankrollCalendar. Xcode target still OneDayMillionaire.
 
-**Next milestone:** Claude adoption kit (#15) — Brent noreply author config.
+**Next milestone:** Division taxonomy scope decision (portable standard vs NightRaven-scoped) — Brent TBD · fresh thread at ~80% context per §2.8.
 
 ---
 
@@ -193,6 +193,7 @@ Composer must follow all God's Eye laws when contributing to this repo:
 | Current work state | `docs/14_SESSION_HANDOFF.md` |
 | Local vs cloud rules | `docs/GODS_EYE_LOCAL_VS_CLOUD.md` §4 |
 | How to install GE | `docs/CURSOR_INSTALL.md` |
+| Claude Code adoption | `docs/CLAUDE_ADOPTION.md` |
 | MCP tools | `docs/MCP_SETUP.md` |
 | Improvement loop | `docs/GODS_EYE_IMPROVEMENT_LOOP.md` |
 | Project inventory | `docs/GODS_EYE_PROJECT_INVENTORY.md` |

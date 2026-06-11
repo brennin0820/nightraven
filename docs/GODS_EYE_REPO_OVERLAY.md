@@ -31,6 +31,9 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 | **Always Sync** | Always download (pull/fetch) and upload (commit/push) all changes to the repository every time a change happens |
 | **Local mode** | Agent execution under LM Studio — serial, strict context pruning, no subagents; see [`GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md) |
 | **Cloud mode** | Agent execution under cloud frontier models — parallel reads, subagents allowed, fresh thread at 80% context; see [`GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md) |
+| **Architect Division** | Structural/design oversight gap between Brent's **11-division proposal** (Product, Research, Architect, Builder, Design, QA, Security, Auditor, Documentation, DevOps + Core), **NightRaven runtime** divisions, and Bible **§9 six virtual teams**; Phase 0 = memory wire only — see Bible §9 pointer · handoff Recent sessions |
+| **Repeated intentions (continuity engine)** | Stable intent tiers agents load at Tier 2+ cold start; synthesized from handoff + Bible §3 — interpretation engine · memory-before-code · Always Sync · `+#` only · Touch 3 · §2.7 standard · isolation · Governed Bypass · NightRaven Core · local/cloud · division taxonomy · Tier C · compounding; pointer: handoff Recent sessions · Bible §3 |
+| **Division taxonomy scope** | Open question — portable God's Eye standard vs NightRaven-scoped runtime mapping; **TBD** (do not decide for Brent); Phase 0 memory only |
 
 ---
 
@@ -53,6 +56,7 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 | Inventory | `docs/GODS_EYE_PROJECT_INVENTORY.md` — cross-repo scan (framework repo only) |
 | Research map (plan) | `.cursor/plans/god's_eye_research_map_b4b6f06f.plan.md` — external field overlaps vs GE differentiators |
 | agent-skills merge (plan) | `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md` — reject core merge; optional L4 adapt · [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) optional section · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §2 · §6 |
+| Claude adoption (#15) | [`CLAUDE_ADOPTION.md`](CLAUDE_ADOPTION.md) — Claude Code install path · vendor list · MCP optional · noreply git author · hooks parity |
 | Local vs Cloud | [`GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md) — local vs cloud execution design |
 
 
