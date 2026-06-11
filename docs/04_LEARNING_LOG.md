@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Keep browser verification temp profiles outside watched Vite repos
+
+**Signal:** NightRaven Compass Phase 1 verification used headless Chrome screenshots; Vite crashed when Chrome profile temp files were created under the app's `.codex` directory and the dev server tried to watch them.
+
+**Pattern:** Browser/test scratch space inside a Vite workspace can become part of the file watcher surface. Put Chrome profiles/screenshots outside the repo or explicitly ignore `.codex/**` in `vite.config.ts`; also ignore `.codex` in `.gitignore`.
+
+**Do:** Use OS temp directories for verification artifacts; add watcher ignores for local agent scratch folders when a repo needs in-tree `.codex` files.
+
+**Don't:** Let browser profiles, lock files, or rapidly-changing temp files sit under a dev server watch root.
+
+**See:** [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
+---
+
 ## 2026-06-11 — Session-start pull skip mirrors stop fast path
 
 **Signal:** Improvements review gap #2 — redundant pulls on back-to-back Agent chats.

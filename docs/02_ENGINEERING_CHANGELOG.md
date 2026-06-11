@@ -6,6 +6,16 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### NightRaven Compass Phase 1 sibling app
+
+- +# Brent said **"in parallel"** after the Compass build packet; interpreted as execute Phase 1 with parallelized setup / implementation / verification workstreams.
+- +# Created sibling app repo at `E:\NightRaven\nightraven-compass` using React + TypeScript + Vite + mock data only; committed local repo `c91a315` (`feat: build NightRaven Compass phase 1`).
+- +# Built Phase 1 dashboard: app shell, sidebar placeholders, project status, current phase, next best action, progress, blocker, decision, Not Now, and recommended prompt card.
+- +# Verification: `npm run build` pass · `npm run lint` pass · desktop/mobile Chrome screenshots checked; Vite watcher ignores `.codex` after temp-profile crash.
+- +# No cloud remote configured for the new Compass repo this pass.
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
 ### Repository backup — local + cloud
 
 - +# Brent asked for a cloud and local backup of this repo; synced `main` with `origin/main`, then prepared a final pushed commit plus a timestamped local backup artifact and cloud tag.
