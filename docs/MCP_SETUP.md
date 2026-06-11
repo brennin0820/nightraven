@@ -107,6 +107,7 @@ Portable L2 docs (`bible`, `router`, `session_tree`) fall back to `$GODS_EYE_ROO
 - **This repo only** — no cross-repo handoff bleed; one MCP instance per workspace.
 - **Tier 0–1** — optional; parallel doc reads remain sufficient for small tasks.
 - **Mem0/Zep** — separate optional L4; ingest from git, never shadow writes.
+- **Mode-agnostic** — MCP tools work identically in local (LM Studio) and cloud mode. Execution mode governs agent parallelism and context discipline, not the MCP API itself — see [`GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md) §4.
 
 ---
 
@@ -115,3 +116,4 @@ Portable L2 docs (`bible`, `router`, `session_tree`) fall back to `$GODS_EYE_ROO
 - [`HOOKS_SETUP.md`](HOOKS_SETUP.md) — Phase 2 soft hooks
 - [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) — full install flow
 - [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) — Phase 2 hooks + MCP roadmap
+- [`GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md) — local vs cloud agent discipline (§4 governs parallelism, not MCP API)

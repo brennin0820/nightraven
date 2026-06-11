@@ -6,7 +6,34 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
-### Auto-setup MCP Launcher
+### Bible §2.9 — Always Sync + Governed Bypass + Local vs Cloud
+
+- +# Added **§2.9** to `37_GODS_EYE.md` as a new portable law section covering Always Sync, Governed Bypass protocol, and Local vs Cloud execution modes
+- +# Updated ToC + §0 sixty-second glance table in Bible to reference §2.9
+- +# Merged §2.9 laws into `AGENTS.md` Core Laws, Common Mistakes, and Reference
+- +# Merged into `GODS_EYE_UNIFIED_STACK.md` §1 cross-layer laws table + §10 Risks + Quick Ref card
+
+**Cross-links:** [`37_GODS_EYE.md`](37_GODS_EYE.md) · [`AGENTS.md`](../AGENTS.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md)
+
+### Composer audit wiring pass (2026-06-11)
+
+- +# `37_GODS_EYE.md` §6 — appended three anti-pattern rows: Forgotten sync, Silent bypass, Local-mode subagents; updated ToC blurb
+- +# `GODS_EYE_GRAND_SPEC.md` — added Execution mode row to layer table; `git pull`/`git push` to Before/After agent card rows; Execution mode blurb with link to LOCAL_VS_CLOUD
+- +# `GODS_EYE_SESSION_TREE.md` — Always Sync wired into All-tiers law and Record Everything header
+- +# `GODS_EYE_IMPROVEMENT_LOOP.md` — Always Sync added to Laws; local vs cloud execution mode paragraph added
+- +# `CURSOR_INSTALL.md` — Portable Bible row updated with §2.9 scope; Local vs Cloud clarification (framework-only; consumers get via vendored Bible)
+- +# `MCP_SETUP.md` — Mode-agnostic operating rule + LOCAL_VS_CLOUD added to Related
+- +# `HOOKS_SETUP.md` — `session-stop.sh` push nudge documented; Always Sync step added to bootstrap checklist; §2.9 citation
+- +# `templates/gods-eye-context-intent.user.mdc` — Always Sync, Governed Bypass, Local vs Cloud lines added
+- +# `templates/docs/GODS_EYE_REPO_OVERLAY.md` — starter vocabulary rows for four new terms
+- +# `docs/04_LEARNING_LOG.md` — Governed Bypass pattern entry
+- +# `docs/GODS_EYE_COMPOSER_BRIEF.md` — self-contained Composer onboarding brief created
+
+**Deferred:** `docs/35_FAST_START.md` and `docs/36_PROJECT_ISOLATION.md` are phantom docs (referenced in Bible but not yet created); creation deferred — larger scope.
+
+**Cross-links:** Full wiring pass across `docs/` + `templates/` + AGENTS.md · commit `bb54d80` + `cf5b3db`
+
+
 
 - +# Added automatic dependency installation (`npm install`) and compile build (`npm run build`) logic directly into Node MCP launcher
 - +# Updated template (`templates/mcp/run-gods-eye-mcp.js`) and active workspace instance (`.cursor/mcp/run-gods-eye-mcp.js`)

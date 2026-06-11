@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Governed Bypass Protocol
+
+**Signal:** Brent stated "rules are meant to be broken" and requested a formal bypass mechanism.
+
+**Pattern:** Hard rules without bypass paths create brittleness. The best governance systems allow any rule to be overridden — but only with explicit approval and a logged rationale. This prevents silent violations while preserving flexibility for genuine edge cases.
+
+**Do:** When a law needs to be bypassed, (1) state which rule and why, (2) ask Brent explicitly, (3) execute only after approval, (4) log a `+#` Governed Bypass entry in the learning log or handoff.
+
+**Don't:** Silently skip `+#` only, read tiers, or session-close protocol without asking. Never assume implicit permission.
+
+**See:** [`37_GODS_EYE.md` §2.9](37_GODS_EYE.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md)
+
+---
+
 ## 2026-06-11 — Self-healing / Auto-setup Developer Tools
 
 **Signal:** Brent requested "a launcher that will automatically setup its environment".

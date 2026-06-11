@@ -79,13 +79,13 @@ TIER CLASSIFY
 | 2 | Standard work | **Record Everything** (§3) |
 | 3 | Cross-cutting / `/loop` | Loop law: one +# + wire + logs |
 
-**All tiers:** +# only · parallel reads · intent ladder · this-repo dedup · Tier C posture.
+**All tiers:** +# only · parallel reads · intent ladder · this-repo dedup · Tier C posture · **always sync** (pull before; push after).
 
 ---
 
 ## 3. Record Everything mode + After doc matrix
 
-Three-touch always. **Recent sessions on every real session exit — non-negotiable.**
+Three-touch always. **Recent sessions on every real session exit — non-negotiable.** **Always sync: `git pull` before Touch 1; `git push` after Touch 3.**
 
 ```
 RECORD EVERYTHING · Touch 3 · AFTER          DECISION TREE (ask in order)

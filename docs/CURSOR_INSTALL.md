@@ -14,9 +14,11 @@ Step-by-step setup so God's Eye works in Cursor on day one: **global user config
 | **Project hooks** (optional) | `.cursor/hooks.json` + `.cursor/hooks/` | Team-shareable Phase 2 hooks |
 | **Project MCP** (optional) | `.cursor/mcp.json` + `.cursor/mcp/run-gods-eye-mcp.sh` | Memory-chain tools — see [`MCP_SETUP.md`](MCP_SETUP.md) |
 | **Doc chain** | `docs/14_*`, `docs/02_*`, `docs/04_*`, overlay, `AGENTS.md` | L3 app memory (`+#` only) |
-| **Portable Bible** | `docs/37_GODS_EYE.md` (vendored) or `$GODS_EYE_ROOT` | Portable law |
+| **Portable Bible** | `docs/37_GODS_EYE.md` (vendored) or `$GODS_EYE_ROOT` | Portable law including §2.9 (Always Sync, Governed Bypass, Local vs Cloud) |
 
 Existing user rules (e.g. `brents-ai-constitution.mdc`) are **not** removed — God's Eye **adds** alongside them.
+
+**Local vs cloud execution:** `docs/GODS_EYE_LOCAL_VS_CLOUD.md` is a **framework-repo document**. Consumer repos do **not** receive it via `install.sh` — they receive the laws it encodes via the vendored Bible **§2.9** and the always-on rule. Consumers needing a local copy of the execution spec should add a manual vendor step or link to the framework repo.
 
 **Optional — Multitask / heavy threads:** Copy [`templates/model-delegation-efficiency.user.mdc`](templates/model-delegation-efficiency.user.mdc) to `~/.cursor/rules/model-delegation-efficiency.mdc` (pairs with Bible §2.8).
 

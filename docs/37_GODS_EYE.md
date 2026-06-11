@@ -40,7 +40,7 @@ Related: `docs/32_BIGBROTHER_OVERSIGHT.md`, `docs/35_FAST_START.md`, `docs/36_PR
 | **→ Five-step unclear input** | **3** | Fix English · intent · technical translate · explain · ask if truly unclear |
 | **Vocabulary layers (pattern)** | **4** | Category / brand / repo / code — do not collapse |
 | **Connected chain (portable)** | **5** | Session start order; after context-add; required response |
-| **Anti-patterns index** | **6** | Unlearning, `-#`, template spam, serial reads, conflation — full table |
+| **Anti-patterns index** | **6** | Unlearning, `-#`, template spam, serial reads, conflation, forgotten sync, silent bypass, local-mode subagents — full table |
 | **BigBrother relationship** | **7** | Complementary roles — BAIC nickname vs portable Bible |
 | **Repo overlay pattern** | **8** | Portable (this file) vs local overlay vs router vs lean rule |
 | **Improvement loop + six teams** | **9** | Virtual teams, Tier C leads, one `+#` per cycle, no new templates |
@@ -548,6 +548,9 @@ Tier-0 lean repos may omit full BAIC bootstrap — point at master path and loca
 | **Assuming Brent is wrong on unclear input** | §3 five steps — fix English, honor intent |
 | **Code on unclear coding idea** | Run §3 steps 1–5 first; no code until ship signal — §2.8 |
 | **Stacked Touch 3 AFTER** | Multiple session-close memory passes in one thread — batch once per session — §2.8 |
+| **Forgotten sync** | Committing but not pushing; next agent reads stale remote state — Always pull before work; push after every commit (§2.9) |
+| **Silent bypass** | Skipping `+#` only or another law without asking — Governed Bypass requires explicit Brent approval first (§2.9) |
+| **Local-mode subagents** | Spawning parallel subagents under LM Studio; causes GPU VRAM contention and hangs — serial only in local mode (§2.9; [`GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md) §4) |
 
 ---
 

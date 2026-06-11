@@ -26,3 +26,9 @@ alwaysApply: true
 **Touch 3 (§2.8):** **Paused** — `~/.cursor/touch3.disabled` or project `.cursor/touch3.disabled`; skip session-close follow-up batch until re-enabled
 
 **Task worthiness (Bible §2.8):** Default **plan/memory until user says code it / implement / build**; Q&A-only = no code path; **fresh thread + handoff** when context-heavy (~80%+); Multitask/subagents for **substantial** work only
+
+**Always Sync (§2.9):** `git pull` before work · `git push` after every commit · no local-only state
+
+**Governed Bypass (§2.9):** Any rule may be bypassed only with explicit user approval first; state which rule + reason; log the bypass.
+
+**Local vs Cloud (§2.9):** LM Studio → serial only, no subagents, strict context pruning. Cloud → full parallel, subagents allowed, fresh thread at 80%. See `docs/GODS_EYE_LOCAL_VS_CLOUD.md`.

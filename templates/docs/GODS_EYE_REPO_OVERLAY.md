@@ -14,7 +14,10 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 
 | Term | Meaning |
 |------|---------|
-| _(add rows)_ | _(local definitions)_ |
+| **Always Sync** | `git pull` before work; `git push` after every commit — no local-only state (Bible §2.9) |
+| **Governed Bypass** | Any rule may be bypassed only with explicit user approval first; log the bypass (Bible §2.9) |
+| **Local mode** | LM Studio execution — serial only, no subagents, strict context pruning (Bible §2.9) |
+| **Cloud mode** | Cloud frontier model — parallel reads, subagents allowed, fresh thread at 80% (Bible §2.9) |
 
 ---
 

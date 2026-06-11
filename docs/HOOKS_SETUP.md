@@ -38,6 +38,7 @@ Does **not** block edits or tool use.
 
 - Append **Recent sessions** in `docs/14_SESSION_HANDOFF.md` (`+#` only)
 - Record Everything checklist at Tier 2+ (changelog, learning log, wire)
+- **Always Sync nudge** — reminds `git push` before closing (Push-latency law §2.9). Cites `git push origin <branch>` or explicit defer reason in Recent sessions.
 
 Does **not** force writes; it reminds the agent before exit.
 
@@ -72,6 +73,7 @@ Use hooks to **reinforce habit**, not replace `.cursor/rules/gods-eye-context-in
 2. Create `docs/14_SESSION_HANDOFF.md` with **Recent sessions** and **Already done** sections.
 3. Enable Phase 2 hooks when handoff exists.
 4. Session start: rule → §0 → overlay → handoff (hook adds the same reminder automatically).
+5. **Always Sync** — `session-stop.sh` nudges `git push` on exit per §2.9; `sessionStart` should remind `git pull` (or add it to your `session-start.sh` opening line).
 
 ---
 

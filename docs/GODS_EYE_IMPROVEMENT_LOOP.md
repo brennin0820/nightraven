@@ -4,7 +4,9 @@
 
 **Authority:** Master `docs/37_GODS_EYE.md` §9 (virtual teams + loop law), §10 (Tier C — Creator-Innovator). Repo overlays extend locally only.
 
-**Laws (non-negotiable):** Always watches · Always learn · **`+#` only** · Never `-#` · Supersedes for corrections · One small improvement per cycle.
+**Laws (non-negotiable):** Always watches · Always learn · **`+#` only** · Never `-#` · Supersedes for corrections · One small improvement per cycle · **Always sync** (pull before; push after).
+
+**Execution mode:** If running under LM Studio (local), run six audits **serially** — no parallel subagents. If running under a cloud frontier model (Anthropic, Google, OpenAI), parallel subagents and full six-team lens are allowed. See [`GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md) §4.
 
 **Default posture:** **Tier C — Creator-Innovator leads** (doc 37 §10). Tier C **opens** each cycle and **leads synthesis**; Architecture, Engineering, Design/UX, QA, and Product are **supporting** passes. Product/QA still **win** on boundary and anti-pattern conflicts — Tier C revises the proposal, not the law.
 
