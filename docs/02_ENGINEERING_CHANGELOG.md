@@ -6,6 +6,21 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Touch 3 AFTER — division taxonomy plan (memory only)
+
+- +# Brent proposed **11-division** God's Eye structure — Product, Research, Architect, Builder, Design, QA, Security, Auditor, Documentation, DevOps + Core
+- +# Gap map documented — NightRaven has 4 runtime divisions; Bible §9 has 6 virtual teams; **Architect Division** is top gap
+- +# Phase 0 scope — overlay §1 + Bible §9.x memory wiring only; no code; open question: portable standard vs NightRaven-scoped
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §9 · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md)
+
+### Touch 3 AFTER — session close (division + autosync + settings check)
+
+- +# Consolidated session record — division taxonomy plan, Always Sync PARTIAL verdict (pre-autosync), autosync hooks shipped (`ed7f200`, `7aa4df3`), workspace settings shipped (`4f7d808`)
+- +# Handoff guardrails updated — Phase 2 hooks now document real git autosync on session boundaries
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
 ### Cursor Always Sync autosync hooks
 
 - +# **Always Sync enforcement in hooks** — `session-start.ps1` runs `git pull --ff-only`; `session-stop.ps1` runs pull → safe-path stage/commit → `git push origin HEAD` (fail-open; never force push; no `--no-verify`)

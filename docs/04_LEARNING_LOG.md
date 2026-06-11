@@ -6,6 +6,34 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Cursor autosync hooks enforce Always Sync at session boundaries
+
+**Signal:** Brent asked to fix Always Sync — prior hooks were policy + soft nudges only; user rule also requires commit-on-request (not agent-proactive).
+
+**Pattern:** Always Sync law needs **automated git at session boundaries**, not reminders alone. Cursor hooks run `git pull --ff-only` on start and pull → safe-path stage/commit → `git push origin HEAD` on stop — fail-open, no force push, no `--no-verify`. Safe-path commit scope limits blast radius (`docs/`, `.cursor/`, templates, etc.). Reconciles framework Always Sync with interactive agent commit discipline: hooks own boundary sync; agents commit when Brent asks.
+
+**Do:** Ship PowerShell hooks on Windows + bash parity via `run-hook.sh`; document in `HOOKS_SETUP.md`; append defer line to handoff on push failure.
+
+**Don't:** Treat overlay Always Sync prose as sufficient without hook enforcement; commit secrets or force-push from hooks.
+
+**See:** [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`.cursor/hooks.json`](../.cursor/hooks.json) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
+---
+
+## 2026-06-11 — Division taxonomy: 11-proposal vs runtime vs Bible §9
+
+**Signal:** Brent proposed 11-division God's Eye structure; subagent mapped NightRaven (4 runtime) vs Bible §9 (6 virtual teams).
+
+**Pattern:** Oversight vocabulary splits across layers — **product taxonomy** (11 divisions), **runtime orchestration** (NightRaven divisions), and **improvement-loop virtual teams** (Bible §9). Do not collapse them. **Architect Division** is the top gap across maps. Phase 0 = memory wire (overlay §1, Bible §9.x) before any code or NightRaven runtime changes. Open scope gate: portable standard vs NightRaven-scoped adoption.
+
+**Do:** Map gaps explicitly; wire Phase 0 to overlay + Bible §9 append-only; ask Brent portable vs scoped before implementation.
+
+**Don't:** Rename Bible §9 virtual teams to match 11-division marketing labels in one pass; open implementation files on plan-only sessions.
+
+**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §9 · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
+---
+
 ## 2026-06-11 — Governed Bypass Protocol
 
 **Signal:** Brent stated "rules are meant to be broken" and requested a formal bypass mechanism.
