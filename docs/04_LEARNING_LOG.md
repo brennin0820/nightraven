@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Tasking speed: hook fast paths before full autosync
+
+**Signal:** Brent asked faster tasking; bottlenecks were hook git on every stop, after-file-edit on all paths, and full NightRaven Phase 0 for trivial/subagent work.
+
+**Pattern:** **Fast path before full law** — skip redundant git when session-start already pulled and tree has no safe dirty; return `{}` from `after-file-edit` before loading libs when path is not memory-doc; cache Touch3 marker checks; nudge Tier 0–1 lean reads at session-start. NightRaven: subagent workers inherit parent Task Assessment; TRIVIAL/LOW skip full report table.
+
+**Do:** Keep Always Sync on meaningful dirty; document env toggles (`GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC`); ignore hook marker files in `.gitignore`.
+
+**Don't:** Disable autosync commit on stop without explicit Brent approval; run full Bible chain on Tier 0–1 trivial edits.
+
+**See:** [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · `.claude/skills/nightraven/SKILL.md`
+
+---
+
 ## 2026-06-11 — Framework vs consumer merge ("become one")
 
 **Signal:** Brent asked what if NightRaven and God's Eye become only one — a scope decision, not a rename.

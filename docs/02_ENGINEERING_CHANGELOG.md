@@ -6,6 +6,16 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Tasking speed — hook + orchestration fast paths (`0e5c51e` partial)
+
+- +# **Tasking** = agent work cycle (Cursor hooks Touch 1/3 + autosync, NightRaven Phase 0, §2.8 subagent discipline) — not a task queue
+- +# Hook fast paths — `after-file-edit` early `{}` for non-memory paths; `session-stop` skip pull when session-start recent + clean tree; Touch3 cache; Tier 0–1 lean-read nudge in session-start; session marker + `GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC` in `lib.ps1`/`lib.sh`
+- +# NightRaven skill — **Tasking fast paths** table (subagents inherit assessment; TRIVIAL/LOW condensed paths)
+- +# Docs — [`HOOKS_SETUP.md`](HOOKS_SETUP.md) troubleshooting; `.gitignore` hook markers (`.cursor/.autosync-session`, `.cursor/.touch3-cache`)
+- +# Verification — clean stop ~1.7s vs ~3.8s; hook test autosync committed+pushed hook batch (`0e5c51e`); **remaining uncommitted:** `.gitignore`, `.claude/skills/nightraven/SKILL.md`, handoff
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md)
+
 ### Touch 3 AFTER — changelog orphaned MCP section fix (`3a0e23f`)
 
 - +# Bug report lines 114–117 — **not orphaned** (belongs to Cursor Always Sync autosync hooks section)
