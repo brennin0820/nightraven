@@ -6,6 +6,15 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Compass — open on HimFLer (default selection Q&A)
+
+- +# Brent **make compass open on himfler** — logic already in [`compassApi.ts`](../apps/compass/src/services/compassApi.ts) (`ca783f2`): `PREFERRED_DEFAULT_PROJECT` → HimFLer path · fuzzy `himfler`/`himfl` label match
+- +# **Persisted selection wins** — `localStorage` key `compass.selectedProject` restores last project; prior **gods-eye-1** session blocks default until Settings switch or storage clear
+- +# **Next (code):** one-time migration or ignore framework stored path — not shipped this close
+- +# Autosync handoff `4095fa7` · `origin/main` @ `4095fa7`
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`apps/compass/README.md`](../apps/compass/README.md) · [`gods-eye-projects.conf`](../scripts/gods-eye-projects.conf)
+
 ### HimFLer — external coder role wire (`5a50fa7`)
 
 - +# Brent **HimFLer build spec** (linen room GY calculator) · **Claude UI first → Codex build → Antigravity** plan/audit

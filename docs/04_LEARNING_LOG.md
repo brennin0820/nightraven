@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Compass: default project vs persisted selection
+
+**Signal:** Brent asked Compass to **open on HimFLer**; app still showed gods-eye monorepo.
+
+**Pattern:** `pickInitialProject()` prefers HimFLer on **fresh** load (`PREFERRED_DEFAULT_PROJECT`); **`compass.selectedProject` in localStorage** restores last pick and overrides default — common when dev started on framework repo first.
+
+**Do:** Settings → project **HimFLer (iOS app)** → Refresh; or clear site data for localhost Compass.
+
+**Don't:** Assume default constant alone fixes returning users without migration.
+
+**See:** [`compassApi.ts`](../apps/compass/src/services/compassApi.ts) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+
+---
+
 ## 2026-06-11 — Consumer app: Claude-first external coder workflow (HimFLer)
 
 **Signal:** Brent pasted full **HimFLer** linen-calculator spec and asked to **tell each external AI coder** — Claude UI designer first, Codex builder follows UI rules, Antigravity for plan/audit — **iOS 26** design target.
