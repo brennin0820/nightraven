@@ -1,10 +1,5 @@
 import { AlertTriangle, CheckCircle2, LockKeyhole, Map, XCircle } from 'lucide-react'
-import {
-  mockNotNowItems,
-  mockPhases,
-  mockProject,
-  mockTasks,
-} from '../../data/mockProject'
+import { useCompassData } from '../../context/ProjectContext'
 import { buildScopeMonitorSnapshot, type TaskScopeReport } from '../../utils/scopeMonitor'
 
 function SeverityBadge({ severity }: { severity: TaskScopeReport['severity'] }) {
@@ -30,11 +25,15 @@ function SeverityBadge({ severity }: { severity: TaskScopeReport['severity'] }) 
 }
 
 export function ScopeMapPage() {
-  const snapshot = buildScopeMonitorSnapshot(
-    mockProject,
-    mockPhases,
-    mockTasks,
-    mockNotNowItems,
+  const { snapshot } = useCompassData()
+
+  if (!snapshot) return null
+
+  const scopeSnapshot = buildScopeMonitorSnapshot(
+    snapshot.project,
+    snapshot.phases,
+    snapshot.tasks,
+    snapshot.notNowItems,
   )
 
   return (
@@ -50,30 +49,30 @@ export function ScopeMapPage() {
           </div>
         </div>
         <p className="card-copy">
-          Live read of mock project rules — phase constraints, allowed build areas, Not Now
-          guardrails, and per-task scope health. Updates when task data changes.
+          Live read of project rules — phase constraints, allowed build areas, Not Now guardrails,
+          and per-task scope health.
         </p>
         <div className="scope-stats">
           <span>
             <strong>Health</strong>
-            {snapshot.healthScore}%
+            {scopeSnapshot.healthScore}%
           </span>
           <span>
             <strong>Scope locked</strong>
-            {snapshot.scopeLocked ? 'Yes' : 'No'}
+            {scopeSnapshot.scopeLocked ? 'Yes' : 'No'}
             <LockKeyhole size={14} aria-hidden="true" />
           </span>
           <span>
             <strong>Tasks OK</strong>
-            {snapshot.tasksOk}
+            {scopeSnapshot.tasksOk}
           </span>
           <span>
             <strong>Warnings</strong>
-            {snapshot.tasksWarn}
+            {scopeSnapshot.tasksWarn}
           </span>
           <span>
             <strong>Blocked</strong>
-            {snapshot.tasksBlock}
+            {scopeSnapshot.tasksBlock}
           </span>
         </div>
       </div>
@@ -82,7 +81,7 @@ export function ScopeMapPage() {
         <article className="dashboard-card">
           <h3>In scope</h3>
           <ul className="scope-list scope-list--in">
-            {snapshot.inScopeSummary.map((item) => (
+            {scopeSnapshot.inScopeSummary.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
@@ -91,7 +90,7 @@ export function ScopeMapPage() {
         <article className="dashboard-card">
           <h3>Out of scope / Not Now</h3>
           <ul className="scope-list scope-list--out">
-            {snapshot.outOfScopeSummary.map((item) => (
+            {scopeSnapshot.outOfScopeSummary.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
@@ -100,8 +99,8 @@ export function ScopeMapPage() {
         <article className="dashboard-card">
           <h3>Active phase constraints</h3>
           <ul className="scope-list">
-            {snapshot.phaseConstraints.length > 0 ? (
-              snapshot.phaseConstraints.map((item) => <li key={item}>{item}</li>)
+            {scopeSnapshot.phaseConstraints.length > 0 ? (
+              scopeSnapshot.phaseConstraints.map((item) => <li key={item}>{item}</li>)
             ) : (
               <li>No extra phase constraints.</li>
             )}
@@ -123,7 +122,7 @@ export function ScopeMapPage() {
               </tr>
             </thead>
             <tbody>
-              {snapshot.taskReports.map((report) => (
+              {scopeSnapshot.taskReports.map((report) => (
                 <tr key={report.taskId} data-severity={report.severity}>
                   <td>{report.title}</td>
                   <td>{report.lane}</td>

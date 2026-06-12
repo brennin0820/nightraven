@@ -1,14 +1,9 @@
+import { useCompassData } from '../../context/ProjectContext'
 import {
-  mockBlockers,
-  mockDecisions,
-  mockPhases,
-  mockProgress,
-  mockProject,
-  mockPromptCards,
-  mockTasks,
-  mockNotNowItems,
-} from '../../data/mockProject'
-import { calculateAuditProgress, calculateBuildProgress, calculateDecisionProgress } from '../../utils/progress'
+  calculateAuditProgress,
+  calculateBuildProgress,
+  calculateDecisionProgress,
+} from '../../utils/progress'
 import type { NavItemId } from '../layout/navigation'
 import { PromptCard } from '../prompts/PromptCard'
 import { BlockerCard } from './BlockerCard'
@@ -21,36 +16,36 @@ import { ProjectStatusCard } from './ProjectStatusCard'
 import { ScopeMonitorCard } from './ScopeMonitorCard'
 
 export function DashboardPage({ onViewChange }: { onViewChange?: (view: NavItemId) => void }) {
-  const currentPhase =
-    mockPhases.find((phase) => phase.id === mockProject.currentPhaseId) ?? mockPhases[0]
-  const nextBestTask =
-    mockTasks.find((task) => task.lane === 'now' && task.state === 'build') ?? mockTasks[0]
-  const blocker = mockBlockers[0]
-  const decision = mockDecisions[0]
-  const promptCard = mockPromptCards[0]
+  const { snapshot, nextTask, currentPhase } = useCompassData()
+
+  if (!snapshot || !nextTask || !currentPhase) return null
+
+  const blocker = snapshot.blockers[0]
+  const decision = snapshot.decisions[0]
+  const promptCard = snapshot.promptCards[0]
 
   const calculatedProgress = {
-    ...mockProgress,
-    buildProgress: calculateBuildProgress(mockTasks),
-    auditProgress: calculateAuditProgress([]),
-    decisionProgress: calculateDecisionProgress(mockDecisions),
+    ...snapshot.progress,
+    buildProgress: calculateBuildProgress(snapshot.tasks),
+    auditProgress: calculateAuditProgress(snapshot.auditItems),
+    decisionProgress: calculateDecisionProgress(snapshot.decisions),
   }
 
   return (
     <section className="dashboard">
       <div className="dashboard__summary">
-        <ProjectStatusCard project={mockProject} />
-        <NextBestActionCard task={nextBestTask} />
+        <ProjectStatusCard project={snapshot.project} />
+        <NextBestActionCard task={nextTask} />
       </div>
 
       <div className="dashboard__grid">
         <ScopeMonitorCard onOpenScopeMap={(view) => onViewChange?.(view)} />
         <CurrentPhaseCard phase={currentPhase} />
         <ProgressSummaryCard progress={calculatedProgress} />
-        <BlockerCard blocker={blocker} />
-        <DecisionCard decision={decision} />
-        <NotNowCard items={mockNotNowItems} />
-        <PromptCard promptCard={promptCard} />
+        {blocker ? <BlockerCard blocker={blocker} /> : null}
+        {decision ? <DecisionCard decision={decision} /> : null}
+        <NotNowCard items={snapshot.notNowItems} />
+        {promptCard ? <PromptCard promptCard={promptCard} /> : null}
       </div>
     </section>
   )

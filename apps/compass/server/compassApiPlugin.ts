@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import type { Plugin, ViteDevServer } from 'vite'
+import type { Connect } from 'vite'
+import type { Plugin } from 'vite'
 import { buildProjectSnapshot, loadRegistry } from './buildSnapshot'
 
 function findMonorepoRoot(): string {
@@ -20,7 +21,7 @@ function sendJson(res: import('node:http').ServerResponse, status: number, body:
   res.end(JSON.stringify(body))
 }
 
-function attachApi(server: ViteDevServer, monorepoRoot: string) {
+function attachApi(server: { middlewares: Connect.Server }, monorepoRoot: string) {
   const confPath = path.join(monorepoRoot, 'scripts', 'gods-eye-projects.conf')
 
   server.middlewares.use('/api/registry', (_req, res) => {

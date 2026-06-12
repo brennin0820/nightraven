@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { useCompassData } from '../context/ProjectContext'
+import { useCompassData } from '../../context/ProjectContext'
 
 export function CompassState({ children }: { children: ReactNode }) {
   const { loading, error, refresh, snapshot } = useCompassData()

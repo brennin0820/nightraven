@@ -1,13 +1,8 @@
 import { ShieldCheck } from 'lucide-react'
-import {
-  mockAuditItems,
-  mockNotNowItems,
-  mockTasks,
-} from '../../data/mockProject'
+import { useCompassData } from '../../context/ProjectContext'
+import type { ProjectSnapshot } from '../../types/snapshot'
 import { buildTaskScopeReport, detectScopeCreep } from '../../utils/scopeMonitor'
 import { getScopeWarnings } from '../../utils/scopeWarnings'
-
-const notNowTitles = mockNotNowItems.map((item) => item.title)
 
 type AuditRow = {
   id: string
@@ -18,9 +13,12 @@ type AuditRow = {
   canMoveForward: boolean
 }
 
-function buildAuditRows(): AuditRow[] {
-  return mockAuditItems.map((audit) => {
-    const task = mockTasks.find((entry) => entry.id === audit.taskId)
+function buildAuditRows(snapshot: ProjectSnapshot): AuditRow[] {
+  const { auditItems: items, tasks, notNowItems } = snapshot
+  const notNowTitles = notNowItems.map((item) => item.title)
+
+  return items.map((audit) => {
+    const task = tasks.find((entry) => entry.id === audit.taskId)
     if (!task) {
       return {
         id: audit.id,
@@ -49,7 +47,11 @@ function buildAuditRows(): AuditRow[] {
 }
 
 export function AuditorQueuePage() {
-  const rows = buildAuditRows()
+  const { snapshot } = useCompassData()
+
+  if (!snapshot) return null
+
+  const rows = buildAuditRows(snapshot)
   const pending = rows.filter((row) => !row.canMoveForward).length
 
   return (
@@ -81,39 +83,45 @@ export function AuditorQueuePage() {
       </article>
 
       <div className="auditor-list">
-        {rows.map((row) => (
-          <article className="dashboard-card auditor-card" key={row.id}>
-            <div className="auditor-card__head">
-              <h3>{row.taskTitle}</h3>
-              <span className="auditor-status" data-forward={row.canMoveForward}>
-                {row.canMoveForward ? 'Can move forward' : 'Hold — scope review'}
-              </span>
-            </div>
-            {row.scopeWarnings.length > 0 ? (
-              <div className="auditor-findings">
-                <strong>Scope warnings</strong>
-                <ul>
-                  {row.scopeWarnings.map((warning) => (
-                    <li key={warning}>{warning}</li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-            {row.creepFindings.length > 0 ? (
-              <div className="auditor-findings auditor-findings--creep">
-                <strong>Scope creep signals</strong>
-                <ul>
-                  {row.creepFindings.map((finding) => (
-                    <li key={finding}>{finding}</li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-            {row.scopeWarnings.length === 0 && row.creepFindings.length === 0 ? (
-              <p className="auditor-clean">All scope checks passed for this task.</p>
-            ) : null}
+        {rows.length === 0 ? (
+          <article className="dashboard-card">
+            <p className="card-copy">No audit-required tasks in the now lane.</p>
           </article>
-        ))}
+        ) : (
+          rows.map((row) => (
+            <article className="dashboard-card auditor-card" key={row.id}>
+              <div className="auditor-card__head">
+                <h3>{row.taskTitle}</h3>
+                <span className="auditor-status" data-forward={row.canMoveForward}>
+                  {row.canMoveForward ? 'Can move forward' : 'Hold — scope review'}
+                </span>
+              </div>
+              {row.scopeWarnings.length > 0 ? (
+                <div className="auditor-findings">
+                  <strong>Scope warnings</strong>
+                  <ul>
+                    {row.scopeWarnings.map((warning) => (
+                      <li key={warning}>{warning}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+              {row.creepFindings.length > 0 ? (
+                <div className="auditor-findings auditor-findings--creep">
+                  <strong>Scope creep signals</strong>
+                  <ul>
+                    {row.creepFindings.map((finding) => (
+                      <li key={finding}>{finding}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+              {row.scopeWarnings.length === 0 && row.creepFindings.length === 0 ? (
+                <p className="auditor-clean">All scope checks passed for this task.</p>
+              ) : null}
+            </article>
+          ))
+        )}
       </div>
     </section>
   )

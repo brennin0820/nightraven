@@ -1,25 +1,24 @@
 import { Map } from 'lucide-react'
-import type { NavItemId } from '../layout/navigation'
-import {
-  mockNotNowItems,
-  mockPhases,
-  mockProject,
-  mockTasks,
-} from '../../data/mockProject'
+import { useCompassData } from '../../context/ProjectContext'
 import { buildScopeMonitorSnapshot } from '../../utils/scopeMonitor'
+import type { NavItemId } from '../layout/navigation'
 
 type ScopeMonitorCardProps = {
   onOpenScopeMap: (view: NavItemId) => void
 }
 
 export function ScopeMonitorCard({ onOpenScopeMap }: ScopeMonitorCardProps) {
-  const snapshot = buildScopeMonitorSnapshot(
-    mockProject,
-    mockPhases,
-    mockTasks,
-    mockNotNowItems,
+  const { snapshot } = useCompassData()
+
+  if (!snapshot) return null
+
+  const scopeSnapshot = buildScopeMonitorSnapshot(
+    snapshot.project,
+    snapshot.phases,
+    snapshot.tasks,
+    snapshot.notNowItems,
   )
-  const issues = snapshot.tasksWarn + snapshot.tasksBlock
+  const issues = scopeSnapshot.tasksWarn + scopeSnapshot.tasksBlock
 
   return (
     <article className="dashboard-card">
@@ -29,7 +28,7 @@ export function ScopeMonitorCard({ onOpenScopeMap }: ScopeMonitorCardProps) {
         </span>
         <div>
           <p className="eyebrow">Scope monitor</p>
-          <h2>{snapshot.healthScore}% healthy</h2>
+          <h2>{scopeSnapshot.healthScore}% healthy</h2>
         </div>
       </div>
       <p className="card-copy">

@@ -122,8 +122,9 @@ export function useCompassData() {
   )
 
   return {
-    ...data,
     snapshot,
+    nextTask: data?.nextTask ?? null,
+    currentPhase: data?.currentPhase ?? null,
     loading,
     error,
     refresh,

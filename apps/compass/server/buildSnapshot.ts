@@ -208,9 +208,10 @@ function buildProgress(
 ): ProgressSnapshot {
   const doneTasks = tasks.filter((task) => task.state === 'done').length
   const totalTasks = Math.max(tasks.length, 1)
+  const artifactProgress = Math.round((artifactCount / ARTIFACTS.length) * 100)
   return {
     projectId,
-    scopeProgress: Math.min(100, 40 + handoff.alreadyDoneCount * 2),
+    scopeProgress: Math.min(100, Math.max(artifactProgress, 40 + handoff.alreadyDoneCount * 2)),
     buildProgress: Math.round((doneTasks / totalTasks) * 100),
     auditProgress: 0,
     decisionProgress: handoff.nextItems.length > 0 ? 70 : 30,
