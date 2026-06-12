@@ -6,6 +6,22 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Compass: one-time default-project migration key
+
+**Supersedes:** learning entry “default project vs persisted selection” workaround-only path once migration shipped.
+
+**Signal:** Default constant (`PREFERRED_DEFAULT_PROJECT`) insufficient — pre-ship bootstrap auto-picked first registry row (gods-eye-1) into `compass.selectedProject`.
+
+**Pattern:** Versioned migration flag (`compass.himflerDefaultMigration.v1`) · detect legacy framework stored path · clear once · bootstrap `pickInitialProject()` · init UI state null until pick resolved.
+
+**Do:** Ship migration when changing default project for returning users.
+
+**Don't:** Wipe explicit user project choice after migration ran.
+
+**See:** [`compassApi.ts`](../apps/compass/src/services/compassApi.ts) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+
+---
+
 ## 2026-06-11 — Compass: default project vs persisted selection
 
 **Signal:** Brent asked Compass to **open on HimFLer**; app still showed gods-eye monorepo.

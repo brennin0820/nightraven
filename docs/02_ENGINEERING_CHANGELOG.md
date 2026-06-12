@@ -6,11 +6,22 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Compass — HimFLer default migration (`519da50`)
+
+- +# Brent **make compass open on himfler** · **I'd like to see** — shipped fix after localStorage gotcha (`f307b28`)
+- +# **`compass.himflerDefaultMigration.v1`** — one-time clear when stored pick is framework gods-eye-1 · fall through to `PREFERRED_DEFAULT_PROJECT`
+- +# **`ProjectContext`** — `selected` init `null` until bootstrap (no flash of stale project)
+- +# `findHimFlerEntry` / fuzzy `himfl` label match · explicit user picks still persist post-migration
+- +# Autosync pushed · `origin/main` @ `519da50`
+- +# **Supersedes** “migration not shipped” on Compass default Q&A block below
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`compassApi.ts`](../apps/compass/src/services/compassApi.ts) · [`apps/compass/README.md`](../apps/compass/README.md)
+
 ### Compass — open on HimFLer (default selection Q&A)
 
 - +# Brent **make compass open on himfler** — logic already in [`compassApi.ts`](../apps/compass/src/services/compassApi.ts) (`ca783f2`): `PREFERRED_DEFAULT_PROJECT` → HimFLer path · fuzzy `himfler`/`himfl` label match
 - +# **Persisted selection wins** — `localStorage` key `compass.selectedProject` restores last project; prior **gods-eye-1** session blocks default until Settings switch or storage clear
-- +# **Next (code):** one-time migration or ignore framework stored path — not shipped this close
+- +# **Next (code):** one-time migration or ignore framework stored path — not shipped this close. **Superseded** by `519da50` migration entry above.
 - +# Autosync handoff `4095fa7` · `origin/main` @ `4095fa7`
 
 **Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`apps/compass/README.md`](../apps/compass/README.md) · [`gods-eye-projects.conf`](../scripts/gods-eye-projects.conf)

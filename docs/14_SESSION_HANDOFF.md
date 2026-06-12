@@ -6,7 +6,7 @@
 
 ## Current state / focus
 
-**NightRaven platform monorepo** on `origin/main` @ `4095fa7` — God's Eye framework · NightRaven Core · **Compass** (`apps/compass/` @ `3fac525` · **`pickInitialProject()` → HimFLer** on fresh load · localStorage may override). **HimFLer** @ `E:\NightRaven\HimFLer` — Claude UI → Antigravity → Codex · **Next:** Compass HimFLer default if still on gods-eye (clear `compass.selectedProject` or migration) · Claude iOS 26 spec · `gh auth`.
+**NightRaven platform monorepo** on `origin/main` @ `519da50` — God's Eye framework · NightRaven Core · **Compass** opens **HimFLer** by default (`pickInitialProject` · one-time `compass.himflerDefaultMigration.v1` clears legacy gods-eye stored pick). **HimFLer** @ `E:\NightRaven\HimFLer` @ consumer `d4a0d7c` — Claude UI → Antigravity → Codex · **Next:** Claude `UI_DESIGN_SPEC.md` iOS 26 · `npm run dev` in `apps/compass` to view · `gh auth`.
 
 ---
 
@@ -38,7 +38,8 @@
 ---
 
 ## Recent sessions
-- **2026-06-11** — Touch 3 AFTER: **Compass open on HimFLer** — Brent **make compass open on himfler**; **`ca783f2`** `PREFERRED_DEFAULT_PROJECT` + `pickInitialProject()` already prefer `E:/NightRaven/HimFLer` when no valid stored pick · **gotcha:** IndexedDB/localStorage key `compass.selectedProject` restores prior project (often **gods-eye-1**) — Settings → HimFLer or clear storage until migration ships; autosync **`4095fa7`** · `origin/main` @ `4095fa7` (`+#` only).
+- **2026-06-11** — Touch 3 AFTER: **Compass HimFLer default shipped** — Brent **make compass open on himfler** · **I'd like to see** → dev verify; shipped **`519da50`** — one-time migration clears pre-`ca783f2` gods-eye `localStorage` pick · `ProjectContext` init null until bootstrap · HimFLer fuzzy match; autosync pushed · **`origin/main` @ `519da50`**; consumer HimFLer roles **`d4a0d7c`** (`+#` only).
+- **2026-06-11** — Touch 3 AFTER: **Compass open on HimFLer** — Brent **make compass open on himfler**; **`ca783f2`** `PREFERRED_DEFAULT_PROJECT` + `pickInitialProject()` already prefer `E:/NightRaven/HimFLer` when no valid stored pick · **gotcha:** IndexedDB/localStorage key `compass.selectedProject` restores prior project (often **gods-eye-1**) — Settings → HimFLer or clear storage until migration ships; autosync **`4095fa7`** · `origin/main` @ `4095fa7`; **Superseded** by `519da50` migration (`+#` only).
 - **2026-06-11** — **HimFLer iOS 26 role wire refreshed** — Brent build spec · Claude→Antigravity→Codex workflow · [`BUILD_ROLES.md`](../../HimFLer/docs/BUILD_ROLES.md) · [`UI_DESIGN_BRIEF.md`](../../HimFLer/docs/UI_DESIGN_BRIEF.md) · Codex blocked until `UI_DESIGN_SPEC.md` · Antigravity = Planning + Architecture Auditor (overlay §1 canonical); Compass @ `3fac525` (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: **session close — HimFLer coder roles + Compass agent docs** — Brent **linen-calculator build spec** · external agents **Claude UI first (iOS 26 ask) → Codex → Antigravity** · consumer [`BUILD_ROLES.md`](../../HimFLer/docs/BUILD_ROLES.md) · [`UI_DESIGN_BRIEF.md`](../../HimFLer/docs/UI_DESIGN_BRIEF.md) · framework wire **`5a50fa7`** overlay §1; Compass **`3fac525`** `AGENTS.md` · auto-refresh UI · **`origin/main` @ `5a50fa7`**; **Next:** Claude produce `UI_DESIGN_SPEC.md` on HimFLer · no v1 app code this session · `gh auth` (`+#` only).
 - **2026-06-11** — **HimFLer external AI coder roles** — consumer repo `E:\NightRaven\HimFLer`: [`BUILD_ROLES.md`](../../HimFLer/docs/BUILD_ROLES.md) (Claude UI → Codex build → Antigravity plan/audit) · [`UI_DESIGN_BRIEF.md`](../../HimFLer/docs/UI_DESIGN_BRIEF.md) · overlay §1 HimFLer roles pointer; Antigravity = Planning + Architecture Auditor (HimFLer-local, not framework term); v1 app unchanged (`+#` only).
