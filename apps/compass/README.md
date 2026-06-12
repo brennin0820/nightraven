@@ -4,11 +4,19 @@
 
 NightRaven Compass is a project-guidance app for a non-coder builder using God's Eye and NightRaven to build software with AI agents.
 
+## For AI agents
+
+**Start here:** [`AGENTS.md`](AGENTS.md) — stack, directory map, data flow, phase/route map, persistence, auto-refresh, safe-edit guide, and out-of-scope locks.
+
+Compact API/types reference: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
+For God's Eye framework law on the monorepo, use repo root [`AGENTS.md`](../../AGENTS.md). Compass reads **consumer** handoffs from each registered project path (default: HimFLer), not framework `docs/14` unless that repo is selected.
+
 ## Purpose
 
 The app shows project scope, current phase, priorities, blockers, decisions, audits, Not Now items, progress, and the next best prompt.
 
-**MVP (Phases 1–8)** uses mock data by default — no cloud sync, real AI automation, or repo auto-editing. Optional local/registry mode can load handoff-derived snapshots when the dev server API is available.
+**Phases 1–8 are live** in the UI. With `npm run dev`, registry mode loads handoff-derived snapshots from registered repos via the Vite file API. If the API is unavailable (static build), Compass falls back to seeded mock data for that session. No cloud sync, autonomous AI, or repo auto-editing.
 
 ## Core Identity
 
@@ -63,6 +71,14 @@ Format: `ABS_PATH|label|role` — one line per workspace (`framework`, `master`,
 
 Registered consumer app **HimFLer** (iOS 26 · GitHub `brennin0820/HimFler`) ships its own `docs/14_SESSION_HANDOFF.md` and `docs/GODS_EYE_REPO_OVERLAY.md`; Compass does not bleed framework handoff into that repo.
 
+## Auto-refresh (live monitor)
+
+When **Settings → Auto refresh** is on (default) and data mode is **Registry**, Compass polls `/api/project/version` every **10 seconds** for changes to God's Eye memory files (handoff, overlay, changelog, learning log, AGENTS.md, rules, hooks). On change it silently reloads the snapshot, merges IndexedDB overrides, and shows a **Live** / **Updated** badge in the header plus a short banner.
+
+Polling pauses while the browser tab is hidden and resumes (with an immediate check) when you return. Toggle auto refresh off in Settings to use manual **Refresh from God's Eye** only.
+
+**Verify:** run `npm run dev`, open Dashboard / Scope Map / Memory Feed, edit `docs/14_SESSION_HANDOFF.md` **Recent sessions** in the selected project, save — within ~10s the UI should show **Updated** and new session rows.
+
 ## Out of scope (MVP)
 
 - Cloud sync
@@ -71,8 +87,14 @@ Registered consumer app **HimFLer** (iOS 26 · GitHub `brennin0820/HimFler`) shi
 - Plugin / MCP managers
 - Multi-user database
 
+## Auto-refresh
+
+When **Settings → Auto-refresh** is on and the project is in registry mode, Compass polls God's Eye file mtimes every 10 seconds and reloads the snapshot when handoff, overlay, or related memory files change. The header shows **Live**, **Refreshing…**, or **Updated** status.
+
 ## Docs
 
+- [`AGENTS.md`](AGENTS.md) — agent entry (read first for code work)
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — snapshot shape, API routes
 - [`docs/PROJECT_SCOPE.md`](docs/PROJECT_SCOPE.md)
 - [`docs/MVP_ROADMAP.md`](docs/MVP_ROADMAP.md)
 - [`docs/DATA_MODEL.md`](docs/DATA_MODEL.md)

@@ -72,3 +72,4 @@ Public repo may remain `brennin0820/gods-eye` while product brand is **NightRave
 - [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) §1 NightRaven unified
 - [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
 - [`apps/compass/README.md`](../apps/compass/README.md)
+- [`apps/compass/AGENTS.md`](../apps/compass/AGENTS.md) — agent onboarding for Compass code work

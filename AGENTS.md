@@ -4,6 +4,8 @@
 
 **NightRaven monorepo map:** [`docs/NIGHTRAVEN_UNIFIED_PRODUCT.md`](docs/NIGHTRAVEN_UNIFIED_PRODUCT.md) · Compass app: [`apps/compass/`](apps/compass/)
 
+**Compass app work:** Read [`apps/compass/AGENTS.md`](apps/compass/AGENTS.md) first — not framework `docs/14` unless editing framework itself. Compass loads consumer handoffs from registered project paths (`scripts/gods-eye-projects.conf`).
+
 ---
 
 ## God's Eye Framework (always-on)

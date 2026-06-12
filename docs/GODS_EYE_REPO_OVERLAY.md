@@ -41,6 +41,7 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 | **NightRaven (umbrella brand)** | Brent's unified product family — memory (God's Eye) + orchestration (Core) + Compass + iOS app; **monorepo** at repo root · see [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md) |
 | **NightRaven monorepo** | `apps/compass/` merged Phase 1; framework at root; iOS merge pending; GitHub rename deferred |
 | **NightRaven Compass** | GE+NR **guidance app** at `apps/compass/` — mock task/scope UX · Vite file API reads handoff/overlay/registry; see [`apps/compass/README.md`](../apps/compass/README.md) · handoff Recent sessions |
+| **NightRaven Compass — agent entry** | **Supersedes** stale "mock only" read for agents — Phases 1–8 live · registry mode + IndexedDB overrides + mtime auto-refresh · consumer handoff per `gods-eye-projects.conf` path; agent onboarding: [`apps/compass/AGENTS.md`](../apps/compass/AGENTS.md) · architecture: [`apps/compass/docs/ARCHITECTURE.md`](../apps/compass/docs/ARCHITECTURE.md) |
 
 ---
 

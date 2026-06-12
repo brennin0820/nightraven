@@ -9,16 +9,31 @@ type AppShellProps = {
   onViewChange: (view: NavItemId) => void
 }
 
+function formatRelativeTime(iso?: string): string {
+  if (!iso) return 'just now'
+  const deltaMs = Date.now() - new Date(iso).getTime()
+  if (deltaMs < 15_000) return 'just now'
+  if (deltaMs < 60_000) return `${Math.round(deltaMs / 1000)}s ago`
+  if (deltaMs < 3_600_000) return `${Math.round(deltaMs / 60_000)}m ago`
+  return new Date(iso).toLocaleTimeString()
+}
+
 export function AppShell({ activeView, children, onViewChange }: AppShellProps) {
-  const { snapshot, loading, error, selected } = useCompassData()
+  const { snapshot, loading, error, selected, refreshStatus } = useCompassData()
   const activeItem = navItems.find((item) => item.id === activeView) ?? navItems[0]
   const dataMode = snapshot?.settings.dataMode ?? 'local'
+  const autoRefresh = snapshot?.settings.autoRefresh ?? true
   const modeLabel =
     dataMode === 'registry'
       ? "God's Eye registry"
       : dataMode === 'local'
         ? 'Local + IndexedDB'
         : 'Seed data'
+
+  const liveWatching =
+    autoRefresh && dataMode === 'registry' && refreshStatus.state === 'watching'
+  const liveUpdated = refreshStatus.state === 'updated'
+  const liveRefreshing = refreshStatus.state === 'refreshing'
 
   let statusBanner: ReactNode = null
   if (loading) {
@@ -31,6 +46,13 @@ export function AppShell({ activeView, children, onViewChange }: AppShellProps) 
     statusBanner = (
       <div className="compass-status compass-status--error" role="alert">
         {error}
+      </div>
+    )
+  } else if (liveUpdated) {
+    statusBanner = (
+      <div className="compass-status compass-status--updated" role="status">
+        God&apos;s Eye memory changed — snapshot refreshed{' '}
+        {formatRelativeTime(refreshStatus.lastRefreshedAt)}
       </div>
     )
   }
@@ -53,6 +75,21 @@ export function AppShell({ activeView, children, onViewChange }: AppShellProps) 
             <span className="header-badge" data-mode={dataMode}>
               {modeLabel}
             </span>
+            {liveWatching || liveUpdated || liveRefreshing ? (
+              <span
+                className="header-badge header-badge--live"
+                data-live-state={liveUpdated ? 'updated' : liveRefreshing ? 'refreshing' : 'watching'}
+                title={
+                  liveUpdated
+                    ? `Refreshed ${formatRelativeTime(refreshStatus.lastRefreshedAt)}`
+                    : liveRefreshing
+                      ? 'Refreshing from disk…'
+                      : 'Watching God\'s Eye files for changes'
+                }
+              >
+                {liveUpdated ? 'Updated' : liveRefreshing ? 'Refreshing…' : 'Live'}
+              </span>
+            ) : null}
             <span>IndexedDB persistence</span>
             <span>{snapshot?.meta.handoffFound ? 'Handoff live' : 'No handoff file'}</span>
           </div>

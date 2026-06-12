@@ -129,6 +129,12 @@ God's Eye Phase 2 hooks (`.cursor/hooks.json`) target **Cursor** lifecycle event
 
 ---
 
+## Monorepo app work (NightRaven Compass)
+
+When Claude Code works inside the NightRaven platform monorepo on **`apps/compass/`**, read [`apps/compass/AGENTS.md`](../apps/compass/AGENTS.md) before implementation files — Compass has its own data flow, registry API, and consumer handoff isolation from framework `docs/14`.
+
+---
+
 ## Related
 
 - [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) — Cursor-specific install + verification

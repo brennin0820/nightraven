@@ -60,6 +60,9 @@ export function SettingsPage() {
                 onChange={(event) => void updateSettings({ autoRefresh: event.target.checked })}
                 type="checkbox"
               />
+              <span className="settings-hint">
+                Polls God&apos;s Eye files every 10s in registry mode; pauses when tab is hidden.
+              </span>
             </label>
             <span>
               <strong>Phase badges</strong>
