@@ -8,16 +8,12 @@ import type {
   Phase,
   ProgressSnapshot,
   Project,
-  PromptCard,
   Task,
 } from '../src/types/project'
-import {
-  generateAuditorPrompt,
-  generateBuilderPrompt,
-  generateGodsEyePrompt,
-} from '../src/utils/promptGenerator'
+import type { ProjectSnapshot } from '../src/types/snapshot'
+import { enrichSnapshot } from '../src/utils/enrichSnapshot'
 import { parseHandoff, parseOverlayNotNow } from './parseHandoff'
-import type { ProjectSnapshot, RegistryEntry } from './types'
+import type { RegistryEntry } from './types'
 
 const ARTIFACTS = [
   'docs/37_GODS_EYE.md',
@@ -276,37 +272,9 @@ export function buildProjectSnapshot(
   const phases = buildPhases(projectId, handoff)
   const tasks = buildTasksFromHandoff(projectId, label, handoff)
   const notNowItems = buildNotNow(overlayNotNow, projectId)
-  const currentPhase = phases.find((phase) => phase.id === project.currentPhaseId) ?? phases[0]
+  const _currentPhase = phases.find((phase) => phase.id === project.currentPhaseId) ?? phases[0]
+  void _currentPhase
   const nextTask = tasks.find((task) => task.lane === 'now') ?? tasks[0]
-
-  const promptCards: PromptCard[] = nextTask
-    ? [
-        {
-          id: 'prompt-ge',
-          projectId,
-          taskId: nextTask.id,
-          target: 'gods_eye',
-          prompt: generateGodsEyePrompt(project, currentPhase, nextTask),
-          requiredOutput: ['Scope verdict', 'Risks', 'Refined task', 'Next step'],
-        },
-        {
-          id: 'prompt-builder',
-          projectId,
-          taskId: nextTask.id,
-          target: 'nightraven_builder',
-          prompt: generateBuilderPrompt(project, currentPhase, nextTask),
-          requiredOutput: ['Files changed', 'Criteria met', 'Next step'],
-        },
-        {
-          id: 'prompt-auditor',
-          projectId,
-          taskId: nextTask.id,
-          target: 'nightraven_auditor',
-          prompt: generateAuditorPrompt(project, currentPhase, nextTask),
-          requiredOutput: ['Pass/Fix/Blocked', 'Findings', 'Can move forward'],
-        },
-      ]
-    : []
 
   const auditItems: AuditItem[] = tasks
     .filter((task) => task.auditRequired && task.lane === 'now')
@@ -364,7 +332,7 @@ export function buildProjectSnapshot(
 
   const artifactCount = countArtifacts(projectPath)
 
-  return {
+  const raw: ProjectSnapshot = {
     registry,
     project,
     phases,
@@ -373,9 +341,24 @@ export function buildProjectSnapshot(
     blockers,
     notNowItems,
     auditItems,
-    promptCards,
+    promptCards: [],
     progress: buildProgress(projectId, handoff, artifactCount, tasks),
-    memoryFeed: handoff.recentSessions,
+    memoryFeed: handoff.recentSessions.map((item, index) => ({
+      ...item,
+      kind: 'session' as const,
+      title: item.text.slice(0, 72),
+      source: 'docs/14_SESSION_HANDOFF.md',
+      id: item.id || `session-${index}`,
+    })),
+    loopSignals: [],
+    doneCriteria: [],
+    reports: [],
+    settings: {
+      dataMode: 'registry',
+      autoRefresh: false,
+      showPhaseBadges: true,
+      projectRootHint: projectPath,
+    },
     meta: {
       projectPath,
       handoffFound: handoffContent !== null,
@@ -385,4 +368,6 @@ export function buildProjectSnapshot(
       loadedAt: new Date().toISOString(),
     },
   }
+
+  return enrichSnapshot(raw, 'registry')
 }

@@ -3,7 +3,7 @@ import { useCompassData } from '../../hooks/useCompassData'
 import { BlockerCard } from '../dashboard/BlockerCard'
 
 export function BlockersPage() {
-  const { snapshot } = useCompassData()
+  const { snapshot, updateBlocker } = useCompassData()
   const blockers = snapshot?.blockers ?? []
   const tasks = snapshot?.tasks ?? []
 
@@ -49,6 +49,7 @@ export function BlockersPage() {
               blockedTaskTitles={blocker.blockedTaskIds.map(taskTitle)}
               blocker={blocker}
               key={blocker.id}
+              onUpdateStatus={(status) => void updateBlocker(blocker.id, { status })}
             />
           ))
         )}

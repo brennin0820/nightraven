@@ -15,31 +15,33 @@ const nextTask =
   mockTasks.find((task) => task.lane === 'now') ??
   mockTasks[0]
 
-const researchTask: Task = {
-  id: 'task-research-priority-ui',
-  projectId: mockProject.id,
-  phaseId: 'phase-2',
-  title: 'Research priority board interaction patterns',
-  description:
-    'Compare drag-and-drop lanes vs static columns for a non-coder builder workflow.',
-  why: 'Priority board UX affects every future task ordering decision.',
-  type: 'research',
-  priority: 'P1',
-  lane: 'next',
-  state: 'research',
-  owner: 'research',
-  dependencies: ['task-dashboard'],
-  acceptanceCriteria: [
-    'At least two interaction patterns compared',
-    'Recommendation includes scope and deferral notes',
-    'Risks of building too early are listed',
-  ],
-  allowedAreas: ['docs', 'research notes'],
-  notAllowedChanges: ['Do not implement UI until decision is made'],
-  auditRequired: false,
-}
+export const phase34SupplementalTasks: Task[] = [
+  {
+    id: 'task-research-priority-ui',
+    projectId: mockProject.id,
+    phaseId: 'phase-2',
+    title: 'Research priority board interaction patterns',
+    description:
+      'Compare drag-and-drop lanes vs static columns for a non-coder builder workflow.',
+    why: 'Priority board UX affects every future task ordering decision.',
+    type: 'research',
+    priority: 'P1',
+    lane: 'next',
+    state: 'research',
+    owner: 'research',
+    dependencies: ['task-dashboard'],
+    acceptanceCriteria: [
+      'At least two interaction patterns compared',
+      'Recommendation includes scope and deferral notes',
+      'Risks of building too early are listed',
+    ],
+    allowedAreas: ['docs', 'research notes'],
+    notAllowedChanges: ['Do not implement UI until decision is made'],
+    auditRequired: false,
+  },
+]
 
-export const phase34SupplementalTasks: Task[] = [researchTask]
+const researchTask = phase34SupplementalTasks[0]
 
 function buildPromptCard(
   id: string,
@@ -86,6 +88,7 @@ function buildPromptCard(
   }
 }
 
+/** Phase 3 — four prompt targets generated via promptGenerator.ts */
 export const phase34PromptCards: PromptCard[] = [
   buildPromptCard(
     'prompt-ge-phase34',
@@ -113,18 +116,8 @@ export const phase34PromptCards: PromptCard[] = [
   ),
 ]
 
-export const phase34Decisions: Decision[] = [
-  {
-    id: 'decision-storage',
-    projectId: mockProject.id,
-    question: 'Should MVP use mock data, local JSON, or SQLite?',
-    options: ['Mock data first', 'Local JSON first', 'SQLite immediately'],
-    recommendation: 'Use mock data first.',
-    status: 'decided',
-    impact: 'high',
-    finalChoice: 'Mock data first',
-    unlocksTaskIds: ['task-dashboard'],
-  },
+/** Phase 4 — supplemental decisions (IDs unique vs mockProject.ts) */
+export const phase34SupplementalDecisions: Decision[] = [
   {
     id: 'decision-priority-ui',
     projectId: mockProject.id,
@@ -137,7 +130,7 @@ export const phase34Decisions: Decision[] = [
     recommendation: 'Static columns with move buttons for MVP — less scope risk.',
     status: 'open',
     impact: 'high',
-    unlocksTaskIds: ['task-roadmap'],
+    unlocksTaskIds: ['task-priority-board'],
   },
   {
     id: 'decision-audit-gate',
@@ -149,57 +142,10 @@ export const phase34Decisions: Decision[] = [
     impact: 'medium',
     unlocksTaskIds: ['task-roadmap', 'task-dashboard'],
   },
-  {
-    id: 'decision-tailwind',
-    projectId: mockProject.id,
-    question: 'Should Compass adopt Tailwind CSS?',
-    options: ['Yes', 'No — custom CSS only'],
-    recommendation: 'No — custom CSS only.',
-    status: 'superseded',
-    impact: 'low',
-    finalChoice: 'No — custom CSS only',
-    unlocksTaskIds: [],
-  },
 ]
 
-export const phase34Blockers: Blocker[] = [
-  {
-    id: 'blocker-audit-gate',
-    projectId: mockProject.id,
-    title: 'Phase 1 dashboard audit not complete',
-    reason:
-      'Auditor has not signed off on the dashboard task — Phase 2 roadmap work is frozen.',
-    severity: 'high',
-    blockedTaskIds: ['task-roadmap'],
-    owner: 'nightraven_auditor',
-    resolutionNeeded:
-      'Run Auditor against Phase 1 dashboard; fix findings or get explicit user bypass.',
-    status: 'open',
-  },
-  {
-    id: 'blocker-storage',
-    projectId: mockProject.id,
-    title: 'Persistent storage not ready',
-    reason:
-      'The MVP should prove the dashboard and workflow before adding storage complexity.',
-    severity: 'medium',
-    blockedTaskIds: [],
-    owner: 'gods_eye',
-    resolutionNeeded: 'Use mock data through Phase 4 and revisit storage after scope lock review.',
-    status: 'open',
-  },
-  {
-    id: 'blocker-priority-decision',
-    projectId: mockProject.id,
-    title: 'Priority board UX undecided',
-    reason:
-      'Drag-and-drop vs static columns is still open — building lanes now risks rework.',
-    severity: 'medium',
-    blockedTaskIds: ['task-roadmap'],
-    owner: 'user',
-    resolutionNeeded: 'Close decision-priority-ui on the Decisions page.',
-    status: 'in_progress',
-  },
+/** Phase 4 — supplemental blockers (IDs unique vs mockProject.ts) */
+export const phase34SupplementalBlockers: Blocker[] = [
   {
     id: 'blocker-scope-lock',
     projectId: mockProject.id,

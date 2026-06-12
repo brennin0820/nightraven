@@ -21,7 +21,7 @@ function groupDecisions(decisions: Decision[]): Map<Decision['status'], Decision
 }
 
 export function DecisionsPage() {
-  const { snapshot } = useCompassData()
+  const { snapshot, updateDecision } = useCompassData()
   const decisions = snapshot?.decisions ?? []
   const scopeLocked = snapshot?.project.scopeLocked ?? false
   const groups = groupDecisions(decisions)
@@ -53,7 +53,15 @@ export function DecisionsPage() {
           <h3 className="decision-group__title">{status.replaceAll('_', ' ')}</h3>
           <div className="list-page__grid">
             {items.map((decision) => (
-              <DecisionCard key={decision.id} decision={decision} />
+              <DecisionCard
+                decision={decision}
+                key={decision.id}
+                onDecide={(finalChoice) =>
+                  void updateDecision(decision.id, { status: 'decided', finalChoice })
+                }
+                showScopeWarnings
+                tasks={snapshot?.tasks ?? []}
+              />
             ))}
           </div>
         </div>

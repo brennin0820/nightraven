@@ -4,9 +4,14 @@ import type { Blocker } from '../../types/project'
 type BlockerCardProps = {
   blocker: Blocker
   blockedTaskTitles?: string[]
+  onUpdateStatus?: (status: Blocker['status']) => void
 }
 
-export function BlockerCard({ blocker, blockedTaskTitles = [] }: BlockerCardProps) {
+export function BlockerCard({
+  blocker,
+  blockedTaskTitles = [],
+  onUpdateStatus,
+}: BlockerCardProps) {
   return (
     <article className="dashboard-card">
       <div className="card-heading">
@@ -41,6 +46,25 @@ export function BlockerCard({ blocker, blockedTaskTitles = [] }: BlockerCardProp
         <strong>Resolution needed</strong>
         <p>{blocker.resolutionNeeded}</p>
       </div>
+
+      {onUpdateStatus && blocker.status !== 'resolved' ? (
+        <div className="action-strip">
+          <button
+            className="scope-link-btn"
+            onClick={() => onUpdateStatus('in_progress')}
+            type="button"
+          >
+            In progress
+          </button>
+          <button
+            className="scope-link-btn"
+            onClick={() => onUpdateStatus('resolved')}
+            type="button"
+          >
+            Resolve
+          </button>
+        </div>
+      ) : null}
     </article>
   )
 }

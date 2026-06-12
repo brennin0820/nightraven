@@ -50,8 +50,8 @@ export function DoneCriteriaPage() {
           </div>
         </div>
         <p className="card-copy">
-          Mock read of what must be true before a phase can mark done — derived from phase
-          definitions and current build state.
+          What must be true before a phase can mark done — derived from phase definitions and
+          current build state.
         </p>
         <div className="scope-stats">
           <span>

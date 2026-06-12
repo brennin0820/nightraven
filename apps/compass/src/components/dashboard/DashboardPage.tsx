@@ -21,6 +21,11 @@ export function DashboardPage() {
   const blocker = snapshot.blockers[0]
   const decision = snapshot.decisions[0]
   const promptCard = snapshot.promptCards[0]
+  const blockedTaskTitles = blocker
+    ? blocker.blockedTaskIds
+        .map((id) => snapshot.tasks.find((task) => task.id === id)?.title)
+        .filter((title): title is string => Boolean(title))
+    : []
 
   const calculatedProgress = {
     ...snapshot.progress,
@@ -39,7 +44,7 @@ export function DashboardPage() {
       <div className="dashboard__grid">
         <CurrentPhaseCard phase={currentPhase} />
         <ProgressSummaryCard progress={calculatedProgress} />
-        {blocker ? <BlockerCard blocker={blocker} tasks={snapshot.tasks} /> : null}
+        {blocker ? <BlockerCard blocker={blocker} blockedTaskTitles={blockedTaskTitles} /> : null}
         {decision ? <DecisionCard decision={decision} tasks={snapshot.tasks} /> : null}
         <NotNowCard items={snapshot.notNowItems} />
         {promptCard ? <PromptCard promptCard={promptCard} /> : null}

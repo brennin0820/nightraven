@@ -18,7 +18,6 @@ import {
   ShieldCheck,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
-import { registeredNavIds } from '../../app/routeRegistry'
 
 export type NavItemId =
   | 'dashboard'
@@ -63,9 +62,12 @@ export const navItems: NavItem[] = [
   { id: 'blockers', label: 'Blockers', phase: 'Phase 2', icon: AlertTriangle },
   { id: 'not-now', label: 'Not Now', phase: 'Phase 2', icon: Compass },
   { id: 'progress', label: 'Progress', phase: 'Phase 6', icon: BarChart3 },
-  { id: 'memory-feed', label: 'Memory Feed', phase: 'Phase 2', icon: BookOpen },
-  { id: 'back-and-forth', label: 'Loop Detector', phase: 'Phase 2', icon: AlertTriangle },
-  { id: 'settings', label: 'Settings', phase: 'Phase 2', icon: Settings },
-  { id: 'done-criteria', label: 'Done Criteria', phase: 'Later', icon: Flag },
-  { id: 'reports', label: 'Reports', phase: 'Later', icon: BarChart3 },
+  { id: 'memory-feed', label: 'Memory Feed', phase: 'Phase 7', icon: BookOpen },
+  { id: 'back-and-forth', label: 'Loop Detector', phase: 'Phase 8', icon: AlertTriangle },
+  { id: 'done-criteria', label: 'Done Criteria', phase: 'Phase 7', icon: Flag },
+  { id: 'reports', label: 'Reports', phase: 'Phase 8', icon: BarChart3 },
+  { id: 'settings', label: 'Settings', phase: 'Phase 7', icon: Settings },
 ]
+
+/** Sidebar order — keys must match `routeRegistry` in app/routeRegistry.tsx */
+export const navItemIds: NavItemId[] = navItems.map((item) => item.id)

@@ -2,7 +2,8 @@ import { RefreshCw, Settings } from 'lucide-react'
 import { useCompassData } from '../../hooks/useCompassData'
 
 export function SettingsPage() {
-  const { snapshot, selected, registry, refresh, selectProject } = useCompassData()
+  const { snapshot, selected, registry, refresh, selectProject, updateSettings, loading } =
+    useCompassData()
   const settings = snapshot?.settings
 
   return (
@@ -18,26 +19,48 @@ export function SettingsPage() {
           </div>
         </div>
         <p className="card-copy">
-          Mock profile — Compass reads <code>scripts/gods-eye-projects.conf</code> in local mode.
-          Current session uses mock snapshot only (no cloud, no AI).
+          Compass reads live God&apos;s Eye files via the Vite dev API (
+          <code>scripts/gods-eye-projects.conf</code>, handoff, overlay). Edits persist in
+          IndexedDB and survive refresh. Production static builds fall back to seed + local
+          overrides until served with the API middleware.
         </p>
-        <button className="scope-link-btn settings-refresh" onClick={refresh} type="button">
-          <RefreshCw size={14} aria-hidden="true" /> Refresh snapshot
+        <button
+          className="scope-link-btn settings-refresh"
+          disabled={loading}
+          onClick={() => void refresh()}
+          type="button"
+        >
+          <RefreshCw size={14} aria-hidden="true" /> Refresh from God&apos;s Eye
         </button>
       </article>
 
       {settings ? (
         <article className="dashboard-card">
-          <h3>Preferences (mock)</h3>
+          <h3>Preferences</h3>
           <div className="meta-grid meta-grid--two">
-            <span>
+            <label className="settings-field">
               <strong>Data mode</strong>
-              {settings.dataMode}
-            </span>
-            <span>
+              <select
+                value={settings.dataMode}
+                onChange={(event) =>
+                  void updateSettings({
+                    dataMode: event.target.value as typeof settings.dataMode,
+                  })
+                }
+              >
+                <option value="registry">Registry (live GE files)</option>
+                <option value="local">Local seed + overrides</option>
+                <option value="mock">Mock seed only</option>
+              </select>
+            </label>
+            <label className="settings-field">
               <strong>Auto refresh</strong>
-              {settings.autoRefresh ? 'On' : 'Off'}
-            </span>
+              <input
+                checked={settings.autoRefresh}
+                onChange={(event) => void updateSettings({ autoRefresh: event.target.checked })}
+                type="checkbox"
+              />
+            </label>
             <span>
               <strong>Phase badges</strong>
               {settings.showPhaseBadges ? 'Shown' : 'Hidden'}
@@ -60,6 +83,14 @@ export function SettingsPage() {
           <span>
             <strong>Path</strong>
             {selected?.path ?? '—'}
+          </span>
+          <span>
+            <strong>Handoff</strong>
+            {snapshot?.meta.handoffFound ? 'Found' : 'Missing'}
+          </span>
+          <span>
+            <strong>Overlay</strong>
+            {snapshot?.meta.overlayFound ? 'Found' : 'Missing'}
           </span>
           <span>
             <strong>Loaded</strong>

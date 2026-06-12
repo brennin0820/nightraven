@@ -35,6 +35,8 @@ function parseRecentSessions(section: string): MemoryFeedItem[] {
       items.push({
         id: `session-${items.length}-${match[1]}`,
         date: match[1],
+        kind: 'session',
+        title: match[2].slice(0, 72),
         text: match[2],
       })
       continue
@@ -42,6 +44,8 @@ function parseRecentSessions(section: string): MemoryFeedItem[] {
     items.push({
       id: `session-${items.length}`,
       date: 'unknown',
+      kind: 'session',
+      title: trimmed.slice(2, 74),
       text: trimmed.slice(2),
     })
   }

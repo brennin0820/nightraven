@@ -64,7 +64,7 @@ function buildAuditRows(snapshot: ProjectSnapshot): AuditRow[] {
 }
 
 export function AuditorQueuePage() {
-  const { snapshot } = useCompassData()
+  const { snapshot, updateAuditItem } = useCompassData()
 
   if (!snapshot) return null
 
@@ -154,6 +154,34 @@ export function AuditorQueuePage() {
               row.scopeWarnings.length === 0 ? (
                 <p className="auditor-clean">All checks passed for this task.</p>
               ) : null}
+              <div className="action-strip">
+                <button
+                  className="scope-link-btn"
+                  onClick={() =>
+                    void updateAuditItem(row.id, {
+                      status: 'pass',
+                      canMoveForward: true,
+                      findings: [],
+                      requiredFixes: [],
+                    })
+                  }
+                  type="button"
+                >
+                  Mark pass
+                </button>
+                <button
+                  className="scope-link-btn"
+                  onClick={() =>
+                    void updateAuditItem(row.id, {
+                      status: 'fix_needed',
+                      canMoveForward: false,
+                    })
+                  }
+                  type="button"
+                >
+                  Needs fix
+                </button>
+              </div>
             </article>
           ))
         )}

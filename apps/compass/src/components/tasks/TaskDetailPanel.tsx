@@ -1,12 +1,17 @@
 import { X } from 'lucide-react'
 import type { Task } from '../../types/project'
+import { getScopeWarnings } from '../../utils/scopeWarnings'
+import { TaskActions } from './TaskActions'
 
 type TaskDetailPanelProps = {
   task: Task
   onClose?: () => void
+  onUpdate?: (patch: Partial<Task>) => void
 }
 
-export function TaskDetailPanel({ task, onClose }: TaskDetailPanelProps) {
+export function TaskDetailPanel({ task, onClose, onUpdate }: TaskDetailPanelProps) {
+  const warnings = getScopeWarnings(task)
+
   return (
     <aside className="task-detail-panel dashboard-card" aria-labelledby="task-detail-title">
       <div className="task-detail-panel__head">
@@ -101,6 +106,16 @@ export function TaskDetailPanel({ task, onClose }: TaskDetailPanelProps) {
           </ul>
         </div>
       ) : null}
+
+      {warnings.length > 0 ? (
+        <ul className="warning-list">
+          {warnings.map((warning) => (
+            <li key={warning}>{warning}</li>
+          ))}
+        </ul>
+      ) : null}
+
+      {onUpdate ? <TaskActions onUpdate={onUpdate} task={task} /> : null}
     </aside>
   )
 }

@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Compass: “full product” ≠ mock seed only
+
+**Signal:** Brent rejected mock MVP — wants **fully functioning product**. Shipped full nav + GE dev API (`ea832ac`) but **`ProjectContext` still reads `buildMockSnapshot()`** — UI looks complete while data layer stays static seed.
+
+**Pattern:** Compass product stack = **(1) route integrator** → **(2) `compassApi` + Vite middleware for GE files** → **(3) `ProjectContext` fetch + localStorage/IndexedDB for editable project state**. Ship (1)+(2) without (3) = demo, not product.
+
+**Do:** Wire provider to `fetchRegistry` / `fetchProjectSnapshot`; persist mutations; update README off “mock only”; verify with refresh + project switch in Settings.
+
+**Don't:** Claim full product while context is mock-only; use `npm run preview` expecting live GE without API.
+
+**See:** [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`compassApi.ts`](../apps/compass/src/services/compassApi.ts) · [`ProjectContext.tsx`](../apps/compass/src/context/ProjectContext.tsx)
+
+---
+
 ## 2026-06-11 — Compass: parallel phase workers need route integrator
 
 **Signal:** Brent asked **all phases automatically** + **in parallel** — multiple workers built page modules while `App.tsx` stayed dashboard-only for Phase 1 scope.

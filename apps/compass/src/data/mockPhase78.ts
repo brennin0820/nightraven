@@ -35,10 +35,10 @@ export const mockRegistry: RegistryEntry[] = [
 ]
 
 export const mockSettingsProfile: CompassSettingsProfile = {
-  dataMode: 'mock',
+  dataMode: 'local',
   autoRefresh: false,
   showPhaseBadges: true,
-  projectRootHint: 'e:\\NightRaven\\gods-eye-1\\apps\\compass',
+  projectRootHint: 'e:\\NightRaven\\gods-eye-1',
 }
 
 export const mockExtraTasks: Task[] = [

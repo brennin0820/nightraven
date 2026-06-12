@@ -1,122 +1,108 @@
 import type { MemoryFeedItem, ProjectSnapshot } from '../types/snapshot'
 import { mockPhase2Tasks } from './mockPhase2'
 import {
+  phase34PromptCards,
+  phase34SupplementalBlockers,
+  phase34SupplementalDecisions,
+  phase34SupplementalTasks,
+} from './mockPhase34'
+import {
   mockPhase56AuditItems,
   mockPhase56Progress,
   mockPhase56Tasks,
 } from './mockPhase56'
 import {
-  mockBlockers,
-  mockDecisions,
-  mockNotNowItems,
-  mockPhases,
-  mockProject,
-  mockPromptCards,
-  mockTasks,
-} from './mockProject'
+  mockDoneCriteria,
+  mockExtraAudits,
+  mockExtraBlockers,
+  mockExtraDecisions,
+  mockExtraTasks,
+  mockLoopSignals,
+  mockMemoryFeed,
+  mockRegistry,
+  mockReports,
+  mockSettingsProfile,
+} from './mockPhase78'
+import { mockBlockers, mockDecisions, mockNotNowItems, mockPhases, mockProject, mockPromptCards, mockTasks } from './mockProject'
 
-function buildMemoryFeed(): MemoryFeedItem[] {
-  return [
-    {
-      id: 'mem-1',
-      date: '2026-06-11',
-      text: 'Phase 1 dashboard and app shell marked done. Mock data wired via ProjectContext.',
-    },
-    {
-      id: 'mem-2',
-      date: '2026-06-11',
-      text: 'Decision: mock data first for MVP storage — SQLite deferred to post-MVP.',
-    },
-    {
-      id: 'mem-3',
-      date: '2026-06-10',
-      text: 'Auditor flagged dashboard — App.tsx still routing placeholders for future pages.',
-    },
-    {
-      id: 'mem-4',
-      date: '2026-06-10',
-      text: 'Blocker opened: routing decision still open — blocks priority board detail panel.',
-    },
-    {
-      id: 'mem-5',
-      date: '2026-06-09',
-      text: 'Reopened storage decision briefly — superseded; keep mock data until Phases 2–3 ship.',
-    },
-    {
-      id: 'mem-6',
-      date: '2026-06-09',
-      text: 'Scope locked. Cloud sync and autonomous agents on Not Now list.',
-    },
-    {
-      id: 'mem-7',
-      date: '2026-06-08',
-      text: 'Planning session on roadmap phases — 8 phases defined in build packet.',
-    },
-    {
-      id: 'mem-8',
-      date: '2026-06-08',
-      text: 'Audit backlog: Phase 1 dashboard pending scope review before marking done.',
-    },
-  ]
+function mergeById<T extends { id: string }>(...groups: T[][]): T[] {
+  const map = new Map<string, T>()
+  for (const group of groups) {
+    for (const item of group) {
+      map.set(item.id, item)
+    }
+  }
+  return [...map.values()]
 }
 
 export function buildMockSnapshot(): ProjectSnapshot {
   return {
-    registry: [],
+    registry: mockRegistry,
     project: mockProject,
     phases: mockPhases,
-    tasks: [...mockTasks, ...mockPhase2Tasks, ...mockPhase56Tasks],
-    decisions: mockDecisions,
-    blockers: mockBlockers,
+    tasks: mergeById(
+      mockTasks,
+      mockPhase2Tasks,
+      mockPhase56Tasks,
+      phase34SupplementalTasks,
+      mockExtraTasks,
+    ),
+    decisions: mergeById(mockDecisions, phase34SupplementalDecisions, mockExtraDecisions),
+    blockers: mergeById(mockBlockers, phase34SupplementalBlockers, mockExtraBlockers),
     notNowItems: mockNotNowItems,
-    auditItems: mockPhase56AuditItems,
-    promptCards: mockPromptCards,
+    auditItems: mergeById(mockPhase56AuditItems, mockExtraAudits),
+    promptCards: mergeById(mockPromptCards, phase34PromptCards),
     progress: mockPhase56Progress,
-    memoryFeed: buildMemoryFeed(),
+    memoryFeed: mockMemoryFeed,
+    loopSignals: mockLoopSignals,
+    doneCriteria: mockDoneCriteria,
+    reports: mockReports,
+    settings: mockSettingsProfile,
     meta: {
       projectPath: 'mock://nightraven-compass',
-      handoffFound: false,
+      handoffFound: true,
       overlayFound: false,
-      artifactCount: 0,
+      artifactCount: 5,
       artifactTotal: 8,
       loadedAt: new Date().toISOString(),
     },
   }
 }
 
+/** Unified activity feed for Memory Feed page — mock entries plus live snapshot slices. */
 export function buildActivityFeed(snapshot: ProjectSnapshot): MemoryFeedItem[] {
-  const fromMemory = snapshot.memoryFeed
-  const fromTasks: MemoryFeedItem[] = snapshot.tasks
-    .filter((task) => task.state === 'done' || task.lane === 'now')
-    .slice(0, 4)
-    .map((task) => ({
-      id: `task-${task.id}`,
-      date: snapshot.project.updatedAt,
-      text: `Task "${task.title}" — ${task.state} in ${task.lane} lane (${task.owner.replaceAll('_', ' ')}).`,
-    }))
+  const base = snapshot.memoryFeed
+  const seen = new Set(base.map((item) => item.id))
 
-  const fromDecisions: MemoryFeedItem[] = snapshot.decisions.slice(0, 3).map((decision) => ({
-    id: `decision-${decision.id}`,
-    date: snapshot.project.updatedAt,
-    text: `Decision: ${decision.question} → ${decision.status}${decision.finalChoice ? ` (${decision.finalChoice})` : ''}.`,
-  }))
+  const extras: MemoryFeedItem[] = []
 
-  const fromAudits: MemoryFeedItem[] = snapshot.auditItems.slice(0, 3).map((audit) => {
-    const task = snapshot.tasks.find((entry) => entry.id === audit.taskId)
-    return {
-      id: `audit-${audit.id}`,
-      date: snapshot.project.updatedAt,
-      text: `Audit for "${task?.title ?? audit.taskId}": ${audit.status.replaceAll('_', ' ')}${audit.canMoveForward ? ' — can move forward' : ' — hold'}.`,
+  for (const task of snapshot.tasks.filter((t) => t.lane === 'now' && t.state !== 'done').slice(0, 2)) {
+    const id = `live-task-${task.id}`
+    if (!seen.has(id)) {
+      extras.push({
+        id,
+        date: snapshot.project.updatedAt,
+        kind: 'task',
+        title: task.title,
+        source: task.id,
+        text: `${task.state} in ${task.lane} lane — ${task.owner.replaceAll('_', ' ')}.`,
+      })
     }
-  })
+  }
 
-  const fromBlockers: MemoryFeedItem[] = snapshot.blockers
-    .filter((blocker) => blocker.status === 'open' || blocker.status === 'in_progress')
-    .map((blocker) => ({
-      id: `blocker-${blocker.id}`,
-      date: snapshot.project.updatedAt,
-      text: `Blocker (${blocker.severity}): ${blocker.title} — ${blocker.status.replaceAll('_', ' ')}.`,
-    }))
+  for (const decision of snapshot.decisions.filter((d) => d.status === 'open').slice(0, 2)) {
+    const id = `live-decision-${decision.id}`
+    if (!seen.has(id)) {
+      extras.push({
+        id,
+        date: snapshot.project.updatedAt,
+        kind: 'decision',
+        title: decision.question.slice(0, 60),
+        source: decision.id,
+        text: `Open (${decision.impact} impact) — ${decision.recommendation ?? 'No recommendation yet.'}`,
+      })
+    }
+  }
 
-  return [...fromMemory, ...fromTasks, ...fromDecisions, ...fromAudits, ...fromBlockers]
+  return [...base, ...extras]
 }

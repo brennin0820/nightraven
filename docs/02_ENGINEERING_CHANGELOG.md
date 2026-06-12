@@ -6,6 +6,16 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Compass — full nav + GE API (`ea832ac`; persistence pending)
+
+- +# Brent: **not mock — fully functioning product** — shipped all sidebar routes + Phase 2–8 UI (`routeRegistry` · task cards · queues · prompts · auditor · progress · memory · loop · reports)
+- +# **`compassApi.ts`** + **`server/compassApiPlugin`** — registry + project snapshot from `gods-eye-projects.conf` · handoff/overlay parse (`npm run dev`)
+- +# Enriched mock layers (`mockPhase2`–`78`) seed UI until live store wired
+- +# **`ProjectContext` still `buildMockSnapshot()`** — next: connect fetch + local persistence for tasks/decisions/blockers
+- +# Autosync `ea832ac` · `origin/main` @ `ea832ac`
+
+**Cross-links:** [`apps/compass/README.md`](../apps/compass/README.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`compassApi.ts`](../apps/compass/src/services/compassApi.ts)
+
 ### Compass — Phase 1 mock consolidation + parallel phase build (partial)
 
 - +# Brent **do all phases automatically** + **in parallel** — four workers for Phases 2–8 bundles; page components remain in `apps/compass/src/components/` tree

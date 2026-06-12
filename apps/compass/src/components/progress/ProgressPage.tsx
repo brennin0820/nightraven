@@ -7,6 +7,15 @@ import {
 } from '../../utils/progress'
 import { ProgressSummaryCard } from '../dashboard/ProgressSummaryCard'
 
+const DIMENSION_NOTES: Record<string, string> = {
+  scopeProgress: 'Scope docs and boundaries defined — high but not 100% until MVP ships.',
+  buildProgress: 'Calculated from tasks marked done vs total tasks.',
+  auditProgress: 'Calculated from audit items with pass status.',
+  decisionProgress: 'Calculated from decided or superseded decisions.',
+  shippingProgress: 'Honest: nothing shipped to users yet.',
+  learningProgress: 'Memory and handoff activity — mock sessions only.',
+}
+
 export function ProgressPage() {
   const { snapshot } = useCompassData()
 
@@ -19,8 +28,6 @@ export function ProgressPage() {
     decisionProgress: calculateDecisionProgress(snapshot.decisions),
   }
 
-  const { meta } = snapshot
-
   return (
     <section className="progress-page" aria-labelledby="progress-title">
       <article className="dashboard-card dashboard-card--wide">
@@ -30,12 +37,11 @@ export function ProgressPage() {
           </span>
           <div>
             <p className="eyebrow">Progress</p>
-            <h2 id="progress-title">Build, memory, and artifact health</h2>
+            <h2 id="progress-title">All six dimensions — honest tracker</h2>
           </div>
         </div>
         <p className="card-copy">
-          Loaded {new Date(meta.loadedAt).toLocaleString()} from{' '}
-          <code>{meta.projectPath}</code>
+          Mock data only. Build, audit, and decision values recalculate from current task state.
         </p>
       </article>
 
@@ -43,24 +49,15 @@ export function ProgressPage() {
         <ProgressSummaryCard progress={progress} />
 
         <article className="dashboard-card">
-          <h3>God&apos;s Eye artifacts</h3>
-          <p className="card-copy">
-            {meta.artifactCount} of {meta.artifactTotal} chain files present on disk.
-          </p>
-          <p className="card-copy">
-            Tracked artifacts: handoff, overlay, Bible, changelog, learning log, AGENTS, rules,
-            hooks.
-          </p>
-          <div className="meta-grid meta-grid--two">
-            <span>
-              <strong>Handoff</strong>
-              {meta.handoffFound ? 'Found' : 'Missing'}
-            </span>
-            <span>
-              <strong>Overlay</strong>
-              {meta.overlayFound ? 'Found' : 'Missing'}
-            </span>
-          </div>
+          <h3>Dimension notes</h3>
+          <ul className="progress-notes">
+            {Object.entries(DIMENSION_NOTES).map(([key, note]) => (
+              <li key={key}>
+                <strong>{key.replace('Progress', '')}</strong>
+                {note}
+              </li>
+            ))}
+          </ul>
         </article>
       </div>
     </section>

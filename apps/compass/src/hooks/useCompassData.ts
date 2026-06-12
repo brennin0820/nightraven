@@ -9,8 +9,21 @@ export function useProjectContext() {
 }
 
 export function useCompassData() {
-  const { snapshot, loading, error, refresh, registry, selected, selectProject } =
-    useProjectContext()
+  const {
+    snapshot,
+    loading,
+    error,
+    refresh,
+    registry,
+    selected,
+    selectProject,
+    updateTask,
+    updateDecision,
+    updateBlocker,
+    updateAuditItem,
+    updatePhase,
+    updateSettings,
+  } = useProjectContext()
 
   const data = useMemo(
     () => (snapshot ? selectCompassData(snapshot) : null),
@@ -27,5 +40,11 @@ export function useCompassData() {
     registry,
     selected,
     selectProject,
+    updateTask,
+    updateDecision,
+    updateBlocker,
+    updateAuditItem,
+    updatePhase,
+    updateSettings,
   }
 }

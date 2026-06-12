@@ -1,20 +1,16 @@
 import { useState } from 'react'
 import { Columns3 } from 'lucide-react'
 import { useCompassData } from '../../hooks/useCompassData'
-import type { TaskLane } from '../../types/project'
-import { TaskCard } from './TaskCard'
-import { TaskDetailPanel } from './TaskDetailPanel'
+import type { Task, TaskLane } from '../../types/project'
+import { TaskCard } from '../tasks/TaskCard'
+import { TaskDetailPanel } from '../tasks/TaskDetailPanel'
 
 const LANES: TaskLane[] = ['now', 'next', 'later', 'blocked', 'not_now', 'done']
 
 export function PriorityBoardPage() {
-  const { snapshot } = useCompassData()
+  const { snapshot, updateTask } = useCompassData()
   const tasks = snapshot?.tasks ?? []
-  const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null)
-
-  const selectedTask = selectedTaskId
-    ? tasks.find((task) => task.id === selectedTaskId) ?? null
-    : null
+  const [selectedTask, setSelectedTask] = useState<Task | null>(null)
 
   return (
     <section className="priority-page" aria-labelledby="priority-title">
@@ -42,27 +38,31 @@ export function PriorityBoardPage() {
                 <h3>
                   {lane.replaceAll('_', ' ')} <span className="lane-count">{laneTasks.length}</span>
                 </h3>
-                <ul className="priority-lane__list">
+                <div className="priority-lane__list">
                   {laneTasks.length === 0 ? (
-                    <li className="priority-lane__empty">Empty</li>
+                    <p className="priority-lane__empty">Empty</p>
                   ) : (
                     laneTasks.map((task) => (
                       <TaskCard
                         key={task.id}
-                        onSelect={setSelectedTaskId}
-                        selected={selectedTaskId === task.id}
+                        onSelect={setSelectedTask}
+                        selected={selectedTask?.id === task.id}
                         task={task}
                       />
                     ))
                   )}
-                </ul>
+                </div>
               </article>
             )
           })}
         </div>
 
         {selectedTask ? (
-          <TaskDetailPanel onClose={() => setSelectedTaskId(null)} task={selectedTask} />
+          <TaskDetailPanel
+            onClose={() => setSelectedTask(null)}
+            onUpdate={(patch) => void updateTask(selectedTask.id, patch)}
+            task={selectedTask}
+          />
         ) : null}
       </div>
     </section>

@@ -51,7 +51,7 @@ type TaskQueuePageProps = {
 }
 
 export function TaskQueuePage({ queueId }: TaskQueuePageProps) {
-  const { snapshot } = useCompassData()
+  const { snapshot, updateTask } = useCompassData()
   const filter = queueFilters[queueId]
   const [selectedTask, setSelectedTask] = useState<Task | null>(null)
 
@@ -98,7 +98,11 @@ export function TaskQueuePage({ queueId }: TaskQueuePageProps) {
         </div>
 
         {selectedTask ? (
-          <TaskDetailPanel task={selectedTask} onClose={() => setSelectedTask(null)} />
+          <TaskDetailPanel
+            onClose={() => setSelectedTask(null)}
+            onUpdate={(patch) => void updateTask(selectedTask.id, patch)}
+            task={selectedTask}
+          />
         ) : null}
       </div>
     </section>

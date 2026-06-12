@@ -6,13 +6,34 @@ import { detectLoopThemes, detectProjectLoops } from '../../utils/loopDetector'
 export function LoopDetectorPage() {
   const { snapshot } = useCompassData()
 
-  const { loops, themes } = useMemo(() => {
-    if (!snapshot) return { loops: [], themes: [] }
+  const { loops, themes, mockSignals } = useMemo(() => {
+    if (!snapshot) return { loops: [], themes: [], mockSignals: [] }
     return {
       loops: detectProjectLoops(snapshot),
       themes: detectLoopThemes(snapshot.memoryFeed),
+      mockSignals: snapshot.loopSignals ?? [],
     }
   }, [snapshot])
+
+  const allWarnings = useMemo(() => {
+    const fromSignals = mockSignals.map((signal) => ({
+      id: signal.id,
+      severity: signal.severity,
+      title: signal.title,
+      detail: signal.detail,
+      category: signal.category.replaceAll('_', ' '),
+      count: signal.count,
+    }))
+    const fromDetected = loops.map((loop) => ({
+      id: loop.id,
+      severity: loop.severity,
+      title: loop.title,
+      detail: loop.detail,
+      category: loop.category.replaceAll('_', ' '),
+      count: undefined as number | undefined,
+    }))
+    return [...fromSignals, ...fromDetected]
+  }, [mockSignals, loops])
 
   return (
     <section className="loop-page" aria-labelledby="loop-title">
@@ -32,7 +53,7 @@ export function LoopDetectorPage() {
         <div className="scope-stats">
           <span>
             <strong>Warnings</strong>
-            {loops.length}
+            {allWarnings.length}
           </span>
           <span>
             <strong>Memory themes</strong>
@@ -42,12 +63,12 @@ export function LoopDetectorPage() {
       </article>
 
       <div className="loop-list">
-        {loops.length === 0 ? (
+        {allWarnings.length === 0 ? (
           <article className="dashboard-card">
             <p className="card-copy">No loop warnings detected.</p>
           </article>
         ) : (
-          loops.map((loop) => (
+          allWarnings.map((loop) => (
             <article
               className="dashboard-card loop-card"
               data-severity={loop.severity}
@@ -55,10 +76,12 @@ export function LoopDetectorPage() {
             >
               <div className="loop-card__head">
                 <h3>{loop.title}</h3>
-                <span className="queue-pill">{loop.severity}</span>
+                <span className="queue-pill">
+                  {loop.count !== undefined ? `${loop.count}×` : loop.severity}
+                </span>
               </div>
               <p className="card-copy">{loop.detail}</p>
-              <span className="loop-category">{loop.category.replaceAll('_', ' ')}</span>
+              <span className="loop-category">{loop.category}</span>
             </article>
           ))
         )}

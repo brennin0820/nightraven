@@ -6,12 +6,14 @@ type DecisionCardProps = {
   decision: Decision
   tasks?: Task[]
   showScopeWarnings?: boolean
+  onDecide?: (finalChoice: string) => void
 }
 
 export function DecisionCard({
   decision,
   tasks = [],
   showScopeWarnings = false,
+  onDecide,
 }: DecisionCardProps) {
   const scopeWarnings = showScopeWarnings ? getDecisionScopeWarnings(decision, tasks) : []
   const unlockedTasks = decision.unlocksTaskIds
@@ -77,6 +79,21 @@ export function DecisionCard({
         <span>{decision.status}</span>
         <span>{decision.impact} impact</span>
       </div>
+
+      {onDecide && decision.status === 'open' && decision.options.length > 0 ? (
+        <div className="decision-actions">
+          {decision.options.map((option) => (
+            <button
+              className="scope-link-btn"
+              key={option}
+              onClick={() => onDecide(option)}
+              type="button"
+            >
+              Choose: {option}
+            </button>
+          ))}
+        </div>
+      ) : null}
     </article>
   )
 }

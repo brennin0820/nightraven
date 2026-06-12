@@ -55,8 +55,8 @@ export function ReportsPage() {
           </div>
         </div>
         <p className="card-copy">
-          Mock summaries of reports that would live in docs/ — build reports, audit findings,
-          handoff digests, and learning notes.
+          Build, audit, handoff, learning, and scope summaries derived from loaded God&apos;s Eye
+          artifacts and current project state.
         </p>
         <div className="scope-stats">
           <span>
