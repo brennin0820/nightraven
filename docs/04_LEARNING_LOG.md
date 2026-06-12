@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — HimFler: consumer repo name vs local folder
+
+**Signal:** Brent renamed ship target **HimFler** (GitHub) while bootstrap folder stays **`HimFLer`** on disk.
+
+**Pattern:** Vocabulary layers — **GitHub repo name** · **local path** · **overlay ship name** can differ; wire all three in overlay §1 and framework [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md). iOS product scope lives in **consumer repo memory** (`PRODUCT_SCOPE.md`), not framework `docs/14`. macOS-only builds — no Xcode from Windows; **code it** on Mac for Phase 1 scaffold.
+
+**Do:** Registry `gods-eye-projects.conf` uses ship name; `gh auth login` before `create-github-repo.sh`.
+
+**Don't:** Paste HimFler handoff into gods-eye framework `docs/14`; scaffold Swift/Xcode before ship signal.
+
+**See:** [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · `E:\NightRaven\HimFLer\docs\GODS_EYE_REPO_OVERLAY.md`
+
+---
+
 ## 2026-06-11 — Compass scope monitor: mock engine before GE wire
 
 **Supersedes:** learning entry “Compass scope monitor ≠ Scope Map (Phase 1 vs Later)” — Scope Map and Auditor Queue are **live** as of `b3a2583`; still mock data only.

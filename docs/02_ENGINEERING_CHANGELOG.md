@@ -6,6 +6,15 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### HimFler — iOS 26 product scope (consumer repo)
+
+- +# Brent: GitHub repo **HimFler** — native **iOS 26** (widgets · Lock Screen · Watch · Dynamic Island · notifications · sounds · maps · calendar · location · HealthKit movement · integrations); **macOS/Xcode** build host
+- +# Consumer memory in `E:\NightRaven\HimFLer` — `PRODUCT_SCOPE.md` · `DEVELOPMENT_ENVIRONMENT.md` · `create-github-repo.sh`; initial commit `75d35be`
+- +# Framework wire: [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md) · `scripts/gods-eye-projects.conf` → `HimFler`; shipped `origin/main` @ `85ecfde`
+- +# **Pending:** `gh auth login` → push to `brennin0820/HimFler`; Xcode scaffold on Mac after **code it**
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · consumer `E:\NightRaven\HimFLer\docs\PRODUCT_SCOPE.md`
+
 ### Compass — scope monitor live (Scope Map + Auditor Queue)
 
 - +# Brent **in parallel MAKE IT WORK** — replace Scope Map / Auditor Queue placeholders with working UI
