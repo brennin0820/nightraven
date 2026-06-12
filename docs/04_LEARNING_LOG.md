@@ -6,6 +6,22 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Compass: multi-project registry + IndexedDB product layer (`ce4afb3`)
+
+**Supersedes:** learning entry “full product ≠ mock seed only” — stack (3) shipped on `ce4afb3`.
+
+**Signal:** Brent wanted a **real product** and **HimFLer on Compass** — not gods-eye monorepo only.
+
+**Pattern:** `gods-eye-projects.conf` (framework registry) → Vite `compassApiPlugin` reads consumer **`docs/14`** + overlay per path → **`ProjectContext`** merges API snapshot + **IndexedDB** overrides → Settings switches projects (e.g. **HimFLer** vs `gods-eye-1`). `npm run dev` required for live GE reads; static build still runs UI + local edits.
+
+**Do:** Register each consumer repo in conf · open Compass Settings · Refresh after handoff updates.
+
+**Don't:** Edit framework `docs/14` when guiding HimFLer — Compass reads **that repo's** handoff; bleed = §2.6 violation.
+
+**See:** [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`gods-eye-projects.conf`](../scripts/gods-eye-projects.conf) · [`ProjectContext.tsx`](../apps/compass/src/context/ProjectContext.tsx)
+
+---
+
 ## 2026-06-11 — Compass: “full product” ≠ mock seed only
 
 **Signal:** Brent rejected mock MVP — wants **fully functioning product**. Shipped full nav + GE dev API (`ea832ac`) but **`ProjectContext` still reads `buildMockSnapshot()`** — UI looks complete while data layer stays static seed.

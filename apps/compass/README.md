@@ -49,6 +49,20 @@ npm run lint
 
 Additional sidebar pages: Coder Tasks, GE/NR/Research queues, Settings (registry + refresh).
 
+## Project registry (God's Eye workspaces)
+
+Compass reads live handoff and overlay from registered repos via the Vite dev API (`/api/registry`, `/api/project`).
+
+| Setting | Location |
+|---------|----------|
+| Registry file | `scripts/gods-eye-projects.conf` at monorepo root |
+| Default project | **HimFLer** (`E:/NightRaven/HimFLer`) when no prior selection is stored |
+| Switch project | **Settings** → Registry list → **Select** on the row you want |
+
+Format: `ABS_PATH|label|role` — one line per workspace (`framework`, `master`, `app`, `user-global`).
+
+Registered consumer app **HimFLer** (iOS 26 · GitHub `brennin0820/HimFler`) ships its own `docs/14_SESSION_HANDOFF.md` and `docs/GODS_EYE_REPO_OVERLAY.md`; Compass does not bleed framework handoff into that repo.
+
 ## Out of scope (MVP)
 
 - Cloud sync

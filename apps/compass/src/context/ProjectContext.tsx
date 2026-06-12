@@ -14,6 +14,7 @@ import {
   fetchProjectSnapshot,
   fetchRegistry,
   loadStoredProject,
+  pickInitialProject,
   storeProject,
   type SelectedProject,
 } from '../services/compassApi'
@@ -201,18 +202,7 @@ export function ProjectProvider({ children }: { children: ReactNode }) {
         const entries = await fetchRegistry().catch(() => [])
         setRegistry(entries)
 
-        const stored = loadStoredProject()
-        const fallback =
-          entries.find((entry) => entry.available) ??
-          entries[0] ??
-          ({
-            path: 'e:\\NightRaven\\gods-eye-1',
-            label: "God's Eye (gods-eye-1)",
-            role: 'framework',
-            available: true,
-          } as const)
-
-        const target = stored ?? { path: fallback.path, label: fallback.label }
+        const target = pickInitialProject(entries)
         await loadProject(target.path, target.label)
       } catch (bootstrapError) {
         setError(String(bootstrapError))

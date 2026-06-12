@@ -6,6 +6,17 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Compass — full local product + HimFLer registry (`ce4afb3`)
+
+- +# Brent: **fully functioning product** (not mock-only) — **`ProjectContext`** loads `fetchRegistry` / `fetchProjectSnapshot` · **`mergeSnapshot`** + **`enrichSnapshot`**
+- +# **IndexedDB** (`persistence.ts`) — task/decision/blocker/audit/phase/settings overrides persist across refresh
+- +# Phases 2–8 shipped — [`BUILD_REPORT_PHASES_2-8.md`](../apps/compass/docs/BUILD_REPORT_PHASES_2-8.md) · [`BUILD_REPORT.md`](../apps/compass/docs/BUILD_REPORT.md)
+- +# Brent **put on himlfer** — `E:/NightRaven/HimFLer|HimFler|app` in [`gods-eye-projects.conf`](../scripts/gods-eye-projects.conf); Compass Settings project picker
+- +# Autosync `ce4afb3` · `origin/main` @ `ce4afb3`
+- +# **Supersedes** “persistence pending” / mock-only `ProjectContext` on `ea832ac` changelog block below
+
+**Cross-links:** [`apps/compass/README.md`](../apps/compass/README.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`persistence.ts`](../apps/compass/src/services/persistence.ts)
+
 ### Compass — full nav + GE API (`ea832ac`; persistence pending)
 
 - +# Brent: **not mock — fully functioning product** — shipped all sidebar routes + Phase 2–8 UI (`routeRegistry` · task cards · queues · prompts · auditor · progress · memory · loop · reports)
