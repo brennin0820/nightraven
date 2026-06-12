@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Consumer app: Claude-first external coder workflow (HimFLer)
+
+**Signal:** Brent pasted full **HimFLer** linen-calculator spec and asked to **tell each external AI coder** — Claude UI designer first, Codex builder follows UI rules, Antigravity for plan/audit — **iOS 26** design target.
+
+**Pattern:** Consumer repo owns role docs (`BUILD_ROLES.md` · `UI_DESIGN_BRIEF.md`) · **design gate** before Codex · framework repo gets overlay pointer only (§2.6 — no consumer handoff bleed). Antigravity = HimFLer-local Planning + Architecture Auditor until promoted to framework standard.
+
+**Do:** Open Claude on HimFLer with `UI_DESIGN_BRIEF.md` → produce `UI_DESIGN_SPEC.md` → then Codex **code it**.
+
+**Don't:** Wire consumer build spec into `gods-eye-1` `docs/14` body; let Codex start UI before design gate.
+
+**See:** [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · `E:\NightRaven\HimFLer\docs\BUILD_ROLES.md`
+
+---
+
 ## 2026-06-11 — Compass: GE auto-refresh via version poll (`82e4cff`)
 
 **Supersedes:** learning entry “auto-refresh monitor (requested, not shipped)”.

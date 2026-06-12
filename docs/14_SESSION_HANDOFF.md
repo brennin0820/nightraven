@@ -6,7 +6,7 @@
 
 ## Current state / focus
 
-**NightRaven platform monorepo** on `origin/main` @ `82e4cff` — God's Eye framework · NightRaven Core · **Compass** (`apps/compass/` · full local product · HimFLer default · **GE auto-refresh** `/api/project/version` 10s · Live/Updated badge). **HimFLer** @ `E:\NightRaven\HimFLer` (**gh auth pending**). Map: [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md). **Next:** `apps/compass/AGENTS.md` for Codex/Claude · `gh auth login` · Xcode on Mac.
+**NightRaven platform monorepo** on `origin/main` @ `5a50fa7` — God's Eye framework · NightRaven Core · **Compass** (`apps/compass/` @ `3fac525` · auto-refresh · [`AGENTS.md`](../apps/compass/AGENTS.md)). **HimFLer** @ `E:\NightRaven\HimFLer` — linen calculator spec · **Claude UI → Codex build → Antigravity audit** ([`BUILD_ROLES.md`](../../HimFLer/docs/BUILD_ROLES.md)); **Next:** Claude **`UI_DESIGN_SPEC.md` iOS 26** · `gh auth` · Xcode Mac.
 
 ---
 
@@ -38,6 +38,7 @@
 ---
 
 ## Recent sessions
+- **2026-06-11** — Touch 3 AFTER: **session close — HimFLer coder roles + Compass agent docs** — Brent **linen-calculator build spec** · external agents **Claude UI first (iOS 26 ask) → Codex → Antigravity** · consumer [`BUILD_ROLES.md`](../../HimFLer/docs/BUILD_ROLES.md) · [`UI_DESIGN_BRIEF.md`](../../HimFLer/docs/UI_DESIGN_BRIEF.md) · framework wire **`5a50fa7`** overlay §1; Compass **`3fac525`** `AGENTS.md` · auto-refresh UI · **`origin/main` @ `5a50fa7`**; **Next:** Claude produce `UI_DESIGN_SPEC.md` on HimFLer · no v1 app code this session · `gh auth` (`+#` only).
 - **2026-06-11** — **HimFLer external AI coder roles** — consumer repo `E:\NightRaven\HimFLer`: [`BUILD_ROLES.md`](../../HimFLer/docs/BUILD_ROLES.md) (Claude UI → Codex build → Antigravity plan/audit) · [`UI_DESIGN_BRIEF.md`](../../HimFLer/docs/UI_DESIGN_BRIEF.md) · overlay §1 HimFLer roles pointer; Antigravity = Planning + Architecture Auditor (HimFLer-local, not framework term); v1 app unchanged (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: **session close — Compass monitor + agent-docs ask** — Brent **monitor refresh when changes** + **Codex/Claude understand app**; shipped **`82e4cff`** — `/api/project/version` · 10s poll when Settings auto-refresh · `ProjectContext` merge on change · Live/Updated header badge · watches handoff/overlay/changelog/learning/AGENTS/rules/hooks; Brent agent-docs ask — **`apps/compass/AGENTS.md` not yet** (use [`apps/compass/docs/`](../../apps/compass/docs/) + README); autosync committed+pushed `82e4cff` · `origin/main` @ `82e4cff`; **Supersedes** monitor-pending Recent line (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: **session close — HimFLer default + monitor refresh ask** — Brent **put on himlfer** → **`ca783f2`** `pickInitialProject()` defaults **HimFLer (iOS app)** · registry label · README; Brent **monitor refresh when changes** — Settings `autoRefresh` toggle only · **polling/UI not shipped** (defer next session); autosync committed+pushed `ca783f2` · `origin/main` @ `ca783f2` (`+#` only).

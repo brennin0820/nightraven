@@ -6,6 +6,24 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### HimFLer — external coder role wire (`5a50fa7`)
+
+- +# Brent **HimFLer build spec** (linen room GY calculator) · **Claude UI first → Codex build → Antigravity** plan/audit
+- +# Consumer docs `E:\NightRaven\HimFLer\docs\BUILD_ROLES.md` · `UI_DESIGN_BRIEF.md` — Codex blocked until design gate; framework overlay §1 pointer only (§2.6)
+- +# Brent **iOS 26 SwiftUI** design ask — `UI_DESIGN_SPEC.md` **next on consumer repo**; no framework app code
+- +# Autosync `5a50fa7` · `origin/main` @ `5a50fa7`
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · consumer [`BUILD_ROLES.md`](../../HimFLer/docs/BUILD_ROLES.md)
+
+### Compass — agent docs + auto-refresh UI polish (`3fac525`)
+
+- +# **`apps/compass/AGENTS.md`** · **`docs/ARCHITECTURE.md`** — Codex/Claude entry; framework cross-links (overlay · root AGENTS · CLAUDE_ADOPTION · NIGHTRAVEN_UNIFIED_PRODUCT)
+- +# Auto-refresh UI — Live/Updated badges · tab-hidden poll pause · green banner (`AppShell` · `index.css`)
+- +# **Supersedes** changelog “AGENTS.md deferred” on `82e4cff` block
+- +# Autosync `3fac525` · pushed `origin/main`
+
+**Cross-links:** [`apps/compass/README.md`](../apps/compass/README.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
 ### Compass — GE auto-refresh monitor (`82e4cff`)
 
 - +# Brent: **monitor refresh when changes** — `/api/project/version` (mtime aggregate) · client poll **10s** when `settings.autoRefresh` + registry mode
