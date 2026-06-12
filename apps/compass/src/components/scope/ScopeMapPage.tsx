@@ -1,5 +1,5 @@
 import { AlertTriangle, CheckCircle2, LockKeyhole, Map, XCircle } from 'lucide-react'
-import { useCompassData } from '../../context/ProjectContext'
+import { useCompassData } from '../../hooks/useCompassData'
 import { buildScopeMonitorSnapshot, type TaskScopeReport } from '../../utils/scopeMonitor'
 
 function SeverityBadge({ severity }: { severity: TaskScopeReport['severity'] }) {

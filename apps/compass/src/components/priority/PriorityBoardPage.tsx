@@ -1,5 +1,5 @@
 import { Columns3 } from 'lucide-react'
-import { useCompassData } from '../../context/ProjectContext'
+import { useCompassData } from '../../hooks/useCompassData'
 import type { TaskLane } from '../../types/project'
 
 const LANES: TaskLane[] = ['now', 'next', 'later', 'blocked', 'not_now', 'done']

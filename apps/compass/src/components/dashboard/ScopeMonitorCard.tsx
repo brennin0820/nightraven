@@ -1,5 +1,5 @@
 import { Map } from 'lucide-react'
-import { useCompassData } from '../../context/ProjectContext'
+import { useCompassData } from '../../hooks/useCompassData'
 import { buildScopeMonitorSnapshot } from '../../utils/scopeMonitor'
 import type { NavItemId } from '../layout/navigation'
 

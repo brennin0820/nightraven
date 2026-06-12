@@ -1,12 +1,4 @@
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-  type ReactNode,
-} from 'react'
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
 import {
   fetchProjectSnapshot,
   fetchRegistry,
@@ -14,20 +6,8 @@ import {
   storeProject,
   type SelectedProject,
 } from '../services/compassApi'
-import { selectCompassData } from '../types/snapshot'
 import type { ProjectSnapshot, RegistryEntry } from '../types/snapshot'
-
-type ProjectContextValue = {
-  registry: RegistryEntry[]
-  snapshot: ProjectSnapshot | null
-  loading: boolean
-  error: string | null
-  selected: SelectedProject | null
-  selectProject: (path: string, label: string) => void
-  refresh: () => void
-}
-
-const ProjectContext = createContext<ProjectContextValue | null>(null)
+import { CompassContext } from './compassContext'
 
 export function ProjectProvider({ children }: { children: ReactNode }) {
   const [registry, setRegistry] = useState<RegistryEntry[]>([])
@@ -103,33 +83,5 @@ export function ProjectProvider({ children }: { children: ReactNode }) {
     [registry, snapshot, loading, error, selected, selectProject, refresh],
   )
 
-  return <ProjectContext.Provider value={value}>{children}</ProjectContext.Provider>
-}
-
-export function useProjectContext() {
-  const context = useContext(ProjectContext)
-  if (!context) throw new Error('useProjectContext must be used within ProjectProvider')
-  return context
-}
-
-export function useCompassData() {
-  const { snapshot, loading, error, refresh, registry, selected, selectProject } =
-    useProjectContext()
-
-  const data = useMemo(
-    () => (snapshot ? selectCompassData(snapshot) : null),
-    [snapshot],
-  )
-
-  return {
-    snapshot,
-    nextTask: data?.nextTask ?? null,
-    currentPhase: data?.currentPhase ?? null,
-    loading,
-    error,
-    refresh,
-    registry,
-    selected,
-    selectProject,
-  }
+  return <CompassContext.Provider value={value}>{children}</CompassContext.Provider>
 }

@@ -1,5 +1,5 @@
 import { AlertTriangle } from 'lucide-react'
-import { useCompassData } from '../../context/ProjectContext'
+import { useCompassData } from '../../hooks/useCompassData'
 import { detectLoopThemes } from '../../utils/loopDetector'
 
 export function LoopDetectorPage() {

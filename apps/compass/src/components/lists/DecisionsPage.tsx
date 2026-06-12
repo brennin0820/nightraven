@@ -1,5 +1,5 @@
 import { GitBranch } from 'lucide-react'
-import { useCompassData } from '../../context/ProjectContext'
+import { useCompassData } from '../../hooks/useCompassData'
 import { DecisionCard } from '../dashboard/DecisionCard'
 
 export function DecisionsPage() {

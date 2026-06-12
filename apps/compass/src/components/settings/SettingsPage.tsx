@@ -1,5 +1,5 @@
 import { RefreshCw, Settings } from 'lucide-react'
-import { useCompassData } from '../../context/ProjectContext'
+import { useCompassData } from '../../hooks/useCompassData'
 
 export function SettingsPage() {
   const { snapshot, selected, registry, refresh, selectProject } = useCompassData()

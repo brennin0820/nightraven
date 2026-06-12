@@ -1,5 +1,5 @@
 import { ShieldCheck } from 'lucide-react'
-import { useCompassData } from '../../context/ProjectContext'
+import { useCompassData } from '../../hooks/useCompassData'
 import type { ProjectSnapshot } from '../../types/snapshot'
 import { buildTaskScopeReport, detectScopeCreep } from '../../utils/scopeMonitor'
 import { getScopeWarnings } from '../../utils/scopeWarnings'

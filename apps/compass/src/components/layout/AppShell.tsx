@@ -1,6 +1,6 @@
 import { RefreshCw } from 'lucide-react'
 import type { ReactNode } from 'react'
-import { useCompassData } from '../../context/ProjectContext'
+import { useCompassData } from '../../hooks/useCompassData'
 import { Sidebar } from './Sidebar'
 import { navItems, type NavItemId } from './navigation'
 

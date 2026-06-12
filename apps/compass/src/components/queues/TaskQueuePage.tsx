@@ -1,5 +1,5 @@
 import type { Task, TaskOwner, TaskState, TaskType } from '../../types/project'
-import { useCompassData } from '../../context/ProjectContext'
+import { useCompassData } from '../../hooks/useCompassData'
 import type { NavItemId } from '../layout/navigation'
 
 type QueueFilter = {

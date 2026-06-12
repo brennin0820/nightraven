@@ -1,5 +1,5 @@
 import { MessageSquare } from 'lucide-react'
-import { useCompassData } from '../../context/ProjectContext'
+import { useCompassData } from '../../hooks/useCompassData'
 import { PromptCard } from './PromptCard'
 
 export function NextPromptPage() {

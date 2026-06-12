@@ -6,6 +6,18 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Compass — Complete Build Packet (Phase 1 MVP + GE file API)
+
+- +# Brent supplied **NightRaven Compass Complete Build Packet** and asked **in parallel** — worker implemented Phase 1 in `apps/compass/`
+- +# **Phase 1 UI** — `project.ts` types · `mockProject.ts` · routing/progress/scopeWarnings/promptGenerator utils · AppShell · Sidebar · Dashboard cards (status · phase · next action · progress · blocker · decision · Not Now · prompt)
+- +# **GE file wire (partial)** — Vite dev middleware (`compassApiPlugin.ts` · `buildSnapshot.ts` · `parseHandoff.ts`) reads `scripts/gods-eye-projects.conf` · per-project `docs/14_SESSION_HANDOFF.md` · `docs/GODS_EYE_REPO_OVERLAY.md`; monorepo root auto-registered
+- +# **Phase 2 pages** — Roadmap · Priority Board · Task Queue · Next Prompt · Blockers · Decisions · Not Now · Progress · Memory Feed · Loop Detector · Settings (mock task data + live memory feed)
+- +# Verified path: `cd apps/compass && npm run build && npm run lint`; live data requires `npm run dev`
+- +# Autosync shipped `e6d44d6` (server/API) + `dac3313` (UI) · `origin/main` @ `dac3313`
+- +# **Out of scope** — cloud sync · AI automation · repo auto-edit · database
+
+**Cross-links:** [`apps/compass/README.md`](../apps/compass/README.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md)
+
 ### HimFler — iOS 26 product scope (consumer repo)
 
 - +# Brent: GitHub repo **HimFler** — native **iOS 26** (widgets · Lock Screen · Watch · Dynamic Island · notifications · sounds · maps · calendar · location · HealthKit movement · integrations); **macOS/Xcode** build host

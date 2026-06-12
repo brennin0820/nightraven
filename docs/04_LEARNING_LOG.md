@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Compass: mock-first tasks + Vite middleware GE read
+
+**Signal:** Brent shipped Compass via **Complete Build Packet** — Phase 1 dashboard in parallel; evolved beyond static mock to **read God's Eye memory from disk** without a separate backend.
+
+**Pattern:** **Mock-first task/scope data** (`mockProject.ts` · utils) for builder UX · **live memory** via Vite dev middleware parsing handoff Recent sessions + overlay Not Now · project registry in `gods-eye-projects.conf`. `npm run build` = static only; **`npm run dev`** required for file API. Phase 2 nav pages can ship on mock engines before full GE/MCP/git wire.
+
+**Do:** Bootstrap new consumer → add conf line → Compass Settings Refresh; cross-link [`apps/compass/README.md`](../apps/compass/README.md).
+
+**Don't:** Claim cloud sync or repo mutation; run `preview` expecting handoff updates without restart/Refresh; collapse Compass into framework `docs/14`.
+
+**See:** [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`buildSnapshot.ts`](../apps/compass/server/buildSnapshot.ts)
+
+---
+
 ## 2026-06-11 — HimFler: consumer repo name vs local folder
 
 **Signal:** Brent renamed ship target **HimFler** (GitHub) while bootstrap folder stays **`HimFLer`** on disk.

@@ -1,5 +1,5 @@
 import { BookOpen } from 'lucide-react'
-import { useCompassData } from '../../context/ProjectContext'
+import { useCompassData } from '../../hooks/useCompassData'
 
 export function MemoryFeedPage() {
   const { snapshot } = useCompassData()
