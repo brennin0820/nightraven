@@ -6,6 +6,15 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Compass — Phase 1 mock consolidation + parallel phase build (partial)
+
+- +# Brent **do all phases automatically** + **in parallel** — four workers for Phases 2–8 bundles; page components remain in `apps/compass/src/components/` tree
+- +# **`1fd1c3f`** — `ProjectContext` · `buildMockSnapshot()` · dashboard-only `App.tsx` (strict Phase 1 routing); removed live-API loading path for static mock scope
+- +# **`npm run build` + `npm run lint`** pass; sidebar lists Phases 2–8 routes but **non-dashboard views still placeholders** until route integrator wires `RoadmapPage`, queues, lists, etc.
+- +# **Supersedes** changelog line claiming all Phase 2 nav pages fully live — components exist; routing gate still Phase 1
+
+**Cross-links:** [`apps/compass/README.md`](../apps/compass/README.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
 ### Touch 3 — last-turn law (§2.8)
 
 - +# Brent: **make touch 3 only do its turn last** — Touch 3 AFTER runs **only** on `session-stop` hook follow-up (agent final turn)
@@ -13,7 +22,7 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - +# **`after-file-edit`** — defer changelog/handoff/learning batch to session-stop; mid-session append only when Brent explicitly asks
 - +# **`gods-eye-context-intent.mdc` · `AGENTS.md`** — During work: no Touch 3 mid-session; subagents/workers never Touch 3
 - +# **Bible §2.8** — last-turn law + anti-pattern row for mid-session Touch 3
-- +# Autosync memory batch `910a3dd`; hook/app file deltas may remain local until next stop
+- +# Shipped autosync `1fd1c3f` (hooks + memory + Compass mock consolidation)
 
 **Cross-links:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`AGENTS.md`](../AGENTS.md)
 

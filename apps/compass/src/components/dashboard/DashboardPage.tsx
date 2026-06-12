@@ -39,8 +39,8 @@ export function DashboardPage() {
       <div className="dashboard__grid">
         <CurrentPhaseCard phase={currentPhase} />
         <ProgressSummaryCard progress={calculatedProgress} />
-        {blocker ? <BlockerCard blocker={blocker} /> : null}
-        {decision ? <DecisionCard decision={decision} /> : null}
+        {blocker ? <BlockerCard blocker={blocker} tasks={snapshot.tasks} /> : null}
+        {decision ? <DecisionCard decision={decision} tasks={snapshot.tasks} /> : null}
         <NotNowCard items={snapshot.notNowItems} />
         {promptCard ? <PromptCard promptCard={promptCard} /> : null}
       </div>

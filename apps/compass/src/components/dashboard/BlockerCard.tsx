@@ -3,9 +3,10 @@ import type { Blocker } from '../../types/project'
 
 type BlockerCardProps = {
   blocker: Blocker
+  blockedTaskTitles?: string[]
 }
 
-export function BlockerCard({ blocker }: BlockerCardProps) {
+export function BlockerCard({ blocker, blockedTaskTitles = [] }: BlockerCardProps) {
   return (
     <article className="dashboard-card">
       <div className="card-heading">
@@ -24,8 +25,16 @@ export function BlockerCard({ blocker }: BlockerCardProps) {
           {blocker.severity}
         </span>
         <span>
+          <strong>Status</strong>
+          {blocker.status.replaceAll('_', ' ')}
+        </span>
+        <span>
           <strong>Owner</strong>
           {blocker.owner.replaceAll('_', ' ')}
+        </span>
+        <span>
+          <strong>Blocked tasks</strong>
+          {blockedTaskTitles.length > 0 ? blockedTaskTitles.join(', ') : 'None linked'}
         </span>
       </div>
       <div className="resolution-box">

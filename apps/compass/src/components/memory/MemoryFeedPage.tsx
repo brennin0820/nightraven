@@ -1,9 +1,15 @@
+import { useMemo } from 'react'
 import { BookOpen } from 'lucide-react'
+import { buildActivityFeed } from '../../data/mockSnapshot'
 import { useCompassData } from '../../hooks/useCompassData'
 
 export function MemoryFeedPage() {
   const { snapshot } = useCompassData()
-  const memoryFeed = snapshot?.memoryFeed ?? []
+
+  const feed = useMemo(() => {
+    if (!snapshot) return []
+    return buildActivityFeed(snapshot)
+  }, [snapshot])
 
   return (
     <section className="memory-page" aria-labelledby="memory-feed-title">
@@ -14,27 +20,27 @@ export function MemoryFeedPage() {
           </span>
           <div>
             <p className="eyebrow">Memory feed</p>
-            <h2 id="memory-feed-title">Recent sessions from handoff</h2>
+            <h2 id="memory-feed-title">Recent project activity</h2>
           </div>
         </div>
         <p className="card-copy">
-          Append-only session history parsed from <code>docs/14_SESSION_HANDOFF.md</code>.
+          Tasks, decisions, audits, blockers, and session notes from mock snapshot.
         </p>
         <div className="scope-stats">
           <span>
             <strong>Entries</strong>
-            {memoryFeed.length}
+            {feed.length}
           </span>
         </div>
       </article>
 
       <div className="memory-feed">
-        {memoryFeed.length === 0 ? (
+        {feed.length === 0 ? (
           <article className="dashboard-card">
-            <p className="card-copy">No recent sessions found in handoff.</p>
+            <p className="card-copy">No activity entries yet.</p>
           </article>
         ) : (
-          memoryFeed.map((item) => (
+          feed.map((item) => (
             <article className="dashboard-card memory-entry" key={item.id}>
               <p className="eyebrow">{item.date}</p>
               <p className="memory-entry__text">{item.text}</p>

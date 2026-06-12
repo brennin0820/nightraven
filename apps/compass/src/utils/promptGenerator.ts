@@ -125,3 +125,42 @@ Return:
 - Recommended next step
 `.trim()
 }
+
+export function generateResearchPrompt(
+  project: Project,
+  phase: Phase,
+  task: Task,
+): string {
+  return `
+Research this topic before building.
+
+Project:
+${project.name}
+
+Current Phase:
+${phase.name}
+
+Research Task:
+${task.title}
+
+Goal:
+${task.description}
+
+Why:
+${task.why}
+
+Investigate:
+- What options exist?
+- What are tradeoffs for a non-coder builder?
+- What aligns with God's Eye memory-first approach?
+- What should move to Not Now?
+- What decision is needed before build?
+
+Return:
+- Summary of findings
+- Recommended approach
+- Risks and unknowns
+- Decision needed (yes/no)
+- Suggested next step
+`.trim()
+}

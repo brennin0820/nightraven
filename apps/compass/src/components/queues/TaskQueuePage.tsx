@@ -1,6 +1,9 @@
+import { useState } from 'react'
 import type { Task, TaskOwner, TaskState, TaskType } from '../../types/project'
 import { useCompassData } from '../../hooks/useCompassData'
 import type { NavItemId } from '../layout/navigation'
+import { TaskCard } from '../tasks/TaskCard'
+import { TaskDetailPanel } from '../tasks/TaskDetailPanel'
 
 type QueueFilter = {
   title: string
@@ -50,6 +53,7 @@ type TaskQueuePageProps = {
 export function TaskQueuePage({ queueId }: TaskQueuePageProps) {
   const { snapshot } = useCompassData()
   const filter = queueFilters[queueId]
+  const [selectedTask, setSelectedTask] = useState<Task | null>(null)
 
   if (!snapshot || !filter) {
     return (
@@ -75,40 +79,27 @@ export function TaskQueuePage({ queueId }: TaskQueuePageProps) {
         </div>
       </article>
 
-      <div className="queue-list">
-        {tasks.length === 0 ? (
-          <article className="dashboard-card">
-            <p className="card-copy">No tasks match this queue for the selected project.</p>
-          </article>
-        ) : (
-          tasks.map((task) => (
-            <article className="dashboard-card queue-card" key={task.id}>
-              <div className="queue-card__head">
-                <h3>{task.title}</h3>
-                <span className="queue-pill">{task.priority}</span>
-              </div>
-              <p className="card-copy">{task.description}</p>
-              <div className="meta-grid meta-grid--two">
-                <span>
-                  <strong>Lane</strong>
-                  {task.lane}
-                </span>
-                <span>
-                  <strong>State</strong>
-                  {task.state}
-                </span>
-                <span>
-                  <strong>Owner</strong>
-                  {task.owner.replaceAll('_', ' ')}
-                </span>
-                <span>
-                  <strong>Type</strong>
-                  {task.type}
-                </span>
-              </div>
+      <div className="queue-page__body">
+        <div className="queue-list">
+          {tasks.length === 0 ? (
+            <article className="dashboard-card">
+              <p className="card-copy">No tasks match this queue for the selected project.</p>
             </article>
-          ))
-        )}
+          ) : (
+            tasks.map((task) => (
+              <TaskCard
+                key={task.id}
+                task={task}
+                selected={selectedTask?.id === task.id}
+                onSelect={setSelectedTask}
+              />
+            ))
+          )}
+        </div>
+
+        {selectedTask ? (
+          <TaskDetailPanel task={selectedTask} onClose={() => setSelectedTask(null)} />
+        ) : null}
       </div>
     </section>
   )

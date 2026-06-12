@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Compass: parallel phase workers need route integrator
+
+**Signal:** Brent asked **all phases automatically** + **in parallel** — multiple workers built page modules while `App.tsx` stayed dashboard-only for Phase 1 scope.
+
+**Pattern:** Parallel Compass phase work → split **component folders** + **mock data files** per worker; one **integrator** pass wires `App.tsx` / `routeRegistry` + merges `mockSnapshot` after workers finish. Do not claim phases shipped until nav routes render real pages.
+
+**Do:** Verify with sidebar click + `npm run build`; README status table matches routed views.
+
+**Don't:** Launch Touch 3 or declare phase complete while parallel workers still running; merge conflicting `App.tsx` edits without integrator.
+
+**See:** [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`apps/compass/README.md`](../apps/compass/README.md)
+
+---
+
 ## 2026-06-11 — Touch 3: last-turn law (defer batch to session-stop)
 
 **Signal:** Brent asked Touch 3 to run **only on the final turn** — mid-session and delegated Touch 3 subagents caused memory closes before build work finished.

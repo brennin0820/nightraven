@@ -18,6 +18,7 @@ import {
   ShieldCheck,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
+import { registeredNavIds } from '../../app/routeRegistry'
 
 export type NavItemId =
   | 'dashboard'
@@ -56,12 +57,12 @@ export const navItems: NavItem[] = [
   { id: 'next-prompt', label: 'Next Prompt', phase: 'Phase 2', icon: MessageSquare },
   { id: 'ge-queue', label: "God's Eye Queue", phase: 'Phase 2', icon: Eye },
   { id: 'nr-queue', label: 'NR Queue', phase: 'Phase 2', icon: Hammer },
-  { id: 'auditor-queue', label: 'Auditor Queue', phase: 'Phase 2', icon: ShieldCheck },
+  { id: 'auditor-queue', label: 'Auditor Queue', phase: 'Phase 5', icon: ShieldCheck },
   { id: 'research-queue', label: 'Research Queue', phase: 'Phase 2', icon: Search },
   { id: 'decisions', label: 'Decisions', phase: 'Phase 2', icon: GitBranch },
   { id: 'blockers', label: 'Blockers', phase: 'Phase 2', icon: AlertTriangle },
   { id: 'not-now', label: 'Not Now', phase: 'Phase 2', icon: Compass },
-  { id: 'progress', label: 'Progress', phase: 'Phase 2', icon: BarChart3 },
+  { id: 'progress', label: 'Progress', phase: 'Phase 6', icon: BarChart3 },
   { id: 'memory-feed', label: 'Memory Feed', phase: 'Phase 2', icon: BookOpen },
   { id: 'back-and-forth', label: 'Loop Detector', phase: 'Phase 2', icon: AlertTriangle },
   { id: 'settings', label: 'Settings', phase: 'Phase 2', icon: Settings },

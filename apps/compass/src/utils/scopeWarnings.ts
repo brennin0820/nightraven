@@ -1,4 +1,4 @@
-import type { Task } from '../types/project'
+import type { Decision, Task } from '../types/project'
 
 export function getScopeWarnings(task: Task): string[] {
   const warnings: string[] = []
@@ -17,6 +17,30 @@ export function getScopeWarnings(task: Task): string[] {
 
   if (task.state === 'build' && task.auditRequired === false) {
     warnings.push('Build task does not require audit.')
+  }
+
+  return warnings
+}
+
+export function getDecisionScopeWarnings(decision: Decision, tasks: Task[]): string[] {
+  const warnings: string[] = []
+
+  if (decision.status === 'open' && decision.impact === 'high') {
+    warnings.push('High-impact decision is still open — downstream tasks may stall.')
+  }
+
+  if (decision.status === 'open' && decision.unlocksTaskIds.length > 0) {
+    warnings.push(
+      `Unlocks ${decision.unlocksTaskIds.length} task(s) once decided — scope may shift.`,
+    )
+  }
+
+  for (const taskId of decision.unlocksTaskIds) {
+    const task = tasks.find((item) => item.id === taskId)
+    if (!task) continue
+    for (const warning of getScopeWarnings(task)) {
+      warnings.push(`${task.title}: ${warning}`)
+    }
   }
 
   return warnings

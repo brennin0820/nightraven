@@ -3,6 +3,7 @@ import { useCompassData } from '../../hooks/useCompassData'
 
 export function SettingsPage() {
   const { snapshot, selected, registry, refresh, selectProject } = useCompassData()
+  const settings = snapshot?.settings
 
   return (
     <section className="settings-page" aria-labelledby="settings-title">
@@ -13,17 +14,41 @@ export function SettingsPage() {
           </span>
           <div>
             <p className="eyebrow">Settings</p>
-            <h2 id="settings-title">Project registry & refresh</h2>
+            <h2 id="settings-title">Project registry & preferences</h2>
           </div>
         </div>
         <p className="card-copy">
-          Compass reads <code>scripts/gods-eye-projects.conf</code> at dev-server start. Add a line
-          per project to pick up new repos.
+          Mock profile — Compass reads <code>scripts/gods-eye-projects.conf</code> in local mode.
+          Current session uses mock snapshot only (no cloud, no AI).
         </p>
         <button className="scope-link-btn settings-refresh" onClick={refresh} type="button">
           <RefreshCw size={14} aria-hidden="true" /> Refresh snapshot
         </button>
       </article>
+
+      {settings ? (
+        <article className="dashboard-card">
+          <h3>Preferences (mock)</h3>
+          <div className="meta-grid meta-grid--two">
+            <span>
+              <strong>Data mode</strong>
+              {settings.dataMode}
+            </span>
+            <span>
+              <strong>Auto refresh</strong>
+              {settings.autoRefresh ? 'On' : 'Off'}
+            </span>
+            <span>
+              <strong>Phase badges</strong>
+              {settings.showPhaseBadges ? 'Shown' : 'Hidden'}
+            </span>
+            <span>
+              <strong>Root hint</strong>
+              <code>{settings.projectRootHint}</code>
+            </span>
+          </div>
+        </article>
+      ) : null}
 
       <article className="dashboard-card">
         <h3>Selected project</h3>

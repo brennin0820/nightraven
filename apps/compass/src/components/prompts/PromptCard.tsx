@@ -5,16 +5,27 @@ type PromptCardProps = {
   promptCard: PromptCardData
 }
 
+const targetLabels: Record<PromptCardData['target'], string> = {
+  gods_eye: "God's Eye",
+  nightraven_builder: 'NightRaven Builder',
+  nightraven_auditor: 'Auditor',
+  research: 'Research',
+  user: 'User',
+}
+
 export function PromptCard({ promptCard }: PromptCardProps) {
   return (
-    <article className="dashboard-card dashboard-card--prompt">
+    <article
+      className="dashboard-card dashboard-card--prompt"
+      data-target={promptCard.target}
+    >
       <div className="card-heading">
         <span className="card-icon card-icon--blue">
           <MessageSquare size={18} aria-hidden="true" />
         </span>
         <div>
           <p className="eyebrow">Recommended prompt</p>
-          <h2>Send to {promptCard.target.replaceAll('_', ' ')}</h2>
+          <h2>Send to {targetLabels[promptCard.target]}</h2>
         </div>
       </div>
       <p className="prompt-text">{promptCard.prompt}</p>
