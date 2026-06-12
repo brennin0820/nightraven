@@ -6,13 +6,29 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Compass: GE auto-refresh via version poll (`82e4cff`)
+
+**Supersedes:** learning entry “auto-refresh monitor (requested, not shipped)”.
+
+**Signal:** Brent wants monitors to **refresh when God's Eye memory changes** without manual button.
+
+**Pattern:** Server **`/api/project/version`** returns aggregate mtime/hash of watched GE files · client polls every **10s** (registry mode + `autoRefresh`) · on change call existing `loadProject` · merge IndexedDB overrides · **Live / Updated** badge in `AppShell`.
+
+**Do:** `npm run dev` · enable Auto refresh in Settings · edit consumer `docs/14` Recent sessions · watch header badge.
+
+**Don't:** Expect auto-refresh on static `dist` without API middleware.
+
+**See:** [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`compassApi.ts`](../apps/compass/src/services/compassApi.ts) · [`ProjectContext.tsx`](../apps/compass/src/context/ProjectContext.tsx)
+
+---
+
 ## 2026-06-11 — Compass: auto-refresh monitor (requested, not shipped)
 
 **Signal:** Brent wants the **monitor to refresh and show when there are changes** (GE handoff/overlay edits while Compass is open).
 
 **Pattern (target):** Server exposes handoff/overlay **mtime or content hash** · client **polls** when `settings.autoRefresh` enabled · `ProjectContext.refresh()` merges without dropping IndexedDB overrides · AppShell badge (“Updated” / timestamp).
 
-**Current:** Settings toggle exists; **no poll loop** on `ca783f2` — still manual **Refresh from God's Eye**.
+**Current:** Settings toggle exists; **no poll loop** on `ca783f2` — still manual **Refresh from God's Eye**. **Superseded** by `82e4cff` entry above.
 
 **See:** [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`ProjectContext.tsx`](../apps/compass/src/context/ProjectContext.tsx)
 

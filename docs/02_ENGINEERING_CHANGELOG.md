@@ -6,6 +6,18 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Compass — GE auto-refresh monitor (`82e4cff`)
+
+- +# Brent: **monitor refresh when changes** — `/api/project/version` (mtime aggregate) · client poll **10s** when `settings.autoRefresh` + registry mode
+- +# **`ProjectContext`** silent reload on version change · IndexedDB overrides preserved · `refreshStatus` for UI
+- +# Watched GE paths: handoff · overlay · changelog · learning log · `AGENTS.md` · `.cursor/rules` · hooks
+- +# Default `autoRefresh: true` in live snapshot build
+- +# Brent: **Codex/Claude understand app** — requested; **`apps/compass/AGENTS.md` deferred** (packet docs in `apps/compass/docs/`)
+- +# Autosync `82e4cff` · `origin/main` @ `82e4cff`
+- +# **Supersedes** “poll not implemented” on `ca783f2` changelog bullet below
+
+**Cross-links:** [`apps/compass/README.md`](../apps/compass/README.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`compassApiPlugin.ts`](../apps/compass/server/compassApiPlugin.ts)
+
 ### Compass — HimFLer default project (`ca783f2`)
 
 - +# **`pickInitialProject()`** in [`compassApi.ts`](../apps/compass/src/services/compassApi.ts) — new sessions default to **HimFLer (iOS app)** when no valid stored selection
