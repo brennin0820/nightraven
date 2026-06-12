@@ -64,7 +64,7 @@ Compass reads live handoff and overlay from registered repos via the Vite dev AP
 | Setting | Location |
 |---------|----------|
 | Registry file | `scripts/gods-eye-projects.conf` at monorepo root |
-| Default project | **HimFLer** (`E:/NightRaven/HimFLer`) when no prior selection is stored |
+| Default project | **HimFLer** (`E:/NightRaven/HimFLer`) when no prior selection is stored (or legacy gods-eye-1 auto-pick is migrated once) |
 | Switch project | **Settings** → Registry list → **Select** on the row you want |
 
 Format: `ABS_PATH|label|role` — one line per workspace (`framework`, `master`, `app`, `user-global`).

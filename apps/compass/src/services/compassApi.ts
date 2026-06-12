@@ -1,6 +1,8 @@
 import type { ProjectSnapshot, RegistryEntry } from '../types/snapshot'
 
 const STORAGE_KEY = 'compass.selectedProject'
+/** One-time: drop legacy localStorage default of gods-eye-1 monorepo (pre pickInitialProject). */
+const LEGACY_MONOREPO_MIGRATION_KEY = 'compass.himflerDefaultMigration.v1'
 
 /** Consumer app Brent is actively guiding — override via Settings registry picker. */
 export const PREFERRED_DEFAULT_PROJECT = {
@@ -12,14 +14,44 @@ function normalizePath(value: string): string {
   return value.replace(/\\/g, '/').toLowerCase()
 }
 
-export function pickInitialProject(registry: RegistryEntry[]): SelectedProject {
+function isGodsEyeMonorepo(entry: RegistryEntry): boolean {
+  return entry.role === 'framework' && normalizePath(entry.path).includes('gods-eye-1')
+}
+
+function findHimFlerEntry(registry: RegistryEntry[]): RegistryEntry | undefined {
+  return registry.find(
+    (entry) =>
+      entry.available &&
+      (normalizePath(entry.path).includes('himfler') ||
+        entry.label.toLowerCase().includes('himfl')),
+  )
+}
+
+function tryRestoreStoredProject(registry: RegistryEntry[]): SelectedProject | null {
   const stored = loadStoredProject()
-  if (stored) {
-    const match = registry.find(
-      (entry) => entry.available && normalizePath(entry.path) === normalizePath(stored.path),
-    )
-    if (match) return { path: match.path, label: match.label }
+  if (!stored) return null
+
+  const match = registry.find(
+    (entry) => entry.available && normalizePath(entry.path) === normalizePath(stored.path),
+  )
+  if (!match) return null
+
+  // Pre-ca783f2 builds auto-picked the first registry row (gods-eye-1). Migrate once to HimFLer.
+  if (
+    !localStorage.getItem(LEGACY_MONOREPO_MIGRATION_KEY) &&
+    isGodsEyeMonorepo(match)
+  ) {
+    localStorage.removeItem(STORAGE_KEY)
+    localStorage.setItem(LEGACY_MONOREPO_MIGRATION_KEY, 'done')
+    return null
   }
+
+  return { path: match.path, label: match.label }
+}
+
+export function pickInitialProject(registry: RegistryEntry[]): SelectedProject {
+  const restored = tryRestoreStoredProject(registry)
+  if (restored) return restored
 
   const preferred = registry.find(
     (entry) =>
@@ -28,12 +60,7 @@ export function pickInitialProject(registry: RegistryEntry[]): SelectedProject {
   )
   if (preferred) return { path: preferred.path, label: preferred.label }
 
-  const himfler = registry.find(
-    (entry) =>
-      entry.available &&
-      (normalizePath(entry.path).includes('himfler') ||
-        entry.label.toLowerCase().includes('himfl')),
-  )
+  const himfler = findHimFlerEntry(registry)
   if (himfler) return { path: himfler.path, label: himfler.label }
 
   const appEntry = registry.find((entry) => entry.available && entry.role === 'app')

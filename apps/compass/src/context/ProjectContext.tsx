@@ -15,7 +15,6 @@ import {
   fetchProjectSnapshot,
   fetchProjectVersion,
   fetchRegistry,
-  loadStoredProject,
   pickInitialProject,
   storeProject,
   type SelectedProject,
@@ -60,7 +59,7 @@ export function ProjectProvider({ children }: { children: ReactNode }) {
   const [snapshot, setSnapshot] = useState<ProjectSnapshot | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [selected, setSelected] = useState<SelectedProject | null>(loadStoredProject())
+  const [selected, setSelected] = useState<SelectedProject | null>(null)
   const [refreshStatus, setRefreshStatus] = useState<RefreshStatus>({ state: 'idle' })
 
   const baseRef = useRef<ProjectSnapshot | null>(null)
