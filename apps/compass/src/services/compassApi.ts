@@ -6,8 +6,8 @@ const LEGACY_MONOREPO_MIGRATION_KEY = 'compass.himflerDefaultMigration.v1'
 
 /** Consumer app Brent is actively guiding — override via Settings registry picker. */
 export const PREFERRED_DEFAULT_PROJECT = {
-  path: 'E:/NightRaven/HimFLer',
-  label: 'HimFLer (iOS app)',
+  path: '/Users/brentlenninorlanda/Developer/HimFLer',
+  label: 'HimFLer (linen DST)',
 } as const
 
 function normalizePath(value: string): string {
