@@ -35,7 +35,7 @@ Does **not** block edits or tool use.
 
 ### `stop` → `.cursor/hooks/session-stop.ps1` (Windows) · `session-stop.sh` (Unix)
 
-**Touch 3 · After** — returns a one-time `followup_message` when the agent completes (`loop_count` 0, `loop_limit: 1`):
+**Touch 3 · After** — returns a one-time `followup_message` when the agent completes (`loop_count` 0, `loop_limit: 1`). This is the **last turn only** — agents must finish all implementation and subagents before responding to this follow-up; no mid-session Touch 3 batch.
 
 - **Always Sync autosync (runs even when Touch 3 is paused):**
   1. `git pull --ff-only`
@@ -57,7 +57,7 @@ Does **not** force agent memory writes beyond autosync commit; Touch 3 follow-up
 **During / After nudge** — when edits touch memory-chain paths (`docs/*`, `AGENTS.md`, `.cursor/rules/*`, `examples/overlay/*`):
 
 - Reminds `+#` only and Supersedes for corrections
-- Suggests Touch 3 writes when work was meaningful
+- Defers Touch 3 batch to session-stop **last turn** (not mid-session); mid-session append only when Brent explicitly asks
 
 Does **not** rewrite files or deny saves.
 

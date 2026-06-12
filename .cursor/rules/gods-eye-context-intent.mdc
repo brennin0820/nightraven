@@ -34,9 +34,9 @@ alwaysApply: true
 
 **Never:** New template `*.md` per cycle; serial reads; conflate user **"context"** with code `*Context` types; **import other repos' handoff**
 
-**After work:** Append handoff **Recent sessions** when asked; changelog + learning log at Tier 2+ when meaningful; wire cross-links; one clarifying question max
+**During work:** Do **not** run Touch 3 memory batch mid-session — defer handoff/changelog/learning to session-close (§2.8 last-turn law). Mid-session memory edits only when Brent explicitly asks.
 
-**Touch 3 (§2.8):** One AFTER per session; **push-latency** — push or explicit defer in Recent sessions (Bible §2.8)
+**Touch 3 (§2.8):** **Last turn only** — one AFTER at **session-stop** hook follow-up; batch handoff + changelog + learning there; **push-latency** — push or explicit defer in Recent sessions; subagents/workers never Touch 3
 
 **Task worthiness (§2.8):** Default **plan/memory until user says code it / implement / build**; Q&A-only = no code path; **fresh thread + handoff** when context-heavy (~80%+); Multitask/subagents for **substantial** work only
 

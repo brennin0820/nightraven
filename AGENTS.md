@@ -78,13 +78,12 @@ Memory + wire  →  UI/copy  →  Code/feature
 - **`+#` only** on memory docs; never `-#`
 - Decompose independent workstreams in parallel (§2.4)
 
-### After meaningful work
+### After meaningful work (Touch 3 — last turn only)
 
-- Append **changelog** + **handoff Recent sessions** (newest first; keep prior lines)
-- Append **learning log** when a new pattern appears
-- Wire **cross-links** — no orphan memory
+- **Defer** changelog + handoff **Recent sessions** + learning log to **session-close** — the `stop` hook follow-up is the **final turn**; do not batch memory mid-session or while build/subagents are in flight
+- Mid-session: wire cross-links only when asked; memory append when Brent explicitly requests
 - One **clarifying question max** (only if genuinely tied)
-- **One Touch 3 AFTER per session** — batch changelog + handoff + learning log; do not stack multiple passes
+- **One Touch 3 AFTER per session** — batch once on that last turn; do not stack multiple passes; **subagents/workers never Touch 3** (parent batches at close)
 
 ### Never
 
@@ -125,7 +124,9 @@ Every addition at one layer must **not** silently rename another.
 | **Code before ship signal** | Wait for **code it** / **implement** / **build** — exploratory Q&A ≠ code |
 | **Heavy thread cost** | Fresh thread + handoff when ~80%+ context; one Touch 3 AFTER per session |
 | **Assume Brent is wrong** | Run §3 five steps — fix English, honor intent |
-| **Stacked AFTER passes** | Batch once per session; do not add multiple memory updates in one thread |
+| **Stacked AFTER passes** | Batch once per session at session-stop **last turn**; do not add multiple memory updates in one thread |
+| **Mid-session Touch 3** | Defer handoff/changelog/learning to session-stop follow-up — not while building or subagents run |
+| **Touch 3 mid-session or delegated** | Touch 3 runs on `session-stop` final turn only — inline, not as a background subagent; defer until hook fires |
 | **Unlearning** | No delete, trim, or rewrite of history — **Supersedes** for corrections |
 | **Forgetting to sync** | Always pull before work; always push after commit — no silent local-only state |
 | **Silent rule bypass** | Governed Bypass requires explicit Brent approval *first* — never assume implicit permission |

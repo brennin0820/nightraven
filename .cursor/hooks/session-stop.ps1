@@ -49,14 +49,16 @@ if (Test-GodsEyeTouch3Disabled $projectRoot) {
 
 $handoffPath = Get-GodsEyeRelPath $projectRoot "docs/14_SESSION_HANDOFF.md"
 
-$message = "God's Eye - Touch 3 - AFTER - before you finish"
+$message = "God's Eye - Touch 3 - AFTER - **last turn only**"
+$message += "`n`nThis follow-up is your **final turn**. All implementation and subagents must be **done** before Touch 3. "
+$message += "Do not start new work, spawn agents, or defer this batch to a later turn."
 $message += "`n`n**Always Sync [cursor hook]**"
 $message += "`n" + ($syncLines -join "`n")
 $message += "`n`nIf this was a real session (tier >= 1): append one +# line to **Recent sessions** in $handoffPath. "
 $message += "Keep prior session lines (newest first). Never -# or replace the whole section."
 $message += "`n`nRecord Everything (Tier 2+): also append docs/02_ENGINEERING_CHANGELOG.md when work was meaningful; "
 $message += "docs/04_LEARNING_LOG.md for new patterns; wire cross-links (rule, Bible, overlay, AGENTS, handoff)."
-$message += "`n`n+# only - this repo only - no new template scaffolds per cycle."
+$message += "`n`n+# only - this repo only - no new template scaffolds per cycle - then stop."
 
 Emit-FollowupMessage $message
 exit 0

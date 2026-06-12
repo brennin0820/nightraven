@@ -42,7 +42,8 @@ project_root="$(gods_eye_project_root "$input")"
 if gods_eye_touch3_disabled "$project_root"; then
   message+=$'\n'"- Touch 3 paused — wire cross-links when asked; no mandatory session-close batch"
 else
-  message+=$'\n'"- If meaningful work: wire cross-links and plan Touch 3 writes (changelog, learning log, handoff Recent sessions)"
+  message+=$'\n'"- Defer Touch 3 batch (changelog, learning log, handoff Recent sessions) to session-stop **last turn** — not mid-session"
+  message+=$'\n'"- Mid-session memory append only when Brent explicitly asks"
 fi
 message+=$'\n'"- One writer per file per pass; parallel reads are fine"
 

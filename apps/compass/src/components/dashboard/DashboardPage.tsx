@@ -4,7 +4,6 @@ import {
   calculateBuildProgress,
   calculateDecisionProgress,
 } from '../../utils/progress'
-import type { NavItemId } from '../layout/navigation'
 import { PromptCard } from '../prompts/PromptCard'
 import { BlockerCard } from './BlockerCard'
 import { CurrentPhaseCard } from './CurrentPhaseCard'
@@ -13,9 +12,8 @@ import { NextBestActionCard } from './NextBestActionCard'
 import { NotNowCard } from './NotNowCard'
 import { ProgressSummaryCard } from './ProgressSummaryCard'
 import { ProjectStatusCard } from './ProjectStatusCard'
-import { ScopeMonitorCard } from './ScopeMonitorCard'
 
-export function DashboardPage({ onViewChange }: { onViewChange?: (view: NavItemId) => void }) {
+export function DashboardPage() {
   const { snapshot, nextTask, currentPhase } = useCompassData()
 
   if (!snapshot || !nextTask || !currentPhase) return null
@@ -39,7 +37,6 @@ export function DashboardPage({ onViewChange }: { onViewChange?: (view: NavItemI
       </div>
 
       <div className="dashboard__grid">
-        <ScopeMonitorCard onOpenScopeMap={(view) => onViewChange?.(view)} />
         <CurrentPhaseCard phase={currentPhase} />
         <ProgressSummaryCard progress={calculatedProgress} />
         {blocker ? <BlockerCard blocker={blocker} /> : null}

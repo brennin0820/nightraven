@@ -299,6 +299,8 @@ App memory = what THIS project is and where it left off (local).
 
 **Touch 3 AFTER:** **One** session-close memory pass per session — batch changelog + handoff + learning log; do not stack multiple AFTER passes in one thread.
 
++# **Last-turn law (2026-06-11):** Touch 3 AFTER runs **only** on the session-stop hook follow-up — the agent's **final turn**. Defer handoff/changelog/learning batch until then; no mid-session Touch 3, no parallel with build/subagents, no pre-emptive memory close before work completes. Subagents/workers: **never** run Touch 3 — parent batches once at session close.
+
 **Push-latency law:** `+#` on memory docs is **not durable** until **`git push`** (or equivalent publish) succeeds. On meaningful Touch 3 exit when the repo has a remote: **push** before closing, **or** append **Recent sessions** with an explicit defer reason (e.g. `push deferred — <why>`). Never imply shipped state in handoff while commits are only local.
 
 **Promoted from consumer app sessions (§2.7):** BankrollCalendar / OneDayMillionaire — 2026-06-09.
@@ -548,6 +550,7 @@ Tier-0 lean repos may omit full BAIC bootstrap — point at master path and loca
 | **Assuming Brent is wrong on unclear input** | §3 five steps — fix English, honor intent |
 | **Code on unclear coding idea** | Run §3 steps 1–5 first; no code until ship signal — §2.8 |
 | **Stacked Touch 3 AFTER** | Multiple session-close memory passes in one thread — batch once per session — §2.8 |
+| **Mid-session Touch 3** | Running handoff/changelog/learning batch before session-stop final turn — defer to §2.8 last-turn law |
 | **Forgotten sync** | Committing but not pushing; next agent reads stale remote state — Always pull before work; push after every commit (§2.9) |
 | **Silent bypass** | Skipping `+#` only or another law without asking — Governed Bypass requires explicit Brent approval first (§2.9) |
 | **Local-mode subagents** | Spawning parallel subagents under LM Studio; causes GPU VRAM contention and hangs — serial only in local mode (§2.9; [`GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md) §4) |

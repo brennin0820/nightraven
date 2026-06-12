@@ -6,6 +6,17 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Touch 3 — last-turn law (§2.8)
+
+- +# Brent: **make touch 3 only do its turn last** — Touch 3 AFTER runs **only** on `session-stop` hook follow-up (agent final turn)
+- +# **`session-stop.sh` / `session-stop.ps1`** — explicit final-turn message; no new work or subagents after follow-up
+- +# **`after-file-edit`** — defer changelog/handoff/learning batch to session-stop; mid-session append only when Brent explicitly asks
+- +# **`gods-eye-context-intent.mdc` · `AGENTS.md`** — During work: no Touch 3 mid-session; subagents/workers never Touch 3
+- +# **Bible §2.8** — last-turn law + anti-pattern row for mid-session Touch 3
+- +# Autosync memory batch `910a3dd`; hook/app file deltas may remain local until next stop
+
+**Cross-links:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`AGENTS.md`](../AGENTS.md)
+
 ### Compass — Complete Build Packet (Phase 1 MVP + GE file API)
 
 - +# Brent supplied **NightRaven Compass Complete Build Packet** and asked **in parallel** — worker implemented Phase 1 in `apps/compass/`

@@ -753,6 +753,12 @@ button {
   color: #b45309;
 }
 
+.header-badge[data-mode='mock'] {
+  border-color: #bfdbfe;
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
 .roadmap-page,
 .priority-page,
 .prompt-page,

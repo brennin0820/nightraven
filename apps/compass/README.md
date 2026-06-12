@@ -1,12 +1,14 @@
 # NightRaven Compass
 
-> **Monorepo path:** `apps/compass/` in the [NightRaven platform repo](https://github.com/brennin0820/gods-eye) (GitHub rename pending).
+> **Monorepo path:** `apps/compass/` in the [NightRaven platform repo](https://github.com/brennin0820/gods-eye).
 
 NightRaven Compass is a project-guidance app for a non-coder builder using God's Eye and NightRaven to build software with AI agents.
 
 ## Purpose
 
-The app shows project scope, current phase, priorities, blockers, decisions, audits, Not Now items, progress, and the next best prompt — **read from real project files on disk**.
+The app shows project scope, current phase, priorities, blockers, decisions, audits, Not Now items, progress, and the next best prompt.
+
+**Phase 1** uses mock data only — no backend, cloud sync, or repo auto-editing.
 
 ## Core Identity
 
@@ -15,35 +17,7 @@ NightRaven builds.
 Auditor verifies.
 NightRaven Compass points the user to the next correct step.
 
-## Data source
-
-Compass uses a **Vite dev-server API** (no separate backend). On `npm run dev`, middleware reads:
-
-- `scripts/gods-eye-projects.conf` — project registry (absolute paths)
-- Per-project `docs/14_SESSION_HANDOFF.md` — focus, **Next:** tasks, recent sessions
-- `docs/GODS_EYE_REPO_OVERLAY.md` — Not Now guardrails (when present)
-
-The monorepo root (`gods-eye-1`) is auto-added to the registry even if not listed in the conf file.
-
-### Project registry
-
-Edit `scripts/gods-eye-projects.conf` at the monorepo root (one line per project):
-
-```
-E:/NightRaven/MyApp|My App|app
-```
-
-Format: `absolute-path|label|role`
-
-After adding a line, restart dev server or use **Refresh** in Compass Settings. Paths must exist on disk (`available: true`).
-
-### New / future projects
-
-1. Bootstrap God's Eye in the new repo (handoff + overlay).
-2. Add a line to `gods-eye-projects.conf`.
-3. Run Compass with `npm run dev` — select the project from the header dropdown.
-
-## Run (required for API)
+## Run
 
 ```bash
 cd apps/compass
@@ -51,9 +25,7 @@ npm install
 npm run dev
 ```
 
-Open the URL Vite prints (usually `http://localhost:5173`). **`npm run preview`** also serves the API via the same plugin.
-
-`npm run build` produces static assets only — live project data requires the dev/preview server.
+Open the URL Vite prints (usually `http://localhost:5173`).
 
 ## Verify
 
@@ -62,17 +34,26 @@ npm run build
 npm run lint
 ```
 
-## Live pages
+## Phase 1 (current)
 
-| Area | Status |
-|------|--------|
-| Dashboard, Scope Map, Auditor Queue | Phase 1 |
-| Roadmap, Priority Board, Queues, Prompts, Lists, Progress, Memory, Loop Detector, Settings | Phase 2 |
-| Done Criteria, Reports | Later |
+| Feature | Status |
+|---------|--------|
+| App shell + sidebar | Live |
+| Dashboard + all cards | Live (mock data) |
+| Scope Map, Roadmap, queues, lists, progress, memory | Placeholder nav only |
 
-## Out of scope
+## Out of scope (Phase 1)
 
 - Cloud sync
 - Real AI automation
 - Repo auto-editing
 - Plugin / MCP managers
+- Database / persistent storage
+
+## Docs
+
+- [`docs/PROJECT_SCOPE.md`](docs/PROJECT_SCOPE.md)
+- [`docs/MVP_ROADMAP.md`](docs/MVP_ROADMAP.md)
+- [`docs/DATA_MODEL.md`](docs/DATA_MODEL.md)
+- [`docs/ACCEPTANCE_CRITERIA.md`](docs/ACCEPTANCE_CRITERIA.md)
+- [`docs/BUILD_REPORT_PHASE1.md`](docs/BUILD_REPORT_PHASE1.md)

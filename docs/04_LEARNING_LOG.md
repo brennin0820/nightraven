@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Touch 3: last-turn law (defer batch to session-stop)
+
+**Signal:** Brent asked Touch 3 to run **only on the final turn** — mid-session and delegated Touch 3 subagents caused memory closes before build work finished.
+
+**Pattern:** **`session-stop` hook = final turn** — batch handoff Recent sessions + changelog + learning log **once** in that inline response. During work: wire cross-links only; memory append when Brent explicitly asks. **Multitask/subagents never Touch 3** — parent owns session-close batch.
+
+**Do:** Finish all implementation first; respond to stop follow-up with +# appends; autosync commits safe paths on stop.
+
+**Don't:** Spawn Touch 3 background workers mid-session; run AFTER while build subagents still in flight; stack multiple Touch 3 passes.
+
+**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
+---
+
 ## 2026-06-11 — Compass: mock-first tasks + Vite middleware GE read
 
 **Signal:** Brent shipped Compass via **Complete Build Packet** — Phase 1 dashboard in parallel; evolved beyond static mock to **read God's Eye memory from disk** without a separate backend.

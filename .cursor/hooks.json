@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "_comment": "God's Eye Phase 2 — soft hooks + Always Sync autosync (git pull/commit/push). Windows: PowerShell; Unix: run-hook.sh dispatcher. Pause Touch 3 via .cursor/touch3.disabled. See docs/HOOKS_SETUP.md.",
+  "_comment": "God's Eye Phase 2 — soft hooks + Always Sync autosync (git pull/commit/push). Windows: PowerShell; Unix: run-hook.sh dispatcher. Touch 3 AFTER = session-stop last turn only (loop_limit: 1). Pause via .cursor/touch3.disabled. See docs/HOOKS_SETUP.md.",
   "hooks": {
     "sessionStart": [
       {

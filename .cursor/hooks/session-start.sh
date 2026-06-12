@@ -49,7 +49,7 @@ EOF
 if gods_eye_touch3_disabled "$project_root"; then
   message+=$'\n'"Touch 3 AFTER: **paused** (.cursor/touch3.disabled or ~/.cursor/touch3.disabled) — skip session-close follow-up batch"
 else
-  message+=$'\n'"After (Touch 3): append handoff Recent sessions on real exit; Record Everything at Tier 2+"
+  message+=$'\n'"After (Touch 3): **last turn only** — session-stop hook batches handoff + changelog + learning; never mid-session or while subagents run"
 fi
 
 message+=$'\n\n'"Portable law: ${bible_hint} · Session tree: docs/GODS_EYE_SESSION_TREE.md (or GODS_EYE_ROOT)"
