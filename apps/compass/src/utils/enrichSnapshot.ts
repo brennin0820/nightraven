@@ -228,7 +228,7 @@ export function enrichSnapshot(
     },
     settings: {
       dataMode,
-      autoRefresh: snapshot.settings?.autoRefresh ?? false,
+      autoRefresh: snapshot.settings?.autoRefresh ?? true,
       showPhaseBadges: snapshot.settings?.showPhaseBadges ?? true,
       projectRootHint: snapshot.settings?.projectRootHint ?? snapshot.meta.projectPath,
     },

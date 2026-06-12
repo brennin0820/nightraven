@@ -1,3 +1,4 @@
+import crypto from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
 import type {
@@ -15,7 +16,8 @@ import { enrichSnapshot } from '../src/utils/enrichSnapshot'
 import { parseHandoff, parseOverlayNotNow } from './parseHandoff'
 import type { RegistryEntry } from './types'
 
-const ARTIFACTS = [
+/** God's Eye memory files Compass watches for auto-refresh. */
+export const MONITORED_ARTIFACTS = [
   'docs/37_GODS_EYE.md',
   'docs/GODS_EYE_REPO_OVERLAY.md',
   'docs/14_SESSION_HANDOFF.md',
@@ -24,7 +26,9 @@ const ARTIFACTS = [
   'AGENTS.md',
   '.cursor/rules/gods-eye-context-intent.mdc',
   '.cursor/hooks.json',
-]
+] as const
+
+const ARTIFACTS = MONITORED_ARTIFACTS
 
 function readFileSafe(base: string, rel: string): string | null {
   const full = path.join(base, rel)
@@ -34,6 +38,19 @@ function readFileSafe(base: string, rel: string): string | null {
 
 function countArtifacts(base: string): number {
   return ARTIFACTS.filter((rel) => fs.existsSync(path.join(base, rel))).length
+}
+
+/** Stable hash from monitored file mtimes — used for lightweight change detection. */
+export function computeSnapshotVersion(projectPath: string): string {
+  const parts: string[] = []
+  for (const rel of MONITORED_ARTIFACTS) {
+    const full = path.join(projectPath, rel)
+    if (fs.existsSync(full)) {
+      const stat = fs.statSync(full)
+      parts.push(`${rel}:${stat.mtimeMs}`)
+    }
+  }
+  return crypto.createHash('sha256').update(parts.join('|')).digest('hex').slice(0, 16)
 }
 
 function slugify(value: string): string {
@@ -355,7 +372,7 @@ export function buildProjectSnapshot(
     reports: [],
     settings: {
       dataMode: 'registry',
-      autoRefresh: false,
+      autoRefresh: true,
       showPhaseBadges: true,
       projectRootHint: projectPath,
     },
@@ -365,6 +382,7 @@ export function buildProjectSnapshot(
       overlayFound: overlayContent !== null,
       artifactCount,
       artifactTotal: ARTIFACTS.length,
+      snapshotVersion: computeSnapshotVersion(projectPath),
       loadedAt: new Date().toISOString(),
     },
   }

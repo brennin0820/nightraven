@@ -86,3 +86,21 @@ export async function fetchProjectSnapshot(
   }
   return response.json() as Promise<ProjectSnapshot>
 }
+
+export type ProjectVersionInfo = {
+  snapshotVersion: string
+  checkedAt: string
+}
+
+export async function fetchProjectVersion(path: string): Promise<ProjectVersionInfo> {
+  const params = new URLSearchParams({ path })
+  const response = await fetch(`/api/project/version?${params.toString()}`)
+  if (!response.ok) {
+    const body = (await response.json().catch(() => ({}))) as { error?: string }
+    throw new Error(body.error ?? `Version check failed: ${response.status}`)
+  }
+  return response.json() as Promise<ProjectVersionInfo>
+}
+
+/** Poll interval when auto-refresh is enabled (registry mode). */
+export const AUTO_REFRESH_POLL_MS = 10_000

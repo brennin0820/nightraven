@@ -6,6 +6,15 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-11
 
+### Compass — HimFLer default project (`ca783f2`)
+
+- +# **`pickInitialProject()`** in [`compassApi.ts`](../apps/compass/src/services/compassApi.ts) — new sessions default to **HimFLer (iOS app)** when no valid stored selection
+- +# Registry label `HimFler (iOS app)` · README registry section
+- +# Brent: **monitor refresh when changes** — requested; `autoRefresh` setting in UI only — **poll/hash refresh not yet implemented**
+- +# Autosync `ca783f2` · `origin/main` @ `ca783f2`
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`apps/compass/README.md`](../apps/compass/README.md)
+
 ### Compass — full local product + HimFLer registry (`ce4afb3`)
 
 - +# Brent: **fully functioning product** (not mock-only) — **`ProjectContext`** loads `fetchRegistry` / `fetchProjectSnapshot` · **`mergeSnapshot`** + **`enrichSnapshot`**

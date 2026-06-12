@@ -70,6 +70,13 @@ export type CompassSettingsProfile = {
   projectRootHint: string
 }
 
+export type RefreshStatus = {
+  state: 'idle' | 'watching' | 'refreshing' | 'updated'
+  lastRefreshedAt?: string
+  lastChangeDetectedAt?: string
+  lastSnapshotVersion?: string
+}
+
 export type ProjectSnapshot = {
   registry: RegistryEntry[]
   project: Project
@@ -92,6 +99,7 @@ export type ProjectSnapshot = {
     overlayFound: boolean
     artifactCount: number
     artifactTotal: number
+    snapshotVersion?: string
     loadedAt: string
   }
 }

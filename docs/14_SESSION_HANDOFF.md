@@ -6,7 +6,7 @@
 
 ## Current state / focus
 
-**NightRaven platform monorepo** on `origin/main` @ `ce4afb3` — God's Eye framework · NightRaven Core · **Compass** (`apps/compass/` · **full local product** — live GE dev API · IndexedDB edits · Phases 1–8 · **HimFLer** in registry). **HimFLer** @ `E:\NightRaven\HimFLer` → `brennin0820/HimFler` (**gh auth pending**). Map: [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md). **Next:** `npm run dev` → Settings → HimFLer · `gh auth login` · Xcode on Mac · Auditor smoke Compass.
+**NightRaven platform monorepo** on `origin/main` @ `ca783f2` — God's Eye framework · NightRaven Core · **Compass** (`apps/compass/` · full local product · **HimFLer default** · manual GE Refresh · **auto monitor refresh pending**). **HimFLer** @ `E:\NightRaven\HimFLer` → `brennin0820/HimFler` (**gh auth pending**). Map: [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md). **Next:** Compass GE file-change polling/UI · `gh auth login` · Xcode on Mac.
 
 ---
 
@@ -38,6 +38,7 @@
 ---
 
 ## Recent sessions
+- **2026-06-11** — Touch 3 AFTER: **session close — HimFLer default + monitor refresh ask** — Brent **put on himlfer** → **`ca783f2`** `pickInitialProject()` defaults **HimFLer (iOS app)** · registry label · README; Brent **monitor refresh when changes** — Settings `autoRefresh` toggle only · **polling/UI not shipped** (defer next session); autosync committed+pushed `ca783f2` · `origin/main` @ `ca783f2` (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: **Compass full product + HimFLer on Compass** — Brent **don't want mock** + **put on himlfer**; shipped **`ce4afb3`** — `ProjectContext` · `compassApi` · IndexedDB (`persistence.ts`) · Phases 2–8 · 19 routes · GE handoff/overlay via dev API · **`HimFLer` in [`gods-eye-projects.conf`](../../scripts/gods-eye-projects.conf)**; Settings → HimFLer → Refresh; `npm run build`+`lint` pass; autosync committed+pushed `ce4afb3` · `origin/main` @ `ce4afb3`; **Supersedes** ProjectContext-mock-only Recent lines; no cloud · no repo auto-edit · HimFler `gh auth pending` (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: **Compass full product push** — Brent **don't want mock — fully functioning product**; worker shipped **`ea832ac`** — all sidebar routes wired (`routeRegistry` · Phases 2–8 pages · queues · prompts · auditor · progress · memory · loop · reports · settings) · `compassApi` + Vite GE file API (`server/` · `gods-eye-projects.conf`) · enriched task mock layers; **`ProjectContext` still mock-only** — live GE fetch + full task persistence **next**; `npm run dev` for API; autosync committed+pushed `ea832ac` · `origin/main` @ `ea832ac` (`+#` only).
 - **2026-06-11** — Touch 3 AFTER: **session close — Compass packet + last-turn law** — Brent Complete Build Packet · **do all phases automatically** + **in parallel** (4 workers); shipped **Phase 1 mock dashboard** (`ProjectContext` · `mockSnapshot` · dashboard-only [`App.tsx`](../../apps/compass/src/app/App.tsx)) · §2.8 **last-turn law** (hooks · rules · Bible); `npm run build`+`lint` pass; **Phases 2–8:** page modules in tree · **sidebar nav still placeholders** — route integrator pending; autosync committed+pushed `1fd1c3f` · `origin/main` @ `1fd1c3f` (`+#` only).

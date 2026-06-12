@@ -1,7 +1,7 @@
 import { createContext } from 'react'
 import type { AuditItem, Blocker, Decision, Phase, Task } from '../types/project'
 import type { SelectedProject } from '../services/compassApi'
-import type { CompassSettingsProfile, ProjectSnapshot, RegistryEntry } from '../types/snapshot'
+import type { CompassSettingsProfile, ProjectSnapshot, RefreshStatus, RegistryEntry } from '../types/snapshot'
 
 export type ProjectContextValue = {
   registry: RegistryEntry[]
@@ -10,7 +10,8 @@ export type ProjectContextValue = {
   error: string | null
   selected: SelectedProject | null
   selectProject: (path: string, label: string) => void
-  refresh: () => void
+  refresh: (options?: { silent?: boolean }) => Promise<void>
+  refreshStatus: RefreshStatus
   updateTask: (taskId: string, patch: Partial<Task>) => Promise<void>
   updateDecision: (decisionId: string, patch: Partial<Decision>) => Promise<void>
   updateBlocker: (blockerId: string, patch: Partial<Blocker>) => Promise<void>

@@ -6,6 +6,18 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-11 — Compass: auto-refresh monitor (requested, not shipped)
+
+**Signal:** Brent wants the **monitor to refresh and show when there are changes** (GE handoff/overlay edits while Compass is open).
+
+**Pattern (target):** Server exposes handoff/overlay **mtime or content hash** · client **polls** when `settings.autoRefresh` enabled · `ProjectContext.refresh()` merges without dropping IndexedDB overrides · AppShell badge (“Updated” / timestamp).
+
+**Current:** Settings toggle exists; **no poll loop** on `ca783f2` — still manual **Refresh from God's Eye**.
+
+**See:** [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`ProjectContext.tsx`](../apps/compass/src/context/ProjectContext.tsx)
+
+---
+
 ## 2026-06-11 — Compass: multi-project registry + IndexedDB product layer (`ce4afb3`)
 
 **Supersedes:** learning entry “full product ≠ mock seed only” — stack (3) shipped on `ce4afb3`.

@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import type { Connect } from 'vite'
 import type { Plugin } from 'vite'
-import { buildProjectSnapshot, loadRegistry } from './buildSnapshot'
+import { buildProjectSnapshot, computeSnapshotVersion, loadRegistry } from './buildSnapshot'
 
 function findMonorepoRoot(): string {
   let dir = process.cwd()
@@ -28,6 +28,31 @@ function attachApi(server: { middlewares: Connect.Server }, monorepoRoot: string
     try {
       const registry = loadRegistry(confPath, monorepoRoot)
       sendJson(res, 200, { registry })
+    } catch (error) {
+      sendJson(res, 500, { error: String(error) })
+    }
+  })
+
+  server.middlewares.use('/api/project/version', (req, res) => {
+    try {
+      const url = new URL(req.url ?? '', 'http://localhost')
+      const projectPath = url.searchParams.get('path')
+
+      if (!projectPath) {
+        sendJson(res, 400, { error: 'Missing path query parameter' })
+        return
+      }
+
+      const normalized = path.normalize(projectPath)
+      if (!fs.existsSync(normalized)) {
+        sendJson(res, 404, { error: `Project path not found: ${normalized}` })
+        return
+      }
+
+      sendJson(res, 200, {
+        snapshotVersion: computeSnapshotVersion(normalized),
+        checkedAt: new Date().toISOString(),
+      })
     } catch (error) {
       sendJson(res, 500, { error: String(error) })
     }
