@@ -3,6 +3,7 @@
 .env
 .env.*
 .cursor/touch3.disabled
+.cursor/.multiphase-in-flight
 .cursor/.autosync-session
 .cursor/.touch3-cache
 mcp-server/node_modules/
