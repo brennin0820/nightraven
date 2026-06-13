@@ -261,6 +261,51 @@ git status
 | Dry-run expected patch preview | Run live call or read `[dry-run]` skill/gap lines only |
 | Review file `.json` | Expect **`planner-YYYYMMDD-HHMMSS.md`** |
 
+#### zsh one-liner + expected output (macOS default shell)
+
+**+# Third external paste (2026-06-13) Supersedes:** sample output showing dry-run **“3 files modified, 27 lines added”** or live run **“applies patches”** — **false**; fix steps citing **`git apply` / `git commit` in script** — **false**.
+
+**Interactive (zsh — use `print -n` + `read`, not bash `read -p`):**
+
+```zsh
+cd /Users/brentlenninorlanda/Developer/NightRaven/nightraven && \
+./scripts/lmstudio-division-improve.sh --dry-run --division planner && \
+echo "Available models:" && \
+curl -sf http://localhost:1234/v1/models | \
+  python3 -c 'import json,sys; print("\n".join(m["id"] for m in json.load(sys.stdin).get("data", [])))' && \
+print -n 'Model id: ' && read MODEL_ID && \
+./scripts/lmstudio-division-improve.sh --division planner --model "$MODEL_ID" && \
+ls -lt docs/lmstudio-reviews/ | head
+```
+
+**Non-interactive (Brent remote default — confirm id from `/v1/models`):**
+
+```zsh
+MODEL_ID="gpt-oss-20b"
+cd /Users/brentlenninorlanda/Developer/NightRaven/nightraven && \
+./scripts/lmstudio-division-improve.sh --dry-run --division planner && \
+./scripts/lmstudio-division-improve.sh --division planner --model "$MODEL_ID" && \
+git status --short docs/lmstudio-reviews/
+```
+
+**Expected dry-run excerpt:**
+
+```text
+[dry-run] division=planner skill=.claude/skills/divisions/planner/SKILL.md
+  gap: Foundation layout + DAG; human gate before phase 1.
+Dry-run complete. 1 division(s) planned.
+```
+
+**Expected live run excerpt:**
+
+```text
+→ improving division: planner (model: gpt-oss-20b)
+  wrote: docs/lmstudio-reviews/planner-YYYYMMDD-HHMMSS.md
+Done. Reviews under: docs/lmstudio-reviews/
+```
+
+**Expected `git status`:** untracked **`?? docs/lmstudio-reviews/planner-….md`** only — no auto-commit.
+
 ### After the loop
 
 1. Read reviews — pick one division improvement per session (Tier C bar).  

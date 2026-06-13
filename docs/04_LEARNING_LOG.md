@@ -18,6 +18,8 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **+# Supersedes (second external paste, same session):** also claims `--dry-run` previews patches/line counts · division = directory glob `divisions/planner/` · review files are JSON with `patches` array · troubleshoot `git apply failed` — all **false** for NightRaven script.
 
+**+# Supersedes (third paste — zsh recipe):** sample output with **“3 files modified”** on dry-run · live run **applies patches** · re-enable **`git commit` in script** — **false**; macOS default **zsh** uses `print -n` + `read` not bash `read -p`.
+
 **See:** [`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md) §6 · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
 
 ---

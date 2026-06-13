@@ -6,6 +6,13 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-13
 
+### LM Studio zsh one-liner recipe (§6)
+
+- +# Brent third external paste — **Supersedes** fake dry-run patch stats + “applies patches” live step + `git apply` sanity checks
+- +# **`+#`** wired macOS **zsh** interactive + non-interactive recipes · expected dry-run/live/`git status` excerpts in [`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md) §6
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md)
+
 ### LM Studio mis-doc pass 2 — dry-run / JSON review myths
 
 - +# Brent second external paste — falsely claims `--dry-run` prints patches · targets `divisions/planner/` paths · stores **JSON** reviews with RFC 6902 · **`git apply failed`** troubleshooting
