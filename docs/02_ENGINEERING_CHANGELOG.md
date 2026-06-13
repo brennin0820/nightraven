@@ -6,6 +6,14 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-13
 
+### LM Studio Personal Network — Brent setup (Mac + remote 4080)
+
+- +# Brent LM Studio **Network Devices** — Mac control surface · remote **`DESKTOP-7FT26ER`** RTX 4080 16 GB VRAM · **Set as preferred device ON** · **`GPT-OSS 20B`** (gguf) on remote
+- +# **Script contract unchanged** — [`lmstudio-division-improve.sh`](../scripts/lmstudio-division-improve.sh) → Mac Local Server `http://localhost:1234/v1`; preferred remote handles GPU load — no separate remote `--base-url` unless server runs only on Windows
+- +# Wired — [`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md) §6 Personal Network subsection · overlay pitfall row
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md)
+
 ### Touch 3 AFTER — push landed memory committed (`0870b42`)
 
 - +# Brent **`commit`** — local **`0870b42`** records push @ `32e6419` + GH007 batch-rebase learning in handoff · changelog · learning log

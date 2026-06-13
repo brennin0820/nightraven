@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-13 — LM Studio Personal Network (Mac API · remote GPU)
+
+**Signal:** Brent shared LM Studio **Network** UI — MacBook control · Windows **`DESKTOP-7FT26ER`** RTX 4080 preferred · **`GPT-OSS 20B`** loaded remotely.
+
+**Pattern:** **Personal Network preferred device** offloads VRAM to remote GPU while the division-improve script still uses the **Mac Local Server** OpenAI endpoint (`localhost:1234/v1` or `NIGHTRAVEN_LMSTUDIO_URL`). Do not point the script at the remote device URL unless the server is bound there. Resolve `--model` from `GET /v1/models` — UI label may differ from API `id`.
+
+**Do:** Local Server ON on Mac · preferred device ON · serial `./scripts/lmstudio-division-improve.sh --division all --model <id>`.
+
+**Don't:** Parallel division calls across Mac+remote; assume 20B replaces 32B coder models for Builder/Architect reviews.
+
+**See:** [`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md) §6 · [`scripts/lmstudio-division-improve.sh`](../scripts/lmstudio-division-improve.sh) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+
+---
+
 ## 2026-06-13 — Touch 3 commit without push (push-latency defer)
 
 **Signal:** Brent **`commit`** then **`+#` only · stop** — memory batch lands locally but not on `origin/main` in same turn.

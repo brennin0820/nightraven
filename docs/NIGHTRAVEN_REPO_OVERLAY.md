@@ -93,6 +93,7 @@ Read Bible **§0 Agent quick start** + **§2.8**. **Agent card:** `docs/NIGHTRAV
 | **Local mode parallelization** | No subagents or parallel reads on LM Studio — serial only; see `NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md` §4 |
 | **Repeat re-exploration** | Handoff/thread already answered — cite and continue; Bible §2.8 repeat lane |
 | **Orchestration theater** | Passive mode default — `/nightraven` only when needed; §2.8 |
+| **LM Studio Personal Network** | Division script uses Mac Local Server API; preferred remote (e.g. RTX 4080) runs GPU — see local doc §6 Personal Network; `--model` from `/v1/models` |
 
 ---
 

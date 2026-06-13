@@ -188,6 +188,20 @@ Swap models in LM Studio between runs if VRAM is tight — script uses whichever
 
 **Output:** `docs/lmstudio-reviews/<division>-<timestamp>.md` — review proposals only; apply with **`+#`** to SKILL/registry after Brent says **code it**.
 
+### Personal Network (preferred remote device)
+
+Brent’s live setup (2026-06-13): **MacBook Pro** runs LM Studio UI + **Local Server**; **DESKTOP-7FT26ER** (RTX 4080 · 16 GB VRAM) is **Connected** with **Set as preferred device** ON; **`GPT-OSS 20B`** (gguf) on remote.
+
+| Layer | Role |
+|---|---|
+| **Mac Local Server** | OpenAI API for scripts — default `http://localhost:1234/v1` |
+| **Preferred remote** | GPU/VRAM for loaded model — LM Studio routes inference |
+| **Script** | Still serial · one division per call · `--model` from `/v1/models` |
+
+**20B on 16 GB VRAM:** fine for **auditor** · **design** · **researcher/research** (offline rubric); acceptable but lighter for **planner** · **architect** · **builder** gap reviews.
+
+**Don't:** Change `--base-url` to the remote device unless the OpenAI server is actually listening there.
+
 ### After the loop
 
 1. Read reviews — pick one division improvement per session (Tier C bar).  
