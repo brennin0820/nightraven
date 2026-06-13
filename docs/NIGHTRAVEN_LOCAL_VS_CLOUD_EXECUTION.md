@@ -248,7 +248,7 @@ git status
 
 **Apply proposals:** **`+#`** to SKILL/registry after Brent says **code it** — never `-#`.
 
-**Supersedes common mis-doc:** external guides claiming the script rewrites division files or commits `Improve planner division: …` — **incorrect for this repo**.
+**Supersedes common mis-doc:** external guides claiming the script rewrites division files or commits `Improve planner division: …` — **incorrect for this repo**. **+# Second paste (2026-06-13):** also wrong — dry-run prints **patches/line counts** (actual: division · skill · gap only) · targets `divisions/planner/` tree (actual: one `SKILL.md`) · reviews as **JSON** with `patches` key (actual: **`.md`** markdown) · **`git apply failed`** troubleshooting (actual: script never patches git).
 
 | Symptom | Fix |
 |---|---|
@@ -257,6 +257,9 @@ git status
 | Wrong model id | Copy from `/v1/models` → `data[].id` |
 | Expected auto-commit | Read review markdown; apply manually with ship signal |
 | Nomic fails | Embeddings-only — skip for this script |
+| **`git apply failed`** in guide | **N/A** — mis-doc; script does not patch |
+| Dry-run expected patch preview | Run live call or read `[dry-run]` skill/gap lines only |
+| Review file `.json` | Expect **`planner-YYYYMMDD-HHMMSS.md`** |
 
 ### After the loop
 

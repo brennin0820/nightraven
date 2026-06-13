@@ -16,6 +16,8 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Expect `Improve planner division:` commits from the script; trust generic LM Studio tutorials without reading [`scripts/lmstudio-division-improve.sh`](../scripts/lmstudio-division-improve.sh).
 
+**+# Supersedes (second external paste, same session):** also claims `--dry-run` previews patches/line counts · division = directory glob `divisions/planner/` · review files are JSON with `patches` array · troubleshoot `git apply failed` — all **false** for NightRaven script.
+
 **See:** [`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md) §6 · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
 
 ---

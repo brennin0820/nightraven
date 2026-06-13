@@ -95,7 +95,7 @@ Read Bible **§0 Agent quick start** + **§2.8**. **Agent card:** `docs/NIGHTRAV
 | **Orchestration theater** | Passive mode default — `/nightraven` only when needed; §2.8 |
 | **LM Studio Personal Network** | Division script uses Mac Local Server API; preferred remote (e.g. RTX 4080) runs GPU — see local doc §6 Personal Network; `--model` from `/v1/models` |
 | **LM Studio embed models** | Do not use embedding models (e.g. Nomic Embed) with division-improve chat script — chat/completions models only; see §6 roster |
-| **LM Studio auto-patch myth** | `lmstudio-division-improve.sh` writes review markdown only — no JSON Patch · no `git apply` · no auto-commit; see local doc §6 runbook |
+| **LM Studio auto-patch myth** | `lmstudio-division-improve.sh` writes review markdown only — no JSON Patch · no `git apply` · no auto-commit; dry-run shows skill/gap not patches; reviews are `.md` not `.json`; see local doc §6 runbook |
 
 ---
 
