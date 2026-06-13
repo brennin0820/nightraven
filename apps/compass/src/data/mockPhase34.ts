@@ -91,7 +91,7 @@ function buildPromptCard(
 /** Phase 3 — four prompt targets generated via promptGenerator.ts */
 export const phase34PromptCards: PromptCard[] = [
   buildPromptCard(
-    'prompt-ge-phase34',
+    'prompt-nr-phase34',
     'nightraven',
     generateNightRavenPrompt(mockProject, currentPhase, nextTask),
     nextTask.id,

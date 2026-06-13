@@ -43,7 +43,7 @@ export const mockSettingsProfile: CompassSettingsProfile = {
 
 export const mockExtraTasks: Task[] = [
   {
-    id: 'task-ge-handoff-wire',
+    id: 'task-nr-handoff-wire',
     projectId: 'project-nr-compass',
     phaseId: 'phase-1',
     title: 'Wire handoff Recent sessions into memory feed',
@@ -220,7 +220,7 @@ export const mockMemoryFeed: MemoryFeedItem[] = [
     date: '2026-06-10',
     kind: 'task',
     title: 'Handoff memory feed wire',
-    source: 'task-ge-handoff-wire',
+    source: 'task-nr-handoff-wire',
     text: "NightRaven task: append-only handoff parser stub — memory feed should show tasks, decisions, audits, blockers.",
   },
   {

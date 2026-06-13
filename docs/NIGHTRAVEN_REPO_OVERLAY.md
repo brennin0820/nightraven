@@ -91,3 +91,13 @@ Read Bible **§0 Agent quick start** + **§2.8**. **Agent card:** `docs/NIGHTRAV
 ## Supersedes — canonical brand (2026-06-13)
 
 **Forward-facing agent guidance:** **NightRaven** is the canonical user-facing brand for this framework (memory, oversight, adoption). Legacy names **God's Eye**, **God'sEye**, **GE**, and **`GODS_EYE_*`** paths remain in historical handoff entries, plan filenames, and archaeology only — do not introduce new GE branding in rules, AGENTS, overlay wire, or README. Brent speech may still say "god's eye"; map to oversight intent per Bible §0 (not a brand revert).
+
+---
+
+## Supersedes — rename cycle stop (2026-06-13)
+
+**Forward-facing:** Brent superseded the **rename all filenames** request. Do **not** resume bulk GE→NightRaven path renames, parallel rename workers, or reference sweeps beyond memory wire until explicit **code it** / **implement** / **build** ship signal. This cycle: **`+#` only** · **this repo only** · **no new template scaffolds** · **stop** (no commit/push). Prior worker **`d41a2b79`** interrupted mid-scan only — committed batch (**23** renames ahead of `origin/main`) may ship when Brent says **commit**; unstaged deltas (SKILL · `.vscode` · root `gods-eye` gitlink deletes) are separate.
+
+## Supersedes — GE filename sweep complete (2026-06-13)
+
+**Forward-facing:** Brent resumed **rename all remaining GE filenames** — final tracked renames: `docs/assets/gods-eye-flow.png` → `nightraven-flow.png` (README already pointed at target); removed stale root `gods-eye` / `gods-eye-1` submodule gitlinks. Prior batch (**23** `git mv` on `main` ahead of origin) already covered docs `GODS_EYE_*` → `NIGHTRAVEN_*`, rules, templates, MCP, scripts, Compass. **No GE-named files remain in git index.** Mock Compass IDs `task-ge-*` / `prompt-ge-*` → `task-nr-*` / `prompt-nr-*`. **Uncommitted** — say **commit** when ready.
