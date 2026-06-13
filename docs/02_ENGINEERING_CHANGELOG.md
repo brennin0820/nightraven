@@ -6,6 +6,13 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-13
 
+### Touch 3 AFTER — LM Studio memory committed (`6979747`)
+
+- +# Brent **`commit`** — local **`6979747`** ships Personal Network + remote roster wire (handoff · changelog · learning · local doc §6 · registry · overlay)
+- +# **Push-latency §2.8** — **`main` 3 ahead** of `origin/main`; push **deferred** until Brent says **push** (noreply on commit)
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
 ### LM Studio remote model roster — division map (`DESKTOP-7FT26ER`)
 
 - +# Brent remote models (gguf) — **GPT-OSS 20B** · **Gemma 4 E4B** (~7.5B) · **DeepSeek R1 0528 Qwen3 8B** · **Nomic Embed Text v1.5** (embeddings — not for chat/completions)

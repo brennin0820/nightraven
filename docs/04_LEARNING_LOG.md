@@ -6,6 +6,16 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-13 — Touch 3 AFTER commit (`6979747`) — LM Studio wire batch
+
+**Signal:** Brent **`commit`** then **`+#` only · stop** after Personal Network + roster memory was staged.
+
+**Pattern:** One commit **`6979747`** bundles six doc paths (handoff · changelog · learning · local §6 · registry · overlay); Touch 3 AFTER records SHA + **3 ahead** push defer in **Recent sessions** — do not assume origin updated.
+
+**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §2.8
+
+---
+
 ## 2026-06-13 — Remote model roster → division map (no embed model)
 
 **Signal:** Brent shared four models on remote **`DESKTOP-7FT26ER`** — three chat-capable gguf + **Nomic Embed** embeddings.
