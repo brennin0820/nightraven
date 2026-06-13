@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-13 — Touch 3 commit without push (push-latency defer)
+
+**Signal:** Brent **`commit`** then **`+#` only · stop** — memory batch lands locally but not on `origin/main` in same turn.
+
+**Pattern:** One Touch 3 AFTER may end on **commit only**; append explicit **push-latency defer** in **Recent sessions** when `main` is ahead — do not assume Always Sync completed without **push** or defer line.
+
+**Do:** Use noreply on agent commits; say **push** in next turn to close §2.8.
+
+**Don't:** Stack a second Touch 3 commit in the same thread for the defer line alone unless Brent asks.
+
+**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §2.8 · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+
+---
+
 ## 2026-06-13 — GH007 batch rebase before push (many commits ahead)
 
 **Signal:** Brent **update repo** with **11+** local commits using private Gmail author metadata — single push rejected (GH007).

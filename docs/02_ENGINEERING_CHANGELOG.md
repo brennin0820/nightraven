@@ -6,6 +6,13 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-13
 
+### Touch 3 AFTER — push landed memory committed (`0870b42`)
+
+- +# Brent **`commit`** — local **`0870b42`** records push @ `32e6419` + GH007 batch-rebase learning in handoff · changelog · learning log
+- +# **Push-latency §2.8** — **`main` 1 ahead** of `origin/main`; push **deferred** until Brent says **push** (noreply metadata on commit)
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
 ### Session sync — push landed (`32e6419`)
 
 - +# Brent **update repo** — committed Touch 3 LM Studio memory batch · rebased **12** ahead commits with noreply author **and** committer · **pushed** `origin/main` @ `32e6419`
