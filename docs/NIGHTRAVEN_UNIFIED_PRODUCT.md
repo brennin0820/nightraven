@@ -30,7 +30,8 @@ NightRaven/                    ← platform monorepo (GitHub: gods-eye until ren
 ├── .claude/skills/nightraven/ ← NightRaven Core
 ├── apps/
 │   ├── README.md
-│   └── compass/               ← NightRaven Compass Phase 1 (subtree from sibling repo)
+│   ├── compass/               ← NightRaven Compass Phase 1 (subtree from sibling repo)
+│   └── planner/               ← NightRaven Planner — multi-agent app foundation layout
 ├── install.sh
 └── scripts/install-gods-eye-nightraven.sh
 ```
