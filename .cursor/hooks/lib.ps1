@@ -90,14 +90,14 @@ function Get-GodsEyeProjectRoot {
 
 function Resolve-GodsEyeRoot {
     param([string]$ProjectRoot)
-    $localBible = Join-Path $ProjectRoot "docs\37_GODS_EYE.md"
+    $localBible = Join-Path $ProjectRoot "docs\37_GODS_EYE_BIBLE.md"
     if (Test-Path -LiteralPath $localBible) {
         return $ProjectRoot
     }
-    if ($env:GODS_EYE_ROOT -and (Test-Path -LiteralPath (Join-Path $env:GODS_EYE_ROOT "docs\37_GODS_EYE.md"))) {
+    if ($env:GODS_EYE_ROOT -and (Test-Path -LiteralPath (Join-Path $env:GODS_EYE_ROOT "docs\37_GODS_EYE_BIBLE.md"))) {
         return $env:GODS_EYE_ROOT
     }
-    $installBible = Join-Path $script:GodsEyeInstallRoot "docs\37_GODS_EYE.md"
+    $installBible = Join-Path $script:GodsEyeInstallRoot "docs\37_GODS_EYE_BIBLE.md"
     if (Test-Path -LiteralPath $installBible) {
         return $script:GodsEyeInstallRoot
     }

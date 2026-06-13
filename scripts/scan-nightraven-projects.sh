@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# scan-gods-eye-projects.sh — Inventory God's Eye artifacts across registered workspaces.
+# scan-nightraven-projects.sh — Inventory God's Eye artifacts across registered workspaces.
 #
 # Usage:
-#   ./scripts/scan-gods-eye-projects.sh              # stdout report
-#   ./scripts/scan-gods-eye-projects.sh --markdown   # markdown table (for doc refresh)
+#   ./scripts/scan-nightraven-projects.sh              # stdout report
+#   ./scripts/scan-nightraven-projects.sh --markdown   # markdown table (for doc refresh)
 
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-CONF="${ROOT}/scripts/gods-eye-projects.conf"
+CONF="${ROOT}/scripts/nightraven-projects.conf"
 MODE="${1:-}"
 
 if [[ ! -f "$CONF" ]]; then
@@ -17,12 +17,12 @@ if [[ ! -f "$CONF" ]]; then
 fi
 
 ARTIFACTS=(
-  "docs/37_GODS_EYE.md"
+  "docs/37_GODS_EYE_BIBLE.md"
   "docs/GODS_EYE_UNIFIED_STACK.md"
-  "docs/GODS_EYE_GRAND_SPEC.md"
+  "docs/GODS_EYE_LAYERED_SPEC_ROUTER.md"
   "docs/GODS_EYE_REPO_OVERLAY.md"
-  "docs/GODS_EYE_SESSION_TREE.md"
-  "docs/GODS_EYE_IMPROVEMENT_LOOP.md"
+  "docs/GODS_EYE_SESSION_SPEC_TREES.md"
+  "docs/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md"
   "docs/14_SESSION_HANDOFF.md"
   "docs/02_ENGINEERING_CHANGELOG.md"
   "docs/04_LEARNING_LOG.md"
@@ -30,8 +30,8 @@ ARTIFACTS=(
   "docs/HOOKS_SETUP.md"
   "docs/CURSOR_INSTALL.md"
   "AGENTS.md"
-  ".cursor/rules/gods-eye-context-intent.mdc"
-  ".cursor/gods-eye-improvement-loop.md"
+  ".cursor/rules/nightraven-context-intent.mdc"
+  ".cursor/IMPROVEMENT_LOOP_CYCLE_PROMPT.md"
   ".cursor/hooks.json"
 )
 
@@ -52,7 +52,7 @@ infer_phase() {
   local base="$1"
   local hooks=0 bible=0 handoff=0 overlay=0
   has_file "$base" ".cursor/hooks.json" && hooks=1
-  has_file "$base" "docs/37_GODS_EYE.md" && bible=1
+  has_file "$base" "docs/37_GODS_EYE_BIBLE.md" && bible=1
   has_file "$base" "docs/14_SESSION_HANDOFF.md" && handoff=1
   has_file "$base" "docs/GODS_EYE_REPO_OVERLAY.md" && overlay=1
 
@@ -79,9 +79,9 @@ latest_recent_session() {
 
 bible_source() {
   local base="$1"
-  if has_file "$base" "docs/37_GODS_EYE.md"; then
+  if has_file "$base" "docs/37_GODS_EYE_BIBLE.md"; then
     echo "vendored"
-  elif grep -q "GODS_EYE_ROOT\|Projects/gods-eye" "${base}/.cursor/rules/gods-eye-context-intent.mdc" 2>/dev/null; then
+  elif grep -q "GODS_EYE_ROOT\|Projects/gods-eye" "${base}/.cursor/rules/nightraven-context-intent.mdc" 2>/dev/null; then
     echo "pointer"
   elif grep -q "Universal_AI_Project_Operating_System" "${base}/docs/GODS_EYE_REPO_OVERLAY.md" 2>/dev/null; then
     echo "UAIPOS pointer"
@@ -124,7 +124,7 @@ while IFS='|' read -r path label role || [[ -n "${path:-}" ]]; do
     if [[ -d "$path/.cursor/rules" ]]; then
       for r in "$path/.cursor/rules"/*.mdc; do
         [[ -f "$r" ]] || continue
-        [[ "$(basename "$r")" == "gods-eye-context-intent.mdc" ]] && continue
+        [[ "$(basename "$r")" == "nightraven-context-intent.mdc" ]] && continue
         extra_rules+=("$(basename "$r")")
       done
     fi
@@ -136,20 +136,20 @@ while IFS='|' read -r path label role || [[ -n "${path:-}" ]]; do
 done < "$CONF"
 
 # User-global Cursor install
-USER_RULE="${HOME}/.cursor/rules/gods-eye-context-intent.mdc"
+USER_RULE="${HOME}/.cursor/rules/nightraven-context-intent.mdc"
 USER_HOOKS="${HOME}/.cursor/hooks.json"
 if [[ "$MODE" == "--markdown" ]]; then
   user_phase="2"
   user_arts=0
   [[ -f "$USER_RULE" ]] && user_arts=$((user_arts + 1))
   [[ -f "$USER_HOOKS" ]] && user_arts=$((user_arts + 1))
-  [[ -d "${HOME}/.cursor/hooks/gods-eye" ]] && user_arts=$((user_arts + 1))
+  [[ -d "${HOME}/.cursor/hooks/nightraven" ]] && user_arts=$((user_arts + 1))
   echo "| **Cursor user global** | \`~/.cursor\` | user-global | $user_phase | pointer | $user_arts/3 hooks+rule | Always-on rule when no project rule |"
 else
   echo ""
   echo "=== Cursor user global ==="
   echo "  path: ~/.cursor"
-  [[ -f "$USER_RULE" ]] && echo "  ✓ rules/gods-eye-context-intent.mdc"
+  [[ -f "$USER_RULE" ]] && echo "  ✓ rules/nightraven-context-intent.mdc"
   [[ -f "$USER_HOOKS" ]] && echo "  ✓ hooks.json"
-  [[ -d "${HOME}/.cursor/hooks/gods-eye" ]] && echo "  ✓ hooks/gods-eye/"
+  [[ -d "${HOME}/.cursor/hooks/nightraven" ]] && echo "  ✓ hooks/nightraven/"
 fi

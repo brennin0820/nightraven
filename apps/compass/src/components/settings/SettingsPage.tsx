@@ -20,7 +20,7 @@ export function SettingsPage() {
         </div>
         <p className="card-copy">
           Compass reads live God&apos;s Eye files via the Vite dev API (
-          <code>scripts/gods-eye-projects.conf</code>, handoff, overlay). Edits persist in
+          <code>scripts/nightraven-projects.conf</code>, handoff, overlay). Edits persist in
           IndexedDB and survive refresh. Production static builds fall back to seed + local
           overrides until served with the API middleware.
         </p>

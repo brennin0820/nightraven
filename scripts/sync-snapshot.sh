@@ -13,9 +13,9 @@ SNAPSHOT="${GODS_EYE_SNAPSHOT:-"${HOME}/God's Eye/GodsEye-Docs-extracted"}"
 MODE="${1:-}"
 
 SYNC_FILES=(
-  "docs/37_GODS_EYE.md"
+  "docs/37_GODS_EYE_BIBLE.md"
   "docs/GODS_EYE_REPO_OVERLAY.md"
-  ".cursor/rules/gods-eye-context-intent.mdc"
+  ".cursor/rules/nightraven-context-intent.mdc"
 )
 
 if [[ ! -d "$SNAPSHOT" ]]; then
@@ -33,9 +33,9 @@ for rel in "${SYNC_FILES[@]}"; do
   src="${GODS_EYE_ROOT}/${rel}"
   dest="${SNAPSHOT}/${rel##*/}"
   case "$rel" in
-    docs/37_GODS_EYE.md) dest="${SNAPSHOT}/37_GODS_EYE.md" ;;
+    docs/37_GODS_EYE_BIBLE.md) dest="${SNAPSHOT}/37_GODS_EYE_BIBLE.md" ;;
     docs/GODS_EYE_REPO_OVERLAY.md) dest="${SNAPSHOT}/GODS_EYE_REPO_OVERLAY.md" ;;
-    .cursor/rules/*) dest="${SNAPSHOT}/gods-eye-context-intent.mdc" ;;
+    .cursor/rules/*) dest="${SNAPSHOT}/nightraven-context-intent.mdc" ;;
   esac
   if [[ ! -f "$src" ]]; then
     echo "MISSING source: $src" >&2

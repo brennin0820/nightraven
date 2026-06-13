@@ -1,6 +1,6 @@
 # Session handoff
 
-**Scope:** App memory for **this repository only**. Portable law: `docs/37_GODS_EYE.md` (or `$GODS_EYE_ROOT/docs/37_GODS_EYE.md`).
+**Scope:** App memory for **this repository only**. Portable law: `docs/37_GODS_EYE_BIBLE.md` (or `$GODS_EYE_ROOT/docs/37_GODS_EYE_BIBLE.md`).
 
 ---
 

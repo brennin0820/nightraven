@@ -14,8 +14,12 @@ function normalizePath(value: string): string {
   return value.replace(/\\/g, '/').toLowerCase()
 }
 
-function isGodsEyeMonorepo(entry: RegistryEntry): boolean {
-  return entry.role === 'framework' && normalizePath(entry.path).includes('gods-eye-1')
+function isLegacyFrameworkMonorepo(entry: RegistryEntry): boolean {
+  const p = normalizePath(entry.path)
+  return (
+    entry.role === 'framework' &&
+    (p.includes('gods-eye-1') || p.includes('/nightraven/nightraven') || p.endsWith('/nightraven'))
+  )
 }
 
 function findHimFlerEntry(registry: RegistryEntry[]): RegistryEntry | undefined {
@@ -39,7 +43,7 @@ function tryRestoreStoredProject(registry: RegistryEntry[]): SelectedProject | n
   // Pre-ca783f2 builds auto-picked the first registry row (gods-eye-1). Migrate once to HimFLer.
   if (
     !localStorage.getItem(LEGACY_MONOREPO_MIGRATION_KEY) &&
-    isGodsEyeMonorepo(match)
+    isLegacyFrameworkMonorepo(match)
   ) {
     localStorage.removeItem(STORAGE_KEY)
     localStorage.setItem(LEGACY_MONOREPO_MIGRATION_KEY, 'done')

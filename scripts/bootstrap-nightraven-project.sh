@@ -9,7 +9,7 @@
 #   ./scripts/bootstrap-nightraven-project.sh HimFLer /e/NightRaven/HimFLer
 #
 # Creates TARGET_DIR (default: sibling of framework repo under ../PROJECT_NAME),
-# runs install-gods-eye-nightraven.sh, seeds overlay/handoff/README, git init if needed.
+# runs install-nightraven-framework.sh, seeds overlay/handoff/README, git init if needed.
 
 set -euo pipefail
 
@@ -50,7 +50,7 @@ if [[ ! -d "${TARGET}/.git" ]]; then
 fi
 
 log "Installing God's Eye + NightRaven Core → ${TARGET}"
-"${GODS_EYE_ROOT}/scripts/install-gods-eye-nightraven.sh" --no-mcp "$TARGET"
+"${GODS_EYE_ROOT}/scripts/install-nightraven-framework.sh" --no-mcp "$TARGET"
 
 TODAY="$(date +%Y-%m-%d)"
 FRAMEWORK_REF="${GODS_EYE_ROOT}"
@@ -61,9 +61,9 @@ if [[ -f "$OVERLAY" ]]; then
   cat > "$OVERLAY" <<EOF
 # God's Eye repo overlay — ${PROJECT_NAME}
 
-**Local layer only.** Portable laws live in **\`docs/37_GODS_EYE.md\`** (vendored or at \`\$GODS_EYE_ROOT\`).
+**Local layer only.** Portable laws live in **\`docs/37_GODS_EYE_BIBLE.md\`** (vendored or at \`\$GODS_EYE_ROOT\`).
 
-**Router:** \`docs/GODS_EYE_GRAND_SPEC.md\` (if present)
+**Router:** \`docs/GODS_EYE_LAYERED_SPEC_ROUTER.md\` (if present)
 
 **Default posture:** **Tier C — Creator-Innovator** (Bible §10).
 
@@ -95,8 +95,8 @@ if [[ -f "$OVERLAY" ]]; then
 
 | Layer | Path |
 |-------|------|
-| Rule | \`.cursor/rules/gods-eye-context-intent.mdc\` |
-| Bible | \`docs/37_GODS_EYE.md\` |
+| Rule | \`.cursor/rules/nightraven-context-intent.mdc\` |
+| Bible | \`docs/37_GODS_EYE_BIBLE.md\` |
 | Overlay | this file |
 | Handoff | \`docs/14_SESSION_HANDOFF.md\` |
 | Entry | \`AGENTS.md\` |
@@ -114,7 +114,7 @@ if [[ -f "$HANDOFF" ]]; then
   cat > "$HANDOFF" <<EOF
 # Session handoff — ${PROJECT_NAME}
 
-**Scope:** App memory for **this repository only**. Portable law: \`docs/37_GODS_EYE.md\`.
+**Scope:** App memory for **this repository only**. Portable law: \`docs/37_GODS_EYE_BIBLE.md\`.
 
 ---
 
@@ -155,7 +155,7 @@ Bootstrapped ${TODAY} with **God's Eye** + **NightRaven Core**.
 
 ## First session (agent)
 
-1. Parallel-read: rule → \`docs/37_GODS_EYE.md\` §0 → overlay → handoff → \`AGENTS.md\`
+1. Parallel-read: rule → \`docs/37_GODS_EYE_BIBLE.md\` §0 → overlay → handoff → \`AGENTS.md\`
 2. Ask Brent for product scope if unclear
 3. Complex work: \`/nightraven <task>\` after Phase 0 assessment
 

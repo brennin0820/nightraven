@@ -7,7 +7,7 @@ INSTALL_ROOT="${GODS_EYE_INSTALL_ROOT:-$(cd "${SCRIPT_DIR}/../.." && pwd)}"
 SERVER_JS="${INSTALL_ROOT}/mcp-server/dist/index.js"
 
 if [[ ! -f "$SERVER_JS" ]]; then
-  echo "gods-eye MCP server not built: ${SERVER_JS}" >&2
+  echo "nightraven memory-chain MCP server not built: ${SERVER_JS}" >&2
   echo "Run: cd \"${INSTALL_ROOT}/mcp-server\" && npm install && npm run build" >&2
   exit 1
 fi

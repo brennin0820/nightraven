@@ -9,9 +9,9 @@ $inputJson = Read-HookInput
 $projectRoot = Get-GodsEyeProjectRoot $inputJson
 $godsEyeRoot = Resolve-GodsEyeRoot $projectRoot
 $handoffHint = Get-GodsEyeRelPath $projectRoot "docs/14_SESSION_HANDOFF.md"
-$bibleHint = "docs/37_GODS_EYE.md"
+$bibleHint = "docs/37_GODS_EYE_BIBLE.md"
 if (-not (Test-Path -LiteralPath (Join-Path $projectRoot $bibleHint))) {
-    $bibleHint = Join-Path $godsEyeRoot "docs/37_GODS_EYE.md"
+    $bibleHint = Join-Path $godsEyeRoot "docs/37_GODS_EYE_BIBLE.md"
 }
 
 if (Test-GodsEyeShouldSkipStopPull $projectRoot) {
@@ -45,7 +45,7 @@ if (Test-GodsEyeTouch3Disabled $projectRoot) {
     $message += "`nAfter (Touch 3): **last turn only** - session-stop hook batches handoff + changelog + learning; never mid-session or while subagents run"
 }
 
-$message += "`n`nPortable law: $bibleHint - Session tree: docs/GODS_EYE_SESSION_TREE.md (or GODS_EYE_ROOT)"
+$message += "`n`nPortable law: $bibleHint - Session tree: docs/GODS_EYE_SESSION_SPEC_TREES.md (or GODS_EYE_ROOT)"
 $message += "`nGODS_EYE_ROOT=$godsEyeRoot"
 
 Emit-SessionStart $message $godsEyeRoot

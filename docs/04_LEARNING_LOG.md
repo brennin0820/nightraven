@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-13 — Monorepo root: orphan `gods-eye` gitlink dirs
+
+**Signal:** Brent asked to delete all God's Eye **folders** at repo root; `gods-eye` and `gods-eye-1` existed as empty dirs with git mode `160000` (submodule gitlinks) but no `.gitmodules`.
+
+**Pattern:** Legacy nested-clone paths can linger as orphan gitlinks after monorepo consolidation — safe to `rmdir` when empty; finalize with `git add -u` commit removing the gitlink entries.
+
+**Do:** Keep canonical framework at repo root per unified product map; remove stale sibling gitlinks only.
+
+**Don't:** Confuse folder deletion with removing framework docs/rules/scripts (different scope).
+
+**See:** [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+
+---
+
 ## 2026-06-11 — Compass: one-time default-project migration key
 
 **Supersedes:** learning entry “default project vs persisted selection” workaround-only path once migration shipped.
@@ -84,13 +98,13 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Signal:** Brent wanted a **real product** and **HimFLer on Compass** — not gods-eye monorepo only.
 
-**Pattern:** `gods-eye-projects.conf` (framework registry) → Vite `compassApiPlugin` reads consumer **`docs/14`** + overlay per path → **`ProjectContext`** merges API snapshot + **IndexedDB** overrides → Settings switches projects (e.g. **HimFLer** vs `gods-eye-1`). `npm run dev` required for live GE reads; static build still runs UI + local edits.
+**Pattern:** `nightraven-projects.conf` (framework registry) → Vite `compassApiPlugin` reads consumer **`docs/14`** + overlay per path → **`ProjectContext`** merges API snapshot + **IndexedDB** overrides → Settings switches projects (e.g. **HimFLer** vs `gods-eye-1`). `npm run dev` required for live GE reads; static build still runs UI + local edits.
 
 **Do:** Register each consumer repo in conf · open Compass Settings · Refresh after handoff updates.
 
 **Don't:** Edit framework `docs/14` when guiding HimFLer — Compass reads **that repo's** handoff; bleed = §2.6 violation.
 
-**See:** [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`gods-eye-projects.conf`](../scripts/gods-eye-projects.conf) · [`ProjectContext.tsx`](../apps/compass/src/context/ProjectContext.tsx)
+**See:** [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`nightraven-projects.conf`](../scripts/nightraven-projects.conf) · [`ProjectContext.tsx`](../apps/compass/src/context/ProjectContext.tsx)
 
 ---
 
@@ -132,7 +146,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Spawn Touch 3 background workers mid-session; run AFTER while build subagents still in flight; stack multiple Touch 3 passes.
 
-**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+**See:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.8 · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
 
 ---
 
@@ -140,7 +154,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Signal:** Brent shipped Compass via **Complete Build Packet** — Phase 1 dashboard in parallel; evolved beyond static mock to **read God's Eye memory from disk** without a separate backend.
 
-**Pattern:** **Mock-first task/scope data** (`mockProject.ts` · utils) for builder UX · **live memory** via Vite dev middleware parsing handoff Recent sessions + overlay Not Now · project registry in `gods-eye-projects.conf`. `npm run build` = static only; **`npm run dev`** required for file API. Phase 2 nav pages can ship on mock engines before full GE/MCP/git wire.
+**Pattern:** **Mock-first task/scope data** (`mockProject.ts` · utils) for builder UX · **live memory** via Vite dev middleware parsing handoff Recent sessions + overlay Not Now · project registry in `nightraven-projects.conf`. `npm run build` = static only; **`npm run dev`** required for file API. Phase 2 nav pages can ship on mock engines before full GE/MCP/git wire.
 
 **Do:** Bootstrap new consumer → add conf line → Compass Settings Refresh; cross-link [`apps/compass/README.md`](../apps/compass/README.md).
 
@@ -156,7 +170,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Pattern:** Vocabulary layers — **GitHub repo name** · **local path** · **overlay ship name** can differ; wire all three in overlay §1 and framework [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md). iOS product scope lives in **consumer repo memory** (`PRODUCT_SCOPE.md`), not framework `docs/14`. macOS-only builds — no Xcode from Windows; **code it** on Mac for Phase 1 scaffold.
 
-**Do:** Registry `gods-eye-projects.conf` uses ship name; `gh auth login` before `create-github-repo.sh`.
+**Do:** Registry `nightraven-projects.conf` uses ship name; `gh auth login` before `create-github-repo.sh`.
 
 **Don't:** Paste HimFler handoff into gods-eye framework `docs/14`; scaffold Swift/Xcode before ship signal.
 
@@ -198,7 +212,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Signal:** Brent asked to **put ready for use** a new project **HimFLer** — not another monorepo `apps/` subtree; separate consumer repo with full God's Eye + NightRaven Core stack.
 
-**Pattern:** **`scripts/bootstrap-nightraven-project.sh`** — one command: `install-gods-eye-nightraven.sh --no-mcp` → seed overlay · handoff · README · `PROJECT_QUICKSTART.md` · `.gitignore` → `git init` if needed → register in `scripts/gods-eye-projects.conf`. Consumer lives **sibling** to framework (`E:/NightRaven/<AppName>/`), not under `apps/`.
+**Pattern:** **`scripts/bootstrap-nightraven-project.sh`** — one command: `install-nightraven-framework.sh --no-mcp` → seed overlay · handoff · README · `PROJECT_QUICKSTART.md` · `.gitignore` → `git init` if needed → register in `scripts/nightraven-projects.conf`. Consumer lives **sibling** to framework (`E:/NightRaven/<AppName>/`), not under `apps/`.
 
 **Do:** Document in CURSOR_INSTALL · README · `NIGHTRAVEN_UNIFIED_PRODUCT.md`; first session = read AGENTS + handoff, **plan until code it**.
 
@@ -388,13 +402,13 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Signal:** Brent asked for recommendation + one command to integrate both on a project.
 
-**Pattern:** **Stack, don't merge** — `install.sh` for portable memory chain; optional `install-gods-eye-nightraven.sh` adds NightRaven Core skill + BUILD/AUDIT ledgers + overlay/AGENTS wiring. Generic adopters use `install.sh` only; app repos (NightRaven) use combined script with `--user` once per machine.
+**Pattern:** **Stack, don't merge** — `install.sh` for portable memory chain; optional `install-nightraven-framework.sh` adds NightRaven Core skill + BUILD/AUDIT ledgers + overlay/AGENTS wiring. Generic adopters use `install.sh` only; app repos (NightRaven) use combined script with `--user` once per machine.
 
 **Do:** Promote combined path via CURSOR_INSTALL + README; append overlay section on install (+# only if missing).
 
 **Don't:** Collapse God's Eye and NightRaven into one repo or one memory chain.
 
-**See:** [`scripts/install-gods-eye-nightraven.sh`](../scripts/install-gods-eye-nightraven.sh) · [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+**See:** [`scripts/install-nightraven-framework.sh`](../scripts/install-nightraven-framework.sh) · [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
 
 ---
 
@@ -408,7 +422,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Collapse the three division vocabularies in one answer; open implementation files on orchestration-only sessions.
 
-**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §3 · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+**See:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §3 · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
 
 ---
 
@@ -436,7 +450,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Rename Bible §9 virtual teams to match 11-division marketing labels in one pass; open implementation files on plan-only sessions.
 
-**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §9 · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+**See:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §9 · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
 
 ---
 
@@ -464,7 +478,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Silently skip `+#` only, read tiers, or session-close protocol without asking. Never assume implicit permission.
 
-**See:** [`37_GODS_EYE.md` §2.9](37_GODS_EYE.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md)
+**See:** [`37_GODS_EYE_BIBLE.md` §2.9](37_GODS_EYE_BIBLE.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md)
 
 ---
 
@@ -478,7 +492,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Fail execution with manual instructions when the runtime language (Node/Python) is available to build itself.
 
-**See:** [`templates/mcp/run-gods-eye-mcp.js`](templates/mcp/run-gods-eye-mcp.js) · [`.cursor/mcp/run-gods-eye-mcp.js`](.cursor/mcp/run-gods-eye-mcp.js) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+**See:** [`templates/mcp/run-memory-chain-mcp.js`](templates/mcp/run-memory-chain-mcp.js) · [`.cursor/mcp/run-memory-chain-mcp.js`](.cursor/mcp/run-memory-chain-mcp.js) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
 
 ---
 
@@ -493,7 +507,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Deploy massive files or spawn parallel subagents in local execution spaces.
 
-**See:** [`GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+**See:** [`GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md`](GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
 
 ---
 
@@ -508,7 +522,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Leave memory modifications local/unpushed when a remote origin is configured.
 
-**See:** [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+**See:** [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
 
 ---
 
@@ -537,7 +551,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Treat polish as permission to rewrite the Bible, add templates, or trim append-only memory history.
 
-**See:** [`README.md`](../README.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §10
+**See:** [`README.md`](../README.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §10
 
 ---
 
@@ -559,7 +573,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Signal:** Brent — **change repo name also** after NightRaven ship/oversight rebrand.
 
-**Pattern:** Gods-eye updates **metadata only** — `gods-eye-projects.conf` absolute path, inventory §3, unified stack §12, handoff focus. App repo owns overlay/handoff. `mv` local folder + `gh repo rename` for private GitHub; historical memory keeps `BankrollCalendar` (`+#` / Supersedes).
+**Pattern:** Gods-eye updates **metadata only** — `nightraven-projects.conf` absolute path, inventory §3, unified stack §12, handoff focus. App repo owns overlay/handoff. `mv` local folder + `gh repo rename` for private GitHub; historical memory keeps `BankrollCalendar` (`+#` / Supersedes).
 
 **See:** [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) §3
 
@@ -571,7 +585,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Pattern:** Separate **ship name** (NightRaven) from **Xcode target** (OneDayMillionaire until rename) from **repo folder** (NightRaven — was BankrollCalendar) from **code domain** (`bankroll` enums). Gods-eye inventory may hold adoption **metadata** only; full overlay vocabulary lives in the app repo.
 
-**Do:** Update `gods-eye-projects.conf` path + project inventory §3 when adopter repo folder moves; app overlay §2 in NightRaven repo; Xcode rename only on **code it**.
+**Do:** Update `nightraven-projects.conf` path + project inventory §3 when adopter repo folder moves; app overlay §2 in NightRaven repo; Xcode rename only on **code it**.
 
 **Don't:** Rename Xcode target from gods-eye workspace without ship signal; collapse NGIA platform layer with product category (Gambling Tracker).
 
@@ -589,7 +603,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Vendor 23 skills into framework repo; merge AGENTS.md contents; let `/build` defaults override intent ladder; collapse GE into "better prompting."
 
-**See:** `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md` · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §2 · §6 · [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · [`AGENTS.md`](../AGENTS.md)
+**See:** `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md` · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §2 · §6 · [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.8 · [`AGENTS.md`](../AGENTS.md)
 
 ---
 
@@ -603,7 +617,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Assume auth/permission failure; rewrite pushed history without user OK; change global git config without request; amend **author only** — GitHub GH007 also checks **committer** email.
 
-**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · [`AGENTS.md`](../AGENTS.md)
+**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.8 · [`AGENTS.md`](../AGENTS.md)
 
 ---
 
@@ -617,7 +631,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Stop after author amend; use private Gmail on either metadata field.
 
-**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · [`AGENTS.md`](../AGENTS.md)
+**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.8 · [`AGENTS.md`](../AGENTS.md)
 
 ---
 
@@ -631,7 +645,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Assume push success means email problem is permanently fixed; confuse GH007 with Copilot/subscription errors.
 
-**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · [`AGENTS.md`](../AGENTS.md)
+**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.8 · [`AGENTS.md`](../AGENTS.md)
 
 ---
 
@@ -645,7 +659,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Paste BankrollCalendar handoff into gods-eye; promote NGIA to `install.sh` defaults prematurely; conflate NightRaven product memory with God's Eye framework memory.
 
-**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) §2 · [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.6 · §2.7 · [`AGENTS.md`](../AGENTS.md)
+**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) §2 · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.6 · §2.7 · [`AGENTS.md`](../AGENTS.md)
 
 ---
 
@@ -673,7 +687,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Collapse GE into "better prompting" or "vector memory"; replace Bible chain with external frameworks; treat governance/HITL tools as GE equivalents.
 
-**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) §1 · §3 · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §2 · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc)
+**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §1 · §3 · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §2 · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc)
 
 ---
 
@@ -687,7 +701,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Let MCP replace parallel file reads on tier 0–1; delete handoff lines via MCP; treat index hits as source of truth.
 
-**See:** [`MCP_SETUP.md`](MCP_SETUP.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §6 · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · `mcp-server/`
+**See:** [`MCP_SETUP.md`](MCP_SETUP.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §6 · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · `mcp-server/`
 
 ---
 
@@ -697,11 +711,11 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Pattern:** Reorder **Recent sessions** newest-first (date-level sort preserves all lines — no `-#`). Cherry-pick portable doctrine from published gods-eye → UAIPOS master with **Upstream note** / **Cherry-picked** markers; keep UAIPOS §2.7 upstream law distinct from gods-eye §2.7 promote-to-standard.
 
-**Do:** Run `./scripts/gods-eye-lint.sh` before Touch 3 close; vendor portable deltas to UAIPOS after gods-eye ships.
+**Do:** Run `./scripts/lint-framework-memory.sh` before Touch 3 close; vendor portable deltas to UAIPOS after gods-eye ships.
 
 **Don't:** Archive handoff without Brent approval; replace UAIPOS §2.7 with gods-eye promote-to-standard wording.
 
-**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · `scripts/gods-eye-lint.sh`
+**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · `scripts/lint-framework-memory.sh`
 
 ---
 
@@ -709,13 +723,13 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Signal:** Committed memory without push = accidental unlearning; three Bible copies without declared canonical source.
 
-**Pattern:** **Push-latency law** in §2.8 — Touch 3 includes `git push` or explicit defer line. **Canonical scope:** published `gods-eye` owns portable law; UAIPOS owns upstream §2.7; snapshot sync via `sync-snapshot.sh`; `gods-eye-lint.sh` catches drift.
+**Pattern:** **Push-latency law** in §2.8 — Touch 3 includes `git push` or explicit defer line. **Canonical scope:** published `gods-eye` owns portable law; UAIPOS owns upstream §2.7; snapshot sync via `sync-snapshot.sh`; `lint-framework-memory.sh` catches drift.
 
-**Do:** Run `./scripts/sync-snapshot.sh` after portable edits; `./scripts/gods-eye-lint.sh` before close; push in same session as meaningful memory writes.
+**Do:** Run `./scripts/sync-snapshot.sh` after portable edits; `./scripts/lint-framework-memory.sh` before close; push in same session as meaningful memory writes.
 
 **Don't:** Mark handoff "shipped" with local-only commits; edit snapshot without syncing from published repo.
 
-**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) · `scripts/sync-snapshot.sh` · `scripts/gods-eye-lint.sh`
+**See:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.8 · [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) · `scripts/sync-snapshot.sh` · `scripts/lint-framework-memory.sh`
 
 ---
 
@@ -771,7 +785,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Treat each message as isolated task; answer words not intention; bare "please clarify" when probabilistic read is strong.
 
-**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §3 Interpretation framework · §1 Continuous learning · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`AGENTS.md`](../AGENTS.md)
+**See:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §3 Interpretation framework · §1 Continuous learning · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`AGENTS.md`](../AGENTS.md)
 
 ---
 
@@ -785,7 +799,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Summarize-only; jump to code on concept drops.
 
-**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §3 · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`AGENTS.md`](../AGENTS.md)
+**See:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §3 · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`AGENTS.md`](../AGENTS.md)
 
 ---
 
@@ -797,7 +811,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Do:** Keep clearer Brent prose as Bible source tone; analytical framing as compact +# under §1 — not duplicate full blocks.
 
-**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §1 Continuous learning · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+**See:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §1 Continuous learning · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
 
 ---
 
@@ -811,7 +825,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Re-prepended AFTER on every Brent follow-up in same thread; `-#` stacked history.
 
-**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+**See:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.8 · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
 
 ---
 
@@ -825,7 +839,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Duplicate full Identity block; `-#` dedup; treat memory as static archive without the learning loop.
 
-**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §1 Continuous learning · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md) · [`README.md`](../README.md)
+**See:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §1 Continuous learning · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md) · [`README.md`](../README.md)
 
 ---
 
@@ -841,7 +855,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Treat append-only memory as passive storage; duplicate full Identity prose; `-#` to fix duplicate lines elsewhere.
 
-**Wire:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §1 Continuous learning & compounding · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc)
+**Wire:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §1 Continuous learning & compounding · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc)
 
 ---
 
@@ -863,7 +877,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Do:** Persist identity in Bible §1; wire lean pointers in rule, `AGENTS.md`, README, overlay — do not duplicate full §10.
 
-**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §1 Identity · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc)
+**See:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §1 Identity · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc)
 
 ---
 
@@ -875,7 +889,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Lesson:** Identity sits **above** operational God's Eye (always watches, `+#` memory, one Touch 3 AFTER on meaningful exit). Not surveillance; not a code type. **Tier C — Creator-Innovator** (§10) is operational expression for crafting memory; Product/QA win on boundaries. No `/loop` unless Brent explicitly states.
 
-**Wire:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §1 Identity · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+**Wire:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §1 Identity · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
 
 ---
 
@@ -887,7 +901,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Do:** shields.io badges; searchable `gh` description + topics; diagram at `docs/assets/`.
 
-**Don't:** Rename or dilute Bible terminology inside `37_GODS_EYE.md`; delete philosophy docs.
+**Don't:** Rename or dilute Bible terminology inside `37_GODS_EYE_BIBLE.md`; delete philosophy docs.
 
 **See:** [`README.md`](../README.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
 
@@ -899,7 +913,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Supersedes:** separate "unclear messages" + "unclear coding ideas" subsections — one five-step card.
 
-**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §3 · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) — `60b26b8`
+**See:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §3 · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) — `60b26b8`
 
 ---
 
@@ -913,7 +927,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Don't:** Spawn subagents for read-only audits; stack multiple AFTER passes; implement on exploratory questions without ship signal.
 
-**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.8 · rule Task worthiness line · [`GODS_EYE_GRAND_SPEC.md`](GODS_EYE_GRAND_SPEC.md) Agent card
+**See:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.8 · rule Task worthiness line · [`GODS_EYE_LAYERED_SPEC_ROUTER.md`](GODS_EYE_LAYERED_SPEC_ROUTER.md) Agent card
 
 ---
 
@@ -937,7 +951,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Simplify:** After wiring a law, collapse prose to one rule + one table in Bible; pointers stay lean in rule/overlay/`AGENTS.md` (Tier C).
 
-**See:** [`37_GODS_EYE.md`](37_GODS_EYE.md) §2.7
+**See:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.7
 
 ---
 
@@ -947,9 +961,9 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 **Pattern:**
 
-1. **Registry file** (`scripts/gods-eye-projects.conf`) — absolute paths + role labels; one line per workspace.
+1. **Registry file** (`scripts/nightraven-projects.conf`) — absolute paths + role labels; one line per workspace.
 2. **Scan script** — reports artifact presence, inferred phase, latest **Recent sessions** one-liner per repo; does not copy **Already done** or locks into the framework repo.
-3. **Inventory doc** — metadata matrix (L0–L4, Bible source, overlay vocabulary summary); refresh via `./scripts/scan-gods-eye-projects.sh --markdown`.
+3. **Inventory doc** — metadata matrix (L0–L4, Bible source, overlay vocabulary summary); refresh via `./scripts/scan-nightraven-projects.sh --markdown`.
 4. **Isolation** — Bible §2.6; inventory cites paths only; agents still read **local** `docs/14` in each workspace.
 
 **Applies to:** [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §12
@@ -981,7 +995,7 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 **Pattern:**
 
 1. **Self-install:** skip `cp` when source and destination hook dirs or `hooks.json` are the same path — macOS `cp` exits 1 on identical files under `set -e`.
-2. **User hooks:** `~/.cursor/hooks.json` uses `./hooks/gods-eye/*.sh`; project hooks use `.cursor/hooks/*.sh` from repo root.
+2. **User hooks:** `~/.cursor/hooks.json` uses `./hooks/nightraven/*.sh`; project hooks use `.cursor/hooks/*.sh` from repo root.
 3. **Project root in hooks:** prefer `CURSOR_PROJECT_DIR`, then `workspace_roots[0]` from stdin JSON, then `git rev-parse --show-toplevel`.
 
 **Applies to:** `install.sh`, `.cursor/hooks/lib.sh`, [`CURSOR_INSTALL.md`](../CURSOR_INSTALL.md).

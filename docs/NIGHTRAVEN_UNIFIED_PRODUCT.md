@@ -2,7 +2,7 @@
 
 **Scope:** Brent's **umbrella brand** for agent-native engineering — memory, orchestration, guidance UI, and consumer apps. **This repo** is the NightRaven **platform monorepo** (framework + apps).
 
-**Do not collapse vocabulary layers** — see table below. Portable law stays in [`37_GODS_EYE.md`](37_GODS_EYE.md).
+**Do not collapse vocabulary layers** — see table below. Portable law stays in [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md).
 
 ---
 
@@ -33,7 +33,7 @@ NightRaven/                    ← platform monorepo (GitHub: gods-eye until ren
 │   ├── compass/               ← NightRaven Compass Phase 1 (subtree from sibling repo)
 │   └── planner/               ← NightRaven Planner — multi-agent app foundation layout
 ├── install.sh
-└── scripts/install-gods-eye-nightraven.sh
+└── scripts/install-nightraven-framework.sh
 ```
 
 **Merge status:**
@@ -45,7 +45,7 @@ NightRaven/                    ← platform monorepo (GitHub: gods-eye until ren
 | NightRaven Compass | **Merged** → `apps/compass/` (`git subtree` squash) |
 | NightRaven iOS app | **Not on this machine** — add as `apps/ios/` or submodule when repo available |
 | Legacy `E:\NightRaven\nightraven-compass` | Sibling folder — archive after monorepo verified |
-| Legacy `E:\NightRaven\gods-eye` nested clone | Stale — use `gods-eye-1` / this monorepo only |
+| Legacy `E:\NightRaven\gods-eye` nested clone | Stale — use this monorepo (`nightraven/`) only |
 
 ---
 

@@ -18,13 +18,13 @@ import type { RegistryEntry } from './types'
 
 /** God's Eye memory files Compass watches for auto-refresh. */
 export const MONITORED_ARTIFACTS = [
-  'docs/37_GODS_EYE.md',
+  'docs/37_GODS_EYE_BIBLE.md',
   'docs/GODS_EYE_REPO_OVERLAY.md',
   'docs/14_SESSION_HANDOFF.md',
   'docs/02_ENGINEERING_CHANGELOG.md',
   'docs/04_LEARNING_LOG.md',
   'AGENTS.md',
-  '.cursor/rules/gods-eye-context-intent.mdc',
+  '.cursor/rules/nightraven-context-intent.mdc',
   '.cursor/hooks.json',
 ] as const
 
@@ -259,7 +259,7 @@ export function loadRegistry(confPath: string, monorepoRoot: string): RegistryEn
     }
   }
 
-  addEntry(monorepoRoot, 'gods-eye-1 (this monorepo)', 'framework')
+  addEntry(monorepoRoot, 'NightRaven monorepo (framework)', 'framework')
 
   return entries
 }

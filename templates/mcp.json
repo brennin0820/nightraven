@@ -1,8 +1,8 @@
 {
   "mcpServers": {
-    "gods-eye": {
+    "nightraven-memory-chain": {
       "command": "node",
-      "args": [".cursor/mcp/run-gods-eye-mcp.js"]
+      "args": [".cursor/mcp/run-memory-chain-mcp.js"]
     }
   }
 }

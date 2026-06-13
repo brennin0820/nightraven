@@ -26,7 +26,7 @@ function errorText(message: string) {
 
 export function createServer(): McpServer {
   const server = new McpServer({
-    name: "gods-eye-mcp-server",
+    name: "nightraven-memory-chain-mcp-server",
     version: "0.1.0",
   });
 

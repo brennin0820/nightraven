@@ -7,7 +7,7 @@ import { buildProjectSnapshot, computeSnapshotVersion, loadRegistry } from './bu
 function findMonorepoRoot(): string {
   let dir = process.cwd()
   for (let i = 0; i < 6; i += 1) {
-    if (fs.existsSync(path.join(dir, 'scripts', 'gods-eye-projects.conf'))) return dir
+    if (fs.existsSync(path.join(dir, 'scripts', 'nightraven-projects.conf'))) return dir
     const parent = path.dirname(dir)
     if (parent === dir) break
     dir = parent
@@ -22,7 +22,7 @@ function sendJson(res: import('node:http').ServerResponse, status: number, body:
 }
 
 function attachApi(server: { middlewares: Connect.Server }, monorepoRoot: string) {
-  const confPath = path.join(monorepoRoot, 'scripts', 'gods-eye-projects.conf')
+  const confPath = path.join(monorepoRoot, 'scripts', 'nightraven-projects.conf')
 
   server.middlewares.use('/api/registry', (_req, res) => {
     try {

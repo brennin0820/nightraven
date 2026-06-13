@@ -1,6 +1,6 @@
 # God's Eye Bible
 
-**BAIC doc 37** · File: `docs/37_GODS_EYE.md` · **The one authoritative portable spec for God'sEye** — not a template scaffold, not a router, not a checklist copy. Repos add a **local overlay** (§8); rules stay lean pointers to this Bible.
+**BAIC doc 37** · File: `docs/37_GODS_EYE_BIBLE.md` · **The one authoritative portable spec for God'sEye** — not a template scaffold, not a router, not a checklist copy. Repos add a **local overlay** (§8); rules stay lean pointers to this Bible.
 
 **God'sEye** is the portable name for **benevolent project oversight** — durable agent memory that watches work, compounds knowledge, and prevents wasted repeat effort. Use in any repo that adopts Brent's context-intent model.
 
@@ -63,7 +63,7 @@ Related: `docs/32_BIGBROTHER_OVERSIGHT.md`, `docs/35_FAST_START.md`, `docs/36_PR
 | **Memory laws?** | Always watches · Always learn · **`+#` only** · never `-#` · Supersedes for corrections |
 | **Session start?** | Always-on rule → **§0 Agent quick start** → overlay → router → handoff → `AGENTS.md` |
 | **Agent card?** | **§0 Agent quick start** — Before / During / After / Never in one table |
-| **Improve loop?** | `templates/GODS_EYE_IMPROVEMENT_LOOP.md` — one `+#` step per cycle |
+| **Improve loop?** | `templates/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md` — one `+#` step per cycle |
 | **Loop cycle types?** | **Improve · Concept · Context** — grow the framework, not only polish; still one `+#` step (§9 loop mode) |
 | **Execution default?** | **Always parallel** — decompose independent workstreams; serialize only when required (§2.4; doc 19) |
 | **Which rules apply?** | **§2.5** — match God'sEye depth to task size; align with `docs/26_USAGE_EFFICIENCY.md` read tiers |
@@ -73,13 +73,13 @@ Related: `docs/32_BIGBROTHER_OVERSIGHT.md`, `docs/35_FAST_START.md`, `docs/36_PR
 | **When to code?** | **Plan until ship signal** — §2.8; `code it` / `implement` / `build` drops to code |
 | **Sync?** | **Always sync** — pull before work; commit + push after every change (§2.9) |
 | **Override a rule?** | **Governed bypass** — explicit Brent approval first; no silent bypasses (§2.9) |
-| **Local LLM (LM Studio)?** | Serial only; no subagents; strict context pruning — `docs/GODS_EYE_LOCAL_VS_CLOUD.md` (§2.9) |
+| **Local LLM (LM Studio)?** | Serial only; no subagents; strict context pruning — `docs/GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md` (§2.9) |
 
 ### Naming (use consistently)
 
 | Form | When |
 |------|------|
-| **God'sEye** | Canonical — docs, rules, tables, file names (`37_GODS_EYE.md`) |
+| **God'sEye** | Canonical — docs, rules, tables, file names (`37_GODS_EYE_BIBLE.md`) |
 | **God's Eye** | Natural prose or chat commands only (e.g. `/loop` paste text) |
 | **godseye** / **god's eye** | Brent speech — map to oversight intent; do not rename master BAIC globally |
 | **Tier C — Creator-Innovator** | Full tier name on first mention; **Tier C** after |
@@ -270,7 +270,7 @@ App memory = what THIS project is and where it left off (local).
 
 **QA / loop lens:** Architecture and QA audits flag cross-repo references in memory docs as **regression** (§6).
 
-**Project repos → master upstream:** When cwd is a **consumer project repo** (not `gods-eye` or master UAIPOS), propagate portable learnings to master BAIC after meaningful work per [`Universal_AI_Project_Operating_System/docs/37_GODS_EYE.md`](../../Universal_AI_Project_Operating_System/docs/37_GODS_EYE.md) **§2.7 Upstream** — generalized principles only; never another app's handoff or feature state. This published Bible **§2.7** governs **promote universal to standard** for install defaults.
+**Project repos → master upstream:** When cwd is a **consumer project repo** (not `gods-eye` or master UAIPOS), propagate portable learnings to master BAIC after meaningful work per [`Universal_AI_Project_Operating_System/docs/37_GODS_EYE_BIBLE.md`](../../Universal_AI_Project_Operating_System/docs/37_GODS_EYE_BIBLE.md) **§2.7 Upstream** — generalized principles only; never another app's handoff or feature state. This published Bible **§2.7** governs **promote universal to standard** for install defaults.
 
 ### 2.7 Promote universal to standard
 
@@ -334,7 +334,7 @@ The memory chain (Bible, overlay, handoff, rules) operates identically in both m
 | **Local** | LM Studio (localhost) | Serial only; no subagents; Tiers 0–2 read gating; MCP snippet retrieval |
 | **Cloud** | Anthropic / Google / OpenAI | Full parallel reads + subagents; fresh thread at ~80% context capacity |
 
-Full rules, model recommendations, and LM Studio quickstart: [`docs/GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md).
+Full rules, model recommendations, and LM Studio quickstart: [`docs/GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md`](GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md).
 
 ---
 
@@ -494,8 +494,8 @@ Use when the current repo has **no** local `ai/START_HERE_FOR_AI.md` (or user sa
 
 ### Standard session start (bootstrapped repo)
 
-1. `.cursor/rules/gods-eye-context-intent.mdc` (or repo's always-on oversight rule) — lean summary
-2. **Master** `docs/37_GODS_EYE.md` — **God's Eye Bible** — portable laws and ladder
+1. `.cursor/rules/nightraven-context-intent.mdc` (or repo's always-on oversight rule) — lean summary
+2. **Master** `docs/37_GODS_EYE_BIBLE.md` — **God's Eye Bible** — portable laws and ladder
 3. **Repo overlay** (if present) — e.g. `docs/GODS_EYE_REPO_OVERLAY.md` — product vocabulary, code disambiguation, boundary
 4. Repo product rule (if present) — e.g. domain-specific `.mdc`
 5. `docs/USER_CONTEXT_PROTOCOL.md` or equivalent — worked examples
@@ -542,7 +542,7 @@ Tier-0 lean repos may omit full BAIC bootstrap — point at master path and loca
 | Bootstrapping full 30+ master docs into every repo | Use tier-0 lean + pointers; see `docs/35_FAST_START.md` |
 | **Cross-repo app memory bleed** | Importing another app's handoff, paths, locks, AGENT_WORK_LOG, or transcript context into a new project — §2.6; doc 36 |
 | **Master handoff as target handoff** | Reading framework maintenance handoff as if it were a different app's state |
-| **Creating template docs** (loop or session default) | Misreads loop mode as template scaffolding — improvements belong in **existing** chain docs via `+#`; `templates/GODS_EYE_IMPROVEMENT_LOOP.md` is optional reference only (§9 hard law) |
+| **Creating template docs** (loop or session default) | Misreads loop mode as template scaffolding — improvements belong in **existing** chain docs via `+#`; `templates/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md` is optional reference only (§9 hard law) |
 | **Serializing by default** | Independent reads and workstreams should run in parallel per §2.4; serialize only when write scopes overlap or coupling requires one mental model |
 | **Per-app re-instruction of universal patterns** | Brent must not repeat "add X every session" when X is cross-app — promote to published standard + install defaults (§2.7) |
 | **Code before ship signal** | Implementing on exploratory Q&A without explicit **code it** / **implement** / **build** — §2.8 |
@@ -553,7 +553,7 @@ Tier-0 lean repos may omit full BAIC bootstrap — point at master path and loca
 | **Mid-session Touch 3** | Running handoff/changelog/learning batch before session-stop final turn — defer to §2.8 last-turn law |
 | **Forgotten sync** | Committing but not pushing; next agent reads stale remote state — Always pull before work; push after every commit (§2.9) |
 | **Silent bypass** | Skipping `+#` only or another law without asking — Governed Bypass requires explicit Brent approval first (§2.9) |
-| **Local-mode subagents** | Spawning parallel subagents under LM Studio; causes GPU VRAM contention and hangs — serial only in local mode (§2.9; [`GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md) §4) |
+| **Local-mode subagents** | Spawning parallel subagents under LM Studio; causes GPU VRAM contention and hangs — serial only in local mode (§2.9; [`GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md`](GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md) §4) |
 
 ---
 
@@ -562,7 +562,7 @@ Tier-0 lean repos may omit full BAIC bootstrap — point at master path and loca
 | Document | Scope |
 |----------|-------|
 | `docs/32_BIGBROTHER_OVERSIGHT.md` | BAIC oversight — what to watch, what to log, waste prevention, session checklist |
-| **`docs/37_GODS_EYE.md`** | **God's Eye Bible** — context-intent ladder, memory laws, connected chain, anti-patterns |
+| **`docs/37_GODS_EYE_BIBLE.md`** | **God's Eye Bible** — context-intent ladder, memory laws, connected chain, anti-patterns |
 | `docs/35_FAST_START.md` | Tier 0 cold start — minimal read path for new/empty projects |
 | `docs/36_PROJECT_ISOLATION.md` | Experience vs app memory — no cross-repo bleed |
 | `BRAND.md` | Official name + BigBrother nickname |
@@ -578,10 +578,10 @@ Repos that need product-specific vocabulary, code disambiguation, or positioning
 **Pattern:**
 
 ```text
-Master:  …/Universal_AI_Project_Operating_System/docs/37_GODS_EYE.md  (God's Eye Bible — portable)
+Master:  …/Universal_AI_Project_Operating_System/docs/37_GODS_EYE_BIBLE.md  (God's Eye Bible — portable)
 Repo:    docs/GODS_EYE_REPO_OVERLAY.md                                  (local only)
-Router:  docs/GODS_EYE_GRAND_SPEC.md                                    (optional — points to both)
-Rule:    .cursor/rules/gods-eye-context-intent.mdc                      (lean + pointers)
+Router:  docs/GODS_EYE_LAYERED_SPEC_ROUTER.md                                    (optional — points to both)
+Rule:    .cursor/rules/nightraven-context-intent.mdc                      (lean + pointers)
 ```
 
 Overlay holds: product vocabulary table, code `*Context` disambiguation (if applicable), product boundary, repo-specific connected chain tweaks. Portable laws stay in doc 37.
@@ -619,8 +619,8 @@ Each loop run audits **six perspectives** (Architecture, Engineering, Design/UX,
 
 | Artifact | Role |
 |----------|------|
-| **`templates/GODS_EYE_IMPROVEMENT_LOOP.md`** | Authoritative cycle prompt + virtual team checklists + logging rules |
-| Repo `.cursor/gods-eye-improvement-loop.md` (optional) | Thin pointer to master template + local append targets |
+| **`templates/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md`** | Authoritative cycle prompt + virtual team checklists + logging rules |
+| Repo `.cursor/IMPROVEMENT_LOOP_CYCLE_PROMPT.md` (optional) | Thin pointer to master template + local append targets |
 
 **Start (Cursor chat):**
 
@@ -630,16 +630,16 @@ Each loop run audits **six perspectives** (Architecture, Engineering, Design/UX,
 
 Use `7d` for weekly, `/loop` alone for self-paced dynamic cadence, or run one cycle without `/loop`. Ask the agent to stop to kill the background ticker.
 
-**Direct execution (loop ticks — preferred):** Read **this document §9–§10** only. **Parallel by default** — parallel tool reads and read-only audit passes; one writer per file for the `+#` step. Tier C opens → five support audits → Tier C synthesis → **one** `+#` improvement → wire cross-links → append changelog / learning log / handoff. **`templates/GODS_EYE_IMPROVEMENT_LOOP.md` is optional checklist reference** — do not expand or scaffold new template-like docs per cycle.
+**Direct execution (loop ticks — preferred):** Read **this document §9–§10** only. **Parallel by default** — parallel tool reads and read-only audit passes; one writer per file for the `+#` step. Tier C opens → five support audits → Tier C synthesis → **one** `+#` improvement → wire cross-links → append changelog / learning log / handoff. **`templates/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md` is optional checklist reference** — do not expand or scaffold new template-like docs per cycle.
 
 ### Cycle law — no new template docs (hard law)
 
 | Rule | Detail |
 |------|--------|
-| **Forbidden default** | **No new template docs** per cycle or session — no new files under `templates/`, no new `*.md` scaffold/checklist copies, no expanding or duplicating `templates/GODS_EYE_IMPROVEMENT_LOOP.md` |
+| **Forbidden default** | **No new template docs** per cycle or session — no new files under `templates/`, no new `*.md` scaffold/checklist copies, no expanding or duplicating `templates/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md` |
 | **Brent override only** | Create or expand a template **only** when Brent explicitly says **"create template"** (or names a specific template file to add) |
-| **Where improvements go** | **Existing** docs only: doc 37, repo overlay, `.cursor/rules/*.mdc`, changelog, learning log, handoff **Recent sessions**, optional repo `.cursor/gods-eye-improvement-loop.md` pointer |
-| **Template role** | `templates/GODS_EYE_IMPROVEMENT_LOOP.md` = **optional reference checklist** — read if helpful; never mandatory scaffolding; never duplicate into repo per tick |
+| **Where improvements go** | **Existing** docs only: doc 37, repo overlay, `.cursor/rules/*.mdc`, changelog, learning log, handoff **Recent sessions**, optional repo `.cursor/IMPROVEMENT_LOOP_CYCLE_PROMPT.md` pointer |
+| **Template role** | `templates/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md` = **optional reference checklist** — read if helpful; never mandatory scaffolding; never duplicate into repo per tick |
 
 Loop mode means **execute one real `+#` improvement** in the connected chain — not manufacture new template artifacts.
 
@@ -690,7 +690,7 @@ Portable God'sEye serves **human developers and agents working for humans**. Tie
 
 ### AI-universe form
 
-In God'sEye, Tier C is **formalized memory** — a checklist section in `templates/GODS_EYE_IMPROVEMENT_LOOP.md`, a row in §9's virtual teams table, and this §10 definition. The loop agent embodies the tier each cycle; no separate subagent required.
+In God'sEye, Tier C is **formalized memory** — a checklist section in `templates/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md`, a row in §9's virtual teams table, and this §10 definition. The loop agent embodies the tier each cycle; no separate subagent required.
 
 ### Default posture — Innovator leads (mandatory)
 

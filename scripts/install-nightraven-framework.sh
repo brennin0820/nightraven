@@ -2,11 +2,11 @@
 # Install God's Eye (memory chain) + NightRaven Core (orchestration) into a project.
 #
 # Usage:
-#   ./scripts/install-gods-eye-nightraven.sh [INSTALL.SH OPTIONS] TARGET_DIR
+#   ./scripts/install-nightraven-framework.sh [INSTALL.SH OPTIONS] TARGET_DIR
 #
 # Examples:
-#   ./scripts/install-gods-eye-nightraven.sh ~/Developer/NightRaven
-#   ./scripts/install-gods-eye-nightraven.sh --user --no-mcp ~/Projects/my-app
+#   ./scripts/install-nightraven-framework.sh ~/Developer/NightRaven
+#   ./scripts/install-nightraven-framework.sh --user --no-mcp ~/Projects/my-app
 #
 # Recommendation: God's Eye = durable memory (handoff, hooks, Bible).
 # NightRaven Core = adaptive orchestration (Builder/Auditor, ledgers, /nightraven).

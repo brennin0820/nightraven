@@ -2,11 +2,11 @@
 
 **Purpose:** One cycle incrementally improves God'sEye (portable + wired repos) as if **six specialist teams** reviewed the framework in parallel — Brent stays one person; the loop compounds memory without manual role-switching.
 
-**Authority:** Master `docs/37_GODS_EYE.md` §9 (virtual teams + loop law), §10 (Tier C — Creator-Innovator). Repo overlays extend locally only.
+**Authority:** Master `docs/37_GODS_EYE_BIBLE.md` §9 (virtual teams + loop law), §10 (Tier C — Creator-Innovator). Repo overlays extend locally only.
 
 **Laws (non-negotiable):** Always watches · Always learn · **`+#` only** · Never `-#` · Supersedes for corrections · One small improvement per cycle · **Always sync** (pull before; push after).
 
-**Execution mode:** If running under LM Studio (local), run six audits **serially** — no parallel subagents. If running under a cloud frontier model (Anthropic, Google, OpenAI), parallel subagents and full six-team lens are allowed. See [`GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md) §4.
+**Execution mode:** If running under LM Studio (local), run six audits **serially** — no parallel subagents. If running under a cloud frontier model (Anthropic, Google, OpenAI), parallel subagents and full six-team lens are allowed. See [`GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md`](GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md) §4.
 
 **Default posture:** **Tier C — Creator-Innovator leads** (doc 37 §10). Tier C **opens** each cycle and **leads synthesis**; Architecture, Engineering, Design/UX, QA, and Product are **supporting** passes. Product/QA still **win** on boundary and anti-pattern conflicts — Tier C revises the proposal, not the law.
 
@@ -27,7 +27,7 @@
 Pick a cadence and paste into Cursor chat (Agents window):
 
 ```text
-/loop 1d Run one God's Eye improvement cycle. Read and follow exactly: docs/GODS_EYE_IMPROVEMENT_LOOP.md (this repo)
+/loop 1d Run one God's Eye improvement cycle. Read and follow exactly: docs/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md (this repo)
 ```
 
 | Cadence | Command prefix | When to use |
@@ -47,12 +47,12 @@ Pick a cadence and paste into Cursor chat (Agents window):
 
 Read in order (skip missing files; note gaps as improvement candidates):
 
-1. Master `docs/37_GODS_EYE.md` (§2.6 isolation + §5 cold start if auditing fast-load chain)
+1. Master `docs/37_GODS_EYE_BIBLE.md` (§2.6 isolation + §5 cold start if auditing fast-load chain)
 2. Master `docs/35_FAST_START.md` + `docs/36_PROJECT_ISOLATION.md` (when cycle touches Tier 0 / new-project path)
 3. Master `docs/32_BIGBROTHER_OVERSIGHT.md` (relationship only)
-4. `templates/GODS_EYE_IMPROVEMENT_LOOP.md` (this file)
+4. `templates/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md` (this file)
 5. Active repo overlay if improving a bootstrapped repo (e.g. `docs/GODS_EYE_REPO_OVERLAY.md`)
-6. Active repo router / always-on rule (e.g. `gods-eye-context-intent.mdc`)
+6. Active repo router / always-on rule (e.g. `nightraven-context-intent.mdc`)
 7. Latest entries in master + repo `docs/02_ENGINEERING_CHANGELOG.md`, `docs/04_LEARNING_LOG.md`, handoff **Recent sessions**
 
 Do **not** run `xcodebuild` or app builds unless Brent explicitly asked in this session.
@@ -155,7 +155,7 @@ If all six audits find nothing worth changing:
 ```text
 Run one God's Eye improvement cycle.
 
-Read and follow: docs/GODS_EYE_IMPROVEMENT_LOOP.md (this repo)
+Read and follow: docs/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md (this repo)
 
 Execute Cycle 0 read list. Default innovator ordering: Tier C opens → five support team audits → Tier C leads synthesis (doc 37 §10). Pick ONE +# improvement; wire cross-links; append changelog/learning log/handoff as applicable; report briefly. Laws: +# only, never unlearn, always watches. Product/QA win on boundary conflicts.
 ```

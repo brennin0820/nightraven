@@ -4,20 +4,20 @@
   "hooks": {
     "sessionStart": [
       {
-        "command": "./hooks/gods-eye/session-start.sh",
+        "command": "./hooks/nightraven/session-start.sh",
         "timeout": 5
       }
     ],
     "stop": [
       {
-        "command": "./hooks/gods-eye/session-stop.sh",
+        "command": "./hooks/nightraven/session-stop.sh",
         "timeout": 5,
         "loop_limit": 1
       }
     ],
     "afterFileEdit": [
       {
-        "command": "./hooks/gods-eye/after-file-edit.sh",
+        "command": "./hooks/nightraven/after-file-edit.sh",
         "timeout": 5
       }
     ]

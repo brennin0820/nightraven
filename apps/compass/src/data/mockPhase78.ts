@@ -15,13 +15,13 @@ import type {
 
 export const mockRegistry: RegistryEntry[] = [
   {
-    path: 'e:\\NightRaven\\gods-eye-1',
-    label: "God's Eye (framework)",
+    path: 'e:\\NightRaven\\nightraven',
+    label: "NightRaven monorepo (framework)",
     role: 'memory + rules',
     available: true,
   },
   {
-    path: 'e:\\NightRaven\\gods-eye-1\\apps\\compass',
+    path: 'e:\\NightRaven\\nightraven\\apps\\compass',
     label: 'NightRaven Compass',
     role: 'active build',
     available: true,
@@ -38,7 +38,7 @@ export const mockSettingsProfile: CompassSettingsProfile = {
   dataMode: 'local',
   autoRefresh: false,
   showPhaseBadges: true,
-  projectRootHint: 'e:\\NightRaven\\gods-eye-1',
+  projectRootHint: 'e:\\NightRaven\\nightraven',
 }
 
 export const mockExtraTasks: Task[] = [

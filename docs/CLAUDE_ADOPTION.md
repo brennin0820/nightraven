@@ -10,8 +10,8 @@ Step-by-step setup so God's Eye memory chain works in **Claude Code** (Anthropic
 
 | Layer | Location | Purpose |
 |-------|----------|---------|
-| **Project rule** | `.cursor/rules/gods-eye-context-intent.mdc` | Claude reads via `CLAUDE.md` / project instructions — copy rule content or symlink |
-| **Portable Bible** | `docs/37_GODS_EYE.md` (vendored) or `$GODS_EYE_ROOT` | Portable law — §0–§10 |
+| **Project rule** | `.cursor/rules/nightraven-context-intent.mdc` | Claude reads via `CLAUDE.md` / project instructions — copy rule content or symlink |
+| **Portable Bible** | `docs/37_GODS_EYE_BIBLE.md` (vendored) or `$GODS_EYE_ROOT` | Portable law — §0–§10 |
 | **Repo overlay** | `docs/GODS_EYE_REPO_OVERLAY.md` | Local vocabulary, boundaries, disambiguation |
 | **Handoff** | `docs/14_SESSION_HANDOFF.md` | Current state, Already done, Recent sessions (`+#` only) |
 | **Agent entry** | `AGENTS.md` | Read order, core laws, common mistakes |
@@ -40,13 +40,13 @@ For framework development, work directly in the `gods-eye` clone.
 
 | Artifact | Required | Notes |
 |----------|----------|-------|
-| `docs/37_GODS_EYE.md` | Yes | Portable Bible — or set `$GODS_EYE_ROOT` to framework clone |
+| `docs/37_GODS_EYE_BIBLE.md` | Yes | Portable Bible — or set `$GODS_EYE_ROOT` to framework clone |
 | `docs/GODS_EYE_REPO_OVERLAY.md` | Yes | Start from [`examples/overlay/`](../examples/overlay/GODS_EYE_REPO_OVERLAY.example.md) |
 | `docs/14_SESSION_HANDOFF.md` | Yes | Session state + Recent sessions |
 | `docs/02_ENGINEERING_CHANGELOG.md` | Yes | Engineering history (`+#` only) |
 | `docs/04_LEARNING_LOG.md` | Yes | Patterns and pitfalls (`+#` only) |
 | `AGENTS.md` | Yes | Agent conventions |
-| `.cursor/rules/gods-eye-context-intent.mdc` | Recommended | Wire into Claude project instructions |
+| `.cursor/rules/nightraven-context-intent.mdc` | Recommended | Wire into Claude project instructions |
 | `.cursor/hooks/` + `hooks.json` | Optional | Cursor-only autosync; see parity note |
 | `mcp-server/` + `.cursor/mcp.json` | Optional | Phase 2 MCP — git remains authoritative |
 
@@ -62,7 +62,7 @@ Claude Code loads project context from **`CLAUDE.md`** (repo root) and optional 
    ## God's Eye (agent memory)
 
    Read before every session: `AGENTS.md` → overlay → handoff.
-   Portable law: `docs/37_GODS_EYE.md` §0.
+   Portable law: `docs/37_GODS_EYE_BIBLE.md` §0.
    ```
 
 2. Optionally copy `.claude/skills/` patterns from this repo (`bank-*`, `nightraven`, etc.) — framework skills live under `.claude/skills/` here; consumer repos cherry-pick as needed.
@@ -140,7 +140,7 @@ When Claude Code works inside the NightRaven platform monorepo on **`apps/compas
 - [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) — Cursor-specific install + verification
 - [`HOOKS_SETUP.md`](HOOKS_SETUP.md) — Phase 2 hooks and Always Sync autosync
 - [`MCP_SETUP.md`](MCP_SETUP.md) — Optional MCP memory-chain tools
-- [`37_GODS_EYE.md`](37_GODS_EYE.md) — Portable law
+- [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) — Portable law
 - [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) — Local vocabulary
 
 *God's Eye always watches — same memory chain, any agent surface.*

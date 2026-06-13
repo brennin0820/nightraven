@@ -2,11 +2,11 @@
 
 **Purpose:** Aggregate **metadata** from every workspace that runs God's Eye — without importing another repo's app memory into this file.
 
-**Authority:** Inventory is **L0 git truth in this repo** — refresh with [`scripts/scan-gods-eye-projects.sh`](../scripts/scan-gods-eye-projects.sh). Per-project handoff/changelog remain **local only** (Bible §2.6).
+**Authority:** Inventory is **L0 git truth in this repo** — refresh with [`scripts/scan-nightraven-projects.sh`](../scripts/scan-nightraven-projects.sh). Per-project handoff/changelog remain **local only** (Bible §2.6).
 
-**Last scanned:** 2026-06-10 (UTC) · registry: [`scripts/gods-eye-projects.conf`](../scripts/gods-eye-projects.conf)
+**Last scanned:** 2026-06-10 (UTC) · registry: [`scripts/nightraven-projects.conf`](../scripts/nightraven-projects.conf)
 
-Related: [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) · [`37_GODS_EYE.md`](37_GODS_EYE.md) · [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md)
+Related: [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) · [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md)
 
 ---
 
@@ -14,10 +14,10 @@ Related: [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) · [`37_GODS_E
 
 | Workspace | Role | Stack phase | Bible source | L3 chain | Hooks |
 |-----------|------|-------------|--------------|----------|-------|
-| **gods-eye** (published) | Framework | **Phase 2** | Vendored `docs/37_GODS_EYE.md` | Full bootstrap | `.cursor/hooks.json` |
+| **gods-eye** (published) | Framework | **Phase 2** | Vendored `docs/37_GODS_EYE_BIBLE.md` | Full bootstrap | `.cursor/hooks.json` |
 | **UAIPOS** (master BAIC) | Constitution / master | **Phase 2** | Canonical for upstream §2.7; **vendor from** published `gods-eye` for §1/§3 doctrine | Full BAIC `docs/` | `.cursor/hooks.json` |
 | **NightRaven** | Consumer app | **Phase 1** | Pointer → UAIPOS Bible | Overlay + handoff + protocol | Via `install.sh` demo / user global |
-| **~/.cursor** (user global) | Cursor-wide entry | **Phase 2** | Pointer → `Projects/gods-eye` | N/A (not a repo) | `hooks/gods-eye/` |
+| **~/.cursor** (user global) | Cursor-wide entry | **Phase 2** | Pointer → `Projects/gods-eye` | N/A (not a repo) | `hooks/nightraven/` |
 
 ```text
 Experience (portable)     published gods-eye doc 37  ──vendor──►  UAIPOS master (upstream §2.7)
@@ -32,9 +32,9 @@ Loop snapshot             GodsEye-Docs-extracted/ — reference only; sync via s
 
 | Role | Canonical source | Notes |
 |------|------------------|-------|
-| **Published portable law** | `Projects/gods-eye/docs/37_GODS_EYE.md` | §1/§3 doctrine, §2.7 promote-to-standard, §2.8, install defaults |
-| **Master BAIC upstream** | `UAIPOS/docs/37_GODS_EYE.md` | §2.7 **Upstream to master**; vendor portable sections **from** published gods-eye |
-| **Loop snapshot** | `~/God's Eye/GodsEye-Docs-extracted/` | **Not authoritative** — `sync-snapshot.sh` after cycles; `gods-eye-lint.sh snapshot` |
+| **Published portable law** | `Projects/gods-eye/docs/37_GODS_EYE_BIBLE.md` | §1/§3 doctrine, §2.7 promote-to-standard, §2.8, install defaults |
+| **Master BAIC upstream** | `UAIPOS/docs/37_GODS_EYE_BIBLE.md` | §2.7 **Upstream to master**; vendor portable sections **from** published gods-eye |
+| **Loop snapshot** | `~/God's Eye/GodsEye-Docs-extracted/` | **Not authoritative** — `sync-snapshot.sh` after cycles; `lint-framework-memory.sh snapshot` |
 
 **Release/sync step:** Edit portable law in **published gods-eye** → push → `./scripts/sync-snapshot.sh` → vendor delta to UAIPOS when master needs upstream block only.
 
@@ -42,7 +42,7 @@ Loop snapshot             GodsEye-Docs-extracted/ — reference only; sync via s
 
 ## Scan output (auto-generated shape)
 
-Run `./scripts/scan-gods-eye-projects.sh --markdown` to refresh this table:
+Run `./scripts/scan-nightraven-projects.sh --markdown` to refresh this table:
 
 | Label | Path | Role | Phase | Bible | Artifacts | Latest Recent session |
 |-------|------|------|-------|-------|-----------|----------------------|
@@ -66,7 +66,7 @@ Run `./scripts/scan-gods-eye-projects.sh --markdown` to refresh this table:
 | **Overlay vocabulary** | Framework meta — see [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) (template slots) |
 | **Install** | Self-hosted; `install.sh` bootstraps other repos |
 
-**Key artifacts:** `37_GODS_EYE.md`, `GODS_EYE_UNIFIED_STACK.md`, `GODS_EYE_SESSION_TREE.md`, `CURSOR_INSTALL.md`, `HOOKS_SETUP.md`, `install.sh`, `templates/`
+**Key artifacts:** `37_GODS_EYE_BIBLE.md`, `GODS_EYE_UNIFIED_STACK.md`, `GODS_EYE_SESSION_SPEC_TREES.md`, `CURSOR_INSTALL.md`, `HOOKS_SETUP.md`, `install.sh`, `templates/`
 
 **Missing vs full stack:** `docs/USER_CONTEXT_PROTOCOL.md` (use `examples/appendix/` instead)
 
@@ -78,11 +78,11 @@ Run `./scripts/scan-gods-eye-projects.sh --markdown` to refresh this table:
 |-------|-------|
 | **Path** | `/Users/brentlenninorlanda/Projects/Universal_AI_Project_Operating_System` |
 | **Role** | Master constitution — **BigBrother** nickname; **God's Eye Bible** source of truth for laws |
-| **L0–L4** | L0 full BAIC `docs/` · L1 `AGENTS.md` + `brents-ai-constitution.mdc` · L2 `37_GODS_EYE.md` (largest) · L3 master handoff/logs · L4 hooks (minimal) |
+| **L0–L4** | L0 full BAIC `docs/` · L1 `AGENTS.md` + `brents-ai-constitution.mdc` · L2 `37_GODS_EYE_BIBLE.md` (largest) · L3 master handoff/logs · L4 hooks (minimal) |
 | **Focus** | Framework maintenance, doc 35–36 fast start/isolation, improvement loop template |
-| **Sync note** | When doc 37 changes here, **vendor or sync** into `Projects/gods-eye/docs/37_GODS_EYE.md` |
+| **Sync note** | When doc 37 changes here, **vendor or sync** into `Projects/gods-eye/docs/37_GODS_EYE_BIBLE.md` |
 
-**Key artifacts:** `docs/37_GODS_EYE.md`, `docs/32_BIGBROTHER_OVERSIGHT.md`, `docs/35_FAST_START.md`, `docs/36_PROJECT_ISOLATION.md`, `templates/GODS_EYE_IMPROVEMENT_LOOP.md`
+**Key artifacts:** `docs/37_GODS_EYE_BIBLE.md`, `docs/32_BIGBROTHER_OVERSIGHT.md`, `docs/35_FAST_START.md`, `docs/36_PROJECT_ISOLATION.md`, `templates/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md`
 
 **Not duplicated in gods-eye repo:** Full `docs/01`–`08` BAIC chain — apps point here or vendor lean subset only.
 
@@ -96,7 +96,7 @@ Run `./scripts/scan-gods-eye-projects.sh --markdown` to refresh this table:
 | **Product** | **Gambling Tracker** · ship name **NightRaven** · Xcode target **OneDayMillionaire** (until rename) · repo folder **`NightRaven`** |
 | **L0–L4** | L0 app git · L1 `AGENTS.md` + rules · L2 Bible via **UAIPOS pointer** · L3 full overlay/handoff/protocol · L4 none in-repo (user global hooks) |
 | **Tier** | Tier 0 lean — principles via user constitution + master pointers |
-| **Bible pointer** | Overlay → `/Users/brentlenninorlanda/Projects/Universal_AI_Project_Operating_System/docs/37_GODS_EYE.md` |
+| **Bible pointer** | Overlay → `/Users/brentlenninorlanda/Projects/Universal_AI_Project_Operating_System/docs/37_GODS_EYE_BIBLE.md` |
 
 **Vocabulary (overlay — do not collapse layers):**
 
@@ -123,7 +123,7 @@ Run `./scripts/scan-gods-eye-projects.sh --markdown` to refresh this table:
 
 | Field | Value |
 |-------|-------|
-| **Path** | `~/.cursor/rules/gods-eye-context-intent.mdc`, `~/.cursor/hooks.json`, `~/.cursor/hooks/gods-eye/` |
+| **Path** | `~/.cursor/rules/nightraven-context-intent.mdc`, `~/.cursor/hooks.json`, `~/.cursor/hooks/nightraven/` |
 | **Role** | Always-on oversight when opening any workspace; Bible fallback path → `Projects/gods-eye` |
 | **Installed via** | `install.sh --user --no-project` from gods-eye repo (`a14ac10`) |
 
@@ -147,13 +147,13 @@ Run `./scripts/scan-gods-eye-projects.sh --markdown` to refresh this table:
 
 ```bash
 # From gods-eye repo root
-./scripts/scan-gods-eye-projects.sh              # human-readable report
-./scripts/scan-gods-eye-projects.sh --markdown # paste into "Scan output" § above
+./scripts/scan-nightraven-projects.sh              # human-readable report
+./scripts/scan-nightraven-projects.sh --markdown # paste into "Scan output" § above
 ./scripts/sync-snapshot.sh                       # LOOP step 7 — loop workspace snapshot
-./scripts/gods-eye-lint.sh                       # soft checks (snapshot drift, handoff dates)
+./scripts/lint-framework-memory.sh                       # soft checks (snapshot drift, handoff dates)
 
 # Add a new God's Eye workspace
-echo '/path/to/repo|My App|app' >> scripts/gods-eye-projects.conf
+echo '/path/to/repo|My App|app' >> scripts/nightraven-projects.conf
 ```
 
 **After refresh:** `+#` append a line to [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) and **Recent sessions** in [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) when the registry changes materially.

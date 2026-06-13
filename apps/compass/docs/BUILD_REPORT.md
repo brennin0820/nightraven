@@ -6,7 +6,7 @@
 ## Architecture
 
 ```
-gods-eye-projects.conf
+nightraven-projects.conf
         ↓
 Vite compassApiPlugin (/api/registry, /api/project)
         ↓

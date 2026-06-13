@@ -4,7 +4,7 @@
 
 **NightRaven monorepo map:** [`docs/NIGHTRAVEN_UNIFIED_PRODUCT.md`](docs/NIGHTRAVEN_UNIFIED_PRODUCT.md) · Compass app: [`apps/compass/`](apps/compass/)
 
-**Compass app work:** Read [`apps/compass/AGENTS.md`](apps/compass/AGENTS.md) first — not framework `docs/14` unless editing framework itself. Compass loads consumer handoffs from registered project paths (`scripts/gods-eye-projects.conf`).
+**Compass app work:** Read [`apps/compass/AGENTS.md`](apps/compass/AGENTS.md) first — not framework `docs/14` unless editing framework itself. Compass loads consumer handoffs from registered project paths (`scripts/nightraven-projects.conf`).
 
 ---
 
@@ -16,10 +16,10 @@
 
 | # | Read |
 |---|------|
-| 1 | `.cursor/rules/gods-eye-context-intent.mdc` (lean rule summary) |
-| 2 | `docs/37_GODS_EYE.md` — **portable law** (or `$GODS_EYE_ROOT/docs/37_GODS_EYE.md` if vendored) |
+| 1 | `.cursor/rules/nightraven-context-intent.mdc` (lean rule summary) |
+| 2 | `docs/37_GODS_EYE_BIBLE.md` — **portable law** (or `$GODS_EYE_ROOT/docs/37_GODS_EYE_BIBLE.md` if vendored) |
 | 3 | `docs/GODS_EYE_REPO_OVERLAY.md` — local vocabulary (if present) |
-| 4 | `docs/GODS_EYE_GRAND_SPEC.md` — router (if present) |
+| 4 | `docs/GODS_EYE_LAYERED_SPEC_ROUTER.md` — router (if present) |
 | 5 | `docs/GODS_EYE_PROJECT_INVENTORY.md` — cross-repo adoption (framework maintenance) |
 | 6 | `docs/14_SESSION_HANDOFF.md` — current state & guardrails (this repo only) |
 | 7 | `docs/NIGHTRAVEN_UNIFIED_PRODUCT.md` — umbrella brand · monorepo · app boundaries (when working across `apps/`) |
@@ -132,7 +132,7 @@ Every addition at one layer must **not** silently rename another.
 | **Unlearning** | No delete, trim, or rewrite of history — **Supersedes** for corrections |
 | **Forgetting to sync** | Always pull before work; always push after commit — no silent local-only state |
 | **Silent rule bypass** | Governed Bypass requires explicit Brent approval *first* — never assume implicit permission |
-| **Local-mode parallelization** | Serial only on LM Studio — no subagents; see `docs/GODS_EYE_LOCAL_VS_CLOUD.md` §4 |
+| **Local-mode parallelization** | Serial only on LM Studio — no subagents; see `docs/GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md` §4 |
 
 ---
 
@@ -211,15 +211,15 @@ When Brent gives a **concept, context, or idea** (even telegraphic) — infer: *
 
 ## Reference
 
-- **Portable spec:** `docs/37_GODS_EYE.md` — Bible § index, full laws, connected chain, anti-patterns, loop mode, Tier C details
+- **Portable spec:** `docs/37_GODS_EYE_BIBLE.md` — Bible § index, full laws, connected chain, anti-patterns, loop mode, Tier C details
 - **Fast start:** `docs/35_FAST_START.md` — Tier 0 cold-start for new/empty repos
 - **Project isolation:** `docs/36_PROJECT_ISOLATION.md` — experience vs app memory, cross-repo rules
 - **Session handoff:** `docs/14_SESSION_HANDOFF.md` — current state, guardrails, already-done, recent sessions
 - **MCP (Phase 2, optional):** `docs/MCP_SETUP.md` — memory-chain tools (read, search, append Recent sessions); git authoritative
-- **Local vs Cloud execution:** `docs/GODS_EYE_LOCAL_VS_CLOUD.md` — LM Studio vs cloud frontier modes; model recommendations; agent rules by provider; LM Studio quickstart
+- **Local vs Cloud execution:** `docs/GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md` — LM Studio vs cloud frontier modes; model recommendations; agent rules by provider; LM Studio quickstart
 - **Research map (plan):** `.cursor/plans/god's_eye_research_map_b4b6f06f.plan.md` — external field overlaps vs GE differentiators; overlay §1 **Composed architecture** · **GIRMA**
 - **agent-skills merge (plan):** `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md` — reject core vendor; optional L4 implementation skills after ship signal; overlay §1 **Implementation skills pack (optional)** · [`CURSOR_INSTALL.md`](docs/CURSOR_INSTALL.md) optional post-install pointer · [`GODS_EYE_UNIFIED_STACK.md`](docs/GODS_EYE_UNIFIED_STACK.md) §2
-- **Improvement loop:** `templates/GODS_EYE_IMPROVEMENT_LOOP.md` — cycle prompt, virtual teams, logging rules
+- **Improvement loop:** `templates/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md` — cycle prompt, virtual teams, logging rules
 - **Division registry:** `docs/DIVISION_REGISTRY.md` — canonical division list, tool belts, SKILL.md paths, pipeline flow, known gaps
 - **BigBrother relationship:** `docs/32_BIGBROTHER_OVERSIGHT.md` — complementary BAIC oversight checklist
 - **Repo overlay:** `docs/GODS_EYE_REPO_OVERLAY.md` — local vocabulary, code disambiguation, product boundary (if present)

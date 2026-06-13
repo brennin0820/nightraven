@@ -42,12 +42,12 @@ node mcp-server/dist/index.js
 When you run `./install.sh` on a bootstrapped project, it copies:
 
 - `.cursor/mcp.json` — MCP server registration
-- `.cursor/mcp/run-gods-eye-mcp.js` — cross-platform launcher (runs natively on Windows, macOS, Linux)
-- `.cursor/mcp/run-gods-eye-mcp.sh` — bash fallback launcher
+- `.cursor/mcp/run-memory-chain-mcp.js` — cross-platform launcher (runs natively on Windows, macOS, Linux)
+- `.cursor/mcp/run-memory-chain-mcp.sh` — bash fallback launcher
 
 **Enable in Cursor:**
 
-1. **Cursor Settings → MCP** — confirm `gods-eye` appears (green).
+1. **Cursor Settings → MCP** — confirm `nightraven-memory-chain` appears (green).
 2. Open a new Agent chat in the bootstrapped project.
 3. Ask the agent to call `gods_eye_list_memory_slots` or `gods_eye_read_memory` with `slot: handoff`.
 
@@ -60,9 +60,9 @@ If the server fails to start, build `mcp-server/` as above. The launcher prints 
 ```json
 {
   "mcpServers": {
-    "gods-eye": {
+    "nightraven-memory-chain": {
       "command": "node",
-      "args": [".cursor/mcp/run-gods-eye-mcp.js"]
+      "args": [".cursor/mcp/run-memory-chain-mcp.js"]
     }
   }
 }
@@ -73,11 +73,11 @@ Set `GODS_EYE_INSTALL_ROOT` in the MCP env block if the portable Bible lives out
 ```json
 {
   "mcpServers": {
-    "gods-eye": {
+    "nightraven-memory-chain": {
       "command": "node",
-      "args": [".cursor/mcp/run-gods-eye-mcp.js"],
+      "args": [".cursor/mcp/run-memory-chain-mcp.js"],
       "env": {
-        "GODS_EYE_INSTALL_ROOT": "/path/to/gods-eye",
+        "GODS_EYE_INSTALL_ROOT": "/path/to/nightraven-monorepo",
         "GODS_EYE_PROJECT_ROOT": "/path/to/your-app"
       }
     }
@@ -107,7 +107,7 @@ Portable L2 docs (`bible`, `router`, `session_tree`) fall back to `$GODS_EYE_ROO
 - **This repo only** — no cross-repo handoff bleed; one MCP instance per workspace.
 - **Tier 0–1** — optional; parallel doc reads remain sufficient for small tasks.
 - **Mem0/Zep** — separate optional L4; ingest from git, never shadow writes.
-- **Mode-agnostic** — MCP tools work identically in local (LM Studio) and cloud mode. Execution mode governs agent parallelism and context discipline, not the MCP API itself — see [`GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md) §4.
+- **Mode-agnostic** — MCP tools work identically in local (LM Studio) and cloud mode. Execution mode governs agent parallelism and context discipline, not the MCP API itself — see [`GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md`](GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md) §4.
 
 ---
 
@@ -116,4 +116,4 @@ Portable L2 docs (`bible`, `router`, `session_tree`) fall back to `$GODS_EYE_ROO
 - [`HOOKS_SETUP.md`](HOOKS_SETUP.md) — Phase 2 soft hooks
 - [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) — full install flow
 - [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) — Phase 2 hooks + MCP roadmap
-- [`GODS_EYE_LOCAL_VS_CLOUD.md`](GODS_EYE_LOCAL_VS_CLOUD.md) — local vs cloud agent discipline (§4 governs parallelism, not MCP API)
+- [`GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md`](GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md) — local vs cloud agent discipline (§4 governs parallelism, not MCP API)

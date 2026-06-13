@@ -128,13 +128,13 @@ Think like a senior engineer.
 
 | Artifact | Description |
 |----------|-------------|
-| [**God's Eye Bible**](docs/37_GODS_EYE.md) | Canonical portable spec — laws, intent ladder, agent quick start, Tier C, improvement loop |
+| [**God's Eye Bible**](docs/37_GODS_EYE_BIBLE.md) | Canonical portable spec — laws, intent ladder, agent quick start, Tier C, improvement loop |
 | [**Unified stack**](docs/GODS_EYE_UNIFIED_STACK.md) | L0–L4 layers — Memory Bank mapping, handoff, Mem0/Zep, hooks, Plan Mode, phased roadmap |
 | [**Project inventory**](docs/GODS_EYE_PROJECT_INVENTORY.md) | All God's Eye workspaces — scan script, phase matrix, overlay vocabulary index |
-| [**Session tree**](docs/GODS_EYE_SESSION_TREE.md) | Visual flow: tiers, Record Everything mode, doc hierarchy (ASCII + Mermaid) |
-| [**Improvement loop**](docs/GODS_EYE_IMPROVEMENT_LOOP.md) | Six virtual “teams,” one `+#` step per cycle |
-| [**Spec router**](docs/GODS_EYE_GRAND_SPEC.md) | Thin index — Bible + local overlay + Cursor rule |
-| [**Example Cursor rule**](.cursor/rules/gods-eye-context-intent.mdc) | Copy into your repo's `.cursor/rules/` (adapt paths) |
+| [**Session tree**](docs/GODS_EYE_SESSION_SPEC_TREES.md) | Visual flow: tiers, Record Everything mode, doc hierarchy (ASCII + Mermaid) |
+| [**Improvement loop**](docs/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md) | Six virtual “teams,” one `+#` step per cycle |
+| [**Spec router**](docs/GODS_EYE_LAYERED_SPEC_ROUTER.md) | Thin index — Bible + local overlay + Cursor rule |
+| [**Example Cursor rule**](.cursor/rules/nightraven-context-intent.mdc) | Copy into your repo's `.cursor/rules/` (adapt paths) |
 | [**Optional delegation rule**](templates/model-delegation-efficiency.user.mdc) | Multitask + heavy-thread efficiency (Bible §2.8) |
 | [**Example overlay**](examples/overlay/GODS_EYE_REPO_OVERLAY.example.md) | How to add product vocabulary on top of portable law |
 | [**Example user-context protocol**](examples/appendix/USER_CONTEXT_PROTOCOL.example.md) | Worked “add context” examples |
@@ -146,11 +146,11 @@ Think like a senior engineer.
 
 ## Operating rules (60 seconds)
 
-1. **Intent ladder** — Default stop: **memory + wire** (update durable docs and cross-links). Drop to UI/copy or code only when the user names those layers. See [§3 in the Bible](docs/37_GODS_EYE.md).
+1. **Intent ladder** — Default stop: **memory + wire** (update durable docs and cross-links). Drop to UI/copy or code only when the user names those layers. See [§3 in the Bible](docs/37_GODS_EYE_BIBLE.md).
 2. **Always parallel** — Batch-read disjoint docs; run independent workstreams in parallel; one writer per file.
 3. **`+#` only** — Changelog, handoff, learning log: append; use **Supersedes** for corrections; never `-#` heading blocks.
 4. **Repo overlay** — Portable law stays in the Bible; your app’s names, boundaries, and disambiguation live in `docs/GODS_EYE_REPO_OVERLAY.md` (see examples).
-5. **Plan until ship signal** — Default memory/wire until the user says **code it** / **implement** / **build** ([§2.8](docs/37_GODS_EYE.md)).
+5. **Plan until ship signal** — Default memory/wire until the user says **code it** / **implement** / **build** ([§2.8](docs/37_GODS_EYE_BIBLE.md)).
 6. **Tier C default** — Creator-Innovator posture; Product/QA win on product boundaries.
 
 ---
@@ -164,22 +164,22 @@ git clone https://github.com/brennin0820/gods-eye.git
 cd gods-eye
 ./install.sh --user              # global Cursor rule + hooks (once per machine)
 ./install.sh ~/path/to/your-app  # per-project memory chain + hooks
-./scripts/install-gods-eye-nightraven.sh --user ~/path/to/your-app  # God's Eye + NightRaven Core
+./scripts/install-nightraven-framework.sh --user ~/path/to/your-app  # God's Eye + NightRaven Core
 ```
 
-See **[`docs/CURSOR_INSTALL.md`](docs/CURSOR_INSTALL.md)** for verification steps (Settings → Rules, Hooks, test session). If you are evaluating first, read the [Bible §0](docs/37_GODS_EYE.md) and the [example overlay](examples/overlay/GODS_EYE_REPO_OVERLAY.example.md) before installing.
+See **[`docs/CURSOR_INSTALL.md`](docs/CURSOR_INSTALL.md)** for verification steps (Settings → Rules, Hooks, test session). If you are evaluating first, read the [Bible §0](docs/37_GODS_EYE_BIBLE.md) and the [example overlay](examples/overlay/GODS_EYE_REPO_OVERLAY.example.md) before installing.
 
 **Manual path:**
 
-1. **Vendor or submodule** this repository, or copy `docs/37_GODS_EYE.md` plus the files you need.
-2. Add **`.cursor/rules/gods-eye-context-intent.mdc`** (from this repo) and point reads at your copy of the Bible.
+1. **Vendor or submodule** this repository, or copy `docs/37_GODS_EYE_BIBLE.md` plus the files you need.
+2. Add **`.cursor/rules/nightraven-context-intent.mdc`** (from this repo) and point reads at your copy of the Bible.
 3. Create **`docs/GODS_EYE_REPO_OVERLAY.md`** for local vocabulary (start from [`examples/overlay/`](examples/overlay/GODS_EYE_REPO_OVERLAY.example.md)).
-4. Optional: **`docs/GODS_EYE_GRAND_SPEC.md`** as a router; **`.cursor/gods-eye-improvement-loop.md`** as a loop pointer.
+4. Optional: **`docs/GODS_EYE_LAYERED_SPEC_ROUTER.md`** as a router; **`.cursor/IMPROVEMENT_LOOP_CYCLE_PROMPT.md`** as a loop pointer.
 5. Session start: rule → Bible **§0** → overlay → handoff / `AGENTS.md`.
 6. **Optional Phase 2:** copy [`.cursor/hooks.json`](.cursor/hooks.json) + [`.cursor/hooks/`](.cursor/hooks/) for soft Cursor hook nudges (three-touch + Record Everything). See [`docs/HOOKS_SETUP.md`](docs/HOOKS_SETUP.md).
 7. **Optional Phase 2 MCP:** build [`mcp-server/`](mcp-server/) and enable [`.cursor/mcp.json`](.cursor/mcp.json) for memory-chain tools (read handoff, search, append Recent sessions). See [`docs/MCP_SETUP.md`](docs/MCP_SETUP.md).
 
-For adoption layers (Memory Bank mapping, Mem0/Zep, hooks roadmap), see [`docs/GODS_EYE_UNIFIED_STACK.md`](docs/GODS_EYE_UNIFIED_STACK.md). For a visual map of session flow and tiers, open [`docs/GODS_EYE_SESSION_TREE.md`](docs/GODS_EYE_SESSION_TREE.md).
+For adoption layers (Memory Bank mapping, Mem0/Zep, hooks roadmap), see [`docs/GODS_EYE_UNIFIED_STACK.md`](docs/GODS_EYE_UNIFIED_STACK.md). For a visual map of session flow and tiers, open [`docs/GODS_EYE_SESSION_SPEC_TREES.md`](docs/GODS_EYE_SESSION_SPEC_TREES.md).
 
 ---
 
@@ -187,13 +187,13 @@ For adoption layers (Memory Bank mapping, Mem0/Zep, hooks roadmap), see [`docs/G
 
 ```text
 docs/
-  37_GODS_EYE.md              # Portable Bible (start at §0)
+  37_GODS_EYE_BIBLE.md              # Portable Bible (start at §0)
   assets/gods-eye-flow.png    # Public flow diagram (README)
   GODS_EYE_UNIFIED_STACK.md   # L0–L4 stack map (Memory Bank, hooks, index)
   GODS_EYE_PROJECT_INVENTORY.md  # Cross-repo adoption index (run scripts/scan-*.sh)
-  GODS_EYE_GRAND_SPEC.md      # Router
-  GODS_EYE_IMPROVEMENT_LOOP.md
-  GODS_EYE_SESSION_TREE.md
+  GODS_EYE_LAYERED_SPEC_ROUTER.md      # Router
+  GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md
+  GODS_EYE_SESSION_SPEC_TREES.md
   14_SESSION_HANDOFF.md       # L3 app memory — Recent sessions, Already done
   02_ENGINEERING_CHANGELOG.md # Append-only engineering history
   04_LEARNING_LOG.md          # Append-only durable patterns
@@ -204,10 +204,10 @@ install.sh                    # One-command installer (user + project)
 mcp-server/                   # Phase 2 MCP — read/search/append memory chain
 templates/                    # Bootstrap AGENTS.md, handoff, overlay, mcp.json
 .cursor/
-  rules/gods-eye-context-intent.mdc
-  gods-eye-improvement-loop.md
+  rules/nightraven-context-intent.mdc
+  IMPROVEMENT_LOOP_CYCLE_PROMPT.md
   mcp.json                    # Optional Phase 2 — see docs/MCP_SETUP.md
-  mcp/run-gods-eye-mcp.sh     # MCP launcher (installed per project)
+  mcp/run-memory-chain-mcp.sh     # MCP launcher (installed per project)
   hooks.json                  # Optional Phase 2 — see docs/HOOKS_SETUP.md
   hooks/                      # session-start · session-stop · after-file-edit
 examples/

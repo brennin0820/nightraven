@@ -24,7 +24,7 @@ Compass does **not** run agents, edit repos, or sync to the cloud. It **reads** 
 | Routing | `useState` view switching — no React Router |
 | Server (dev only) | Vite middleware plugin `server/compassApiPlugin.ts` |
 | Client persistence | IndexedDB (`nightraven-compass` / `project-overrides`) |
-| Registry | `scripts/gods-eye-projects.conf` at monorepo root |
+| Registry | `scripts/nightraven-projects.conf` at monorepo root |
 
 ---
 
@@ -86,7 +86,7 @@ apps/compass/
 ## Data flow (read this before editing)
 
 ```text
-gods-eye-projects.conf
+nightraven-projects.conf
         │
         ▼
 GET /api/registry  ──────────────────────────────┐
@@ -132,13 +132,13 @@ User edits in the UI write **overrides only**, never God's Eye files on disk.
 
 | Item | Location / behavior |
 |------|---------------------|
-| Registry file | `scripts/gods-eye-projects.conf` (monorepo root) |
+| Registry file | `scripts/nightraven-projects.conf` (monorepo root) |
 | Format | `ABS_PATH\|label\|role` per line (`framework`, `master`, `app`, `user-global`) |
 | Default project | **HimFLer** (`E:/NightRaven/HimFLer`) when no `localStorage` selection |
 | Stored selection | `localStorage` key `compass.selectedProject` |
 | Switch project | Settings → registry list → Select |
 
-**Handoff isolation:** When Compass shows HimFLer, it reads `E:/NightRaven/HimFLer/docs/14_SESSION_HANDOFF.md` — not framework `gods-eye-1/docs/14`. Never bleed framework handoff into consumer app context.
+**Handoff isolation:** When Compass shows HimFLer, it reads `E:/NightRaven/HimFLer/docs/14_SESSION_HANDOFF.md` — not framework `nightraven/docs/14`. Never bleed framework handoff into consumer app context.
 
 ---
 

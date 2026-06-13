@@ -72,4 +72,4 @@ AppFoundationFlow
 - Flow orchestrator: `apps/planner/src/flows/AppFoundationFlow.ts`
 - NightRaven product map: `docs/NIGHTRAVEN_UNIFIED_PRODUCT.md`
 - System skills (non-division): `.claude/skills/` root — `audit`, `bank-*`, `hunt`, `nightraven`
-- Bible: `docs/37_GODS_EYE.md` §9 — virtual teams reference
+- Bible: `docs/37_GODS_EYE_BIBLE.md` §9 — virtual teams reference

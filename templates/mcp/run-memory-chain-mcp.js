@@ -9,7 +9,7 @@ const serverJs = path.join(installRoot, 'mcp-server/dist/index.js');
 const mcpServerDir = path.join(installRoot, 'mcp-server');
 
 if (!fs.existsSync(serverJs)) {
-  console.error(`gods-eye MCP server not built: ${serverJs}`);
+  console.error(`nightraven memory-chain MCP server not built: ${serverJs}`);
   console.error(`Run: cd "${mcpServerDir}" && npm install && npm run build`);
   process.exit(1);
 }

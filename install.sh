@@ -34,12 +34,12 @@ Options:
   --no-hooks       Skip hook scripts and hooks.json
   --no-mcp         Skip MCP launcher and .cursor/mcp.json
   --no-vendor      Do not copy portable Bible/router docs into the project
-  --force-rule     Overwrite existing .cursor/rules/gods-eye-context-intent.mdc
+  --force-rule     Overwrite existing .cursor/rules/nightraven-context-intent.mdc
   -h, --help       Show this help
 
 Defaults:
   Project target = current directory
-  Vendors docs/37_GODS_EYE.md + router when missing
+  Vendors docs/37_GODS_EYE_BIBLE.md + router when missing
   Bootstraps handoff/changelog/learning log/AGENTS.md/overlay from templates
 
 Portable source: ${GODS_EYE_ROOT}
@@ -70,7 +70,7 @@ copy_file() {
 install_project_mcp() {
   local dest_root="$1"
   mkdir -p "${dest_root}/.cursor/mcp"
-  cat > "${dest_root}/.cursor/mcp/run-gods-eye-mcp.sh" <<EOF
+  cat > "${dest_root}/.cursor/mcp/run-memory-chain-mcp.sh" <<EOF
 #!/usr/bin/env bash
 # Launch God's Eye MCP server (stdio) for Cursor.
 set -euo pipefail
@@ -79,18 +79,18 @@ GODS_EYE_INSTALL_ROOT="${GODS_EYE_ROOT}"
 SERVER_JS="\${GODS_EYE_INSTALL_ROOT}/mcp-server/dist/index.js"
 
 if [[ ! -f "\$SERVER_JS" ]]; then
-  echo "gods-eye MCP server not built: \${SERVER_JS}" >&2
+  echo "nightraven memory-chain MCP server not built: \${SERVER_JS}" >&2
   echo "Run: cd \"\${GODS_EYE_INSTALL_ROOT}/mcp-server\" && npm install && npm run build" >&2
   exit 1
 fi
 
 exec node "\$SERVER_JS"
 EOF
-  chmod +x "${dest_root}/.cursor/mcp/run-gods-eye-mcp.sh"
-  copy_file "${GODS_EYE_ROOT}/templates/mcp/run-gods-eye-mcp.js" "${dest_root}/.cursor/mcp/run-gods-eye-mcp.js"
-  chmod +x "${dest_root}/.cursor/mcp/run-gods-eye-mcp.js"
+  chmod +x "${dest_root}/.cursor/mcp/run-memory-chain-mcp.sh"
+  copy_file "${GODS_EYE_ROOT}/templates/mcp/run-memory-chain-mcp.js" "${dest_root}/.cursor/mcp/run-memory-chain-mcp.js"
+  chmod +x "${dest_root}/.cursor/mcp/run-memory-chain-mcp.js"
   copy_if_missing "${GODS_EYE_ROOT}/templates/mcp.json" "${dest_root}/.cursor/mcp.json"
-  log "mcp: .cursor/mcp.json + run-gods-eye-mcp.js/sh (build mcp-server/ first — see docs/MCP_SETUP.md)"
+  log "mcp: .cursor/mcp.json + run-memory-chain-mcp.js/sh (build mcp-server/ first — see docs/MCP_SETUP.md)"
 }
 
 hooks_os_is_windows() {
@@ -133,7 +133,7 @@ merge_user_hooks_json() {
     log "created: ~/.cursor/hooks.json"
     return 0
   fi
-  if grep -q 'gods-eye/session-start.sh' "$user_hooks" 2>/dev/null; then
+  if grep -qE 'nightraven/session-start\.sh|gods-eye/session-start\.sh' "$user_hooks" 2>/dev/null; then
     warn "God's Eye hooks already present in ~/.cursor/hooks.json (skip merge)"
     return 0
   fi
@@ -166,30 +166,30 @@ PY
 
 install_user_level() {
   log "Installing user-level Cursor config (~/.cursor/)"
-  mkdir -p "${HOME}/.cursor/rules" "${HOME}/.cursor/hooks/gods-eye"
+  mkdir -p "${HOME}/.cursor/rules" "${HOME}/.cursor/hooks/nightraven"
 
-  local user_rule="${HOME}/.cursor/rules/gods-eye-context-intent.mdc"
+  local user_rule="${HOME}/.cursor/rules/nightraven-context-intent.mdc"
   if [[ -f "$user_rule" && "$FORCE_RULE" -eq 0 ]]; then
-    warn "exists (skip): ~/.cursor/rules/gods-eye-context-intent.mdc (use --force-rule to replace)"
+    warn "exists (skip): ~/.cursor/rules/nightraven-context-intent.mdc (use --force-rule to replace)"
   else
     sed "s|__GODS_EYE_ROOT__|${GODS_EYE_ROOT}|g" \
-      "${GODS_EYE_ROOT}/templates/gods-eye-context-intent.user.mdc" > "$user_rule"
-    log "installed: ~/.cursor/rules/gods-eye-context-intent.mdc"
+      "${GODS_EYE_ROOT}/templates/nightraven-context-intent.user.mdc" > "$user_rule"
+    log "installed: ~/.cursor/rules/nightraven-context-intent.mdc"
   fi
 
   if [[ "$INSTALL_HOOKS" -eq 1 ]]; then
-    cp "${GODS_EYE_ROOT}/.cursor/hooks/"*.sh "${HOME}/.cursor/hooks/gods-eye/"
-    cp "${GODS_EYE_ROOT}/.cursor/hooks/"*.ps1 "${HOME}/.cursor/hooks/gods-eye/" 2>/dev/null || true
-    chmod +x "${HOME}/.cursor/hooks/gods-eye/"*.sh
+    cp "${GODS_EYE_ROOT}/.cursor/hooks/"*.sh "${HOME}/.cursor/hooks/nightraven/"
+    cp "${GODS_EYE_ROOT}/.cursor/hooks/"*.ps1 "${HOME}/.cursor/hooks/nightraven/" 2>/dev/null || true
+    chmod +x "${HOME}/.cursor/hooks/nightraven/"*.sh
     # Bake install root so hooks resolve Bible when projects use master BAIC instead of vendoring.
-    if grep -q 'GODS_EYE_INSTALL_ROOT=' "${HOME}/.cursor/hooks/gods-eye/lib.sh" 2>/dev/null; then
+    if grep -q 'GODS_EYE_INSTALL_ROOT=' "${HOME}/.cursor/hooks/nightraven/lib.sh" 2>/dev/null; then
       sed -i '' "s|GODS_EYE_INSTALL_ROOT=\"\${GODS_EYE_INSTALL_ROOT:-.*}\"|GODS_EYE_INSTALL_ROOT=\"${GODS_EYE_ROOT}\"|" \
-        "${HOME}/.cursor/hooks/gods-eye/lib.sh" 2>/dev/null || \
+        "${HOME}/.cursor/hooks/nightraven/lib.sh" 2>/dev/null || \
       sed -i "s|GODS_EYE_INSTALL_ROOT=\"\${GODS_EYE_INSTALL_ROOT:-.*}\"|GODS_EYE_INSTALL_ROOT=\"${GODS_EYE_ROOT}\"|" \
-        "${HOME}/.cursor/hooks/gods-eye/lib.sh"
+        "${HOME}/.cursor/hooks/nightraven/lib.sh"
     fi
     merge_user_hooks_json
-    log "hooks: ~/.cursor/hooks/gods-eye/*.sh + *.ps1 (lib.ps1/lib.sh parity)"
+    log "hooks: ~/.cursor/hooks/nightraven/*.sh + *.ps1 (lib.ps1/lib.sh parity)"
   fi
 }
 
@@ -199,23 +199,23 @@ install_project() {
 
   mkdir -p "${TARGET}/.cursor/rules" "${TARGET}/docs"
 
-  local rule_dest="${TARGET}/.cursor/rules/gods-eye-context-intent.mdc"
+  local rule_dest="${TARGET}/.cursor/rules/nightraven-context-intent.mdc"
   if [[ -f "$rule_dest" && "$FORCE_RULE" -eq 0 ]]; then
-    warn "exists (skip): .cursor/rules/gods-eye-context-intent.mdc"
+    warn "exists (skip): .cursor/rules/nightraven-context-intent.mdc"
   else
-    copy_file "${GODS_EYE_ROOT}/.cursor/rules/gods-eye-context-intent.mdc" "$rule_dest"
+    copy_file "${GODS_EYE_ROOT}/.cursor/rules/nightraven-context-intent.mdc" "$rule_dest"
   fi
 
-  copy_if_missing "${GODS_EYE_ROOT}/.cursor/gods-eye-improvement-loop.md" \
-    "${TARGET}/.cursor/gods-eye-improvement-loop.md"
+  copy_if_missing "${GODS_EYE_ROOT}/.cursor/IMPROVEMENT_LOOP_CYCLE_PROMPT.md" \
+    "${TARGET}/.cursor/IMPROVEMENT_LOOP_CYCLE_PROMPT.md"
 
   if [[ "$VENDOR_DOCS" -eq 1 ]]; then
     for doc in \
-      docs/37_GODS_EYE.md \
-      docs/GODS_EYE_GRAND_SPEC.md \
-      docs/GODS_EYE_SESSION_TREE.md \
+      docs/37_GODS_EYE_BIBLE.md \
+      docs/GODS_EYE_LAYERED_SPEC_ROUTER.md \
+      docs/GODS_EYE_SESSION_SPEC_TREES.md \
       docs/GODS_EYE_UNIFIED_STACK.md \
-      docs/GODS_EYE_IMPROVEMENT_LOOP.md \
+      docs/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md \
       docs/HOOKS_SETUP.md \
       docs/MCP_SETUP.md; do
       copy_if_missing "${GODS_EYE_ROOT}/${doc}" "${TARGET}/${doc}"
@@ -245,9 +245,9 @@ install_project() {
 Project install complete: ${TARGET}
 
 Verify in Cursor:
-  • Rules: Cursor Settings → Rules → gods-eye-context-intent (alwaysApply)
+  • Rules: Cursor Settings → Rules → nightraven-context-intent (alwaysApply)
   • Hooks: Cursor Settings → Hooks (sessionStart, stop, afterFileEdit)
-  • MCP: Cursor Settings → MCP → gods-eye (after: cd mcp-server && npm install && npm run build)
+  • MCP: Cursor Settings → MCP → nightraven-memory-chain (after: cd mcp-server && npm install && npm run build)
   • Open a new Agent chat — Touch 1 reminder should appear
 
 Next steps:
@@ -290,7 +290,7 @@ if [[ "$INSTALL_USER" -eq 1 && "$INSTALL_PROJECT" -eq 0 ]]; then
 User-level install complete.
 
 Verify in Cursor:
-  • Settings → Rules → gods-eye-context-intent (global, alwaysApply)
+  • Settings → Rules → nightraven-context-intent (global, alwaysApply)
   • Settings → Hooks → sessionStart / stop / afterFileEdit
   • GODS_EYE_ROOT defaults to: ${GODS_EYE_ROOT}
 

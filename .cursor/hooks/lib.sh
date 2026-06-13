@@ -82,15 +82,15 @@ gods_eye_project_root() {
 
 gods_eye_resolve_root() {
   local project_root="$1"
-  if [[ -f "${project_root}/docs/37_GODS_EYE.md" ]]; then
+  if [[ -f "${project_root}/docs/37_GODS_EYE_BIBLE.md" ]]; then
     printf '%s' "${project_root}"
     return 0
   fi
-  if [[ -n "${GODS_EYE_ROOT:-}" && -f "${GODS_EYE_ROOT}/docs/37_GODS_EYE.md" ]]; then
+  if [[ -n "${GODS_EYE_ROOT:-}" && -f "${GODS_EYE_ROOT}/docs/37_GODS_EYE_BIBLE.md" ]]; then
     printf '%s' "${GODS_EYE_ROOT}"
     return 0
   fi
-  if [[ -f "${GODS_EYE_INSTALL_ROOT}/docs/37_GODS_EYE.md" ]]; then
+  if [[ -f "${GODS_EYE_INSTALL_ROOT}/docs/37_GODS_EYE_BIBLE.md" ]]; then
     printf '%s' "${GODS_EYE_INSTALL_ROOT}"
     return 0
   fi

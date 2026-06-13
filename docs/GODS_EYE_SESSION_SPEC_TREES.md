@@ -121,20 +121,20 @@ RECORD EVERYTHING · Touch 3 · AFTER          DECISION TREE (ask in order)
 ```
 GODS EYE FRAMEWORK
 │
-├── PORTABLE · 37_GODS_EYE.md (God's Eye Bible)
+├── PORTABLE · 37_GODS_EYE_BIBLE.md (God's Eye Bible)
 │   §0 quick start · §2 laws/tiers · §3 ladder · §5 chain · §9 loop · §10 Tier C
 │
 ├── LOCAL (bootstrapped repo)
 │   ├── GODS_EYE_REPO_OVERLAY.md · vocabulary · boundary
-│   └── GODS_EYE_GRAND_SPEC.md · router → Bible §0
+│   └── GODS_EYE_LAYERED_SPEC_ROUTER.md · router → Bible §0
 │
-├── ALWAYS-ON · gods-eye-context-intent.mdc · START HERE
+├── ALWAYS-ON · nightraven-context-intent.mdc · START HERE
 │
 ├── CONNECTED CHAIN (this repo only)
 │   domain rule · USER_CONTEXT_PROTOCOL · docs/14 handoff
 │   AGENTS.md · docs/02 changelog · docs/04 learning log
 │
-└── META (/loop only) · GODS_EYE_IMPROVEMENT_LOOP · gods-eye-improvement-loop
+└── META (/loop only) · GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT · IMPROVEMENT_LOOP_CYCLE_PROMPT
 ```
 
 **Read order:** Rule → Bible §0 → Overlay → Router → chain → AGENTS.md
@@ -189,12 +189,12 @@ flowchart TD
 
 ```mermaid
 graph TD
-    BIBLE["37_GODS_EYE.md · Bible"]
+    BIBLE["37_GODS_EYE_BIBLE.md · Bible"]
     OVERLAY["GODS_EYE_REPO_OVERLAY.md"]
-    ROUTER["GODS_EYE_GRAND_SPEC.md · router"]
-    RULE["gods-eye-context-intent.mdc · START HERE"]
+    ROUTER["GODS_EYE_LAYERED_SPEC_ROUTER.md · router"]
+    RULE["nightraven-context-intent.mdc · START HERE"]
     CHAIN["Connected chain · handoff · logs"]
-    LOOP["GODS_EYE_IMPROVEMENT_LOOP · /loop"]
+    LOOP["GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT · /loop"]
 
     RULE --> BIBLE & OVERLAY & ROUTER
     ROUTER --> BIBLE & OVERLAY & CHAIN

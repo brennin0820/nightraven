@@ -14,7 +14,7 @@ Registered in `server/compassApiPlugin.ts`. Not available in static `dist/` with
 | GET | `/api/project` | `path`, `label?` | `ProjectSnapshot` (full) |
 | GET | `/api/project/version` | `path` | `{ snapshotVersion, checkedAt }` |
 
-Registry loaded from `{monorepoRoot}/scripts/gods-eye-projects.conf`. Monorepo root discovered by walking up from `cwd` until `scripts/gods-eye-projects.conf` exists.
+Registry loaded from `{monorepoRoot}/scripts/nightraven-projects.conf`. Monorepo root discovered by walking up from `cwd` until `scripts/nightraven-projects.conf` exists.
 
 ---
 
@@ -22,13 +22,13 @@ Registry loaded from `{monorepoRoot}/scripts/gods-eye-projects.conf`. Monorepo r
 
 `computeSnapshotVersion(projectPath)` hashes mtime of these paths (if present):
 
-- `docs/37_GODS_EYE.md`
+- `docs/37_GODS_EYE_BIBLE.md`
 - `docs/GODS_EYE_REPO_OVERLAY.md`
 - `docs/14_SESSION_HANDOFF.md`
 - `docs/02_ENGINEERING_CHANGELOG.md`
 - `docs/04_LEARNING_LOG.md`
 - `AGENTS.md`
-- `.cursor/rules/gods-eye-context-intent.mdc`
+- `.cursor/rules/nightraven-context-intent.mdc`
 - `.cursor/hooks.json`
 
 16-char SHA-256 prefix of `rel:mtimeMs|…` joined string.

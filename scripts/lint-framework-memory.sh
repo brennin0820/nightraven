@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# gods-eye-lint.sh — Soft/opt-in God's Eye chain checks (BACKLOG #5, unified stack Phase 3).
+# lint-framework-memory.sh — Soft/opt-in God's Eye chain checks (BACKLOG #5, unified stack Phase 3).
 #
 # Usage:
-#   ./scripts/gods-eye-lint.sh           # all checks
-#   ./scripts/gods-eye-lint.sh snapshot  # snapshot drift only
-#   ./scripts/gods-eye-lint.sh handoff   # Recent sessions date-order heuristic
+#   ./scripts/lint-framework-memory.sh           # all checks
+#   ./scripts/lint-framework-memory.sh snapshot  # snapshot drift only
+#   ./scripts/lint-framework-memory.sh handoff   # Recent sessions date-order heuristic
 
 set -euo pipefail
 
@@ -54,7 +54,7 @@ lint_handoff_dates() {
 }
 
 lint_protected_growth() {
-  local bible="${ROOT}/docs/37_GODS_EYE.md"
+  local bible="${ROOT}/docs/37_GODS_EYE_BIBLE.md"
   if [[ ! -s "$bible" ]]; then
     echo "lint: missing Bible" >&2
     return 1
@@ -79,4 +79,4 @@ esac
 if [[ $fail -ne 0 ]]; then
   exit 1
 fi
-echo "gods-eye-lint: OK ($CHECK)"
+echo "lint-framework-memory: OK ($CHECK)"

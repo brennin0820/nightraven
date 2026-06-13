@@ -78,7 +78,7 @@ flowchart TB
 
 Industry framing: move from "phrase the prompt well" to "encode what the system should want and decide toward."
 
-- **Overlap with God's Eye:** Bible §3 interpretation framework — answer intention behind words; continuity across messages; ambiguity resolver with confidence gate ([`docs/37_GODS_EYE.md`](docs/37_GODS_EYE.md) lines 388–422).
+- **Overlap with God's Eye:** Bible §3 interpretation framework — answer intention behind words; continuity across messages; ambiguity resolver with confidence gate ([`docs/37_GODS_EYE_BIBLE.md`](docs/37_GODS_EYE_BIBLE.md) lines 388–422).
 - **Gap:** Most intent-engineering writing targets **organizational objectives** (customer retention vs. ticket speed). God's Eye targets **creator/project intent** across months of fragmented chat.
 
 ### 2. Intent Signal Theory — strongest academic formalization

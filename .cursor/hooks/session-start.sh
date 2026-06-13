@@ -12,9 +12,9 @@ input="$(cat || true)"
 project_root="$(gods_eye_project_root "$input")"
 gods_eye_root="$(gods_eye_resolve_root "$project_root")"
 handoff_hint="$(gods_eye_rel_path "$project_root" "docs/14_SESSION_HANDOFF.md")"
-bible_hint="docs/37_GODS_EYE.md"
+bible_hint="docs/37_GODS_EYE_BIBLE.md"
 if [[ ! -f "${project_root}/${bible_hint}" ]]; then
-  bible_hint="${gods_eye_root}/docs/37_GODS_EYE.md"
+  bible_hint="${gods_eye_root}/docs/37_GODS_EYE_BIBLE.md"
 fi
 
 if gods_eye_should_skip_recent_pull "$project_root"; then
@@ -52,7 +52,7 @@ else
   message+=$'\n'"After (Touch 3): **last turn only** — session-stop hook batches handoff + changelog + learning; never mid-session or while subagents run"
 fi
 
-message+=$'\n\n'"Portable law: ${bible_hint} · Session tree: docs/GODS_EYE_SESSION_TREE.md (or GODS_EYE_ROOT)"
+message+=$'\n\n'"Portable law: ${bible_hint} · Session tree: docs/GODS_EYE_SESSION_SPEC_TREES.md (or GODS_EYE_ROOT)"
 message+=$'\n'"GODS_EYE_ROOT=${gods_eye_root}"
 
 emit_session_start "$message" "$gods_eye_root"

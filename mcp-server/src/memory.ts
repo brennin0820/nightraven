@@ -46,7 +46,7 @@ export const MEMORY_SLOTS: MemorySlot[] = [
   {
     id: "bible",
     label: "Portable Bible",
-    relativePath: "docs/37_GODS_EYE.md",
+    relativePath: "docs/37_GODS_EYE_BIBLE.md",
     layer: "L2",
     readOnlyDefault: true,
   },
@@ -60,24 +60,24 @@ export const MEMORY_SLOTS: MemorySlot[] = [
   {
     id: "router",
     label: "Grand spec router",
-    relativePath: "docs/GODS_EYE_GRAND_SPEC.md",
+    relativePath: "docs/GODS_EYE_LAYERED_SPEC_ROUTER.md",
     layer: "L1",
     readOnlyDefault: true,
   },
   {
     id: "session_tree",
     label: "Session tree",
-    relativePath: "docs/GODS_EYE_SESSION_TREE.md",
+    relativePath: "docs/GODS_EYE_SESSION_SPEC_TREES.md",
     layer: "L2",
     readOnlyDefault: true,
   },
 ];
 
 export const READ_ORDER = [
-  ".cursor/rules/gods-eye-context-intent.mdc",
-  "docs/37_GODS_EYE.md (§0 — or $GODS_EYE_ROOT when not vendored)",
+  ".cursor/rules/nightraven-context-intent.mdc",
+  "docs/37_GODS_EYE_BIBLE.md (§0 — or $GODS_EYE_ROOT when not vendored)",
   "docs/GODS_EYE_REPO_OVERLAY.md (if present)",
-  "docs/GODS_EYE_GRAND_SPEC.md (router — if present)",
+  "docs/GODS_EYE_LAYERED_SPEC_ROUTER.md (router — if present)",
   "docs/14_SESSION_HANDOFF.md → AGENTS.md",
 ];
 
@@ -105,19 +105,25 @@ export function resolveProjectRoot(): string {
 
 export async function resolveGodsEyeRoot(projectRoot: string): Promise<string> {
   const envRoot = process.env.GODS_EYE_ROOT ?? process.env.GODS_EYE_INSTALL_ROOT;
-  const vendoredBible = path.join(projectRoot, "docs/37_GODS_EYE.md");
+  const vendoredBible = path.join(projectRoot, "docs/37_GODS_EYE_BIBLE.md");
 
   if (await fileExists(vendoredBible)) {
     return projectRoot;
   }
 
-  if (envRoot && (await fileExists(path.join(envRoot, "docs/37_GODS_EYE.md")))) {
+  if (envRoot && (await fileExists(path.join(envRoot, "docs/37_GODS_EYE_BIBLE.md")))) {
     return path.resolve(envRoot);
   }
 
-  const defaultRoot = path.join(process.env.HOME ?? "", "Projects/gods-eye");
-  if (await fileExists(path.join(defaultRoot, "docs/37_GODS_EYE.md"))) {
-    return defaultRoot;
+  const defaultCandidates = [
+    path.join(process.env.HOME ?? "", "Developer/NightRaven/nightraven"),
+    path.join(process.env.HOME ?? "", "Projects/nightraven"),
+    path.join(process.env.HOME ?? "", "Projects/gods-eye"),
+  ];
+  for (const defaultRoot of defaultCandidates) {
+    if (await fileExists(path.join(defaultRoot, "docs/37_GODS_EYE_BIBLE.md"))) {
+      return defaultRoot;
+    }
   }
 
   return envRoot ? path.resolve(envRoot) : projectRoot;

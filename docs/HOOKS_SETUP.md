@@ -14,7 +14,7 @@ Hooks are **not** CORE hard blocks. They inject reminders, optional follow-up me
 | **Disabled** | Rename to `.cursor/hooks.json.disabled` or delete `.cursor/hooks.json` |
 | **Touch 3 only (paused)** | Create `.cursor/touch3.disabled` (project) and/or `~/.cursor/touch3.disabled` (global) — `session-stop.sh` no-ops; **keep** the `stop` hook in `hooks.json`. Re-enable: delete marker files only |
 | **Adopting in your app repo** | Run `./install.sh /path/to/app` or copy `.cursor/hooks.json` + `.cursor/hooks/` when handoff exists |
-| **Global (all projects)** | `./install.sh --user --no-project` → `~/.cursor/hooks.json` + `~/.cursor/hooks/gods-eye/` — see [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) |
+| **Global (all projects)** | `./install.sh --user --no-project` → `~/.cursor/hooks.json` + `~/.cursor/hooks/nightraven/` — see [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) |
 
 After changing `hooks.json`, save the file. If hooks do not appear, restart Cursor and check **Settings → Hooks** or the **Hooks** output channel.
 
@@ -71,7 +71,7 @@ Does **not** rewrite files or deny saves.
 | **Failure mode** | Wrong memory edits violate `+#` law | Hook/git crash fails open (no `failClosed`) |
 | **Blocks** | Product/QA boundaries, scope | None — no `permission: deny` |
 
-Use hooks to **reinforce habit**, not replace `.cursor/rules/gods-eye-context-intent.mdc` or `docs/37_GODS_EYE.md`.
+Use hooks to **reinforce habit**, not replace `.cursor/rules/nightraven-context-intent.mdc` or `docs/37_GODS_EYE_BIBLE.md`.
 
 ---
 
@@ -114,7 +114,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .cursor/hooks/session-stop.p
 | Location | `hooks.json` | Script paths |
 |----------|--------------|--------------|
 | **Project** | `<repo>/.cursor/hooks.json` | `.cursor/hooks/*.ps1` (Windows) · `.cursor/hooks/*.sh` + `run-hook.sh` (Unix) |
-| **User (global)** | `~/.cursor/hooks.json` | `./hooks/gods-eye/*.sh` + `*.ps1` (relative to `~/.cursor/`) |
+| **User (global)** | `~/.cursor/hooks.json` | `./hooks/nightraven/*.sh` + `*.ps1` (relative to `~/.cursor/`) |
 
 `install.sh` copies **both** bash (`.sh`, `lib.sh`) and PowerShell (`.ps1`, `lib.ps1`) hook scripts for Windows/Unix parity. **Project install:** on Windows, `.cursor/hooks.json` uses PowerShell; on Unix/macOS/Git Bash, `templates/hooks.project.unix.json` → `run-hook.sh` dispatchers. User install defaults to bash paths in `templates/hooks.user.json` — swap to `.ps1` on Windows if preferred.
 
@@ -140,7 +140,7 @@ User-level hooks resolve the active workspace via `workspace_roots` in hook stdi
 ## Related docs
 
 - [Workspace editor settings](../.vscode/README.md) — user vs workspace `settings.json`, git/terminal alignment with hooks
-- [God's Eye Bible §0](37_GODS_EYE.md) — Agent quick start (Before / During / After)
+- [God's Eye Bible §0](37_GODS_EYE_BIBLE.md) — Agent quick start (Before / During / After)
 - [MCP setup](MCP_SETUP.md) — Phase 2 memory-chain tools (optional; complements hooks)
-- [Session tree](GODS_EYE_SESSION_TREE.md) — Three-touch + Record Everything
+- [Session tree](GODS_EYE_SESSION_SPEC_TREES.md) — Three-touch + Record Everything
 - [Create-hook skill](https://cursor.com/docs) — Cursor hooks reference (project: `.cursor/hooks.json`)

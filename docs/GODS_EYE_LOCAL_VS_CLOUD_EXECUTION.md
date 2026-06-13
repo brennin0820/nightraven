@@ -2,7 +2,7 @@
 
 This document defines the execution modes, optimization strategies, and agent behavioral rules for running God's Eye **with** a local LLM server (LM Studio) versus **without** one (cloud frontier models like Claude, Gemini, or GPT-4o).
 
-**Cross-links:** [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`.cursor/rules/gods-eye-context-intent.mdc`](../.cursor/rules/gods-eye-context-intent.mdc) · [`MCP_SETUP.md`](MCP_SETUP.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+**Cross-links:** [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`MCP_SETUP.md`](MCP_SETUP.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
 
 ---
 
@@ -53,10 +53,10 @@ The agent operates under hardware constraints. The following design principles e
 
 ### A. Strict Context Pruning and Read Tiers (§2.5)
 
-**Problem:** Loading the full Bible (`37_GODS_EYE.md`, 50KB+), overlay, handoff, and rules instantly saturates a local model's context window, causing hallucination and speed drops.
+**Problem:** Loading the full Bible (`37_GODS_EYE_BIBLE.md`, 50KB+), overlay, handoff, and rules instantly saturates a local model's context window, causing hallucination and speed drops.
 
 **Design:**
-- For Tier 0–1 tasks: read **only** `.cursor/rules/gods-eye-context-intent.mdc` (kept under 3K characters).
+- For Tier 0–1 tasks: read **only** `.cursor/rules/nightraven-context-intent.mdc` (kept under 3K characters).
 - For Tier 2 tasks: add the overlay and the active **Recent sessions** section of the handoff only — not the full file.
 - Use the MCP `gods_eye_search_memory` tool to pull targeted snippets instead of loading full docs.
 - **Never** batch-read Bible + overlay + handoff + changelog in one turn on a local model.
@@ -115,7 +115,7 @@ Cloud frontier models unlock the full God's Eye capability stack. The design foc
 
 ## 4. Agent Rules by Execution Mode
 
-These rules are active in `.cursor/rules/gods-eye-context-intent.mdc` and apply every session:
+These rules are active in `.cursor/rules/nightraven-context-intent.mdc` and apply every session:
 
 **Local Mode (LM Studio — localhost endpoint):**
 1. Read ONLY the rules file + overlay vocabulary; do not load full Bible unless task is Tier 3.
@@ -139,6 +139,6 @@ These rules are active in `.cursor/rules/gods-eye-context-intent.mdc` and apply 
 3. Open Cursor **Settings → Models → Override Base URL**: set to `http://localhost:1234/v1`.
 4. Add a dummy API key (e.g., `lm-studio`).
 5. Set the model name to match what is loaded in LM Studio (e.g., `qwen2.5-coder-32b-instruct`).
-6. Open a new Agent chat — God's Eye rules load automatically via `.cursor/rules/gods-eye-context-intent.mdc`.
+6. Open a new Agent chat — God's Eye rules load automatically via `.cursor/rules/nightraven-context-intent.mdc`.
 
 The MCP server, handoff files, and all memory chain docs work identically in both modes. The only difference is the agent's read discipline and parallelization strategy as defined in §4 above.

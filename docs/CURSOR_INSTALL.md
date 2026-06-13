@@ -8,17 +8,17 @@ Step-by-step setup so God's Eye works in Cursor on day one: **global user config
 
 | Layer | Location | Purpose |
 |-------|----------|---------|
-| **User rule** | `~/.cursor/rules/gods-eye-context-intent.mdc` | `alwaysApply: true` — START HERE on every project |
-| **User hooks** (optional) | `~/.cursor/hooks.json` + `~/.cursor/hooks/gods-eye/` | Soft three-touch reminders globally |
-| **Project rule** | `.cursor/rules/gods-eye-context-intent.mdc` | Same law, project-relative paths |
+| **User rule** | `~/.cursor/rules/nightraven-context-intent.mdc` | `alwaysApply: true` — START HERE on every project |
+| **User hooks** (optional) | `~/.cursor/hooks.json` + `~/.cursor/hooks/nightraven/` | Soft three-touch reminders globally |
+| **Project rule** | `.cursor/rules/nightraven-context-intent.mdc` | Same law, project-relative paths |
 | **Project hooks** (optional) | `.cursor/hooks.json` + `.cursor/hooks/` | Team-shareable Phase 2 hooks |
-| **Project MCP** (optional) | `.cursor/mcp.json` + `.cursor/mcp/run-gods-eye-mcp.sh` | Memory-chain tools — see [`MCP_SETUP.md`](MCP_SETUP.md) |
+| **Project MCP** (optional) | `.cursor/mcp.json` + `.cursor/mcp/run-memory-chain-mcp.sh` | Memory-chain tools — see [`MCP_SETUP.md`](MCP_SETUP.md) |
 | **Doc chain** | `docs/14_*`, `docs/02_*`, `docs/04_*`, overlay, `AGENTS.md` | L3 app memory (`+#` only) |
-| **Portable Bible** | `docs/37_GODS_EYE.md` (vendored) or `$GODS_EYE_ROOT` | Portable law including §2.9 (Always Sync, Governed Bypass, Local vs Cloud) |
+| **Portable Bible** | `docs/37_GODS_EYE_BIBLE.md` (vendored) or `$GODS_EYE_ROOT` | Portable law including §2.9 (Always Sync, Governed Bypass, Local vs Cloud) |
 
 Existing user rules (e.g. `brents-ai-constitution.mdc`) are **not** removed — God's Eye **adds** alongside them.
 
-**Local vs cloud execution:** `docs/GODS_EYE_LOCAL_VS_CLOUD.md` is a **framework-repo document**. Consumer repos do **not** receive it via `install.sh` — they receive the laws it encodes via the vendored Bible **§2.9** and the always-on rule. Consumers needing a local copy of the execution spec should add a manual vendor step or link to the framework repo.
+**Local vs cloud execution:** `docs/GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md` is a **framework-repo document**. Consumer repos do **not** receive it via `install.sh` — they receive the laws it encodes via the vendored Bible **§2.9** and the always-on rule. Consumers needing a local copy of the execution spec should add a manual vendor step or link to the framework repo.
 
 **Optional — Multitask / heavy threads:** Copy [`templates/model-delegation-efficiency.user.mdc`](templates/model-delegation-efficiency.user.mdc) to `~/.cursor/rules/model-delegation-efficiency.mdc` (pairs with Bible §2.8).
 
@@ -52,9 +52,9 @@ git clone https://github.com/brennin0820/gods-eye.git /tmp/gods-eye && /tmp/gods
 ### 1. Rules
 
 1. Open **Cursor Settings → Rules** (or **Cursor Settings → Agent → Rules**).
-2. Confirm **`gods-eye-context-intent`** appears with **Always Apply** enabled.
-3. User-level: `~/.cursor/rules/gods-eye-context-intent.mdc`
-4. Project-level: `.cursor/rules/gods-eye-context-intent.mdc` (when installed)
+2. Confirm **`nightraven-context-intent`** appears with **Always Apply** enabled.
+3. User-level: `~/.cursor/rules/nightraven-context-intent.mdc`
+4. Project-level: `.cursor/rules/nightraven-context-intent.mdc` (when installed)
 
 ### 2. Hooks
 
@@ -62,7 +62,7 @@ Hooks load from **both** user and project `hooks.json` (all matching hooks run).
 
 | Source | File | Script paths (relative to…) |
 |--------|------|-----------------------------|
-| User | `~/.cursor/hooks.json` | `~/.cursor/` → `./hooks/gods-eye/*.sh` |
+| User | `~/.cursor/hooks.json` | `~/.cursor/` → `./hooks/nightraven/*.sh` |
 | Project | `.cursor/hooks.json` | project root → `.cursor/hooks/*.sh` |
 
 **Check:**
@@ -75,7 +75,7 @@ Hooks load from **both** user and project `hooks.json` (all matching hooks run).
 **If hooks do not appear:** save `hooks.json`, restart Cursor, re-check script permissions:
 
 ```bash
-chmod +x ~/.cursor/hooks/gods-eye/*.sh
+chmod +x ~/.cursor/hooks/nightraven/*.sh
 chmod +x .cursor/hooks/*.sh   # per project
 ```
 
@@ -98,7 +98,7 @@ Cursor loads hooks from `hooks.json` automatically. You do **not** need a `setti
 | Variable | Set by | Purpose |
 |----------|--------|---------|
 | `CURSOR_PROJECT_DIR` | Cursor (always) | Active workspace root — hooks resolve project paths |
-| `GODS_EYE_ROOT` | `sessionStart` hook `env` output | Portable Bible when project has not vendored `docs/37_GODS_EYE.md` |
+| `GODS_EYE_ROOT` | `sessionStart` hook `env` output | Portable Bible when project has not vendored `docs/37_GODS_EYE_BIBLE.md` |
 | `GODS_EYE_ROOT` (default) | `lib.sh` | `~/Projects/gods-eye` if unset |
 
 Projects that point at **master BAIC** instead of vendoring (e.g. BankrollCalendar) keep their overlay paths; hooks still use `CURSOR_PROJECT_DIR` for handoff/changelog paths.
@@ -132,8 +132,8 @@ Disable hooks: rename `hooks.json` → `hooks.json.disabled` (user or project). 
 | Symptom | Fix |
 |---------|-----|
 | Rule not visible | Confirm file in `~/.cursor/rules/` or `.cursor/rules/`; reload window |
-| Hook "no such file" | User hooks: `./hooks/gods-eye/...` under `~/.cursor/`; project: `.cursor/hooks/...` from repo root |
-| Wrong Bible path | Vendor `docs/37_GODS_EYE.md` or set `GODS_EYE_ROOT` in shell profile |
+| Hook "no such file" | User hooks: `./hooks/nightraven/...` under `~/.cursor/`; project: `.cursor/hooks/...` from repo root |
+| Wrong Bible path | Vendor `docs/37_GODS_EYE_BIBLE.md` or set `GODS_EYE_ROOT` in shell profile |
 | Too chatty | Remove `afterFileEdit` from `hooks.json` or disable hooks |
 | Conflicts with BAIC | Both can `alwaysApply`; God's Eye is portable oversight; BAIC is Brent's full constitution |
 
@@ -160,14 +160,14 @@ See [`GODS_EYE_UNIFIED_STACK.md`](docs/GODS_EYE_UNIFIED_STACK.md) §2 · [`GODS_
 
 ```bash
 cd ~/Projects/gods-eye   # or path to this clone
-chmod +x install.sh scripts/install-gods-eye-nightraven.sh scripts/bootstrap-nightraven-project.sh
+chmod +x install.sh scripts/install-nightraven-framework.sh scripts/bootstrap-nightraven-project.sh
 
 # New greenfield project (overlay + handoff + quickstart seeded)
 ./scripts/bootstrap-nightraven-project.sh HimFLer
 # default path: ../HimFLer next to framework; or pass explicit path as 2nd arg
 
 # Existing app repo
-./scripts/install-gods-eye-nightraven.sh --user ~/Developer/NightRaven
+./scripts/install-nightraven-framework.sh --user ~/Developer/NightRaven
 ```
 
 Adds `.claude/skills/nightraven/`, `docs/ledgers/`, and overlay/AGENTS cross-links. Generic projects can use `./install.sh` only.
@@ -176,7 +176,7 @@ Adds `.claude/skills/nightraven/`, `docs/ledgers/`, and overlay/AGENTS cross-lin
 
 ## Claude Code adoption
 
-For **Claude Code** (not Cursor), see **[`docs/CLAUDE_ADOPTION.md`](docs/CLAUDE_ADOPTION.md)** — same vendor list (Bible, overlay, handoff, AGENTS), optional MCP, noreply git author (`172115324+brennin0820@users.noreply.github.com`), and hooks parity notes. Run `./install.sh` then wire `CLAUDE.md` entry points. For NightRaven Core, run `./scripts/install-gods-eye-nightraven.sh` instead of `./install.sh` alone.
+For **Claude Code** (not Cursor), see **[`docs/CLAUDE_ADOPTION.md`](docs/CLAUDE_ADOPTION.md)** — same vendor list (Bible, overlay, handoff, AGENTS), optional MCP, noreply git author (`172115324+brennin0820@users.noreply.github.com`), and hooks parity notes. Run `./install.sh` then wire `CLAUDE.md` entry points. For NightRaven Core, run `./scripts/install-nightraven-framework.sh` instead of `./install.sh` alone.
 
 ---
 

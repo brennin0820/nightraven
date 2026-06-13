@@ -1,11 +1,11 @@
 {
-  "name": "gods-eye-mcp-server",
+  "name": "nightraven-memory-chain-mcp-server",
   "version": "0.1.0",
   "description": "MCP tools for God's Eye project memory — read, search, and append the connected chain",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "gods-eye-mcp": "dist/index.js"
+    "nightraven-memory-chain-mcp": "dist/index.js"
   },
   "scripts": {
     "start": "node dist/index.js",
