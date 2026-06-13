@@ -12,6 +12,7 @@
 
 ## Already done
 
+- +# **Shipped on `origin/main` (`32e6419`)** — LM Studio division improve loop (`scripts/lmstudio-division-improve.sh` + local doc §6/registry/overlay) · usage-friendly passive mode · multiphase handoff gate · ChatGPT Work with Apps memory · Jun 13 session sync batch
 - +# Bible §2.8 — task-worthiness gate (plan until code it; one Touch 3 AFTER; fresh thread when heavy) — promoted from BankrollCalendar OneDayMillionaire sessions
 - +# Initial public framework release (`f9928d2`) — Bible, router, session tree, improvement loop, example rule/overlay
 - +# Unified stack doc L0–L4 (`1c4f1ef`) — Memory Bank mapping, handoff pattern, hooks roadmap
@@ -38,6 +39,7 @@
 ---
 
 ## Recent sessions
+- **2026-06-13** — **Update repo / push landed (stop cycle)** — Brent **update repo**; committed Touch 3 LM Studio memory · rebased **12** unpushed commits with noreply author+committer (`172115324+brennin0820@users.noreply.github.com`) — **GH007** fix · **pushed** `origin/main` @ **`32e6419`** (passive mode · multiphase handoff · ChatGPT docs · `lmstudio-division-improve.sh` + division docs); **`main` even with origin** · clean tree; **Supersedes** prior LM Studio line **uncommitted** / autosync push-defer for this batch; **+# only** · **this repo only** · **no new template scaffolds** · **stop** — memory append uncommitted; say **commit** (`+#` only).
 - **2026-06-13** — **LM Studio division improve loop (stop cycle)** — Brent **improve all divisions using lm studio**; shipped [`scripts/lmstudio-division-improve.sh`](../scripts/lmstudio-division-improve.sh) — serial OpenAI-compatible calls (default `localhost:1234/v1`) · 9 keys (`planner` … `greenfield` + runtime `planning`/`research`/`design` from `nightraven/SKILL.md`) · `--list` · `--dry-run` · `--division all` · writes `docs/lmstudio-reviews/*.md`; wired [`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md) §6 · [`DIVISION_REGISTRY.md`](DIVISION_REGISTRY.md) · overlay §1 **LM Studio division improve loop**; **fix:** dry-run no longer calls `resolve_model` (`set -e` silent fail when server off); apply review **`+#`** to SKILL/registry only after **code it**; **+# only** · **this repo only** · **no new template scaffolds** · **stop** — script + docs uncommitted; say **commit** (`+#` only).
 - **2026-06-13** — Autosync push deferred [cursor hook]:  ! [remote rejected] HEAD -> main (push declined due to email privacy restrictions) error: failed to push some refs to 'https://github.com/brennin0820/nightraven.git' 
 - **2026-06-13** — **NR divisions Q&A (stop cycle)** — Brent **nr divisions**; read-only three-layer answer — **`DIVISION_REGISTRY.md`** (Planner · Researcher · Architect · Builder · Auditor · Greenfield · pipeline) · **NightRaven Core runtime** (`/nightraven` — Planning · Research · Design · Builder · Auditors · combo matrix) · **11-division proposal** (overlay · TBD mapping) · Bible §9 virtual teams; no code; **+# only** · **this repo only** · **no new template scaffolds** · **stop** (`+#` only).

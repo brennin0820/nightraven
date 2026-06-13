@@ -6,6 +6,14 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-13
 
+### Session sync — push landed (`32e6419`)
+
+- +# Brent **update repo** — committed Touch 3 LM Studio memory batch · rebased **12** ahead commits with noreply author **and** committer · **pushed** `origin/main` @ `32e6419`
+- +# Batch includes — usage-friendly passive mode · multiphase handoff gate · ChatGPT Work with Apps memory · `scripts/lmstudio-division-improve.sh` + [`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md) §6 · registry · overlay
+- +# **Supersedes** prior **push pending** / autosync GH007 defer lines for this Jun 13 batch
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
 ### LM Studio serial division improvement loop
 
 - +# Brent **improve all divisions using lm studio** — [`scripts/lmstudio-division-improve.sh`](../scripts/lmstudio-division-improve.sh): serial OpenAI-compatible API to local LM Studio; one division per call; 9 keys (6 division SKILLs + 3 runtime sections in `nightraven/SKILL.md`)

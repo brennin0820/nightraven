@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-13 — GH007 batch rebase before push (many commits ahead)
+
+**Signal:** Brent **update repo** with **11+** local commits using private Gmail author metadata — single push rejected (GH007).
+
+**Pattern:** Before push, `git rebase origin/main --exec` with **both** `GIT_COMMITTER_EMAIL` and `--author=` noreply on **every** ahead commit — not just the latest. Author-only fix on HEAD is insufficient when the batch contains multiple Gmail commits.
+
+**Do:** `git log origin/main..HEAD --format='%ae %ce'` first · rebase exec amend all · push · record **`origin/main` @ SHA** in handoff.
+
+**Don't:** Push a multi-commit batch with Gmail metadata and expect GH007 on commit N only.
+
+**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §2.8
+
+---
+
 ## 2026-06-13 — Filenames should match file content
 
 **Signal:** Brent asked to rename **all** filenames to reflect what each file contains; monorepo still carried `nightraven-*` paths/names after nested-clone removal.
