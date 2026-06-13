@@ -19,6 +19,11 @@ SYNC_FILES=(
 )
 
 if [[ ! -d "$SNAPSHOT" ]]; then
+  if [[ "$MODE" == "--check-only" && "${GODS_EYE_SNAPSHOT_REQUIRED:-0}" != "1" ]]; then
+    echo "Snapshot check skipped (directory missing): $SNAPSHOT"
+    echo "Set GODS_EYE_SNAPSHOT or GODS_EYE_SNAPSHOT_REQUIRED=1 to enforce this check."
+    exit 0
+  fi
   echo "Snapshot directory missing: $SNAPSHOT" >&2
   exit 1
 fi
@@ -38,6 +43,11 @@ for rel in "${SYNC_FILES[@]}"; do
     continue
   fi
   if [[ "$MODE" == "--check-only" ]]; then
+    if [[ ! -f "$dest" ]]; then
+      echo "MISSING snapshot file: $rel (expected at $dest)"
+      fail=1
+      continue
+    fi
     if ! diff -q "$src" "$dest" >/dev/null 2>&1; then
       echo "DRIFT: $rel (source vs snapshot)"
       fail=1

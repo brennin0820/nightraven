@@ -22,14 +22,19 @@ lint_snapshot() {
 
 lint_handoff_dates() {
   local handoff="${ROOT}/docs/14_SESSION_HANDOFF.md"
-  local in_section=0 prev_date="" line_no=0
+  local in_section=0 prev_date="" line_no=0 found_recent_sessions_header=0 found_date_entry=0
   while IFS= read -r line; do
     line_no=$((line_no + 1))
-    [[ "$line" == "## Recent sessions" ]] && in_section=1 && continue
+    if [[ "$line" == "## Recent sessions" ]]; then
+      in_section=1
+      found_recent_sessions_header=1
+      continue
+    fi
     [[ $in_section -eq 1 && "$line" =~ ^##\  ]] && break
     [[ $in_section -eq 0 ]] && continue
     if [[ "$line" =~ ^-\ \*\*([0-9]{4}-[0-9]{2}-[0-9]{2})\*\* ]]; then
       local d="${BASH_REMATCH[1]}"
+      found_date_entry=1
       if [[ -n "$prev_date" && "$d" > "$prev_date" ]]; then
         echo "lint: handoff date-order — $d after $prev_date near line $line_no" >&2
         return 1
@@ -37,6 +42,14 @@ lint_handoff_dates() {
       prev_date="$d"
     fi
   done < "$handoff"
+  if [[ $found_recent_sessions_header -eq 0 ]]; then
+    echo 'lint: handoff missing "## Recent sessions" section' >&2
+    return 1
+  fi
+  if [[ $found_date_entry -eq 0 ]]; then
+    echo "lint: handoff has no dated Recent sessions entries" >&2
+    return 1
+  fi
   return 0
 }
 
