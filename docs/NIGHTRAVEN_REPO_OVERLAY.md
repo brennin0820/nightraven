@@ -43,7 +43,7 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 | **NightRaven Compass** | NightRaven **guidance app** at `apps/compass/` — mock task/scope UX · Vite file API reads handoff/overlay/registry; see [`apps/compass/README.md`](../apps/compass/README.md) · handoff Recent sessions |
 | **NightRaven Compass — agent entry** | **Supersedes** stale "mock only" read for agents — Phases 1–8 live · registry mode + IndexedDB overrides + mtime auto-refresh · consumer handoff per `nightraven-projects.conf` path; agent onboarding: [`apps/compass/AGENTS.md`](../apps/compass/AGENTS.md) · architecture: [`apps/compass/docs/ARCHITECTURE.md`](../apps/compass/docs/ARCHITECTURE.md) |
 | **HimFLer external coder roles** | Consumer repo only — Claude (UI) → Codex (build) → **Antigravity** (Planning + Architecture Auditor); `E:\NightRaven\HimFLer\docs\BUILD_ROLES.md` · `UI_DESIGN_BRIEF.md` — Antigravity not framework-standard until promoted |
-| **Cross-platform task routing (Brent)** | Personal ~$120/mo stack — Cursor ($60) · Codex CLI · ChatGPT Plus · Claude Code/Pro · Antigravity ($20 each); **recommend + handoff brief** before burning Cursor on off-IDE work; user rule `~/.cursor/rules/multi-platform-task-routing.mdc` · complements `usage-budget.mdc` |
+| **Cross-platform task routing (Brent)** | Personal stack — Cursor ($60) · Codex CLI · ChatGPT Plus · Claude ($20, Code+Pro same sub) · **Gemini** · **Antigravity**; Gemini + Antigravity both active (research vs plan/audit); **strict:** greenfield build → **Codex CLI first**; user rule `~/.cursor/rules/multi-platform-task-routing.mdc` · complements `usage-budget.mdc` |
 
 ---
 
