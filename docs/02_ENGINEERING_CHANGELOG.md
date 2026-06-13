@@ -6,6 +6,14 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-13
 
+### Session sync — push landed (`80b4e29`)
+
+- +# Brent **commit + push** — **`origin/main` @ `80b4e29`** · LM Studio §6 runbook + mis-doc guards + zsh recipe + Personal Network + remote roster memory
+- +# Batch **`6979747`…`80b4e29`** (4 commits) · noreply rebase before push (GH007) · push-latency §2.8 satisfied
+- +# **Supersedes** prior uncommitted / autosync push-defer lines for this LM Studio doc arc
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md) §6
+
 ### LM Studio zsh one-liner recipe (§6)
 
 - +# Brent third external paste — **Supersedes** fake dry-run patch stats + “applies patches” live step + `git apply` sanity checks

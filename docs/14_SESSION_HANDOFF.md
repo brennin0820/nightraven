@@ -12,6 +12,7 @@
 
 ## Already done
 
+- +# **Shipped on `origin/main` (`80b4e29`)** — LM Studio local doc §6 full wire (runbook · Personal Network · remote roster · mis-doc guards · zsh one-liner) + Touch 3 memory batch (`6979747`→`80b4e29`); push-latency §2.8 satisfied
 - +# **Shipped on `origin/main` (`32e6419`)** — LM Studio division improve loop (`scripts/lmstudio-division-improve.sh` + local doc §6/registry/overlay) · usage-friendly passive mode · multiphase handoff gate · ChatGPT Work with Apps memory · Jun 13 session sync batch
 - +# Bible §2.8 — task-worthiness gate (plan until code it; one Touch 3 AFTER; fresh thread when heavy) — promoted from BankrollCalendar OneDayMillionaire sessions
 - +# Initial public framework release (`f9928d2`) — Bible, router, session tree, improvement loop, example rule/overlay
@@ -39,6 +40,8 @@
 ---
 
 ## Recent sessions
+- **2026-06-13** — **Constraints re-applied (stop cycle)** — Brent **`+#` only** · **this repo only** · **no new template scaffolds** · **then stop** — memory append only; no commit/push/renames/code edits this cycle. Triggered from **empty-window** chat (Cursor Pro+/on-demand pricing · usage-budget user rule · macOS 27 Cursor perf settings — **global `~/.cursor`**, not this repo). **Git:** `main` **even** with `origin/main` · **dirty:** handoff · changelog · learning (prior LM Studio stack). **Next:** say **commit** to ship pending docs; do not resume rename/sweep until **code it** (`+#` only).
+- **2026-06-13** — **Push landed LM Studio doc batch (stop cycle)** — Brent **commit + push**; **`80b4e29`** on **`origin/main`** — zsh recipe · mis-doc Supersedes (3 external pastes) · runbook · Personal Network · remote roster (`DESKTOP-7FT26ER`); 4 commits rebased noreply (GH007) · **`main` even with origin** · clean tree; **Supersedes** prior **uncommitted** / push-defer on zsh/mis-doc/runbook lines; **+# only** · **this repo only** · **no new template scaffolds** · **stop** — memory append uncommitted; say **commit** (`+#` only).
 - **2026-06-13** — **LM Studio zsh recipe wire (stop cycle)** — Brent third external paste (smart one-liner · sample patch stats · verify `git apply` in script) — **Supersedes**; **`+#`** canonical **zsh one-liner** + non-interactive **`gpt-oss-20b`** + **expected dry-run/live/git status** excerpts in local doc §6; bash `read -p` ≠ macOS zsh (`print -n` + `read`); handoff · changelog · learning · overlay; **+# only** · **this repo only** · **no new template scaffolds** · **stop** — uncommitted; say **commit** / **push** (`+#` only).
 - **2026-06-13** — Autosync push deferred [cursor hook]:  ! [remote rejected] HEAD -> main (push declined due to email privacy restrictions) error: failed to push some refs to 'https://github.com/brennin0820/nightraven.git' 
 - **2026-06-13** — **LM Studio mis-doc pass 2 (stop cycle)** — Brent second external walkthrough — **Supersedes** repeat myths + new ones: dry-run = patch preview · `divisions/planner/` file tree · JSON reviews with `patches` · `git apply failed` fixes; **`+#`** appended myth rows to local doc §6 runbook table; handoff · changelog · learning **Supersedes** line; canonical truth unchanged (one SKILL · `.md` reviews · no git); **+# only** · **this repo only** · **no new template scaffolds** · **stop** — uncommitted stack; say **commit** / **push** (`+#` only).

@@ -6,6 +6,16 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-13 — Push landed after LM Studio doc batch (`80b4e29`)
+
+**Signal:** Brent **commit + push** after stacked LM Studio memory (runbook · mis-doc · zsh recipe · roster).
+
+**Pattern:** Rebase **all** ahead commits with noreply author+committer before push when batch includes Gmail-metadata commits; record **`origin/main` @ SHA** in **Already done** + **Recent sessions**.
+
+**See:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §2.8
+
+---
+
 ## 2026-06-13 — Division-improve script ≠ auto-patch tool (mis-doc guard)
 
 **Signal:** External paste described `lmstudio-division-improve.sh` as JSON Patch + `git apply` + auto-commit — wrong for NightRaven.
