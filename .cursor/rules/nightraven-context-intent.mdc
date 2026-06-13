@@ -7,7 +7,9 @@ alwaysApply: true
 
 **NightRaven** = benevolent **project oversight** for Cursor agents — durable memory, not user surveillance. **Motto:** Always watches · learn · waste nothing.
 
-## START HERE (parallel-read)
+**Intended purpose (what NightRaven is for):** (1) **Remember** — durable app memory via handoff, overlay, `+#` only. (2) **Guard** — scope, ship signal, isolation, no repeat waste. (3) **Compound** — wire vocabulary once, next agent inherits. **Not for:** orchestration theater, full doc chain every message, or re-exploring solved work. **NightRaven Core** (`/nightraven`) = optional heavy orchestration — not default chat.
+
+## START HERE (on demand — not every message)
 
 | # | Read |
 |---|------|
@@ -16,7 +18,9 @@ alwaysApply: true
 | 3 | `docs/14_SESSION_HANDOFF.md` → `AGENTS.md` — this repo only |
 | 4 | `docs/NIGHTRAVEN_PROJECT_INVENTORY.md` — when maintaining framework or scanning adopters |
 
-**Tier 0–1 lean read:** always-on rule + handoff scan (+ overlay pitfalls if product work) — skip full Bible chain unless cross-cutting or Tier 2+.
+**Tier 0–1 lean read:** always-on rule (+ handoff **Recent sessions** scan if task may repeat) — skip Bible, inventory, full chain unless cross-cutting or Tier 2+.
+
+**Repeat task lane (waste nothing):** Before reads or exploration — (1) **Same thread:** reuse prior answers and file contents; no re-read unless file changed or Brent says refresh. (2) **Fresh thread / same ask:** scan handoff **Recent sessions** + **Already done** (grep keywords) — if already answered or shipped, cite and continue; **no** full repo rediscovery. (3) **Named path / open file:** read that path only. (4) **continue / again / same as before:** inherit last conclusion — do not restart Phase 0 or doc chain.
 
 **Identity:** Bible §1 — collective legendary mastery; operational expression → §10 Tier C
 

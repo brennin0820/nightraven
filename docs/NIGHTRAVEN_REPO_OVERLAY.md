@@ -45,6 +45,7 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 | **HimFLer external coder roles** | Consumer repo only — Claude (UI) → Codex (build) → **Antigravity** (Planning + Architecture Auditor); `E:\NightRaven\HimFLer\docs\BUILD_ROLES.md` · `UI_DESIGN_BRIEF.md` — Antigravity not framework-standard until promoted |
 | **Cross-platform task routing (Brent)** | Personal stack — Cursor ($60) · Codex CLI · ChatGPT Plus · Claude ($20, Code+Pro same sub) · **Gemini** · **Antigravity**; Gemini + Antigravity both active (research vs plan/audit); **strict:** greenfield build → **Codex CLI first**; user rule `~/.cursor/rules/multi-platform-task-routing.mdc` · complements `usage-budget.mdc` · **triage only on substantial new work**, not every prompt |
 | **Usage-friendly passive mode** | Default Cursor chat — **not** full NightRaven orchestration; no Phase 0 report · ledgers · division spawn · Core status dump per message; **`/nightraven` or "orchestrate"** activates full protocol; rule + AGENTS fast paths |
+| **Repeat task lane** | Before reads/explore: reuse thread context · scan handoff **Recent sessions** + **Already done** on fresh thread · named path only · **continue/again** inherits last outcome — Bible §2.8 · anti-pattern: repeat re-exploration §6 |
 
 ---
 
@@ -87,6 +88,8 @@ Read Bible **§0 Agent quick start** + **§2.8**. **Agent card:** `docs/NIGHTRAV
 | **Forgetting Always Sync** | Every change must be pulled then pushed — no local-only commits when remote is configured |
 | **Rule bypass without approval** | Governed Bypass requires explicit Brent approval first — never silently bypass `+#` only |
 | **Local mode parallelization** | No subagents or parallel reads on LM Studio — serial only; see `NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md` §4 |
+| **Repeat re-exploration** | Handoff/thread already answered — cite and continue; Bible §2.8 repeat lane |
+| **Orchestration theater** | Passive mode default — `/nightraven` only when needed; §2.8 |
 
 ---
 

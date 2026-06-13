@@ -12,6 +12,8 @@
 
 **NightRaven** = benevolent **project oversight** for Cursor agents — durable memory, not user surveillance. **Motto:** Always watches · learn · waste nothing.
 
+**Intended purpose:** Remember (handoff/overlay) · Guard (scope, ship signal) · Compound (wire once). **Not:** orchestration on every prompt or re-doing solved work. **`/nightraven`** = optional orchestration only.
+
 ### START HERE — Read in parallel
 
 | # | Read |
@@ -158,8 +160,9 @@ Every addition at one layer must **not** silently rename another.
 | **TRIVIAL + explicit code it** | One-line intent · tier · scope — proceed under Tier 1; **no Build Ledger** unless `/nightraven` |
 | **LOW + ≤2 files + code it** | Condensed read: rule → affected files only (skip full handoff unless scope unclear) |
 | **Read-only Q&A / audit** | Memory/wire layer only — no code until **code it** / **implement** / **build** |
+| **Repeat task** | Same thread → reuse prior reads/answers; fresh thread → handoff **Recent sessions** + **Already done** grep first; cite if done — **no** rediscovery |
 
-**Do not on every prompt:** parallel doc chain reads · subagents · cross-platform routing triage · Task Assessment Report · "communicating to Core" meta · speculative repo scans.
+**Do not on every prompt:** parallel doc chain reads · subagents · cross-platform routing triage · Task Assessment Report · "communicating to Core" meta · speculative repo scans · **re-reading files already in thread**.
 
 **Multitask:** substantial end-to-end work only (§2.8) — see optional [`templates/model-delegation-efficiency.user.mdc`](templates/model-delegation-efficiency.user.mdc).
 

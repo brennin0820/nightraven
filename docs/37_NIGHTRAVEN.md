@@ -34,7 +34,7 @@ Related: `docs/32_BIGBROTHER_OVERSIGHT.md`, `docs/35_FAST_START.md`, `docs/36_PR
 | **→ Task-scoped rules** | **2.5** | Match depth to task size — align with doc 26 read tiers |
 | **→ Project isolation** | **2.6** | Experience vs app memory — no cross-repo bleed (doc 36) |
 | **→ Promote universal to standard** | **2.7** | Cross-app docs/code → published default — Brent should not re-instruct |
-| **→ Task worthiness** | **2.8** | Plan until ship signal; one Touch 3 AFTER; fresh thread when heavy |
+| **→ Task worthiness** | **2.8** | Plan until ship signal; passive mode; repeat lane; one Touch 3 AFTER |
 | **→ Always sync + Governed bypass + Local vs cloud** | **2.9** | Pull before work; push after change; bypass needs approval; local = serial only |
 | **Brent's context intent ladder** | **3** | Memory + wire → UI/copy → code (default stops at memory) |
 | **→ Five-step unclear input** | **3** | Fix English · intent · technical translate · explain · ask if truly unclear |
@@ -71,6 +71,8 @@ Related: `docs/32_BIGBROTHER_OVERSIGHT.md`, `docs/35_FAST_START.md`, `docs/36_PR
 | **Other apps' memory?** | **Forbidden** — no handoff, paths, locks, or transcript bleed from other repos (§2.6; doc 36) |
 | **Universal across apps?** | Ship in `nightraven` + install — Brent does not repeat "add X" (§2.7) |
 | **When to code?** | **Plan until ship signal** — §2.8; `code it` / `implement` / `build` drops to code |
+| **Default chat mode?** | **Passive** — memory oversight only; full Core orchestration on **`/nightraven`** only — §2.8 |
+| **Repeat task?** | **Repeat lane** — handoff dedup + thread reuse; no re-read/re-explore — §2.8 |
 | **Sync?** | **Always sync** — pull before work; commit + push after every change (§2.9) |
 | **Override a rule?** | **Governed bypass** — explicit Brent approval first; no silent bypasses (§2.9) |
 | **Local LLM (LM Studio)?** | Serial only; no subagents; strict context pruning — `docs/NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md` (§2.9) |
@@ -106,6 +108,8 @@ Related: `docs/32_BIGBROTHER_OVERSIGHT.md`, `docs/35_FAST_START.md`, `docs/36_PR
 | **30-doc cold start** | Tier 0: docs/35 + 36 — not full START_HERE list — §2.5 |
 | **Code before ship signal** | Exploratory Q&A ≠ implement — wait for **code it** / **implement** / **build** — §2.8 |
 | **Heavy thread cost** | Context-heavy chat (~80%+) → fresh thread + handoff; one Touch 3 AFTER per session — §2.8 |
+| **Repeat work / re-read** | Same ask or handoff hit → cite prior outcome; skip re-exploration — §2.8 repeat lane |
+| **Orchestration on every prompt** | Passive mode default — `/nightraven` only when orchestration needed — §2.8 |
 | **Assume Brent is wrong** | Unclear input → §3 five steps — fix English, honor intent |
 
 **Canonical-card scope (one canonical per scope):** This **§0** is the **portable** canonical Agent card. A repo router may host that repo's canonical **mirror** — labeled as a mirror, pointing here; rule/protocol/overlay point at one of the two, never a third copy. On any drift, **Bible §0 wins**.
@@ -118,6 +122,7 @@ Related: `docs/32_BIGBROTHER_OVERSIGHT.md`, `docs/35_FAST_START.md`, `docs/36_PR
 |----|--------|
 | Durable agent memory for the project | User surveillance or monitoring |
 | How agents read Brent when he "adds context" | A code type, framework API, or runtime object unless he explicitly names one |
+| **Optional:** NightRaven Core orchestration (`/nightraven`) | **Default identity** of every chat — passive memory oversight is default; Core is invoked, not assumed |
 | Always-on — every session, every task | Optional — only when Brent names oversight |
 | Append-only learning that compounds | "Clean up" by deleting history |
 
@@ -304,6 +309,20 @@ App memory = what THIS project is and where it left off (local).
 **Push-latency law:** `+#` on memory docs is **not durable** until **`git push`** (or equivalent publish) succeeds. On meaningful Touch 3 exit when the repo has a remote: **push** before closing, **or** append **Recent sessions** with an explicit defer reason (e.g. `push deferred — <why>`). Never imply shipped state in handoff while commits are only local.
 
 **Promoted from consumer app sessions (§2.7):** BankrollCalendar / OneDayMillionaire — 2026-06-09.
+
++# **Passive mode (2026-06-13):** Normal Cursor chat is **not** NightRaven Core orchestration. Default = direct work under always-on rule + AGENTS fast paths — **no** Phase 0 report, Final Report, Build/Audit Ledger, division spawn, or Core status dump per message. Full protocol only when Brent runs **`/nightraven <task>`** or says **orchestrate**, or scope is **MEDIUM+** multi-step. Complements `usage-budget.mdc` and cross-platform routing (substantial work only).
+
++# **Repeat task lane (2026-06-13):** **Waste nothing on repeats.** Before reads, grep, or exploration:
+
+| Step | When | Do |
+|------|------|-----|
+| 1 | **Same thread** | Reuse prior tool results and conclusions — no re-read same file unless changed or Brent says **refresh** |
+| 2 | **Fresh thread or recurring ask** | Scan handoff **Recent sessions** + **Already done** (keyword grep) — if done/deferred/answered, **cite and continue**; no full repo rediscovery |
+| 3 | **Named path or editor-open file** | Read that path only — skip discovery sweeps |
+| 4 | **continue / again / same / pick up** | Inherit last outcome — no Phase 0 restart, no doc chain batch |
+| 5 | **Orchestration mode, unchanged scope** | Do not re-present Task Assessment — proceed from approved plan |
+
+**Anti-pattern:** Re-explaining, re-reading, or re-auditing work already in thread or handoff — §6.
 
 ### 2.9 Always sync + Governed bypass + Local vs cloud
 
@@ -554,6 +573,8 @@ Tier-0 lean repos may omit full BAIC bootstrap — point at master path and loca
 | **Forgotten sync** | Committing but not pushing; next agent reads stale remote state — Always pull before work; push after every commit (§2.9) |
 | **Silent bypass** | Skipping `+#` only or another law without asking — Governed Bypass requires explicit Brent approval first (§2.9) |
 | **Local-mode subagents** | Spawning parallel subagents under LM Studio; causes GPU VRAM contention and hangs — serial only in local mode (§2.9; [`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md) §4) |
+| **Orchestration theater** | Phase 0 reports, ledgers, division spawn, or Core relays on passive chat — use §2.8 passive mode |
+| **Repeat re-exploration** | Re-reading files or re-scanning repo when thread or handoff already answered — use §2.8 repeat lane |
 
 ---
 
