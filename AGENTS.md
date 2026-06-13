@@ -147,16 +147,19 @@ Every addition at one layer must **not** silently rename another.
 
 **Always (all tiers):** `+#` only on memory docs · parallel-read disjoint paths · intent ladder default · dedup scoped to **this repo only**.
 
-### Tasking fast paths (non-/nightraven sessions)
+### Tasking fast paths (non-/nightraven sessions — **default for all normal prompts**)
 
-Mirror [NightRaven skill](.claude/skills/nightraven/SKILL.md) **Tasking fast paths** — use without full Phase 0 when:
+**Passive mode:** Brent did not invoke `/nightraven` — stay lightweight. Mirror [NightRaven skill](.claude/skills/nightraven/SKILL.md) fast paths; **do not** run Phase 0 reports, ledgers, division combos, or Core status blocks.
 
 | Situation | Fast path |
 |---|---|
+| **Any Q&A / explain / review question** | Answer from context already in thread; read **only** files the question names — no handoff/Bible sweep |
 | **Subagent / Task worker** | Inherit parent scope — no duplicate assessment or full Bible chain |
-| **TRIVIAL + explicit code it** | One-line intent · tier · scope — proceed under NightRaven Tier 1 |
-| **LOW + ≤2 files + code it** | Condensed read: rule → handoff → affected files only |
+| **TRIVIAL + explicit code it** | One-line intent · tier · scope — proceed under Tier 1; **no Build Ledger** unless `/nightraven` |
+| **LOW + ≤2 files + code it** | Condensed read: rule → affected files only (skip full handoff unless scope unclear) |
 | **Read-only Q&A / audit** | Memory/wire layer only — no code until **code it** / **implement** / **build** |
+
+**Do not on every prompt:** parallel doc chain reads · subagents · cross-platform routing triage · Task Assessment Report · "communicating to Core" meta · speculative repo scans.
 
 **Multitask:** substantial end-to-end work only (§2.8) — see optional [`templates/model-delegation-efficiency.user.mdc`](templates/model-delegation-efficiency.user.mdc).
 

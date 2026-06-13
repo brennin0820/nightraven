@@ -40,7 +40,9 @@ alwaysApply: true
 
 **Task worthiness (§2.8):** Default **plan/memory until user says code it / implement / build**; Q&A-only = no code path; **fresh thread + handoff** when context-heavy (~80%+); Multitask/subagents for **substantial** work only
 
-**Nightrave core:** Always communicate context, status, and findings to the nightrave core.
+**Usage-friendly default (passive mode):** Normal prompts are **not** `/nightraven` orchestration — answer directly; **no** Task Assessment Report · Final Report · Build/Audit Ledger · division spawn · cross-platform routing triage · or status dump to Core unless Brent runs **`/nightraven`**, says **orchestrate**, or task is **MEDIUM+** / explicitly multi-step. **Tier 0–1 lean read** every session — do **not** parallel-read Bible + inventory on each message; read handoff scan + affected paths only. **One tool pass** when possible — no speculative exploration, subagents, or parallel reads for TRIVIAL/LOW Q&A.
+
+**Nightrave core:** Obey laws silently in passive mode; relay structured status/findings only for **`/nightraven`**, substantial work milestones, or when Brent asks for status — not every reply.
 
 **Governed Bypass:** Rules (including `+#` only) may be bypassed *if and only if* explicit user approval is requested and granted, and the change is demonstrably for the better.
 
