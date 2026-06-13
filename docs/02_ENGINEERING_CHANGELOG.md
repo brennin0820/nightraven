@@ -6,6 +6,14 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-13
 
+### LM Studio remote model roster — division map (`DESKTOP-7FT26ER`)
+
+- +# Brent remote models (gguf) — **GPT-OSS 20B** · **Gemma 4 E4B** (~7.5B) · **DeepSeek R1 0528 Qwen3 8B** · **Nomic Embed Text v1.5** (embeddings — not for chat/completions)
+- +# Serial division map — 20B → planner · architect · greenfield · planning · builder (no 32B coder remote); DeepSeek 8B → auditor · researcher · research; Gemma → design; **exclude Nomic** from [`lmstudio-division-improve.sh`](../scripts/lmstudio-division-improve.sh)
+- +# Wired — [`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md) §6 remote roster table
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`DIVISION_REGISTRY.md`](DIVISION_REGISTRY.md)
+
 ### LM Studio Personal Network — Brent setup (Mac + remote 4080)
 
 - +# Brent LM Studio **Network Devices** — Mac control surface · remote **`DESKTOP-7FT26ER`** RTX 4080 16 GB VRAM · **Set as preferred device ON** · **`GPT-OSS 20B`** (gguf) on remote

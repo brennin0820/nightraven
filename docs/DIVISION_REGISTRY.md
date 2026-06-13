@@ -86,3 +86,5 @@ AppFoundationFlow
 | planning · research · design | `.claude/skills/nightraven/SKILL.md` (section focus) | Research runtime: defer `/hunt` to cloud |
 
 **Doc:** [`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md) §6 — order, models, after-loop law.
+
+**+# Brent remote roster (`DESKTOP-7FT26ER`, 2026-06-13):** GPT-OSS 20B → planner/architect/greenfield/planning/builder · DeepSeek R1 0528 Qwen3 8B → auditor/researcher/research · Gemma 4 E4B → design · **Nomic Embed Text v1.5 — skip** (not chat). See local doc §6 roster table.

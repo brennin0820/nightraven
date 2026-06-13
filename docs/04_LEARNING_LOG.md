@@ -6,6 +6,27 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-13 — Remote model roster → division map (no embed model)
+
+**Signal:** Brent shared four models on remote **`DESKTOP-7FT26ER`** — three chat-capable gguf + **Nomic Embed** embeddings.
+
+**Pattern:** Map **available** remote models to division keys serially; **never** pass embedding models to chat/completions division script. Without 32B coder on remote, **builder** uses best available (**GPT-OSS 20B**) for SKILL gap review only — implementation stays cloud.
+
+| Model | Division keys |
+|---|---|
+| GPT-OSS 20B | planner · architect · greenfield · planning · builder |
+| DeepSeek R1 0528 Qwen3 8B | auditor · researcher · research |
+| Gemma 4 E4B (~7.5B) | design |
+| Nomic Embed Text v1.5 | **skip** (not chat) |
+
+**Do:** Load one model on remote per run group · `--model` id from `/v1/models`.
+
+**Don't:** Run division improve against Nomic; expect Builder-quality code review without cloud/coder model.
+
+**See:** [`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md) §6 · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+
+---
+
 ## 2026-06-13 — LM Studio Personal Network (Mac API · remote GPU)
 
 **Signal:** Brent shared LM Studio **Network** UI — MacBook control · Windows **`DESKTOP-7FT26ER`** RTX 4080 preferred · **`GPT-OSS 20B`** loaded remotely.

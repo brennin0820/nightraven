@@ -202,6 +202,17 @@ Brent’s live setup (2026-06-13): **MacBook Pro** runs LM Studio UI + **Local S
 
 **Don't:** Change `--base-url` to the remote device unless the OpenAI server is actually listening there.
 
+#### Remote model roster (`DESKTOP-7FT26ER` — Brent 2026-06-13)
+
+| Model (UI) | Params | Use in division loop | Division keys |
+|---|---|---|---|
+| GPT-OSS 20B | 20B | **Yes** — primary | planner · architect · greenfield · planning · builder |
+| DeepSeek R1 0528 Qwen3 8B | 8B | **Yes** — critique/rubric | auditor · researcher · research |
+| Gemma 4 E4B | ~7.5B | **Yes** — light read-only | design |
+| Nomic Embed Text v1.5 | embed | **No** — embeddings only | — |
+
+Swap loaded model on remote between run groups; script stays serial (one division per API call). **Builder** has no 32B coder on this remote — 20B gap review locally; ship code on cloud/Cursor.
+
 ### After the loop
 
 1. Read reviews — pick one division improvement per session (Tier C bar).  
