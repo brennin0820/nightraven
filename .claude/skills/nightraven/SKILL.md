@@ -47,7 +47,7 @@ When Brent runs the pre-coding card or scope touches UI/UX, run this **read-only
 2. **Intent** — one-line goal; ladder layer (memory / wire / UI / code)
 3. **Domains** — affected paths, modules, risk surfaces
 4. **Division combos** — pick minimum execution path (table below)
-5. **God's Eye Final Report** — present verdict block; wait for approval on MEDIUM+
+5. **NightRaven Final Report** — present verdict block; wait for approval on MEDIUM+
 
 ### Execution-path combo matrix (runtime — minimum set)
 
@@ -114,7 +114,7 @@ Spawning an agent, loading a skill, or using a tool not enumerated here requires
 
 Activate **only** what the matrix requires — nothing more. Matrix entries for the assessed level are **mandatory**: if Core believes a mandated division or auditor is irrelevant to this specific task, it must say so in the Task Assessment Report and obtain explicit user approval before omitting it.
 
-**Project Agent** = the target repo's resident agent context (its AGENTS.md / God's Eye overlay rules). Activating it means loading and obeying those rules; bypassing it means acting on a project without them.
+**Project Agent** = the target repo's resident agent context (its AGENTS.md / NightRaven overlay rules). Activating it means loading and obeying those rules; bypassing it means acting on a project without them.
 
 ## Approval Gate
 
@@ -248,14 +248,14 @@ When an Auditor returns **FAIL** or High/Critical findings after Builder work:
 2. Core summarizes findings to user (verbatim for High/Critical)
 3. Re-present Task Assessment with fix scope only
 4. Builder addresses enumerated items; Auditor re-checks affected paths
-5. Close with **God's Eye Final Report** when user asked for pre-coding card or MEDIUM+
+5. Close with **NightRaven Final Report** when user asked for pre-coding card or MEDIUM+
 
-## God's Eye Final Report (session close template)
+## NightRaven Final Report (session close template)
 
 Present when pre-coding gate ran or at MEDIUM+ session exit. Read-only summary — Core voice only.
 
 ```
-## God's Eye Final Report
+## NightRaven Final Report
 - Verdict: PASS | PASS WITH NOTES | FAIL
 - Intent served: <one line>
 - Complexity: <TRIVIAL→CRITICAL>

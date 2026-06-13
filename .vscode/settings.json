@@ -1,5 +1,5 @@
 {
-  // God's Eye workspace — repo-specific. Global perf + Cursor prefs: %APPDATA%\Cursor\User\settings.json
+  // NightRaven workspace — repo-specific. Global perf + Cursor prefs: %APPDATA%\Cursor\User\settings.json
   // See .vscode/README.md for user vs workspace split and manual Cursor UI toggles.
 
   "files.associations": {

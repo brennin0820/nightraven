@@ -1,4 +1,4 @@
-# God's Eye — workspace editor settings
+# NightRaven — workspace editor settings
 
 Cursor and VS Code share the same `settings.json` schema. This repo uses a **split**:
 
@@ -20,10 +20,10 @@ Cursor and VS Code share the same `settings.json` schema. This repo uses a **spl
 | Setting | Where | Notes |
 |---------|-------|-------|
 | **Hooks** | Settings → Hooks | Project hooks from `.cursor/hooks.json`; reload window after edits |
-| **Models / LM Studio** | Settings → Models | Local: override base URL `http://localhost:1234/v1`; see `docs/GODS_EYE_LOCAL_VS_CLOUD.md` |
+| **Models / LM Studio** | Settings → Models | Local: override base URL `http://localhost:1234/v1`; see `docs/NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md` |
 | **Privacy / indexing** | Settings → Cursor → Privacy | Codebase indexing; adjust if local-only mode |
 | **Agent attribution** | Settings → Agent | UI-only, not `settings.json` |
-| **MCP** | Settings → MCP | God's Eye server via `.cursor/mcp.json` |
+| **MCP** | Settings → MCP | NightRaven server via `.cursor/mcp.json` |
 
 ## Extensions
 
