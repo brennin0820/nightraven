@@ -23,16 +23,21 @@ export class AppFoundationFlow {
       throw new Error('Layout must be approved before running the pipeline')
     }
 
+    // Extract before spread-reassignment so TypeScript keeps the narrowed type
+    const layout = state.layout
+
     logger.phase('flow', '--- Phase 1: Research ---')
-    const researchResult = this.researcher.run(state.layout)
+    const researchResult = this.researcher.run(layout)
     state = { ...state, research: researchResult.output, phase: 1 }
 
+    const research = state.research!
+
     logger.phase('flow', '--- Phase 2: Architecture ---')
-    const archResult = this.architect.run(state.layout, state.research!)
+    const archResult = this.architect.run(layout, research)
     state = { ...state, architecture: archResult.output, phase: 2 }
 
     logger.phase('flow', '--- Phase 3: Review ---')
-    const reviewResult = this.reviewer.run(state.layout, state.architecture!)
+    const reviewResult = this.reviewer.run(layout, state.architecture!)
     state = { ...state, review: reviewResult.output, phase: 3 }
 
     if (!state.review!.passed) {

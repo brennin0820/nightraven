@@ -1,10 +1,19 @@
 import type { ArchitectureOutput, LayoutPlan, ReviewOutput, AgentResult } from '../types/agent.js'
 import { logger } from '../utils/logger.js'
+import { getToolsForDivision, type DivisionName } from '../tools/registry.js'
+import type { AgentTool } from '../tools/AgentTool.js'
 
 const COVERAGE_THRESHOLD = 80
 
 export class ReviewAgent {
   readonly role = 'reviewer' as const
+  readonly division: DivisionName = 'auditor'
+  readonly tools: AgentTool[]
+
+  constructor() {
+    this.tools = getToolsForDivision(this.division)
+    logger.info('reviewer', 'Tool belt loaded', { tools: this.tools.map((t) => t.name) })
+  }
 
   run(layout: LayoutPlan, architecture: ArchitectureOutput): AgentResult<ReviewOutput> {
     const start = Date.now()

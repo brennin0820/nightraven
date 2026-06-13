@@ -1,8 +1,17 @@
 import type { ResearchOutput, LayoutPlan, ArchitectureOutput, AgentResult } from '../types/agent.js'
 import { logger } from '../utils/logger.js'
+import { getToolsForDivision, type DivisionName } from '../tools/registry.js'
+import type { AgentTool } from '../tools/AgentTool.js'
 
 export class ArchitectAgent {
   readonly role = 'architect' as const
+  readonly division: DivisionName = 'architect'
+  readonly tools: AgentTool[]
+
+  constructor() {
+    this.tools = getToolsForDivision(this.division)
+    logger.info('architect', 'Tool belt loaded', { tools: this.tools.map((t) => t.name) })
+  }
 
   run(layout: LayoutPlan, research: ResearchOutput): AgentResult<ArchitectureOutput> {
     const start = Date.now()

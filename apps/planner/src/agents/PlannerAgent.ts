@@ -1,5 +1,7 @@
 import type { AppSpec, LayoutPlan, Module, AgentResult } from '../types/agent.js'
 import { logger } from '../utils/logger.js'
+import { getToolsForDivision, type DivisionName } from '../tools/registry.js'
+import type { AgentTool } from '../tools/AgentTool.js'
 
 const CORE_MODULES: Omit<Module, 'id'>[] = [
   { name: 'Auth',      priority: 'must',   description: 'Identity, session, permissions' },
@@ -11,6 +13,13 @@ const CORE_MODULES: Omit<Module, 'id'>[] = [
 
 export class PlannerAgent {
   readonly role = 'planner' as const
+  readonly division: DivisionName = 'planner'
+  readonly tools: AgentTool[]
+
+  constructor() {
+    this.tools = getToolsForDivision(this.division)
+    logger.info('planner', 'Tool belt loaded', { tools: this.tools.map((t) => t.name) })
+  }
 
   run(spec: AppSpec): AgentResult<LayoutPlan> {
     const start = Date.now()
