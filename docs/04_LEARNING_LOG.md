@@ -510,6 +510,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-13 — LM Studio serial division improvement (local loop)
+
+**Signal:** Brent asked for a way to **improve all divisions using LM Studio** without cloud subagent cost.
+
+**Pattern:** One **serial CLI** (`scripts/lmstudio-division-improve.sh`) calls the local OpenAI-compatible endpoint once per division; feeds truncated SKILL + registry-known gap; writes review markdown under `docs/lmstudio-reviews/` — **proposals only**, not auto-applied SKILL edits. **Researcher/Research** improve offline rubrics locally; live `/hunt` stays cloud. **Never parallel** under LM Studio (VRAM + local law).
+
+**Do:** `--dry-run --division all` to plan without server; start LM Studio Local Server then `--division all`; pick one division improvement per session; apply with **`+#`** after **code it**.
+
+**Don't:** Spawn parallel division reviews locally; treat review files as committed law without Brent ship signal; call `resolve_model` during dry-run (bash `set -e` exits silently if server down).
+
+**See:** [`scripts/lmstudio-division-improve.sh`](../scripts/lmstudio-division-improve.sh) · [`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md) §6 · [`DIVISION_REGISTRY.md`](DIVISION_REGISTRY.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+
+---
+
 ## 2026-06-11 — Local Offline vs Cloud Execution Gating
 
 

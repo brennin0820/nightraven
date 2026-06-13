@@ -6,6 +6,16 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-13
 
+### LM Studio serial division improvement loop
+
+- +# Brent **improve all divisions using lm studio** — [`scripts/lmstudio-division-improve.sh`](../scripts/lmstudio-division-improve.sh): serial OpenAI-compatible API to local LM Studio; one division per call; 9 keys (6 division SKILLs + 3 runtime sections in `nightraven/SKILL.md`)
+- +# CLI — `--list` · `--dry-run` · `--division NAME|all` · `--model` · `--base-url`; output `docs/lmstudio-reviews/<division>-<timestamp>.md` (proposals only — apply with **`+#`** after ship signal)
+- +# Docs — [`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md) §6 (order · model hints · after-loop law) · [`DIVISION_REGISTRY.md`](DIVISION_REGISTRY.md) local table · overlay §1 **LM Studio division improve loop**
+- +# **Fix:** dry-run skips LM Studio probe; resolve model once before loop (bash `set -e` + failed `curl` no longer silent-exits dry-run)
+- +# **Law:** never parallel under LM Studio; Researcher/Research defer live web to cloud
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) · [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §2.9
+
 ### Repo hygiene — remove legacy root `nightraven` gitlinks
 
 - +# Brent **delete all gods eye folder** — removed `nightraven` · `nightraven-1` at monorepo root (empty submodule entries · same `f3fbb55` gitlink · no `.gitmodules`)
