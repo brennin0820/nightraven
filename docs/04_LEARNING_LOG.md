@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-13 — Filenames should match file content
+
+**Signal:** Brent asked to rename **all** filenames to reflect what each file contains; monorepo still carried `gods-eye-*` paths/names after nested-clone removal.
+
+**Pattern:** `git mv` to content-descriptive names first · then disjoint parallel reference sweeps (scripts · install · mcp-server · docs · compass) — one writer per file; avoid slow `rg|perl` loops on large trees (use targeted Python walk).
+
+**Do:** Keep vocabulary layers — God's Eye doc prefix for framework law; NightRaven prefix for monorepo registry/install/MCP/hooks paths.
+
+**Don't:** Rewrite historical `+#` lines that cite old tool names (`gods-eye-lint`) — append **Supersedes** only when correcting live instructions.
+
+**See:** [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md)
+
+---
+
 ## 2026-06-13 — Monorepo root: orphan `gods-eye` gitlink dirs
 
 **Signal:** Brent asked to delete all God's Eye **folders** at repo root; `gods-eye` and `gods-eye-1` existed as empty dirs with git mode `160000` (submodule gitlinks) but no `.gitmodules`.

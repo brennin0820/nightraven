@@ -14,6 +14,16 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 **Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md)
 
+### Filename alignment — content-descriptive names (uncommitted)
+
+- +# Brent **rename all filenames according to what they contain** — Bible/router/session/local/loop/composer docs renamed to match H1 content; scripts → `nightraven-projects.conf` · `scan-nightraven-projects.sh` · `install-nightraven-framework.sh` · `lint-framework-memory.sh`
+- +# Rule + MCP + hooks paths — `nightraven-context-intent.mdc` · `run-memory-chain-mcp.*` · MCP id `nightraven-memory-chain` · user install `hooks/nightraven/` (legacy `gods-eye/` detect kept in `install.sh`)
+- +# **Parallel closeout** — `install.sh` · `mcp-server/package.json` · `memory.ts` default roots · `MCP_SETUP.md`; Compass `mockPhase78` · `compassApi` legacy migration · `buildSnapshot` label
+- +# **`lint-framework-memory handoff`** passes · bulk `rg|perl` replace aborted (hung); Python pass + disjoint file edits completed
+- +# **Uncommitted** — full rename batch + prior `D gods-eye` · `D gods-eye-1`; say **commit** · push deferred (email privacy hook on `2026-06-13`)
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) · [`nightraven-projects.conf`](../scripts/nightraven-projects.conf) · [`apps/compass/AGENTS.md`](../apps/compass/AGENTS.md)
+
 ---
 
 ## 2026-06-11
