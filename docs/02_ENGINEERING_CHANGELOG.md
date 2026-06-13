@@ -6,6 +6,14 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-13
 
+### LM Studio division script — canonical runbook (§6)
+
+- +# Brent external walkthrough claimed JSON Patch · auto-commit — **incorrect**; appended **Step-by-step runbook (macOS)** to [`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md) §6 — actual flow: one SKILL · `/v1/chat/completions` · `docs/lmstudio-reviews/` · manual **`+#`** after **code it**
+- +# OpenAI models shape `data[].id` · dry-run · verify with `ls docs/lmstudio-reviews/` not `git log` auto-commit
+- +# Wired overlay pitfall · learning log anti-pattern
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md)
+
 ### Touch 3 AFTER — LM Studio memory committed (`6979747`)
 
 - +# Brent **`commit`** — local **`6979747`** ships Personal Network + remote roster wire (handoff · changelog · learning · local doc §6 · registry · overlay)

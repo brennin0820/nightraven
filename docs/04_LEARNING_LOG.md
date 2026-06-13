@@ -6,6 +6,20 @@ Durable patterns discovered in this repo. Append-only (`+#`).
 
 ---
 
+## 2026-06-13 — Division-improve script ≠ auto-patch tool (mis-doc guard)
+
+**Signal:** External paste described `lmstudio-division-improve.sh` as JSON Patch + `git apply` + auto-commit — wrong for NightRaven.
+
+**Pattern:** This script is **review-only** — one SKILL snippet → markdown proposal file. Ship signal (**code it**) + **`+#`** apply separately. Models API uses OpenAI `{ "data": [{ "id": ... }] }`, not `"models": []`.
+
+**Do:** Point agents to local doc §6 **Step-by-step runbook**; verify with review files under `docs/lmstudio-reviews/`.
+
+**Don't:** Expect `Improve planner division:` commits from the script; trust generic LM Studio tutorials without reading [`scripts/lmstudio-division-improve.sh`](../scripts/lmstudio-division-improve.sh).
+
+**See:** [`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md) §6 · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md)
+
+---
+
 ## 2026-06-13 — Touch 3 AFTER commit (`6979747`) — LM Studio wire batch
 
 **Signal:** Brent **`commit`** then **`+#` only · stop** after Personal Network + roster memory was staged.

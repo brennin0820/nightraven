@@ -213,6 +213,51 @@ Brent’s live setup (2026-06-13): **MacBook Pro** runs LM Studio UI + **Local S
 
 Swap loaded model on remote between run groups; script stays serial (one division per API call). **Builder** has no 32B coder on this remote — 20B gap review locally; ship code on cloud/Cursor.
 
+### Step-by-step runbook (macOS)
+
+**Prerequisites:** LM Studio **Local Server → Start** (`http://localhost:1234/v1`) · preferred remote connected · load a **chat** model (not Nomic Embed).
+
+```bash
+cd /Users/brentlenninorlanda/Developer/NightRaven/nightraven
+
+# Division keys
+./scripts/lmstudio-division-improve.sh --list
+
+# Plan without API
+./scripts/lmstudio-division-improve.sh --dry-run --division planner
+
+# Exact model id (OpenAI shape: data[].id — not UI label)
+curl -s http://localhost:1234/v1/models | python3 -m json.tool
+# or ids only:
+curl -s http://localhost:1234/v1/models | python3 -c "import json,sys; [print(m['id']) for m in json.load(sys.stdin).get('data',[])]"
+
+# Smoke test — one division
+./scripts/lmstudio-division-improve.sh --division planner --model "<id-from-models>"
+
+# Verify review file (not a git commit)
+ls -lt docs/lmstudio-reviews/ | head
+git status
+```
+
+**Under the hood (actual behavior):**
+
+1. Reads **one** division `SKILL.md` snippet (≤12k chars) + registry-known gap.  
+2. POST **`/v1/chat/completions`** — asks for markdown review sections (Summary · Top 3 improvements · local constraints · defer-to-cloud · next step).  
+3. Writes **`docs/lmstudio-reviews/<division>-<timestamp>.md`**.  
+4. **Does not** JSON Patch · **does not** `git apply` · **does not** auto-commit.
+
+**Apply proposals:** **`+#`** to SKILL/registry after Brent says **code it** — never `-#`.
+
+**Supersedes common mis-doc:** external guides claiming the script rewrites division files or commits `Improve planner division: …` — **incorrect for this repo**.
+
+| Symptom | Fix |
+|---|---|
+| `connection refused` | Start Local Server on Mac |
+| `no models loaded` | Load chat model on preferred remote (play button) |
+| Wrong model id | Copy from `/v1/models` → `data[].id` |
+| Expected auto-commit | Read review markdown; apply manually with ship signal |
+| Nomic fails | Embeddings-only — skip for this script |
+
 ### After the loop
 
 1. Read reviews — pick one division improvement per session (Tier C bar).  
