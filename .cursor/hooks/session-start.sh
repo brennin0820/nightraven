@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# God's Eye Phase 2 — sessionStart (Touch 1 · Before) + Always Sync pull
+# NightRaven Phase 2 — sessionStart (Touch 1 · Before) + Always Sync pull
 # Soft reminder: read handoff + chain before substantive work. Fail-open on git errors.
 
 set -euo pipefail
@@ -9,28 +9,28 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "${SCRIPT_DIR}/lib.sh"
 
 input="$(cat || true)"
-project_root="$(gods_eye_project_root "$input")"
-gods_eye_root="$(gods_eye_resolve_root "$project_root")"
-handoff_hint="$(gods_eye_rel_path "$project_root" "docs/14_SESSION_HANDOFF.md")"
-bible_hint="docs/37_GODS_EYE_BIBLE.md"
+project_root="$(nightraven_project_root "$input")"
+nightraven_root="$(nightraven_resolve_root "$project_root")"
+handoff_hint="$(nightraven_rel_path "$project_root" "docs/14_SESSION_HANDOFF.md")"
+bible_hint="docs/37_NIGHTRAVEN.md"
 if [[ ! -f "${project_root}/${bible_hint}" ]]; then
-  bible_hint="${gods_eye_root}/docs/37_GODS_EYE_BIBLE.md"
+  bible_hint="${nightraven_root}/docs/37_NIGHTRAVEN.md"
 fi
 
-if gods_eye_should_skip_recent_pull "$project_root"; then
+if nightraven_should_skip_recent_pull "$project_root"; then
   pull_msg="Autosync pull skipped — session recent (see .cursor/.autosync-session)."
 else
-  pull_msg="$(gods_eye_git_pull_ff_only "$project_root")"
+  pull_msg="$(nightraven_git_pull_ff_only "$project_root")"
   if [[ "$pull_msg" == Autosync\ pull\ failed* ]]; then
-    gods_eye_mark_session_pulled "$project_root" 0
+    nightraven_mark_session_pulled "$project_root" 0
   else
-    gods_eye_mark_session_pulled "$project_root" 1
+    nightraven_mark_session_pulled "$project_root" 1
   fi
 fi
-gods_eye_touch3_disabled_cached "$project_root" >/dev/null || true
+nightraven_touch3_disabled_cached "$project_root" >/dev/null || true
 
 message="$(cat <<EOF
-God's Eye · Touch 1 · BEFORE (soft reminder — not a hard block)
+NightRaven · Touch 1 · BEFORE (soft reminder — not a hard block)
 
 Always Sync · session start: ${pull_msg}
 
@@ -46,14 +46,14 @@ During: guard scope · +# only on memory docs · parallel independent workstream
 EOF
 )"
 
-if gods_eye_touch3_disabled "$project_root"; then
+if nightraven_touch3_disabled "$project_root"; then
   message+=$'\n'"Touch 3 AFTER: **paused** (.cursor/touch3.disabled or ~/.cursor/touch3.disabled) — skip session-close follow-up batch"
 else
   message+=$'\n'"After (Touch 3): **last turn only** — session-stop hook batches handoff + changelog + learning; never mid-session or while subagents run"
 fi
 
-message+=$'\n\n'"Portable law: ${bible_hint} · Session tree: docs/GODS_EYE_SESSION_SPEC_TREES.md (or GODS_EYE_ROOT)"
-message+=$'\n'"GODS_EYE_ROOT=${gods_eye_root}"
+message+=$'\n\n'"Portable law: ${bible_hint} · Session tree: docs/NIGHTRAVEN_SESSION_SPEC_TREES.md (or NIGHTRAVEN_ROOT)"
+message+=$'\n'"NIGHTRAVEN_ROOT=${nightraven_root}"
 
-emit_session_start "$message" "$gods_eye_root"
+emit_session_start "$message" "$nightraven_root"
 exit 0

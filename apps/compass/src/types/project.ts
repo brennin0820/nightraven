@@ -29,7 +29,7 @@ export type TaskPriority = 'P0' | 'P1' | 'P2' | 'P3'
 
 export type TaskOwner =
   | 'user'
-  | 'gods_eye'
+  | 'nightraven'
   | 'nightraven_builder'
   | 'nightraven_auditor'
   | 'research'
@@ -135,7 +135,7 @@ export type PromptCard = {
   projectId: string
   taskId: string
   target:
-    | 'gods_eye'
+    | 'nightraven'
     | 'nightraven_builder'
     | 'nightraven_auditor'
     | 'research'

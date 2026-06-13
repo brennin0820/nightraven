@@ -9,7 +9,7 @@ Implement Compass MVP Phases 2–8 automatically using mock data only. Wire all 
 | Phase | Deliverable | Acceptance |
 |-------|-------------|------------|
 | **2 — Roadmap + Priority Board** | `RoadmapPage` (phases, status, done criteria, current highlighted), `PriorityBoardPage` (6 lanes), `TaskCard`, `TaskDetailPanel`, `ScopeMapPage`, task queues | Roadmap shows ordered phases; current phase badge; board shows Now/Next/Later/Blocked/Not Now/Done; task detail panel on select |
-| **3 — Next Prompt** | `NextPromptPage` + `phase34PromptCards` from `promptGenerator.ts` | Four targets: God's Eye, NR Builder, Auditor, Research |
+| **3 — Next Prompt** | `NextPromptPage` + `phase34PromptCards` from `promptGenerator.ts` | Four targets: NightRaven, NR Builder, Auditor, Research |
 | **4 — Decisions + Blockers** | `DecisionsPage` (grouped by status, scope lock banner), `BlockersPage` (severity, blocked task titles), `NotNowPage` | Open/decided/superseded visible; scope lock warning when locked |
 | **5 — Auditor Queue** | `AuditorQueuePage` with findings, required fixes, canMoveForward, pass/fix actions | Audit cards show status gate; scope warnings merged |
 | **6 — Progress Tracker** | `ProgressTrackerPage` (6 dimensions + honest labels), `DoneCriteriaPage`, `ReportsPage` | All six progress types; done criteria met/partial/open; report excerpts |

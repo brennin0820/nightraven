@@ -1,7 +1,7 @@
 # Compass build report — full product (Phases 1–8)
 
 **Date:** 2026-06-11  
-**Scope:** Mock MVP → functioning local product with GE wire + IndexedDB persistence
+**Scope:** Mock MVP → functioning local product with memory wire + IndexedDB persistence
 
 ## Architecture
 
@@ -25,12 +25,12 @@ ProjectContext → useCompassData → all pages
 - **localStorage** key `compass.selectedProject`
 - Seed: registry API snapshot; fallback to enriched mock seed when API unavailable
 
-## God's Eye integration
+## NightRaven integration
 
 Reads from registered project path:
 
 - `docs/14_SESSION_HANDOFF.md` — focus, **Next:** items, Recent sessions
-- `docs/GODS_EYE_REPO_OVERLAY.md` — Not Now / product boundary
+- `docs/NIGHTRAVEN_REPO_OVERLAY.md` — Not Now / product boundary
 - Artifact count for progress (37, overlay, handoff, changelog, learning, AGENTS, rules, hooks)
 
 ## Routing
@@ -41,12 +41,12 @@ All `NavItemId` values registered in `src/app/routeRegistry.tsx` — compile-tim
 
 ```bash
 cd apps/compass && npm run build && npm run lint
-npm run dev   # live GE reads
+npm run dev   # live memory reads
 npm run preview   # API on preview server too
 ```
 
 ## Deferred
 
 - Cloud sync, auth, multi-user
-- Writing back to handoff/changelog on disk (read-only GE wire)
+- Writing back to handoff/changelog on disk (read-only memory wire)
 - Autonomous agent execution

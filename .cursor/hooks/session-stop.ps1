@@ -1,4 +1,4 @@
-# God's Eye Phase 2 - stop (Touch 3 After) + Always Sync commit/push
+# NightRaven Phase 2 - stop (Touch 3 After) + Always Sync commit/push
 # Fail-open: git errors never block Cursor.
 
 $ErrorActionPreference = 'Continue'
@@ -6,17 +6,17 @@ $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 . (Join-Path $ScriptDir 'lib.ps1')
 
 $inputJson = Read-HookInput
-$projectRoot = Get-GodsEyeProjectRoot $inputJson
+$projectRoot = Get-NightRavenProjectRoot $inputJson
 $loopCount = Get-JsonNumberField $inputJson "loop_count"
 if ([string]::IsNullOrWhiteSpace($loopCount)) { $loopCount = "0" }
 
 $syncLines = @()
 
-$fastPath = Get-GodsEyeSessionSyncFastPath $projectRoot
+$fastPath = Get-NightRavenSessionSyncFastPath $projectRoot
 if ($fastPath) {
     $syncLines += $fastPath
 } else {
-    if (-not (Test-GodsEyeShouldSkipStopPull $projectRoot)) {
+    if (-not (Test-NightRavenShouldSkipStopPull $projectRoot)) {
         $pullResult = Invoke-GitPullFfOnly $projectRoot
         $syncLines += $pullResult.Message
     } else {
@@ -36,20 +36,20 @@ if ($fastPath) {
 }
 
 if ([int]$loopCount -gt 0) {
-    $syncOnly = "God's Eye - Always Sync [cursor hook]`n`n" + ($syncLines -join "`n")
+    $syncOnly = "NightRaven - Always Sync [cursor hook]`n`n" + ($syncLines -join "`n")
     Emit-FollowupMessage $syncOnly
     exit 0
 }
 
-if (Test-GodsEyeTouch3Disabled $projectRoot) {
-    $syncOnly = "God's Eye - Always Sync [cursor hook]`n`n" + ($syncLines -join "`n") + "`n`nTouch 3 AFTER paused - no mandatory handoff batch."
+if (Test-NightRavenTouch3Disabled $projectRoot) {
+    $syncOnly = "NightRaven - Always Sync [cursor hook]`n`n" + ($syncLines -join "`n") + "`n`nTouch 3 AFTER paused - no mandatory handoff batch."
     Emit-FollowupMessage $syncOnly
     exit 0
 }
 
-$handoffPath = Get-GodsEyeRelPath $projectRoot "docs/14_SESSION_HANDOFF.md"
+$handoffPath = Get-NightRavenRelPath $projectRoot "docs/14_SESSION_HANDOFF.md"
 
-$message = "God's Eye - Touch 3 - AFTER - **last turn only**"
+$message = "NightRaven - Touch 3 - AFTER - **last turn only**"
 $message += "`n`nThis follow-up is your **final turn**. All implementation and subagents must be **done** before Touch 3. "
 $message += "Do not start new work, spawn agents, or defer this batch to a later turn."
 $message += "`n`n**Always Sync [cursor hook]**"

@@ -1,21 +1,21 @@
-# God's Eye — Composer Brief
+# NightRaven — Composer Brief
 
-**What this document is:** A self-contained briefing for a **Cursor Composer** (or any fresh agent session) to immediately understand the God's Eye framework, its current state, and what to analyze or contribute to.
+**What this document is:** A self-contained briefing for a **Cursor Composer** (or any fresh agent session) to immediately understand the NightRaven framework, its current state, and what to analyze or contribute to.
 
-**Scope:** Framework repo only — `gods-eye` (`brennin0820/gods-eye`). No other app's memory belongs here.
+**Scope:** Framework repo only — `nightraven` (`brennin0820/nightraven`). No other app's memory belongs here.
 
 ---
 
-## 1. What God's Eye Is (30-second version)
+## 1. What NightRaven Is (30-second version)
 
-God's Eye is an **AI agent memory framework** built into your git repo. It gives every agent session durable, append-only memory so work is never lost and agents never start from scratch.
+NightRaven is an **AI agent memory framework** built into your git repo. It gives every agent session durable, append-only memory so work is never lost and agents never start from scratch.
 
 | Core idea | One sentence |
 |-----------|-------------|
 | **Memory** | Every agent session reads a chain of markdown docs before touching code |
 | **Learning** | Every session appends what was done — `+#` only, never delete |
 | **Compounding** | Each session builds on all prior sessions — no repeat work |
-| **Portable** | The laws live in one Bible (`37_GODS_EYE_BIBLE.md`) and can be vendored into any repo |
+| **Portable** | The laws live in one Bible (`37_NIGHTRAVEN.md`) and can be vendored into any repo |
 
 **It is NOT:** user surveillance, a runtime library, or a code framework. It is **documentation + discipline**.
 
@@ -46,8 +46,8 @@ God's Eye is an **AI agent memory framework** built into your git repo. It gives
 | File | Purpose | Read when |
 |------|---------|-----------|
 | `.cursor/rules/nightraven-context-intent.mdc` | Always-on rule; loaded by Cursor automatically | Every session |
-| `docs/37_GODS_EYE_BIBLE.md` | The Bible — portable laws, §0–§10 | Tier 2+ or when a law is unclear |
-| `docs/GODS_EYE_REPO_OVERLAY.md` | Local vocabulary, pitfalls, connected chain | Every session on bootstrapped repo |
+| `docs/37_NIGHTRAVEN.md` | The Bible — portable laws, §0–§10 | Tier 2+ or when a law is unclear |
+| `docs/NIGHTRAVEN_REPO_OVERLAY.md` | Local vocabulary, pitfalls, connected chain | Every session on bootstrapped repo |
 | `docs/14_SESSION_HANDOFF.md` | Current state, Already done, Recent sessions | Every session |
 | `AGENTS.md` | Agent conventions, read order, core laws, common mistakes | Fresh agent startup |
 
@@ -55,14 +55,14 @@ God's Eye is an **AI agent memory framework** built into your git repo. It gives
 
 | File | Purpose |
 |------|---------|
-| `docs/GODS_EYE_UNIFIED_STACK.md` | L0–L4 layer map; Memory Bank mapping; phased roadmap |
-| `docs/GODS_EYE_LAYERED_SPEC_ROUTER.md` | Session router — points to canonical docs by task type |
-| `docs/GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md` | LM Studio vs cloud execution modes; model table; LM Studio quickstart |
-| `docs/GODS_EYE_SESSION_SPEC_TREES.md` | Three-touch session structure (Before / During / After) |
-| `docs/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md` | `/loop` improvement cycle; six virtual teams; one `+#` step per cycle |
-| `docs/MCP_SETUP.md` | Phase 2 MCP server setup; `gods_eye_search_memory`, `gods_eye_append_recent_session` |
+| `docs/NIGHTRAVEN_UNIFIED_STACK.md` | L0–L4 layer map; Memory Bank mapping; phased roadmap |
+| `docs/NIGHTRAVEN_LAYERED_SPEC_ROUTER.md` | Session router — points to canonical docs by task type |
+| `docs/NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md` | LM Studio vs cloud execution modes; model table; LM Studio quickstart |
+| `docs/NIGHTRAVEN_SESSION_SPEC_TREES.md` | Three-touch session structure (Before / During / After) |
+| `docs/NIGHTRAVEN_IMPROVEMENT_LOOP_CYCLE_PROMPT.md` | `/loop` improvement cycle; six virtual teams; one `+#` step per cycle |
+| `docs/MCP_SETUP.md` | Phase 2 MCP server setup; `nightraven_search_memory`, `nightraven_append_recent_session` |
 | `docs/HOOKS_SETUP.md` | Phase 2 Cursor hooks (soft gates, session reminders) |
-| `docs/CURSOR_INSTALL.md` | Install God's Eye into a new repo |
+| `docs/CURSOR_INSTALL.md` | Install NightRaven into a new repo |
 
 ### Memory chain docs (append-only, protected)
 
@@ -76,11 +76,11 @@ God's Eye is an **AI agent memory framework** built into your git repo. It gives
 
 | File / Dir | Purpose |
 |-----------|---------|
-| `mcp-server/` | TypeScript MCP server — `gods_eye_read_memory`, `gods_eye_search_memory`, `gods_eye_append_recent_session` |
+| `mcp-server/` | TypeScript MCP server — `nightraven_read_memory`, `nightraven_search_memory`, `nightraven_append_recent_session` |
 | `.cursor/mcp/run-memory-chain-mcp.js` | Node launcher — auto-detects missing builds and triggers `npm install && npm run build` |
 | `.cursor/rules/nightraven-context-intent.mdc` | Always-on Cursor rule (alwaysApply: true) |
 | `.cursor/mcp.json` | MCP server registration for Cursor |
-| `install.sh` | Bootstraps God's Eye into a consumer repo |
+| `install.sh` | Bootstraps NightRaven into a consumer repo |
 | `scripts/` | Linting, project scanning, and utility scripts |
 | `templates/` | Starter files for new consumer repos |
 
@@ -151,21 +151,21 @@ Here are the gaps and open questions for Composer to review and contribute to:
 
 - [ ] **`docs/35_FAST_START.md`** — Does it reference the new §2.9 (Always Sync, Governed Bypass, Local vs Cloud)? If not, add a one-line pointer.
 - [ ] **`docs/36_PROJECT_ISOLATION.md`** — Does it mention the Always Sync requirement as it relates to isolation (stale state = invisible bleed)? Worth wiring.
-- [ ] **`install.sh`** — Does it bootstrap `docs/GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md` into consumer repos, or is it framework-only? Clarify in `CURSOR_INSTALL.md`.
-- [ ] **`templates/`** — Are any starter templates missing a pointer to `GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md` or §2.9?
-- [ ] **`docs/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md`** — Does the loop template note local vs cloud discipline for `/loop` sessions?
-- [ ] **`docs/GODS_EYE_SESSION_SPEC_TREES.md`** — Does the After phase mention the Always Sync push requirement explicitly?
+- [ ] **`install.sh`** — Does it bootstrap `docs/NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md` into consumer repos, or is it framework-only? Clarify in `CURSOR_INSTALL.md`.
+- [ ] **`templates/`** — Are any starter templates missing a pointer to `NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md` or §2.9?
+- [ ] **`docs/NIGHTRAVEN_IMPROVEMENT_LOOP_CYCLE_PROMPT.md`** — Does the loop template note local vs cloud discipline for `/loop` sessions?
+- [ ] **`docs/NIGHTRAVEN_SESSION_SPEC_TREES.md`** — Does the After phase mention the Always Sync push requirement explicitly?
 
 ### 7b. Content quality check
 
-- [ ] **`docs/37_GODS_EYE_BIBLE.md` §6 Anti-patterns** — Are the new pitfalls (Forgotten sync, Silent bypass, Local-mode subagents) in the full anti-patterns index?
-- [ ] **`docs/GODS_EYE_LAYERED_SPEC_ROUTER.md`** — Does the router point to `GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md` for execution mode decisions?
+- [ ] **`docs/37_NIGHTRAVEN.md` §6 Anti-patterns** — Are the new pitfalls (Forgotten sync, Silent bypass, Local-mode subagents) in the full anti-patterns index?
+- [ ] **`docs/NIGHTRAVEN_LAYERED_SPEC_ROUTER.md`** — Does the router point to `NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md` for execution mode decisions?
 - [ ] **`docs/04_LEARNING_LOG.md`** — Are the Always Sync + Governed Bypass + Local vs Cloud patterns logged as learned patterns?
 - [ ] **`docs/02_ENGINEERING_CHANGELOG.md`** — Is this session's work (§2.9 addition, merge batch) logged?
 
 ### 7c. Cross-link audit
 
-- [ ] Every mention of `GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md` should be a relative link, not just a filename mention.
+- [ ] Every mention of `NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md` should be a relative link, not just a filename mention.
 - [ ] `docs/MCP_SETUP.md` — Does it mention that MCP works identically in local and cloud mode?
 - [ ] `docs/HOOKS_SETUP.md` — Are Always Sync hooks documented (e.g., a hook that nudges push on session stop)?
 
@@ -173,7 +173,7 @@ Here are the gaps and open questions for Composer to review and contribute to:
 
 ## 8. Laws for Composer
 
-Composer must follow all God's Eye laws when contributing to this repo:
+Composer must follow all NightRaven laws when contributing to this repo:
 
 1. **`+#` only** — Never delete headings or history from memory docs (`docs/02`, `docs/04`, `docs/14`)
 2. **Always sync** — `git pull` before reading files; `git push` after committing
@@ -189,20 +189,20 @@ Composer must follow all God's Eye laws when contributing to this repo:
 
 | Need | Go to |
 |------|-------|
-| Full laws | `docs/37_GODS_EYE_BIBLE.md` §0–§2.9 |
+| Full laws | `docs/37_NIGHTRAVEN.md` §0–§2.9 |
 | Current work state | `docs/14_SESSION_HANDOFF.md` |
-| Local vs cloud rules | `docs/GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md` §4 |
-| How to install GE | `docs/CURSOR_INSTALL.md` |
+| Local vs cloud rules | `docs/NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md` §4 |
+| How to install NightRaven | `docs/CURSOR_INSTALL.md` |
 | Claude Code adoption | `docs/CLAUDE_ADOPTION.md` |
 | MCP tools | `docs/MCP_SETUP.md` |
-| Improvement loop | `docs/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md` |
-| Project inventory | `docs/GODS_EYE_PROJECT_INVENTORY.md` |
-| Vocabulary | `docs/GODS_EYE_REPO_OVERLAY.md` §1 |
+| Improvement loop | `docs/NIGHTRAVEN_IMPROVEMENT_LOOP_CYCLE_PROMPT.md` |
+| Project inventory | `docs/NIGHTRAVEN_PROJECT_INVENTORY.md` |
+| Vocabulary | `docs/NIGHTRAVEN_REPO_OVERLAY.md` §1 |
 
-**Git remote:** `https://github.com/brennin0820/gods-eye`
+**Git remote:** `https://github.com/brennin0820/nightraven`
 **Branch:** `main`
 **Always sync:** `git pull origin main` before work · `git push origin main` after commit
 
 ---
 
-*This document is designed to be read cold by a Composer or fresh agent session. It does not replace the Bible — it routes to it. For durable memory law, read `docs/37_GODS_EYE_BIBLE.md`. For current state, read `docs/14_SESSION_HANDOFF.md`.*
+*This document is designed to be read cold by a Composer or fresh agent session. It does not replace the Bible — it routes to it. For durable memory law, read `docs/37_NIGHTRAVEN.md`. For current state, read `docs/14_SESSION_HANDOFF.md`.*

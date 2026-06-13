@@ -35,11 +35,11 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 # shellcheck source=lib.sh
 source "${SCRIPT_DIR}/lib.sh"
 
-message="God's Eye memory edit (${file_path}):"
+message="NightRaven memory edit (${file_path}):"
 message+=$'\n\n'
 message+="- +# only — append; use **Supersedes** for corrections; never -# heading blocks or trim **Already done** / **Recent sessions**"
-project_root="$(gods_eye_project_root "$input")"
-if gods_eye_touch3_disabled "$project_root"; then
+project_root="$(nightraven_project_root "$input")"
+if nightraven_touch3_disabled "$project_root"; then
   message+=$'\n'"- Touch 3 paused — wire cross-links when asked; no mandatory session-close batch"
 else
   message+=$'\n'"- Defer Touch 3 batch (changelog, learning log, handoff Recent sessions) to session-stop **last turn** — not mid-session"

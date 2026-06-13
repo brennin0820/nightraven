@@ -2,7 +2,7 @@
 
 **Scope:** Brent's **umbrella brand** for agent-native engineering — memory, orchestration, guidance UI, and consumer apps. **This repo** is the NightRaven **platform monorepo** (framework + apps).
 
-**Do not collapse vocabulary layers** — see table below. Portable law stays in [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md).
+**Do not collapse vocabulary layers** — see table below. Portable law stays in [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md).
 
 ---
 
@@ -11,20 +11,20 @@
 | Layer | Name | Role | Location |
 |-------|------|------|----------|
 | **Umbrella / brand** | **NightRaven** | Product family — what Brent ships and talks about | This doc · public README |
-| **Memory framework** | **God's Eye** | Repo-native agent memory — Bible, handoff, hooks, `+#` | Repo root · `install.sh` |
+| **Memory framework** | **NightRaven** | Repo-native agent memory — Bible, handoff, hooks, `+#` | Repo root · `install.sh` |
 | **Orchestration** | **NightRaven Core** | Adaptive Builder/Auditor — `/nightraven` | `.claude/skills/nightraven/SKILL.md` |
 | **Guidance UI** | **NightRaven Compass** | Next-step dashboard for non-coder builder | `apps/compass/` |
 | **Greenfield app** | **HimFler** | iOS 26 native app (widgets · Watch · HealthKit · integrations) | `E:\NightRaven\HimFLer` → GitHub `brennin0820/HimFler` |
 | **Consumer app** | **NightRaven** (iOS) | Gambling tracker · ship name; Xcode target TBD | **External repo** — merge pending |
 
-**Motto chain (Compass identity):** God's Eye thinks · NightRaven builds · Auditor verifies · Compass points.
+**Motto chain (Compass identity):** NightRaven thinks · NightRaven builds · Auditor verifies · Compass points.
 
 ---
 
 ## Monorepo layout (2026-06-11)
 
 ```text
-NightRaven/                    ← platform monorepo (GitHub: gods-eye until rename)
+NightRaven/                    ← platform monorepo (GitHub: nightraven until rename)
 ├── docs/                      ← framework memory chain (L2–L3)
 ├── .cursor/                   ← rules · hooks · MCP
 ├── .claude/skills/nightraven/ ← NightRaven Core
@@ -40,12 +40,12 @@ NightRaven/                    ← platform monorepo (GitHub: gods-eye until ren
 
 | Piece | Status |
 |-------|--------|
-| God's Eye framework | **Root** (canonical) |
+| NightRaven framework | **Root** (canonical) |
 | NightRaven Core skill | **Root** |
 | NightRaven Compass | **Merged** → `apps/compass/` (`git subtree` squash) |
 | NightRaven iOS app | **Not on this machine** — add as `apps/ios/` or submodule when repo available |
 | Legacy `E:\NightRaven\nightraven-compass` | Sibling folder — archive after monorepo verified |
-| Legacy `E:\NightRaven\gods-eye` nested clone | Stale — use this monorepo (`nightraven/`) only |
+| Legacy `E:\NightRaven\nightraven` nested clone | Stale — use this monorepo (`nightraven/`) only |
 
 ---
 
@@ -63,14 +63,14 @@ Cross-link in Recent sessions; do not `-#` or merge handoff bodies.
 
 ## GitHub rename (deferred — Brent decision)
 
-Public repo may remain `brennin0820/gods-eye` while product brand is **NightRaven**. Rename to `NightRaven` or `nightraven-platform` when ready — update remote, inventory, CURSOR_INSTALL, and adopters.
+Public repo may remain `brennin0820/nightraven` while product brand is **NightRaven**. Rename to `NightRaven` or `nightraven-platform` when ready — update remote, inventory, CURSOR_INSTALL, and adopters.
 
 ---
 
 ## Related
 
-- [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §13
-- [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) §1 NightRaven unified
+- [`NIGHTRAVEN_UNIFIED_STACK.md`](NIGHTRAVEN_UNIFIED_STACK.md) §13
+- [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) §1 NightRaven unified
 - [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
 - [`apps/compass/README.md`](../apps/compass/README.md)
 - [`apps/compass/AGENTS.md`](../apps/compass/AGENTS.md) — agent onboarding for Compass code work

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# scan-nightraven-projects.sh — Inventory God's Eye artifacts across registered workspaces.
+# scan-nightraven-projects.sh — Inventory NightRaven artifacts across registered workspaces.
 #
 # Usage:
 #   ./scripts/scan-nightraven-projects.sh              # stdout report
@@ -17,12 +17,12 @@ if [[ ! -f "$CONF" ]]; then
 fi
 
 ARTIFACTS=(
-  "docs/37_GODS_EYE_BIBLE.md"
-  "docs/GODS_EYE_UNIFIED_STACK.md"
-  "docs/GODS_EYE_LAYERED_SPEC_ROUTER.md"
-  "docs/GODS_EYE_REPO_OVERLAY.md"
-  "docs/GODS_EYE_SESSION_SPEC_TREES.md"
-  "docs/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md"
+  "docs/37_NIGHTRAVEN.md"
+  "docs/NIGHTRAVEN_UNIFIED_STACK.md"
+  "docs/NIGHTRAVEN_LAYERED_SPEC_ROUTER.md"
+  "docs/NIGHTRAVEN_REPO_OVERLAY.md"
+  "docs/NIGHTRAVEN_SESSION_SPEC_TREES.md"
+  "docs/NIGHTRAVEN_IMPROVEMENT_LOOP_CYCLE_PROMPT.md"
   "docs/14_SESSION_HANDOFF.md"
   "docs/02_ENGINEERING_CHANGELOG.md"
   "docs/04_LEARNING_LOG.md"
@@ -52,9 +52,9 @@ infer_phase() {
   local base="$1"
   local hooks=0 bible=0 handoff=0 overlay=0
   has_file "$base" ".cursor/hooks.json" && hooks=1
-  has_file "$base" "docs/37_GODS_EYE_BIBLE.md" && bible=1
+  has_file "$base" "docs/37_NIGHTRAVEN.md" && bible=1
   has_file "$base" "docs/14_SESSION_HANDOFF.md" && handoff=1
-  has_file "$base" "docs/GODS_EYE_REPO_OVERLAY.md" && overlay=1
+  has_file "$base" "docs/NIGHTRAVEN_REPO_OVERLAY.md" && overlay=1
 
   if [[ $hooks -eq 1 ]]; then
     echo "2"
@@ -79,11 +79,11 @@ latest_recent_session() {
 
 bible_source() {
   local base="$1"
-  if has_file "$base" "docs/37_GODS_EYE_BIBLE.md"; then
+  if has_file "$base" "docs/37_NIGHTRAVEN.md"; then
     echo "vendored"
-  elif grep -q "GODS_EYE_ROOT\|Projects/gods-eye" "${base}/.cursor/rules/nightraven-context-intent.mdc" 2>/dev/null; then
+  elif grep -q "NIGHTRAVEN_ROOT\|Projects/nightraven" "${base}/.cursor/rules/nightraven-context-intent.mdc" 2>/dev/null; then
     echo "pointer"
-  elif grep -q "Universal_AI_Project_Operating_System" "${base}/docs/GODS_EYE_REPO_OVERLAY.md" 2>/dev/null; then
+  elif grep -q "Universal_AI_Project_Operating_System" "${base}/docs/NIGHTRAVEN_REPO_OVERLAY.md" 2>/dev/null; then
     echo "UAIPOS pointer"
   else
     echo "unknown"
@@ -91,7 +91,7 @@ bible_source() {
 }
 
 if [[ "$MODE" == "--markdown" ]]; then
-  echo "# God's Eye project scan"
+  echo "# NightRaven project scan"
   echo ""
   echo "**Generated:** $(date -u '+%Y-%m-%d %H:%M UTC')"
   echo ""

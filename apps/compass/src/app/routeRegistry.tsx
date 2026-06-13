@@ -30,7 +30,7 @@ export const routeRegistry = {
   'priority-board': { component: PriorityBoardPage },
   'coder-tasks': { component: CoderTasksPage },
   'next-prompt': { component: NextPromptPage },
-  'ge-queue': { component: () => <TaskQueuePage queueId="ge-queue" /> },
+  'nightraven-queue': { component: () => <TaskQueuePage queueId="nightraven-queue" /> },
   'nr-queue': { component: () => <TaskQueuePage queueId="nr-queue" /> },
   'research-queue': { component: () => <TaskQueuePage queueId="research-queue" /> },
   'auditor-queue': { component: AuditorQueuePage },

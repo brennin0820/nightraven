@@ -14,10 +14,10 @@ type QueueFilter = {
 }
 
 const queueFilters: Partial<Record<NavItemId, QueueFilter>> = {
-  'ge-queue': {
-    title: "God's Eye queue",
-    description: 'Memory, scope, and handoff tasks owned by God\'s Eye.',
-    owners: ['gods_eye'],
+  'nightraven-queue': {
+    title: "NightRaven queue",
+    description: 'Memory, scope, and handoff tasks owned by NightRaven.',
+    owners: ['nightraven'],
   },
   'nr-queue': {
     title: 'NightRaven queue',

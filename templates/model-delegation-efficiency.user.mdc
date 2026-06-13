@@ -7,7 +7,7 @@ alwaysApply: true
 
 ## Before spawning a subagent
 
-- [ ] Task is **substantial** end-to-end work — not audit, vocabulary, docs-only, or single-file Q&A (God's Eye Bible §2.8)
+- [ ] Task is **substantial** end-to-end work — not audit, vocabulary, docs-only, or single-file Q&A (NightRaven Bible §2.8)
 - [ ] Parent has already classified tier + scope — worker inherits it (NightRaven tasking fast paths)
 - [ ] One coherent worker per request — no redundant sibling agents or foreground duplication
 - [ ] `run_in_background=true` in Multitask Mode unless user needs live interaction

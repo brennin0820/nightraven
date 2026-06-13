@@ -16,10 +16,10 @@ import { enrichSnapshot } from '../src/utils/enrichSnapshot'
 import { parseHandoff, parseOverlayNotNow } from './parseHandoff'
 import type { RegistryEntry } from './types'
 
-/** God's Eye memory files Compass watches for auto-refresh. */
+/** NightRaven memory files Compass watches for auto-refresh. */
 export const MONITORED_ARTIFACTS = [
-  'docs/37_GODS_EYE_BIBLE.md',
-  'docs/GODS_EYE_REPO_OVERLAY.md',
+  'docs/37_NIGHTRAVEN.md',
+  'docs/NIGHTRAVEN_REPO_OVERLAY.md',
   'docs/14_SESSION_HANDOFF.md',
   'docs/02_ENGINEERING_CHANGELOG.md',
   'docs/04_LEARNING_LOG.md',
@@ -142,7 +142,7 @@ function buildTasksFromHandoff(
       priority: 'P2',
       lane: 'done',
       state: 'done',
-      owner: 'gods_eye',
+      owner: 'nightraven',
       dependencies: [],
       acceptanceCriteria: ['Recorded in handoff'],
       allowedAreas: ['docs/14_SESSION_HANDOFF.md'],
@@ -163,7 +163,7 @@ function buildTasksFromHandoff(
       priority: 'P0',
       lane: 'now',
       state: 'think',
-      owner: 'gods_eye',
+      owner: 'nightraven',
       dependencies: [],
       acceptanceCriteria: ['Handoff file exists', 'Next line present'],
       allowedAreas: ['docs/'],
@@ -271,7 +271,7 @@ export function buildProjectSnapshot(
 ): ProjectSnapshot {
   const projectId = slugify(label) || slugify(path.basename(projectPath))
   const handoffContent = readFileSafe(projectPath, 'docs/14_SESSION_HANDOFF.md')
-  const overlayContent = readFileSafe(projectPath, 'docs/GODS_EYE_REPO_OVERLAY.md')
+  const overlayContent = readFileSafe(projectPath, 'docs/NIGHTRAVEN_REPO_OVERLAY.md')
   const handoff = parseHandoff(handoffContent ?? '')
   const overlayNotNow = overlayContent ? parseOverlayNotNow(overlayContent) : []
 
@@ -314,7 +314,7 @@ export function buildProjectSnapshot(
       reason: 'docs/14_SESSION_HANDOFF.md missing — Compass cannot read project state.',
       severity: 'high',
       blockedTaskIds: tasks.map((task) => task.id),
-      owner: 'gods_eye',
+      owner: 'nightraven',
       resolutionNeeded: 'Bootstrap God\'s Eye or add handoff.',
       status: 'open',
     })
@@ -328,7 +328,7 @@ export function buildProjectSnapshot(
       reason: 'Current state / focus should end with **Next:** items.',
       severity: 'medium',
       blockedTaskIds: nextTask ? [nextTask.id] : [],
-      owner: 'gods_eye',
+      owner: 'nightraven',
       resolutionNeeded: 'Append **Next:** to handoff focus paragraph.',
       status: 'open',
     })

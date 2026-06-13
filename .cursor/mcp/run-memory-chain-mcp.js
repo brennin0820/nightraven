@@ -4,7 +4,7 @@ const fs = require('fs');
 const { spawn } = require('child_process');
 
 const scriptDir = __dirname;
-const installRoot = process.env.GODS_EYE_INSTALL_ROOT || path.resolve(scriptDir, '../..');
+const installRoot = process.env.NIGHTRAVEN_INSTALL_ROOT || path.resolve(scriptDir, '../..');
 const serverJs = path.join(installRoot, 'mcp-server/dist/index.js');
 const mcpServerDir = path.join(installRoot, 'mcp-server');
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# install.sh — Install God's Eye into a project and/or Cursor user config.
+# install.sh — Install NightRaven into a project and/or Cursor user config.
 #
 # Usage:
 #   ./install.sh [OPTIONS] [TARGET_DIR]
@@ -13,7 +13,7 @@
 
 set -euo pipefail
 
-GODS_EYE_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+NIGHTRAVEN_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 INSTALL_USER=0
 INSTALL_PROJECT=1
 INSTALL_HOOKS=1
@@ -24,7 +24,7 @@ TARGET=""
 
 usage() {
   cat <<EOF
-God's Eye Cursor installer
+NightRaven Cursor installer
 
 Usage: $(basename "$0") [OPTIONS] [TARGET_DIR]
 
@@ -39,10 +39,10 @@ Options:
 
 Defaults:
   Project target = current directory
-  Vendors docs/37_GODS_EYE_BIBLE.md + router when missing
+  Vendors docs/37_NIGHTRAVEN.md + router when missing
   Bootstraps handoff/changelog/learning log/AGENTS.md/overlay from templates
 
-Portable source: ${GODS_EYE_ROOT}
+Portable source: ${NIGHTRAVEN_ROOT}
 EOF
 }
 
@@ -72,24 +72,24 @@ install_project_mcp() {
   mkdir -p "${dest_root}/.cursor/mcp"
   cat > "${dest_root}/.cursor/mcp/run-memory-chain-mcp.sh" <<EOF
 #!/usr/bin/env bash
-# Launch God's Eye MCP server (stdio) for Cursor.
+# Launch NightRaven MCP server (stdio) for Cursor.
 set -euo pipefail
 
-GODS_EYE_INSTALL_ROOT="${GODS_EYE_ROOT}"
-SERVER_JS="\${GODS_EYE_INSTALL_ROOT}/mcp-server/dist/index.js"
+NIGHTRAVEN_INSTALL_ROOT="${NIGHTRAVEN_ROOT}"
+SERVER_JS="\${NIGHTRAVEN_INSTALL_ROOT}/mcp-server/dist/index.js"
 
 if [[ ! -f "\$SERVER_JS" ]]; then
   echo "nightraven memory-chain MCP server not built: \${SERVER_JS}" >&2
-  echo "Run: cd \"\${GODS_EYE_INSTALL_ROOT}/mcp-server\" && npm install && npm run build" >&2
+  echo "Run: cd \"\${NIGHTRAVEN_INSTALL_ROOT}/mcp-server\" && npm install && npm run build" >&2
   exit 1
 fi
 
 exec node "\$SERVER_JS"
 EOF
   chmod +x "${dest_root}/.cursor/mcp/run-memory-chain-mcp.sh"
-  copy_file "${GODS_EYE_ROOT}/templates/mcp/run-memory-chain-mcp.js" "${dest_root}/.cursor/mcp/run-memory-chain-mcp.js"
+  copy_file "${NIGHTRAVEN_ROOT}/templates/mcp/run-memory-chain-mcp.js" "${dest_root}/.cursor/mcp/run-memory-chain-mcp.js"
   chmod +x "${dest_root}/.cursor/mcp/run-memory-chain-mcp.js"
-  copy_if_missing "${GODS_EYE_ROOT}/templates/mcp.json" "${dest_root}/.cursor/mcp.json"
+  copy_if_missing "${NIGHTRAVEN_ROOT}/templates/mcp.json" "${dest_root}/.cursor/mcp.json"
   log "mcp: .cursor/mcp.json + run-memory-chain-mcp.js/sh (build mcp-server/ first — see docs/MCP_SETUP.md)"
 }
 
@@ -103,17 +103,17 @@ hooks_os_is_windows() {
 install_project_hooks() {
   local dest_root="$1"
   local src_hooks dest_hooks hooks_manifest
-  src_hooks="$(cd "${GODS_EYE_ROOT}/.cursor/hooks" && pwd)"
+  src_hooks="$(cd "${NIGHTRAVEN_ROOT}/.cursor/hooks" && pwd)"
   mkdir -p "${dest_root}/.cursor/hooks"
   dest_hooks="$(cd "${dest_root}/.cursor/hooks" && pwd)"
   if [[ "$src_hooks" != "$dest_hooks" ]]; then
-    cp "${GODS_EYE_ROOT}/.cursor/hooks/"*.sh "${dest_root}/.cursor/hooks/"
-    cp "${GODS_EYE_ROOT}/.cursor/hooks/"*.ps1 "${dest_root}/.cursor/hooks/" 2>/dev/null || true
+    cp "${NIGHTRAVEN_ROOT}/.cursor/hooks/"*.sh "${dest_root}/.cursor/hooks/"
+    cp "${NIGHTRAVEN_ROOT}/.cursor/hooks/"*.ps1 "${dest_root}/.cursor/hooks/" 2>/dev/null || true
   fi
   chmod +x "${dest_root}/.cursor/hooks/"*.sh
-  hooks_manifest="${GODS_EYE_ROOT}/.cursor/hooks.json"
+  hooks_manifest="${NIGHTRAVEN_ROOT}/.cursor/hooks.json"
   if ! hooks_os_is_windows; then
-    hooks_manifest="${GODS_EYE_ROOT}/templates/hooks.project.unix.json"
+    hooks_manifest="${NIGHTRAVEN_ROOT}/templates/hooks.project.unix.json"
   fi
   if [[ "${hooks_manifest}" != "${dest_root}/.cursor/hooks.json" ]]; then
     cp -f "${hooks_manifest}" "${dest_root}/.cursor/hooks.json"
@@ -127,14 +127,14 @@ install_project_hooks() {
 
 merge_user_hooks_json() {
   local user_hooks="${HOME}/.cursor/hooks.json"
-  local fragment="${GODS_EYE_ROOT}/templates/hooks.user.json"
+  local fragment="${NIGHTRAVEN_ROOT}/templates/hooks.user.json"
   if [[ ! -f "$user_hooks" ]]; then
     cp "$fragment" "$user_hooks"
     log "created: ~/.cursor/hooks.json"
     return 0
   fi
-  if grep -qE 'nightraven/session-start\.sh|gods-eye/session-start\.sh' "$user_hooks" 2>/dev/null; then
-    warn "God's Eye hooks already present in ~/.cursor/hooks.json (skip merge)"
+  if grep -qE 'nightraven/session-start\.sh|nightraven/session-start\.sh' "$user_hooks" 2>/dev/null; then
+    warn "NightRaven hooks already present in ~/.cursor/hooks.json (skip merge)"
     return 0
   fi
   if command -v python3 >/dev/null 2>&1; then
@@ -158,7 +158,7 @@ with open(user_path, "w") as f:
     json.dump(user, f, indent=2)
     f.write("\n")
 PY
-    log "merged God's Eye hooks into ~/.cursor/hooks.json"
+    log "merged NightRaven hooks into ~/.cursor/hooks.json"
   else
     warn "python3 not found — copy templates/hooks.user.json entries manually into ~/.cursor/hooks.json"
   fi
@@ -172,20 +172,20 @@ install_user_level() {
   if [[ -f "$user_rule" && "$FORCE_RULE" -eq 0 ]]; then
     warn "exists (skip): ~/.cursor/rules/nightraven-context-intent.mdc (use --force-rule to replace)"
   else
-    sed "s|__GODS_EYE_ROOT__|${GODS_EYE_ROOT}|g" \
-      "${GODS_EYE_ROOT}/templates/nightraven-context-intent.user.mdc" > "$user_rule"
+    sed "s|__NIGHTRAVEN_ROOT__|${NIGHTRAVEN_ROOT}|g" \
+      "${NIGHTRAVEN_ROOT}/templates/nightraven-context-intent.user.mdc" > "$user_rule"
     log "installed: ~/.cursor/rules/nightraven-context-intent.mdc"
   fi
 
   if [[ "$INSTALL_HOOKS" -eq 1 ]]; then
-    cp "${GODS_EYE_ROOT}/.cursor/hooks/"*.sh "${HOME}/.cursor/hooks/nightraven/"
-    cp "${GODS_EYE_ROOT}/.cursor/hooks/"*.ps1 "${HOME}/.cursor/hooks/nightraven/" 2>/dev/null || true
+    cp "${NIGHTRAVEN_ROOT}/.cursor/hooks/"*.sh "${HOME}/.cursor/hooks/nightraven/"
+    cp "${NIGHTRAVEN_ROOT}/.cursor/hooks/"*.ps1 "${HOME}/.cursor/hooks/nightraven/" 2>/dev/null || true
     chmod +x "${HOME}/.cursor/hooks/nightraven/"*.sh
     # Bake install root so hooks resolve Bible when projects use master BAIC instead of vendoring.
-    if grep -q 'GODS_EYE_INSTALL_ROOT=' "${HOME}/.cursor/hooks/nightraven/lib.sh" 2>/dev/null; then
-      sed -i '' "s|GODS_EYE_INSTALL_ROOT=\"\${GODS_EYE_INSTALL_ROOT:-.*}\"|GODS_EYE_INSTALL_ROOT=\"${GODS_EYE_ROOT}\"|" \
+    if grep -q 'NIGHTRAVEN_INSTALL_ROOT=' "${HOME}/.cursor/hooks/nightraven/lib.sh" 2>/dev/null; then
+      sed -i '' "s|NIGHTRAVEN_INSTALL_ROOT=\"\${NIGHTRAVEN_INSTALL_ROOT:-.*}\"|NIGHTRAVEN_INSTALL_ROOT=\"${NIGHTRAVEN_ROOT}\"|" \
         "${HOME}/.cursor/hooks/nightraven/lib.sh" 2>/dev/null || \
-      sed -i "s|GODS_EYE_INSTALL_ROOT=\"\${GODS_EYE_INSTALL_ROOT:-.*}\"|GODS_EYE_INSTALL_ROOT=\"${GODS_EYE_ROOT}\"|" \
+      sed -i "s|NIGHTRAVEN_INSTALL_ROOT=\"\${NIGHTRAVEN_INSTALL_ROOT:-.*}\"|NIGHTRAVEN_INSTALL_ROOT=\"${NIGHTRAVEN_ROOT}\"|" \
         "${HOME}/.cursor/hooks/nightraven/lib.sh"
     fi
     merge_user_hooks_json
@@ -195,7 +195,7 @@ install_user_level() {
 
 install_project() {
   TARGET="$(cd "$TARGET" && pwd)"
-  log "Installing God's Eye into project: ${TARGET}"
+  log "Installing NightRaven into project: ${TARGET}"
 
   mkdir -p "${TARGET}/.cursor/rules" "${TARGET}/docs"
 
@@ -203,34 +203,34 @@ install_project() {
   if [[ -f "$rule_dest" && "$FORCE_RULE" -eq 0 ]]; then
     warn "exists (skip): .cursor/rules/nightraven-context-intent.mdc"
   else
-    copy_file "${GODS_EYE_ROOT}/.cursor/rules/nightraven-context-intent.mdc" "$rule_dest"
+    copy_file "${NIGHTRAVEN_ROOT}/.cursor/rules/nightraven-context-intent.mdc" "$rule_dest"
   fi
 
-  copy_if_missing "${GODS_EYE_ROOT}/.cursor/IMPROVEMENT_LOOP_CYCLE_PROMPT.md" \
+  copy_if_missing "${NIGHTRAVEN_ROOT}/.cursor/IMPROVEMENT_LOOP_CYCLE_PROMPT.md" \
     "${TARGET}/.cursor/IMPROVEMENT_LOOP_CYCLE_PROMPT.md"
 
   if [[ "$VENDOR_DOCS" -eq 1 ]]; then
     for doc in \
-      docs/37_GODS_EYE_BIBLE.md \
-      docs/GODS_EYE_LAYERED_SPEC_ROUTER.md \
-      docs/GODS_EYE_SESSION_SPEC_TREES.md \
-      docs/GODS_EYE_UNIFIED_STACK.md \
-      docs/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md \
+      docs/37_NIGHTRAVEN.md \
+      docs/NIGHTRAVEN_LAYERED_SPEC_ROUTER.md \
+      docs/NIGHTRAVEN_SESSION_SPEC_TREES.md \
+      docs/NIGHTRAVEN_UNIFIED_STACK.md \
+      docs/NIGHTRAVEN_IMPROVEMENT_LOOP_CYCLE_PROMPT.md \
       docs/HOOKS_SETUP.md \
       docs/MCP_SETUP.md; do
-      copy_if_missing "${GODS_EYE_ROOT}/${doc}" "${TARGET}/${doc}"
+      copy_if_missing "${NIGHTRAVEN_ROOT}/${doc}" "${TARGET}/${doc}"
     done
   fi
 
-  copy_if_missing "${GODS_EYE_ROOT}/templates/docs/14_SESSION_HANDOFF.md" \
+  copy_if_missing "${NIGHTRAVEN_ROOT}/templates/docs/14_SESSION_HANDOFF.md" \
     "${TARGET}/docs/14_SESSION_HANDOFF.md"
-  copy_if_missing "${GODS_EYE_ROOT}/templates/docs/02_ENGINEERING_CHANGELOG.md" \
+  copy_if_missing "${NIGHTRAVEN_ROOT}/templates/docs/02_ENGINEERING_CHANGELOG.md" \
     "${TARGET}/docs/02_ENGINEERING_CHANGELOG.md"
-  copy_if_missing "${GODS_EYE_ROOT}/templates/docs/04_LEARNING_LOG.md" \
+  copy_if_missing "${NIGHTRAVEN_ROOT}/templates/docs/04_LEARNING_LOG.md" \
     "${TARGET}/docs/04_LEARNING_LOG.md"
-  copy_if_missing "${GODS_EYE_ROOT}/templates/docs/GODS_EYE_REPO_OVERLAY.md" \
-    "${TARGET}/docs/GODS_EYE_REPO_OVERLAY.md"
-  copy_if_missing "${GODS_EYE_ROOT}/templates/AGENTS.md" "${TARGET}/AGENTS.md"
+  copy_if_missing "${NIGHTRAVEN_ROOT}/templates/docs/NIGHTRAVEN_REPO_OVERLAY.md" \
+    "${TARGET}/docs/NIGHTRAVEN_REPO_OVERLAY.md"
+  copy_if_missing "${NIGHTRAVEN_ROOT}/templates/AGENTS.md" "${TARGET}/AGENTS.md"
 
   if [[ "$INSTALL_HOOKS" -eq 1 ]]; then
     install_project_hooks "$TARGET"
@@ -251,7 +251,7 @@ Verify in Cursor:
   • Open a new Agent chat — Touch 1 reminder should appear
 
 Next steps:
-  1. Edit docs/GODS_EYE_REPO_OVERLAY.md for local vocabulary
+  1. Edit docs/NIGHTRAVEN_REPO_OVERLAY.md for local vocabulary
   2. Fill docs/14_SESSION_HANDOFF.md Current state / Already done
   3. Optional: run ./install.sh --user for global rule + hooks on every project
 
@@ -292,10 +292,10 @@ User-level install complete.
 Verify in Cursor:
   • Settings → Rules → nightraven-context-intent (global, alwaysApply)
   • Settings → Hooks → sessionStart / stop / afterFileEdit
-  • GODS_EYE_ROOT defaults to: ${GODS_EYE_ROOT}
+  • NIGHTRAVEN_ROOT defaults to: ${NIGHTRAVEN_ROOT}
 
 Install into a project:
-  ${GODS_EYE_ROOT}/install.sh /path/to/your-app
+  ${NIGHTRAVEN_ROOT}/install.sh /path/to/your-app
 
 EOF
 fi

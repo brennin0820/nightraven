@@ -9,7 +9,7 @@ import type {
 import {
   generateAuditorPrompt,
   generateBuilderPrompt,
-  generateGodsEyePrompt,
+  generateNightRavenPrompt,
   generateResearchPrompt,
 } from './promptGenerator'
 import {
@@ -29,8 +29,8 @@ function buildPromptCards(
       id: 'prompt-ge',
       projectId: project.id,
       taskId: task.id,
-      target: 'gods_eye',
-      prompt: generateGodsEyePrompt(project, phase, task),
+      target: 'nightraven',
+      prompt: generateNightRavenPrompt(project, phase, task),
       requiredOutput: ['Scope verdict', 'Risks', 'Refined task', 'Next step'],
     },
     {
@@ -141,7 +141,7 @@ function buildReports(snapshot: ProjectSnapshot): CompassReport[] {
       title: 'Session handoff digest',
       kind: 'handoff',
       generatedAt: loadedAt,
-      excerpt: `${snapshot.memoryFeed.length} recent session(s) parsed from God's Eye handoff.`,
+      excerpt: `${snapshot.memoryFeed.length} recent session(s) parsed from NightRaven handoff.`,
       artifactPath: 'docs/14_SESSION_HANDOFF.md',
     })
   }
@@ -153,7 +153,7 @@ function buildReports(snapshot: ProjectSnapshot): CompassReport[] {
       kind: 'scope',
       generatedAt: loadedAt,
       excerpt: `${snapshot.notNowItems.length} Not Now / boundary item(s) from overlay.`,
-      artifactPath: 'docs/GODS_EYE_REPO_OVERLAY.md',
+      artifactPath: 'docs/NIGHTRAVEN_REPO_OVERLAY.md',
     })
   }
 
@@ -162,7 +162,7 @@ function buildReports(snapshot: ProjectSnapshot): CompassReport[] {
     title: 'Build progress snapshot',
     kind: 'build',
     generatedAt: loadedAt,
-    excerpt: `${snapshot.tasks.filter((task) => task.state === 'done').length}/${snapshot.tasks.length} tasks done; ${snapshot.meta.artifactCount}/${snapshot.meta.artifactTotal} GE artifacts present.`,
+    excerpt: `${snapshot.tasks.filter((task) => task.state === 'done').length}/${snapshot.tasks.length} tasks done; ${snapshot.meta.artifactCount}/${snapshot.meta.artifactTotal} memory artifacts present.`,
   })
 
   const openAudits = snapshot.auditItems.filter((audit) => audit.status !== 'pass').length

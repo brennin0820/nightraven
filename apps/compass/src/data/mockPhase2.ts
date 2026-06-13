@@ -79,7 +79,7 @@ export const mockPhase2Tasks: Task[] = [
     priority: 'P1',
     lane: 'blocked',
     state: 'decide',
-    owner: 'gods_eye',
+    owner: 'nightraven',
     dependencies: ['task-dashboard'],
     acceptanceCriteria: ['Storage approach documented', 'Phase 3 unlock criteria defined'],
     allowedAreas: ['docs'],
@@ -97,7 +97,7 @@ export const mockPhase2Tasks: Task[] = [
     priority: 'P0',
     lane: 'done',
     state: 'done',
-    owner: 'gods_eye',
+    owner: 'nightraven',
     dependencies: [],
     acceptanceCriteria: [
       'PROJECT_SCOPE.md exists',

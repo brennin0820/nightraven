@@ -2,7 +2,7 @@ import type { Blocker, Decision, PromptCard, Task } from '../types/project'
 import {
   generateAuditorPrompt,
   generateBuilderPrompt,
-  generateGodsEyePrompt,
+  generateNightRavenPrompt,
   generateResearchPrompt,
 } from '../utils/promptGenerator'
 import { mockPhases, mockProject, mockTasks } from './mockProject'
@@ -56,7 +56,7 @@ function buildPromptCard(
     target,
     prompt,
     requiredOutput:
-      target === 'gods_eye'
+      target === 'nightraven'
         ? [
             'Scope verdict',
             'Missing details',
@@ -92,8 +92,8 @@ function buildPromptCard(
 export const phase34PromptCards: PromptCard[] = [
   buildPromptCard(
     'prompt-ge-phase34',
-    'gods_eye',
-    generateGodsEyePrompt(mockProject, currentPhase, nextTask),
+    'nightraven',
+    generateNightRavenPrompt(mockProject, currentPhase, nextTask),
     nextTask.id,
   ),
   buildPromptCard(
@@ -154,7 +154,7 @@ export const phase34SupplementalBlockers: Blocker[] = [
       'Recent handoff text references cloud sync, which is Not Now until local storage works.',
     severity: 'low',
     blockedTaskIds: [],
-    owner: 'gods_eye',
+    owner: 'nightraven',
     resolutionNeeded:
       'Trim handoff to mock-only scope or move cloud sync to Not Now with revisit condition.',
     status: 'open',

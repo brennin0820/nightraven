@@ -1,7 +1,7 @@
 import type { ProjectSnapshot, RegistryEntry } from '../types/snapshot'
 
 const STORAGE_KEY = 'compass.selectedProject'
-/** One-time: drop legacy localStorage default of gods-eye-1 monorepo (pre pickInitialProject). */
+/** One-time: drop legacy localStorage default of nightraven-1 monorepo (pre pickInitialProject). */
 const LEGACY_MONOREPO_MIGRATION_KEY = 'compass.himflerDefaultMigration.v1'
 
 /** Consumer app Brent is actively guiding — override via Settings registry picker. */
@@ -18,7 +18,7 @@ function isLegacyFrameworkMonorepo(entry: RegistryEntry): boolean {
   const p = normalizePath(entry.path)
   return (
     entry.role === 'framework' &&
-    (p.includes('gods-eye-1') || p.includes('/nightraven/nightraven') || p.endsWith('/nightraven'))
+    (p.includes('nightraven-1') || p.includes('/nightraven/nightraven') || p.endsWith('/nightraven'))
   )
 }
 
@@ -40,7 +40,7 @@ function tryRestoreStoredProject(registry: RegistryEntry[]): SelectedProject | n
   )
   if (!match) return null
 
-  // Pre-ca783f2 builds auto-picked the first registry row (gods-eye-1). Migrate once to HimFLer.
+  // Pre-ca783f2 builds auto-picked the first registry row (nightraven-1). Migrate once to HimFLer.
   if (
     !localStorage.getItem(LEGACY_MONOREPO_MIGRATION_KEY) &&
     isLegacyFrameworkMonorepo(match)

@@ -25,7 +25,7 @@ export function AppShell({ activeView, children, onViewChange }: AppShellProps) 
   const autoRefresh = snapshot?.settings.autoRefresh ?? true
   const modeLabel =
     dataMode === 'registry'
-      ? "God's Eye registry"
+      ? "NightRaven registry"
       : dataMode === 'local'
         ? 'Local + IndexedDB'
         : 'Seed data'

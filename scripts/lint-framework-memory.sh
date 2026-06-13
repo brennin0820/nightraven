@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# lint-framework-memory.sh — Soft/opt-in God's Eye chain checks (BACKLOG #5, unified stack Phase 3).
+# lint-framework-memory.sh — Soft/opt-in NightRaven chain checks (BACKLOG #5, unified stack Phase 3).
 #
 # Usage:
 #   ./scripts/lint-framework-memory.sh           # all checks
@@ -54,7 +54,7 @@ lint_handoff_dates() {
 }
 
 lint_protected_growth() {
-  local bible="${ROOT}/docs/37_GODS_EYE_BIBLE.md"
+  local bible="${ROOT}/docs/37_NIGHTRAVEN.md"
   if [[ ! -s "$bible" ]]; then
     echo "lint: missing Bible" >&2
     return 1

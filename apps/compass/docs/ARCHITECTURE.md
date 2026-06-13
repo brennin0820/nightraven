@@ -22,8 +22,8 @@ Registry loaded from `{monorepoRoot}/scripts/nightraven-projects.conf`. Monorepo
 
 `computeSnapshotVersion(projectPath)` hashes mtime of these paths (if present):
 
-- `docs/37_GODS_EYE_BIBLE.md`
-- `docs/GODS_EYE_REPO_OVERLAY.md`
+- `docs/37_NIGHTRAVEN.md`
+- `docs/NIGHTRAVEN_REPO_OVERLAY.md`
 - `docs/14_SESSION_HANDOFF.md`
 - `docs/02_ENGINEERING_CHANGELOG.md`
 - `docs/04_LEARNING_LOG.md`

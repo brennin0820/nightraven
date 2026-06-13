@@ -15,7 +15,7 @@ Build the first MVP version of NightRaven Compass using mock data only.
 - `src/utils/routing.ts` — `getRouteForTask`, `isTaskReadyToBuild`
 - `src/utils/progress.ts` — build / audit / decision progress calculators
 - `src/utils/scopeWarnings.ts` — `getScopeWarnings`
-- `src/utils/promptGenerator.ts` — builder / auditor / God's Eye prompt templates
+- `src/utils/promptGenerator.ts` — builder / auditor / NightRaven prompt templates
 
 ### Layout & dashboard
 - `src/components/layout/AppShell.tsx` — title, sidebar, main content

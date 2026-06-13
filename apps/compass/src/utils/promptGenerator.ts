@@ -88,7 +88,7 @@ Return:
 `.trim()
 }
 
-export function generateGodsEyePrompt(
+export function generateNightRavenPrompt(
   project: Project,
   phase: Phase,
   task: Task,
@@ -152,7 +152,7 @@ ${task.why}
 Investigate:
 - What options exist?
 - What are tradeoffs for a non-coder builder?
-- What aligns with God's Eye memory-first approach?
+- What aligns with NightRaven memory-first approach?
 - What should move to Not Now?
 - What decision is needed before build?
 

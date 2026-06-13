@@ -31,15 +31,15 @@ export function createServer(): McpServer {
   });
 
   server.registerTool(
-    "gods_eye_list_memory_slots",
+    "nightraven_list_memory_slots",
     {
       title: "List memory slots",
       description:
-        "List God's Eye memory slots (handoff, changelog, overlay, Bible, etc.) with paths and existence.\n\nUse when: starting a session or choosing which doc to read.\nDo NOT use when: you already know the slot id (use gods_eye_read_memory).",
+        "List NightRaven memory slots (handoff, changelog, overlay, Bible, etc.) with paths and existence.\n\nUse when: starting a session or choosing which doc to read.\nDo NOT use when: you already know the slot id (use nightraven_read_memory).",
       inputSchema: {},
       outputSchema: {
         project_root: z.string(),
-        gods_eye_root: z.string(),
+        nightraven_root: z.string(),
         slots: z.array(
           z.object({
             id: z.string(),
@@ -64,18 +64,18 @@ export function createServer(): McpServer {
       const slots = await listAvailableSlots(paths);
       return textResult({
         project_root: paths.projectRoot,
-        gods_eye_root: paths.godsEyeRoot,
+        nightraven_root: paths.nightravenRoot,
         slots,
       });
     }
   );
 
   server.registerTool(
-    "gods_eye_get_read_order",
+    "nightraven_get_read_order",
     {
       title: "Get parallel read order",
       description:
-        "Return the canonical God's Eye parallel read batch for Touch 1 (Before).\n\nUse when: classifying tier and intent before edits.\nDo NOT use when: you only need one specific doc (use gods_eye_read_memory).",
+        "Return the canonical NightRaven parallel read batch for Touch 1 (Before).\n\nUse when: classifying tier and intent before edits.\nDo NOT use when: you only need one specific doc (use nightraven_read_memory).",
       inputSchema: {},
       outputSchema: {
         read_order: z.array(z.string()),
@@ -96,11 +96,11 @@ export function createServer(): McpServer {
   );
 
   server.registerTool(
-    "gods_eye_read_memory",
+    "nightraven_read_memory",
     {
       title: "Read memory doc",
       description:
-        "Read a God's Eye memory document by slot id.\n\nUse when: loading handoff, overlay, changelog, or Bible content.\nDo NOT use when: searching for a keyword across docs (use gods_eye_search_memory).",
+        "Read a NightRaven memory document by slot id.\n\nUse when: loading handoff, overlay, changelog, or Bible content.\nDo NOT use when: searching for a keyword across docs (use nightraven_search_memory).",
       inputSchema: {
         slot: z
           .enum([
@@ -147,11 +147,11 @@ export function createServer(): McpServer {
   );
 
   server.registerTool(
-    "gods_eye_search_memory",
+    "nightraven_search_memory",
     {
       title: "Search memory docs",
       description:
-        "Search God's Eye memory docs for a case-insensitive substring.\n\nUse when: deduping against handoff/changelog or finding prior decisions.\nDo NOT use when: you need the full doc (use gods_eye_read_memory).",
+        "Search NightRaven memory docs for a case-insensitive substring.\n\nUse when: deduping against handoff/changelog or finding prior decisions.\nDo NOT use when: you need the full doc (use nightraven_read_memory).",
       inputSchema: {
         query: z.string().min(2).max(200).describe("Substring to search for"),
         max_results: z
@@ -193,7 +193,7 @@ export function createServer(): McpServer {
   );
 
   server.registerTool(
-    "gods_eye_append_recent_session",
+    "nightraven_append_recent_session",
     {
       title: "Append Recent sessions line",
       description:

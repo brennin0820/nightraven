@@ -14,4 +14,4 @@ npm install
 npm run dev
 ```
 
-**Framework + orchestration** live at repo root (God's Eye memory chain · NightRaven Core skill). See [`docs/NIGHTRAVEN_UNIFIED_PRODUCT.md`](../docs/NIGHTRAVEN_UNIFIED_PRODUCT.md).
+**Framework + orchestration** live at repo root (NightRaven memory chain · NightRaven Core skill). See [`docs/NIGHTRAVEN_UNIFIED_PRODUCT.md`](../docs/NIGHTRAVEN_UNIFIED_PRODUCT.md).

@@ -1,10 +1,10 @@
-# God's Eye — Session & Spec Trees
+# NightRaven — Session & Spec Trees
 
 **Legend**
 
 | Term | Meaning |
 |------|---------|
-| **GE** | God's Eye — always-on rules + append-only memory (not a separate bot) |
+| **NR** | NightRaven — always-on rules + append-only memory (not a separate bot) |
 | **Three-touch** | Before → During → After on every real task (§0) |
 | **+# / -#** | Append-only — **+# yes · -# never** |
 | **Tier 0–3** | Read depth + ceremony — match task size (Bible §2.5) |
@@ -21,14 +21,14 @@ USER
  ▼
 AGENT ◄───────────────────────────────────────────────────┐
  │                                                         │
- ├──► GE · Touch 1 · BEFORE                               │
+ ├──► NR · Touch 1 · BEFORE                               │
  │      tier 0–3 · intent ladder · MEMORY CHECK            │
  │      parallel-read chain (depth ∝ tier)                 │
  │      brief → scope · dedup · Tier C bar                 │
  │         │                                               │
  ◄─────────┘                                               │
  │                                                         │
- ├──► GE · Touch 2 · DURING                                │
+ ├──► NR · Touch 2 · DURING                                │
  │      scope guard · ladder valid? · +# only              │
  │      no cross-repo · green light / redirect             │
  │         │                                               │
@@ -37,7 +37,7 @@ AGENT ◄───────────────────────�
  ▼                                                         │
 OUTPUT  (code · docs · answer)                             │
  │                                                         │
- ├──► GE · Touch 3 · AFTER                                │
+ ├──► NR · Touch 3 · AFTER                                │
  │      Tier C gate · wire links · doc matrix (§3)         │
  │      Record Everything if Tier 2+ · ship or revise     │
  │         │                                               │
@@ -47,9 +47,9 @@ OUTPUT  (code · docs · answer)                             │
 USER  (memory compounded) ─────────────────────────────────┘
 ```
 
-**Hop sequence:** `User → Agent → GE → Agent → GE → Agent → Output → GE → Agent → User`
+**Hop sequence:** `User → Agent → NR → Agent → NR → Agent → Output → NR → Agent → User`
 
-| Touch | §0 | Tier hook | GE returns |
+| Touch | §0 | Tier hook | NightRaven returns |
 |-------|-----|-----------|------------|
 | 1 · Before | Classify intent | Read chain per tier 0–3 | Brief — ladder, scope, dedup |
 | 2 · During | Guard scope | Full dedup at Tier 2+ | Green light or redirect |
@@ -121,12 +121,12 @@ RECORD EVERYTHING · Touch 3 · AFTER          DECISION TREE (ask in order)
 ```
 GODS EYE FRAMEWORK
 │
-├── PORTABLE · 37_GODS_EYE_BIBLE.md (God's Eye Bible)
+├── PORTABLE · 37_NIGHTRAVEN.md (NightRaven Bible)
 │   §0 quick start · §2 laws/tiers · §3 ladder · §5 chain · §9 loop · §10 Tier C
 │
 ├── LOCAL (bootstrapped repo)
-│   ├── GODS_EYE_REPO_OVERLAY.md · vocabulary · boundary
-│   └── GODS_EYE_LAYERED_SPEC_ROUTER.md · router → Bible §0
+│   ├── NIGHTRAVEN_REPO_OVERLAY.md · vocabulary · boundary
+│   └── NIGHTRAVEN_LAYERED_SPEC_ROUTER.md · router → Bible §0
 │
 ├── ALWAYS-ON · nightraven-context-intent.mdc · START HERE
 │
@@ -134,7 +134,7 @@ GODS EYE FRAMEWORK
 │   domain rule · USER_CONTEXT_PROTOCOL · docs/14 handoff
 │   AGENTS.md · docs/02 changelog · docs/04 learning log
 │
-└── META (/loop only) · GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT · IMPROVEMENT_LOOP_CYCLE_PROMPT
+└── META (/loop only) · NIGHTRAVEN_IMPROVEMENT_LOOP_CYCLE_PROMPT · IMPROVEMENT_LOOP_CYCLE_PROMPT
 ```
 
 **Read order:** Rule → Bible §0 → Overlay → Router → chain → AGENTS.md
@@ -148,12 +148,12 @@ GODS EYE FRAMEWORK
 ```mermaid
 flowchart TD
     U([User]) --> A1[Agent]
-    A1 -->|Touch 1 · Before| G1{{God's Eye}}
+    A1 -->|Touch 1 · Before| G1{{NightRaven}}
     G1 -->|tier 0–3 · brief · dedup| A2[Agent]
-    A2 -->|Touch 2 · During| G2{{God's Eye}}
+    A2 -->|Touch 2 · During| G2{{NightRaven}}
     G2 -->|scope · +# only · green/redirect| A3[Agent]
     A3 --> OUT[Output]
-    OUT -->|Touch 3 · After| G3{{God's Eye}}
+    OUT -->|Touch 3 · After| G3{{NightRaven}}
     G3 -->|Tier C · doc matrix §3| A4[Agent]
     A4 --> U2([User])
 
@@ -189,12 +189,12 @@ flowchart TD
 
 ```mermaid
 graph TD
-    BIBLE["37_GODS_EYE_BIBLE.md · Bible"]
-    OVERLAY["GODS_EYE_REPO_OVERLAY.md"]
-    ROUTER["GODS_EYE_LAYERED_SPEC_ROUTER.md · router"]
+    BIBLE["37_NIGHTRAVEN.md · Bible"]
+    OVERLAY["NIGHTRAVEN_REPO_OVERLAY.md"]
+    ROUTER["NIGHTRAVEN_LAYERED_SPEC_ROUTER.md · router"]
     RULE["nightraven-context-intent.mdc · START HERE"]
     CHAIN["Connected chain · handoff · logs"]
-    LOOP["GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT · /loop"]
+    LOOP["NIGHTRAVEN_IMPROVEMENT_LOOP_CYCLE_PROMPT · /loop"]
 
     RULE --> BIBLE & OVERLAY & ROUTER
     ROUTER --> BIBLE & OVERLAY & CHAIN
@@ -207,4 +207,4 @@ graph TD
 
 ---
 
-*God'sEye always watches · watch the work · learn from it · waste nothing · forget nothing.*
+*NightRaven always watches · watch the work · learn from it · waste nothing · forget nothing.*

@@ -1,7 +1,7 @@
 import type { Task } from '../types/project'
 
 export function getRouteForTask(task: Task): string {
-  if (task.state === 'think') return "God's Eye Queue"
+  if (task.state === 'think') return "NightRaven Queue"
   if (task.state === 'research') return 'Research Queue'
   if (task.state === 'build') return 'NightRaven Build Queue'
   if (task.state === 'audit') return 'Auditor Queue'

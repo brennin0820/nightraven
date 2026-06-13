@@ -26,7 +26,7 @@ export type NavItemId =
   | 'priority-board'
   | 'coder-tasks'
   | 'next-prompt'
-  | 'ge-queue'
+  | 'nightraven-queue'
   | 'nr-queue'
   | 'auditor-queue'
   | 'research-queue'
@@ -54,7 +54,7 @@ export const navItems: NavItem[] = [
   { id: 'priority-board', label: 'Priority Board', phase: 'Phase 2', icon: Columns3 },
   { id: 'coder-tasks', label: 'Coder Tasks', phase: 'Phase 2', icon: Code2 },
   { id: 'next-prompt', label: 'Next Prompt', phase: 'Phase 2', icon: MessageSquare },
-  { id: 'ge-queue', label: "God's Eye Queue", phase: 'Phase 2', icon: Eye },
+  { id: 'nightraven-queue', label: "NightRaven Queue", phase: 'Phase 2', icon: Eye },
   { id: 'nr-queue', label: 'NR Queue', phase: 'Phase 2', icon: Hammer },
   { id: 'auditor-queue', label: 'Auditor Queue', phase: 'Phase 5', icon: ShieldCheck },
   { id: 'research-queue', label: 'Research Queue', phase: 'Phase 2', icon: Search },

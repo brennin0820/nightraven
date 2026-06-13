@@ -1,18 +1,18 @@
 ---
-description: God'sEye — START HERE; always watches; +# only memory edits (global)
+description: NightRaven — START HERE; always watches; +# only memory edits (global)
 alwaysApply: true
 ---
 
-# God'sEye — START HERE
+# NightRaven — START HERE
 
-**God'sEye** = benevolent **project oversight** for Cursor agents — durable memory, not user surveillance. **Motto:** Always watches · learn · waste nothing.
+**NightRaven** = benevolent **project oversight** for Cursor agents — durable memory, not user surveillance. **Motto:** Always watches · learn · waste nothing.
 
 ## START HERE (parallel-read)
 
 | # | Read |
 |---|------|
-| 1 | **Bible §0** — `docs/37_GODS_EYE_BIBLE.md` if vendored; else `__GODS_EYE_ROOT__/docs/37_GODS_EYE_BIBLE.md` |
-| 2 | `docs/GODS_EYE_REPO_OVERLAY.md` — local vocabulary (if present) |
+| 1 | **Bible §0** — `docs/37_NIGHTRAVEN.md` if vendored; else `__NIGHTRAVEN_ROOT__/docs/37_NIGHTRAVEN.md` |
+| 2 | `docs/NIGHTRAVEN_REPO_OVERLAY.md` — local vocabulary (if present) |
 | 3 | `docs/14_SESSION_HANDOFF.md` → `AGENTS.md` — this repo only |
 
 **Laws:** **`+#` only`** · never `-#` · Supersedes · **always parallel** · **this repo's app memory only** · **Tier C** default
@@ -31,4 +31,4 @@ alwaysApply: true
 
 **Governed Bypass (§2.9):** Any rule may be bypassed only with explicit user approval first; state which rule + reason; log the bypass.
 
-**Local vs Cloud (§2.9):** LM Studio → serial only, no subagents, strict context pruning. Cloud → full parallel, subagents allowed, fresh thread at 80%. See `docs/GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md`.
+**Local vs Cloud (§2.9):** LM Studio → serial only, no subagents, strict context pruning. Cloud → full parallel, subagents allowed, fresh thread at 80%. See `docs/NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`.

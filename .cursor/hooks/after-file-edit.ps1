@@ -41,10 +41,10 @@ if (-not (Test-MemoryChainPath $filePath)) {
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 . (Join-Path $ScriptDir 'lib.ps1')
 
-$message = "God's Eye memory edit ($filePath):"
+$message = "NightRaven memory edit ($filePath):"
 $message += "`n`n- +# only - append; use **Supersedes** for corrections; never -# heading blocks or trim **Already done** / **Recent sessions**"
-$projectRoot = Get-GodsEyeProjectRoot $inputJson
-if (Test-GodsEyeTouch3Disabled $projectRoot) {
+$projectRoot = Get-NightRavenProjectRoot $inputJson
+if (Test-NightRavenTouch3Disabled $projectRoot) {
     $message += "`n- Touch 3 paused - wire cross-links when asked; no mandatory session-close batch"
 } else {
     $message += "`n- Defer Touch 3 batch (changelog, learning log, handoff Recent sessions) to session-stop **last turn** - not mid-session"

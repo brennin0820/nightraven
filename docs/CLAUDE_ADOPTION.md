@@ -1,8 +1,8 @@
-# God's Eye — Claude Code adoption guide
+# NightRaven — Claude Code adoption guide
 
-Step-by-step setup so God's Eye memory chain works in **Claude Code** (Anthropic CLI) on day one — same portable law as Cursor, with Claude-specific paths and hooks parity notes.
+Step-by-step setup so NightRaven memory chain works in **Claude Code** (Anthropic CLI) on day one — same portable law as Cursor, with Claude-specific paths and hooks parity notes.
 
-**Audience:** Developers adopting God's Eye into app repos via Claude Code rather than (or alongside) Cursor.
+**Audience:** Developers adopting NightRaven into app repos via Claude Code rather than (or alongside) Cursor.
 
 ---
 
@@ -11,8 +11,8 @@ Step-by-step setup so God's Eye memory chain works in **Claude Code** (Anthropic
 | Layer | Location | Purpose |
 |-------|----------|---------|
 | **Project rule** | `.cursor/rules/nightraven-context-intent.mdc` | Claude reads via `CLAUDE.md` / project instructions — copy rule content or symlink |
-| **Portable Bible** | `docs/37_GODS_EYE_BIBLE.md` (vendored) or `$GODS_EYE_ROOT` | Portable law — §0–§10 |
-| **Repo overlay** | `docs/GODS_EYE_REPO_OVERLAY.md` | Local vocabulary, boundaries, disambiguation |
+| **Portable Bible** | `docs/37_NIGHTRAVEN.md` (vendored) or `$NIGHTRAVEN_ROOT` | Portable law — §0–§10 |
+| **Repo overlay** | `docs/NIGHTRAVEN_REPO_OVERLAY.md` | Local vocabulary, boundaries, disambiguation |
 | **Handoff** | `docs/14_SESSION_HANDOFF.md` | Current state, Already done, Recent sessions (`+#` only) |
 | **Agent entry** | `AGENTS.md` | Read order, core laws, common mistakes |
 | **Changelog / learning** | `docs/02_*`, `docs/04_*` | Append-only memory chain |
@@ -26,22 +26,22 @@ Step-by-step setup so God's Eye memory chain works in **Claude Code** (Anthropic
 ### 1. Clone and bootstrap
 
 ```bash
-git clone https://github.com/brennin0820/gods-eye.git ~/Projects/gods-eye
-cd ~/Projects/gods-eye
+git clone https://github.com/brennin0820/nightraven.git ~/Projects/nightraven
+cd ~/Projects/nightraven
 chmod +x install.sh
 
 # Bootstrap your app repo (vendors Bible + doc chain + optional hooks/MCP)
 ./install.sh /path/to/your-app
 ```
 
-For framework development, work directly in the `gods-eye` clone.
+For framework development, work directly in the `nightraven` clone.
 
 ### 2. What to vendor into your app repo
 
 | Artifact | Required | Notes |
 |----------|----------|-------|
-| `docs/37_GODS_EYE_BIBLE.md` | Yes | Portable Bible — or set `$GODS_EYE_ROOT` to framework clone |
-| `docs/GODS_EYE_REPO_OVERLAY.md` | Yes | Start from [`examples/overlay/`](../examples/overlay/GODS_EYE_REPO_OVERLAY.example.md) |
+| `docs/37_NIGHTRAVEN.md` | Yes | Portable Bible — or set `$NIGHTRAVEN_ROOT` to framework clone |
+| `docs/NIGHTRAVEN_REPO_OVERLAY.md` | Yes | Start from [`examples/overlay/`](../examples/overlay/NIGHTRAVEN_REPO_OVERLAY.example.md) |
 | `docs/14_SESSION_HANDOFF.md` | Yes | Session state + Recent sessions |
 | `docs/02_ENGINEERING_CHANGELOG.md` | Yes | Engineering history (`+#` only) |
 | `docs/04_LEARNING_LOG.md` | Yes | Patterns and pitfalls (`+#` only) |
@@ -59,10 +59,10 @@ Claude Code loads project context from **`CLAUDE.md`** (repo root) and optional 
 1. Add a **`CLAUDE.md`** pointer (or merge into existing):
 
    ```markdown
-   ## God's Eye (agent memory)
+   ## NightRaven (agent memory)
 
    Read before every session: `AGENTS.md` → overlay → handoff.
-   Portable law: `docs/37_GODS_EYE_BIBLE.md` §0.
+   Portable law: `docs/37_NIGHTRAVEN.md` §0.
    ```
 
 2. Optionally copy `.claude/skills/` patterns from this repo (`bank-*`, `nightraven`, etc.) — framework skills live under `.claude/skills/` here; consumer repos cherry-pick as needed.
@@ -88,7 +88,7 @@ MCP is **optional** — git + markdown chain remain authoritative.
 
 1. Build once: `cd mcp-server && npm install && npm run build`
 2. Register in Claude/Cursor MCP config (see [`MCP_SETUP.md`](MCP_SETUP.md))
-3. Tools: `gods_eye_read_memory`, `gods_eye_search_memory`, `gods_eye_append_recent_session`
+3. Tools: `nightraven_read_memory`, `nightraven_search_memory`, `nightraven_append_recent_session`
 
 Skip MCP at install: `./install.sh --no-mcp /path/to/app`
 
@@ -96,7 +96,7 @@ Skip MCP at install: `./install.sh --no-mcp /path/to/app`
 
 ## Hooks parity note
 
-God's Eye Phase 2 hooks (`.cursor/hooks.json`) target **Cursor** lifecycle events (`sessionStart`, `stop`, `afterFileEdit`).
+NightRaven Phase 2 hooks (`.cursor/hooks.json`) target **Cursor** lifecycle events (`sessionStart`, `stop`, `afterFileEdit`).
 
 | Feature | Cursor | Claude Code |
 |---------|--------|-------------|
@@ -123,7 +123,7 @@ God's Eye Phase 2 hooks (`.cursor/hooks.json`) target **Cursor** lifecycle event
 ## Verify adoption (2 minutes)
 
 1. Open app repo in Claude Code.
-2. Ask: *"What is God's Eye Touch 1?"* — agent should cite Bible §0, overlay, handoff.
+2. Ask: *"What is NightRaven Touch 1?"* — agent should cite Bible §0, overlay, handoff.
 3. Confirm `docs/14_SESSION_HANDOFF.md` has **Recent sessions** and **Already done**.
 4. Confirm `git config user.email` is noreply before pushing memory commits.
 
@@ -140,7 +140,7 @@ When Claude Code works inside the NightRaven platform monorepo on **`apps/compas
 - [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) — Cursor-specific install + verification
 - [`HOOKS_SETUP.md`](HOOKS_SETUP.md) — Phase 2 hooks and Always Sync autosync
 - [`MCP_SETUP.md`](MCP_SETUP.md) — Optional MCP memory-chain tools
-- [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) — Portable law
-- [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) — Local vocabulary
+- [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) — Portable law
+- [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) — Local vocabulary
 
-*God's Eye always watches — same memory chain, any agent surface.*
+*NightRaven always watches — same memory chain, any agent surface.*

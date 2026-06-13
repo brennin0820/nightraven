@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Shared helpers for God's Eye Phase 2 hooks (bash only — no jq/node).
+# Shared helpers for NightRaven Phase 2 hooks (bash only — no jq/node).
 
 # Canonical portable Bible clone (set at install time via env or default path).
-GODS_EYE_INSTALL_ROOT="${GODS_EYE_INSTALL_ROOT:-${HOME}/Projects/gods-eye}"
+NIGHTRAVEN_INSTALL_ROOT="${NIGHTRAVEN_INSTALL_ROOT:-${HOME}/Projects/nightraven}"
 
 escape_for_json() {
   local s="$1"
@@ -30,11 +30,11 @@ emit_followup_message() {
 
 emit_session_start() {
   local message="$1"
-  local gods_eye_root="$2"
+  local nightraven_root="$2"
   local msg_escaped root_escaped
   msg_escaped="$(escape_for_json "$message")"
-  root_escaped="$(escape_for_json "$gods_eye_root")"
-  printf '{\n  "env": { "GODS_EYE_ROOT": "%s" },\n  "additional_context": "%s"\n}\n' \
+  root_escaped="$(escape_for_json "$nightraven_root")"
+  printf '{\n  "env": { "NIGHTRAVEN_ROOT": "%s" },\n  "additional_context": "%s"\n}\n' \
     "$root_escaped" "$msg_escaped"
 }
 
@@ -57,7 +57,7 @@ json_workspace_root() {
   printf '%s' "$json" | sed -n 's/.*"workspace_roots"[[:space:]]*:[[:space:]]*\[[[:space:]]*"\([^"]*\)".*/\1/p' | head -1
 }
 
-gods_eye_project_root() {
+nightraven_project_root() {
   local input="${1:-}"
   if [[ -n "${CURSOR_PROJECT_DIR:-}" && -d "${CURSOR_PROJECT_DIR}" ]]; then
     printf '%s' "${CURSOR_PROJECT_DIR}"
@@ -80,24 +80,24 @@ gods_eye_project_root() {
   printf '%s' "${PWD}"
 }
 
-gods_eye_resolve_root() {
+nightraven_resolve_root() {
   local project_root="$1"
-  if [[ -f "${project_root}/docs/37_GODS_EYE_BIBLE.md" ]]; then
+  if [[ -f "${project_root}/docs/37_NIGHTRAVEN.md" ]]; then
     printf '%s' "${project_root}"
     return 0
   fi
-  if [[ -n "${GODS_EYE_ROOT:-}" && -f "${GODS_EYE_ROOT}/docs/37_GODS_EYE_BIBLE.md" ]]; then
-    printf '%s' "${GODS_EYE_ROOT}"
+  if [[ -n "${NIGHTRAVEN_ROOT:-}" && -f "${NIGHTRAVEN_ROOT}/docs/37_NIGHTRAVEN.md" ]]; then
+    printf '%s' "${NIGHTRAVEN_ROOT}"
     return 0
   fi
-  if [[ -f "${GODS_EYE_INSTALL_ROOT}/docs/37_GODS_EYE_BIBLE.md" ]]; then
-    printf '%s' "${GODS_EYE_INSTALL_ROOT}"
+  if [[ -f "${NIGHTRAVEN_INSTALL_ROOT}/docs/37_NIGHTRAVEN.md" ]]; then
+    printf '%s' "${NIGHTRAVEN_INSTALL_ROOT}"
     return 0
   fi
-  printf '%s' "${GODS_EYE_INSTALL_ROOT}"
+  printf '%s' "${NIGHTRAVEN_INSTALL_ROOT}"
 }
 
-gods_eye_rel_path() {
+nightraven_rel_path() {
   local project_root="$1"
   local rel="$2"
   if [[ -f "${project_root}/${rel}" ]]; then
@@ -107,27 +107,27 @@ gods_eye_rel_path() {
   fi
 }
 
-# Touch 3 pause: marker file or env (GODS_EYE_TOUCH3=0 / GODS_EYE_TOUCH3_DISABLED=1).
-gods_eye_touch3_disabled() {
+# Touch 3 pause: marker file or env (NIGHTRAVEN_TOUCH3=0 / NIGHTRAVEN_TOUCH3_DISABLED=1).
+nightraven_touch3_disabled() {
   local project_root="${1:-}" cached
   if [[ -n "$project_root" ]]; then
-    cached="$(gods_eye_read_touch3_cache "$project_root" 2>/dev/null || true)"
+    cached="$(nightraven_read_touch3_cache "$project_root" 2>/dev/null || true)"
     case "$cached" in
       1) return 0 ;;
       0) return 1 ;;
     esac
   fi
-  case "${GODS_EYE_TOUCH3:-}" in
+  case "${NIGHTRAVEN_TOUCH3:-}" in
     0|off|OFF|false|FALSE|no|NO) return 0 ;;
   esac
-  case "${GODS_EYE_TOUCH3_DISABLED:-}" in
+  case "${NIGHTRAVEN_TOUCH3_DISABLED:-}" in
     1|true|TRUE|yes|YES) return 0 ;;
   esac
   local marker
   for marker in \
     "${HOME}/.cursor/touch3.disabled" \
-    "${GODS_EYE_ROOT:-}/.cursor/touch3.disabled" \
-    "${GODS_EYE_INSTALL_ROOT}/.cursor/touch3.disabled"; do
+    "${NIGHTRAVEN_ROOT:-}/.cursor/touch3.disabled" \
+    "${NIGHTRAVEN_INSTALL_ROOT}/.cursor/touch3.disabled"; do
     if [[ -f "$marker" ]]; then
       return 0
     fi
@@ -138,58 +138,58 @@ gods_eye_touch3_disabled() {
   return 1
 }
 
-gods_eye_touch3_disabled_cached() {
+nightraven_touch3_disabled_cached() {
   local project_root="${1:-}"
-  if gods_eye_touch3_disabled "$project_root"; then
-    [[ -n "$project_root" ]] && gods_eye_write_touch3_cache "$project_root" 1
+  if nightraven_touch3_disabled "$project_root"; then
+    [[ -n "$project_root" ]] && nightraven_write_touch3_cache "$project_root" 1
     return 0
   fi
-  [[ -n "$project_root" ]] && gods_eye_write_touch3_cache "$project_root" 0
+  [[ -n "$project_root" ]] && nightraven_write_touch3_cache "$project_root" 0
   return 1
 }
 
 # --- Always Sync (git autosync; fail-open) ---
 
-GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC="${GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC:-1800}"
+NIGHTRAVEN_AUTOSYNC_SKIP_STOP_PULL_SEC="${NIGHTRAVEN_AUTOSYNC_SKIP_STOP_PULL_SEC:-1800}"
 
-gods_eye_autosync_session_marker() {
+nightraven_autosync_session_marker() {
   local project_root="$1"
   printf '%s/.cursor/.autosync-session' "$project_root"
 }
 
-gods_eye_touch3_cache_path() {
+nightraven_touch3_cache_path() {
   local project_root="$1"
   printf '%s/.cursor/.touch3-cache' "$project_root"
 }
 
-gods_eye_mark_session_pulled() {
+nightraven_mark_session_pulled() {
   local project_root="$1"
   local pull_ok="${2:-1}"
   local marker dir
-  marker="$(gods_eye_autosync_session_marker "$project_root")"
+  marker="$(nightraven_autosync_session_marker "$project_root")"
   dir="$(dirname "$marker")"
   mkdir -p "$dir" 2>/dev/null || true
   printf '%s|%s\n' "$(date +%s)" "$pull_ok" > "$marker" 2>/dev/null || true
 }
 
-gods_eye_should_skip_stop_pull() {
+nightraven_should_skip_stop_pull() {
   local project_root="$1"
   local marker now_ts file_ts age pull_ok
-  marker="$(gods_eye_autosync_session_marker "$project_root")"
+  marker="$(nightraven_autosync_session_marker "$project_root")"
   [[ -f "$marker" ]] || return 1
   IFS='|' read -r file_ts pull_ok < "$marker" || return 1
   [[ "$pull_ok" == "1" ]] || return 1
   now_ts="$(date +%s)"
   age=$((now_ts - file_ts))
-  [[ "$age" -ge 0 && "$age" -le "${GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC}" ]]
+  [[ "$age" -ge 0 && "$age" -le "${NIGHTRAVEN_AUTOSYNC_SKIP_STOP_PULL_SEC}" ]]
 }
 
 # Same window as stop-pull skip — session-start skips redundant pull when marker is fresh.
-gods_eye_should_skip_recent_pull() {
-  gods_eye_should_skip_stop_pull "$@"
+nightraven_should_skip_recent_pull() {
+  nightraven_should_skip_stop_pull "$@"
 }
 
-gods_eye_normalize_porcelain_path() {
+nightraven_normalize_porcelain_path() {
   local path="$1"
   path="${path# }"
   if [[ "$path" == \"*\" ]]; then
@@ -205,20 +205,20 @@ gods_eye_normalize_porcelain_path() {
   printf '%s' "${path//\\//}"
 }
 
-gods_eye_write_touch3_cache() {
+nightraven_write_touch3_cache() {
   local project_root="$1"
   local disabled="$2"
   local cache dir
-  cache="$(gods_eye_touch3_cache_path "$project_root")"
+  cache="$(nightraven_touch3_cache_path "$project_root")"
   dir="$(dirname "$cache")"
   mkdir -p "$dir" 2>/dev/null || true
   printf '%s\n' "$disabled" > "$cache" 2>/dev/null || true
 }
 
-gods_eye_read_touch3_cache() {
+nightraven_read_touch3_cache() {
   local project_root="$1"
   local cache val
-  cache="$(gods_eye_touch3_cache_path "$project_root")"
+  cache="$(nightraven_touch3_cache_path "$project_root")"
   [[ -f "$cache" ]] || return 1
   val="$(tr -d ' \r\n' < "$cache" 2>/dev/null || true)"
   case "$val" in
@@ -227,19 +227,19 @@ gods_eye_read_touch3_cache() {
   return 1
 }
 
-gods_eye_has_safe_dirty_files() {
+nightraven_has_safe_dirty_files() {
   local project_root="$1" line path
   while IFS= read -r line; do
     [[ -z "$line" ]] && continue
-    path="$(gods_eye_normalize_porcelain_path "${line:3}")"
-    if gods_eye_is_safe_autosync_path "$path"; then
+    path="$(nightraven_normalize_porcelain_path "${line:3}")"
+    if nightraven_is_safe_autosync_path "$path"; then
       return 0
     fi
   done < <(git -C "${project_root}" status --porcelain 2>/dev/null || true)
   return 1
 }
 
-gods_eye_is_ahead_of_upstream() {
+nightraven_is_ahead_of_upstream() {
   local project_root="$1" branch upstream ahead
   branch="$(git -C "${project_root}" rev-parse --abbrev-ref HEAD 2>/dev/null || true)"
   [[ -n "$branch" ]] || return 1
@@ -249,19 +249,19 @@ gods_eye_is_ahead_of_upstream() {
   [[ "${ahead}" -gt 0 ]]
 }
 
-gods_eye_session_sync_fast_path() {
+nightraven_session_sync_fast_path() {
   local project_root="$1"
-  if ! gods_eye_is_git_repo "$project_root"; then
+  if ! nightraven_is_git_repo "$project_root"; then
     printf '%s' "Autosync stop skipped — not a git repository."
     return 0
   fi
-  if gods_eye_has_safe_dirty_files "$project_root"; then
+  if nightraven_has_safe_dirty_files "$project_root"; then
     return 1
   fi
-  if gods_eye_is_ahead_of_upstream "$project_root"; then
+  if nightraven_is_ahead_of_upstream "$project_root"; then
     return 1
   fi
-  if gods_eye_should_skip_stop_pull "$project_root"; then
+  if nightraven_should_skip_stop_pull "$project_root"; then
     printf '%s' "Autosync stop: nothing to sync (no safe dirty, not ahead; pull skipped — session-start recent)."
   else
     printf '%s' "Autosync stop: nothing to sync (no safe dirty, not ahead)."
@@ -269,12 +269,12 @@ gods_eye_session_sync_fast_path() {
   return 0
 }
 
-gods_eye_is_git_repo() {
+nightraven_is_git_repo() {
   local project_root="$1"
   [[ -d "${project_root}/.git" ]]
 }
 
-gods_eye_is_secret_path() {
+nightraven_is_secret_path() {
   local path="${1//\\//}"
   case "$path" in
     .env|.env.*|*/.env|*/.env.*|credentials.json|*/credentials.json|\
@@ -284,9 +284,9 @@ gods_eye_is_secret_path() {
   return 1
 }
 
-gods_eye_is_safe_autosync_path() {
+nightraven_is_safe_autosync_path() {
   local path="${1//\\//}"
-  if gods_eye_is_secret_path "$path"; then
+  if nightraven_is_secret_path "$path"; then
     return 1
   fi
   case "$path" in
@@ -297,9 +297,9 @@ gods_eye_is_safe_autosync_path() {
   return 1
 }
 
-gods_eye_git_pull_ff_only() {
+nightraven_git_pull_ff_only() {
   local project_root="$1"
-  if ! gods_eye_is_git_repo "$project_root"; then
+  if ! nightraven_is_git_repo "$project_root"; then
     printf '%s' "Autosync pull skipped — not a git repository."
     return 0
   fi
@@ -316,7 +316,7 @@ gods_eye_git_pull_ff_only() {
   fi
 }
 
-gods_eye_autosync_commit_message() {
+nightraven_autosync_commit_message() {
   local -a files=("$@")
   local -a normalized=()
   local path n i count listed
@@ -442,17 +442,17 @@ gods_eye_autosync_commit_message() {
   fi
 }
 
-gods_eye_git_session_commit() {
+nightraven_git_session_commit() {
   local project_root="$1"
   local safe_files=() line path
-  if ! gods_eye_is_git_repo "$project_root"; then
+  if ! nightraven_is_git_repo "$project_root"; then
     printf '%s' "Autosync commit skipped — not a git repository."
     return 0
   fi
   while IFS= read -r line; do
     [[ -z "$line" ]] && continue
-    path="$(gods_eye_normalize_porcelain_path "${line:3}")"
-    if gods_eye_is_safe_autosync_path "$path"; then
+    path="$(nightraven_normalize_porcelain_path "${line:3}")"
+    if nightraven_is_safe_autosync_path "$path"; then
       safe_files+=("$path")
     fi
   done < <(git -C "${project_root}" status --porcelain 2>/dev/null || true)
@@ -479,7 +479,7 @@ gods_eye_git_session_commit() {
     return 0
   fi
   local commit_msg commit_body
-  commit_msg="$(gods_eye_autosync_commit_message "${safe_files[@]}")"
+  commit_msg="$(nightraven_autosync_commit_message "${safe_files[@]}")"
   commit_body=""
   if [[ "$commit_msg" == *$'\n'* ]]; then
     commit_body="${commit_msg#*$'\n'}"
@@ -514,10 +514,10 @@ gods_eye_git_session_commit() {
   printf '%s' "Autosync commit failed (fail-open)."
 }
 
-gods_eye_git_push_if_ahead() {
+nightraven_git_push_if_ahead() {
   local project_root="$1"
   local branch upstream ahead output
-  if ! gods_eye_is_git_repo "$project_root"; then
+  if ! nightraven_is_git_repo "$project_root"; then
     printf '%s' "Autosync push skipped — not a git repository."
     return 0
   fi
@@ -542,7 +542,7 @@ gods_eye_git_push_if_ahead() {
   fi
 }
 
-gods_eye_append_push_defer() {
+nightraven_append_push_defer() {
   local project_root="$1"
   local reason="$2"
   local handoff="${project_root}/docs/14_SESSION_HANDOFF.md"

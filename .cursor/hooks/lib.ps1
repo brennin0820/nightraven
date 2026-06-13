@@ -1,6 +1,6 @@
-# Shared helpers for God's Eye Phase 2 hooks (PowerShell - no external deps).
+# Shared helpers for NightRaven Phase 2 hooks (PowerShell - no external deps).
 
-$script:GodsEyeInstallRoot = if ($env:GODS_EYE_INSTALL_ROOT) { $env:GODS_EYE_INSTALL_ROOT } else { Join-Path $env:USERPROFILE "Projects\gods-eye" }
+$script:NightRavenInstallRoot = if ($env:NIGHTRAVEN_INSTALL_ROOT) { $env:NIGHTRAVEN_INSTALL_ROOT } else { Join-Path $env:USERPROFILE "Projects\nightraven" }
 
 function Escape-ForJson {
     param([string]$Text)
@@ -27,11 +27,11 @@ function Emit-FollowupMessage {
 function Emit-SessionStart {
     param(
         [string]$Message,
-        [string]$GodsEyeRoot
+        [string]$NightRavenRoot
     )
     $msgEscaped = Escape-ForJson $Message
-    $rootEscaped = Escape-ForJson $GodsEyeRoot
-    Write-Output "{`n  `"env`": { `"GODS_EYE_ROOT`": `"$rootEscaped`" },`n  `"additional_context`": `"$msgEscaped`"`n}"
+    $rootEscaped = Escape-ForJson $NightRavenRoot
+    Write-Output "{`n  `"env`": { `"NIGHTRAVEN_ROOT`": `"$rootEscaped`" },`n  `"additional_context`": `"$msgEscaped`"`n}"
 }
 
 function Get-JsonField {
@@ -67,7 +67,7 @@ function Get-JsonWorkspaceRoot {
     return ""
 }
 
-function Get-GodsEyeProjectRoot {
+function Get-NightRavenProjectRoot {
     param([string]$InputJson = "")
     if ($env:CURSOR_PROJECT_DIR -and (Test-Path -LiteralPath $env:CURSOR_PROJECT_DIR)) {
         return $env:CURSOR_PROJECT_DIR
@@ -88,23 +88,23 @@ function Get-GodsEyeProjectRoot {
     return (Get-Location).Path
 }
 
-function Resolve-GodsEyeRoot {
+function Resolve-NightRavenRoot {
     param([string]$ProjectRoot)
-    $localBible = Join-Path $ProjectRoot "docs\37_GODS_EYE_BIBLE.md"
+    $localBible = Join-Path $ProjectRoot "docs\37_NIGHTRAVEN.md"
     if (Test-Path -LiteralPath $localBible) {
         return $ProjectRoot
     }
-    if ($env:GODS_EYE_ROOT -and (Test-Path -LiteralPath (Join-Path $env:GODS_EYE_ROOT "docs\37_GODS_EYE_BIBLE.md"))) {
-        return $env:GODS_EYE_ROOT
+    if ($env:NIGHTRAVEN_ROOT -and (Test-Path -LiteralPath (Join-Path $env:NIGHTRAVEN_ROOT "docs\37_NIGHTRAVEN.md"))) {
+        return $env:NIGHTRAVEN_ROOT
     }
-    $installBible = Join-Path $script:GodsEyeInstallRoot "docs\37_GODS_EYE_BIBLE.md"
+    $installBible = Join-Path $script:NightRavenInstallRoot "docs\37_NIGHTRAVEN.md"
     if (Test-Path -LiteralPath $installBible) {
-        return $script:GodsEyeInstallRoot
+        return $script:NightRavenInstallRoot
     }
-    return $script:GodsEyeInstallRoot
+    return $script:NightRavenInstallRoot
 }
 
-function Get-GodsEyeRelPath {
+function Get-NightRavenRelPath {
     param(
         [string]$ProjectRoot,
         [string]$Rel
@@ -116,7 +116,7 @@ function Get-GodsEyeRelPath {
     return "($Rel - create when bootstrapped)"
 }
 
-function Test-GodsEyeTouch3Disabled {
+function Test-NightRavenTouch3Disabled {
     param([string]$ProjectRoot = "")
     if ($ProjectRoot) {
         $cachePath = Join-Path $ProjectRoot ".cursor\.touch3-cache"
@@ -128,17 +128,17 @@ function Test-GodsEyeTouch3Disabled {
             }
         }
     }
-    switch -Regex ($env:GODS_EYE_TOUCH3) {
+    switch -Regex ($env:NIGHTRAVEN_TOUCH3) {
         '^(0|off|OFF|false|FALSE|no|NO)$' { return $true }
     }
-    switch -Regex ($env:GODS_EYE_TOUCH3_DISABLED) {
+    switch -Regex ($env:NIGHTRAVEN_TOUCH3_DISABLED) {
         '^(1|true|TRUE|yes|YES)$' { return $true }
     }
-    $godsEyeRootMarker = if ($env:GODS_EYE_ROOT) { Join-Path $env:GODS_EYE_ROOT ".cursor\touch3.disabled" } else { "" }
+    $nightravenRootMarker = if ($env:NIGHTRAVEN_ROOT) { Join-Path $env:NIGHTRAVEN_ROOT ".cursor\touch3.disabled" } else { "" }
     $markers = @(
         (Join-Path $env:USERPROFILE ".cursor\touch3.disabled"),
-        $godsEyeRootMarker,
-        (Join-Path $script:GodsEyeInstallRoot ".cursor\touch3.disabled")
+        $nightravenRootMarker,
+        (Join-Path $script:NightRavenInstallRoot ".cursor\touch3.disabled")
     )
     foreach ($marker in $markers) {
         if ($marker -and (Test-Path -LiteralPath $marker)) {
@@ -154,7 +154,7 @@ function Test-GodsEyeTouch3Disabled {
     return $false
 }
 
-function Set-GodsEyeTouch3Cache {
+function Set-NightRavenTouch3Cache {
     param(
         [string]$ProjectRoot,
         [bool]$Disabled
@@ -168,18 +168,18 @@ function Set-GodsEyeTouch3Cache {
     Set-Content -LiteralPath $cachePath -Value ($(if ($Disabled) { '1' } else { '0' })) -NoNewline
 }
 
-function Update-GodsEyeTouch3Cache {
+function Update-NightRavenTouch3Cache {
     param([string]$ProjectRoot = "")
-    Set-GodsEyeTouch3Cache $ProjectRoot (Test-GodsEyeTouch3Disabled $ProjectRoot)
+    Set-NightRavenTouch3Cache $ProjectRoot (Test-NightRavenTouch3Disabled $ProjectRoot)
 }
 
-$script:GodsEyeAutosyncSkipStopPullSec = if ($env:GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC) {
-    [int]$env:GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC
+$script:NightRavenAutosyncSkipStopPullSec = if ($env:NIGHTRAVEN_AUTOSYNC_SKIP_STOP_PULL_SEC) {
+    [int]$env:NIGHTRAVEN_AUTOSYNC_SKIP_STOP_PULL_SEC
 } else {
     1800
 }
 
-function Get-GodsEyeAutosyncSessionMarker {
+function Get-NightRavenAutosyncSessionMarker {
     param([string]$ProjectRoot)
     return Join-Path $ProjectRoot ".cursor\.autosync-session"
 }
@@ -189,12 +189,12 @@ function Get-UnixTimestamp {
     return [int]([datetime]::UtcNow - $origin).TotalSeconds
 }
 
-function Set-GodsEyeSessionPulled {
+function Set-NightRavenSessionPulled {
     param(
         [string]$ProjectRoot,
         [bool]$PullOk = $true
     )
-    $marker = Get-GodsEyeAutosyncSessionMarker $ProjectRoot
+    $marker = Get-NightRavenAutosyncSessionMarker $ProjectRoot
     $dir = Split-Path -Parent $marker
     if (-not (Test-Path -LiteralPath $dir)) {
         New-Item -ItemType Directory -Path $dir -Force | Out-Null
@@ -203,15 +203,15 @@ function Set-GodsEyeSessionPulled {
     Set-Content -LiteralPath $marker -Value $line -NoNewline
 }
 
-function Test-GodsEyeShouldSkipStopPull {
+function Test-NightRavenShouldSkipStopPull {
     param([string]$ProjectRoot)
-    $marker = Get-GodsEyeAutosyncSessionMarker $ProjectRoot
+    $marker = Get-NightRavenAutosyncSessionMarker $ProjectRoot
     if (-not (Test-Path -LiteralPath $marker)) { return $false }
     $parts = (Get-Content -LiteralPath $marker -Raw).Trim() -split '\|', 2
     if ($parts.Count -lt 2 -or $parts[1] -ne '1') { return $false }
     $fileTs = [int]$parts[0]
     $age = (Get-UnixTimestamp) - $fileTs
-    return ($age -ge 0 -and $age -le $script:GodsEyeAutosyncSkipStopPullSec)
+    return ($age -ge 0 -and $age -le $script:NightRavenAutosyncSkipStopPullSec)
 }
 
 function Test-HasSafeDirtyFiles {
@@ -257,14 +257,14 @@ function Test-IsAheadOfUpstream {
     }
 }
 
-function Get-GodsEyeSessionSyncFastPath {
+function Get-NightRavenSessionSyncFastPath {
     param([string]$ProjectRoot)
     if (-not (Test-Path -LiteralPath (Join-Path $ProjectRoot ".git"))) {
         return "Autosync stop skipped - not a git repository."
     }
     if (Test-HasSafeDirtyFiles $ProjectRoot) { return $null }
     if (Test-IsAheadOfUpstream $ProjectRoot) { return $null }
-    if (Test-GodsEyeShouldSkipStopPull $ProjectRoot) {
+    if (Test-NightRavenShouldSkipStopPull $ProjectRoot) {
         return "Autosync stop: nothing to sync (no safe dirty, not ahead; pull skipped - session-start recent)."
     }
     return "Autosync stop: nothing to sync (no safe dirty, not ahead)."
@@ -385,7 +385,7 @@ function Get-SafeDirtyFiles {
     }
 }
 
-function Get-GodsEyeAutosyncCommitMessage {
+function Get-NightRavenAutosyncCommitMessage {
     param([string[]]$SafeFiles)
     $normalized = @($SafeFiles | ForEach-Object { ($_ -replace '\\', '/').Trim() } | Where-Object { $_ } | Select-Object -Unique)
     if ($normalized.Count -eq 0) {
@@ -530,7 +530,7 @@ function Invoke-GitSessionCommit {
         $result.Message = "Autosync commit skipped - nothing staged after safe-path filter."
         return $result
     }
-    $commitParts = Get-GodsEyeAutosyncCommitMessage $safeFiles
+    $commitParts = Get-NightRavenAutosyncCommitMessage $safeFiles
     $commitMsg = $commitParts.Subject
     $commitBody = $commitParts.Body
     $commitArgs = @('commit', '-m', $commitMsg)

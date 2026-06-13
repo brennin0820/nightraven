@@ -1,16 +1,16 @@
 # AGENTS.md — NightRaven Compass (coding agent entry)
 
-**Read this first** when working in `apps/compass/`. For God's Eye framework law on the monorepo, use repo root [`AGENTS.md`](../../AGENTS.md) and [`docs/14_SESSION_HANDOFF.md`](../../docs/14_SESSION_HANDOFF.md) — **framework handoff only**. Compass loads **consumer** handoffs from each registered project path.
+**Read this first** when working in `apps/compass/`. For NightRaven framework law on the monorepo, use repo root [`AGENTS.md`](../../AGENTS.md) and [`docs/14_SESSION_HANDOFF.md`](../../docs/14_SESSION_HANDOFF.md) — **framework handoff only**. Compass loads **consumer** handoffs from each registered project path.
 
 ---
 
 ## What Compass is
 
-**NightRaven Compass** is a project-guidance UI for a **non-coder builder** (Brent) who uses God's Eye memory and NightRaven orchestration to build software with AI agents.
+**NightRaven Compass** is a project-guidance UI for a **non-coder builder** (Brent) who uses NightRaven memory and NightRaven orchestration to build software with AI agents.
 
-**Motto chain:** God's Eye thinks · NightRaven builds · Auditor verifies · **Compass points** to the next correct step.
+**Motto chain:** NightRaven thinks · NightRaven builds · Auditor verifies · **Compass points** to the next correct step.
 
-Compass does **not** run agents, edit repos, or sync to the cloud. It **reads** God's Eye artifacts from disk (via dev-server API), **merges** local IndexedDB overrides, and **surfaces** scope, phase, priorities, blockers, decisions, audits, progress, prompts, and loop warnings.
+Compass does **not** run agents, edit repos, or sync to the cloud. It **reads** NightRaven artifacts from disk (via dev-server API), **merges** local IndexedDB overrides, and **surfaces** scope, phase, priorities, blockers, decisions, audits, progress, prompts, and loop warnings.
 
 ---
 
@@ -121,10 +121,10 @@ updateTask / updateDecision / … → persistOverrides → IndexedDB
 
 **Two-source model:**
 
-1. **Base snapshot (read-only from disk)** — rebuilt on refresh; sourced from consumer project's God's Eye files.
+1. **Base snapshot (read-only from disk)** — rebuilt on refresh; sourced from consumer project's NightRaven files.
 2. **Overrides (IndexedDB)** — task/decision/blocker/audit/phase patches, settings; survives refresh.
 
-User edits in the UI write **overrides only**, never God's Eye files on disk.
+User edits in the UI write **overrides only**, never NightRaven files on disk.
 
 ---
 
@@ -148,7 +148,7 @@ When `settings.autoRefresh` is true and `dataMode === 'registry'`:
 
 1. Client polls `GET /api/project/version?path=` every **10s** (`AUTO_REFRESH_POLL_MS`).
 2. Server `computeSnapshotVersion()` hashes **mtime** of monitored artifacts (see `MONITORED_ARTIFACTS` in `server/buildSnapshot.ts`).
-3. On version change → silent `loadProject()` → banner in `AppShell` ("God's Eye memory changed — snapshot refreshed").
+3. On version change → silent `loadProject()` → banner in `AppShell` ("NightRaven memory changed — snapshot refreshed").
 4. Header badges: **Live** (watching) · **Refreshing…** · **Updated** (6s banner).
 
 Toggle: Settings → Auto-refresh. Static `vite build` output has no API — polling fails silently; manual refresh unavailable without preview server.
@@ -167,7 +167,7 @@ Navigation ids live in `src/components/layout/navigation.ts`. Routes in `src/app
 | 2 | `priority-board` | Priority Board | `components/priority/PriorityBoardPage.tsx` |
 | 2 | `coder-tasks` | Coder Tasks | `components/queues/CoderTasksPage.tsx` |
 | 2 | `next-prompt` | Next Prompt | `components/prompts/NextPromptPage.tsx` |
-| 2 | `ge-queue` | God's Eye Queue | `TaskQueuePage` queueId=`ge-queue` |
+| 2 | `nightraven-queue` | NightRaven Queue | `TaskQueuePage` queueId=`nightraven-queue` |
 | 2 | `nr-queue` | NR Queue | `TaskQueuePage` queueId=`nr-queue` |
 | 2 | `research-queue` | Research Queue | `TaskQueuePage` queueId=`research-queue` |
 | 2 | `decisions` | Decisions | `components/lists/DecisionsPage.tsx` |
@@ -231,7 +231,7 @@ npm run preview  # preview server also attaches compassApiPlugin
 
 - Cloud sync / multi-user database
 - Autonomous AI agent execution from Compass UI
-- Repo auto-editing (writing God's Eye files from Compass)
+- Repo auto-editing (writing NightRaven files from Compass)
 - Plugin / MCP manager UI
 - React Router / URL deep links (MVP uses in-memory view state)
 

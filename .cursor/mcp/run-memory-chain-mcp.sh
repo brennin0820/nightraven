@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Launch God's Eye MCP server (stdio) for Cursor.
+# Launch NightRaven MCP server (stdio) for Cursor.
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-INSTALL_ROOT="${GODS_EYE_INSTALL_ROOT:-$(cd "${SCRIPT_DIR}/../.." && pwd)}"
+INSTALL_ROOT="${NIGHTRAVEN_INSTALL_ROOT:-$(cd "${SCRIPT_DIR}/../.." && pwd)}"
 SERVER_JS="${INSTALL_ROOT}/mcp-server/dist/index.js"
 
 if [[ ! -f "$SERVER_JS" ]]; then

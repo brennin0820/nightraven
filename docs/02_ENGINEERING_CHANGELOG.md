@@ -1,4 +1,4 @@
-# Engineering changelog — God's Eye framework repo
+# Engineering changelog — NightRaven framework repo
 
 Append-only (`+#`). Corrections use **Supersedes** lines — never delete history.
 
@@ -6,23 +6,23 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-13
 
-### Repo hygiene — remove legacy root `gods-eye` gitlinks
+### Repo hygiene — remove legacy root `nightraven` gitlinks
 
-- +# Brent **delete all gods eye folder** — removed `gods-eye` · `gods-eye-1` at monorepo root (empty submodule entries · same `f3fbb55` gitlink · no `.gitmodules`)
-- +# **Uncommitted** — `git status` shows `D gods-eye` · `D gods-eye-1`; say **commit** to finalize
-- +# **Scope boundary** — God's Eye framework files (`docs/37_GODS_EYE_BIBLE.md` · `.cursor/rules/` · scripts) **not** removed; aligns with [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md) legacy nested-clone note
+- +# Brent **delete all gods eye folder** — removed `nightraven` · `nightraven-1` at monorepo root (empty submodule entries · same `f3fbb55` gitlink · no `.gitmodules`)
+- +# **Uncommitted** — `git status` shows `D nightraven` · `D nightraven-1`; say **commit** to finalize
+- +# **Scope boundary** — NightRaven framework files (`docs/37_NIGHTRAVEN.md` · `.cursor/rules/` · scripts) **not** removed; aligns with [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md) legacy nested-clone note
 
 **Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md)
 
 ### Filename alignment — content-descriptive names (uncommitted)
 
 - +# Brent **rename all filenames according to what they contain** — Bible/router/session/local/loop/composer docs renamed to match H1 content; scripts → `nightraven-projects.conf` · `scan-nightraven-projects.sh` · `install-nightraven-framework.sh` · `lint-framework-memory.sh`
-- +# Rule + MCP + hooks paths — `nightraven-context-intent.mdc` · `run-memory-chain-mcp.*` · MCP id `nightraven-memory-chain` · user install `hooks/nightraven/` (legacy `gods-eye/` detect kept in `install.sh`)
+- +# Rule + MCP + hooks paths — `nightraven-context-intent.mdc` · `run-memory-chain-mcp.*` · MCP id `nightraven-memory-chain` · user install `hooks/nightraven/` (legacy `nightraven/` detect kept in `install.sh`)
 - +# **Parallel closeout** — `install.sh` · `mcp-server/package.json` · `memory.ts` default roots · `MCP_SETUP.md`; Compass `mockPhase78` · `compassApi` legacy migration · `buildSnapshot` label
 - +# **`lint-framework-memory handoff`** passes · bulk `rg|perl` replace aborted (hung); Python pass + disjoint file edits completed
-- +# **Uncommitted** — full rename batch + prior `D gods-eye` · `D gods-eye-1`; say **commit** · push deferred (email privacy hook on `2026-06-13`)
+- +# **Uncommitted** — full rename batch + prior `D nightraven` · `D nightraven-1`; say **commit** · push deferred (email privacy hook on `2026-06-13`)
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) · [`nightraven-projects.conf`](../scripts/nightraven-projects.conf) · [`apps/compass/AGENTS.md`](../apps/compass/AGENTS.md)
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) · [`nightraven-projects.conf`](../scripts/nightraven-projects.conf) · [`apps/compass/AGENTS.md`](../apps/compass/AGENTS.md)
 
 ---
 
@@ -31,7 +31,7 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 ### Compass — HimFLer default migration (`519da50`)
 
 - +# Brent **make compass open on himfler** · **I'd like to see** — shipped fix after localStorage gotcha (`f307b28`)
-- +# **`compass.himflerDefaultMigration.v1`** — one-time clear when stored pick is framework gods-eye-1 · fall through to `PREFERRED_DEFAULT_PROJECT`
+- +# **`compass.himflerDefaultMigration.v1`** — one-time clear when stored pick is framework nightraven-1 · fall through to `PREFERRED_DEFAULT_PROJECT`
 - +# **`ProjectContext`** — `selected` init `null` until bootstrap (no flash of stale project)
 - +# `findHimFlerEntry` / fuzzy `himfl` label match · explicit user picks still persist post-migration
 - +# Autosync pushed · `origin/main` @ `519da50`
@@ -42,7 +42,7 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 ### Compass — open on HimFLer (default selection Q&A)
 
 - +# Brent **make compass open on himfler** — logic already in [`compassApi.ts`](../apps/compass/src/services/compassApi.ts) (`ca783f2`): `PREFERRED_DEFAULT_PROJECT` → HimFLer path · fuzzy `himfler`/`himfl` label match
-- +# **Persisted selection wins** — `localStorage` key `compass.selectedProject` restores last project; prior **gods-eye-1** session blocks default until Settings switch or storage clear
+- +# **Persisted selection wins** — `localStorage` key `compass.selectedProject` restores last project; prior **nightraven-1** session blocks default until Settings switch or storage clear
 - +# **Next (code):** one-time migration or ignore framework stored path — not shipped this close. **Superseded** by `519da50` migration entry above.
 - +# Autosync handoff `4095fa7` · `origin/main` @ `4095fa7`
 
@@ -55,7 +55,7 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - +# Brent **iOS 26 SwiftUI** design ask — `UI_DESIGN_SPEC.md` **next on consumer repo**; no framework app code
 - +# Autosync `5a50fa7` · `origin/main` @ `5a50fa7`
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · consumer [`BUILD_ROLES.md`](../../HimFLer/docs/BUILD_ROLES.md)
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) · consumer [`BUILD_ROLES.md`](../../HimFLer/docs/BUILD_ROLES.md)
 
 ### Compass — agent docs + auto-refresh UI polish (`3fac525`)
 
@@ -66,11 +66,11 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 **Cross-links:** [`apps/compass/README.md`](../apps/compass/README.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
 
-### Compass — GE auto-refresh monitor (`82e4cff`)
+### Compass — memory auto-refresh monitor (`82e4cff`)
 
 - +# Brent: **monitor refresh when changes** — `/api/project/version` (mtime aggregate) · client poll **10s** when `settings.autoRefresh` + registry mode
 - +# **`ProjectContext`** silent reload on version change · IndexedDB overrides preserved · `refreshStatus` for UI
-- +# Watched GE paths: handoff · overlay · changelog · learning log · `AGENTS.md` · `.cursor/rules` · hooks
+- +# Watched memory paths: handoff · overlay · changelog · learning log · `AGENTS.md` · `.cursor/rules` · hooks
 - +# Default `autoRefresh: true` in live snapshot build
 - +# Brent: **Codex/Claude understand app** — requested; **`apps/compass/AGENTS.md` deferred** (packet docs in `apps/compass/docs/`)
 - +# Autosync `82e4cff` · `origin/main` @ `82e4cff`
@@ -98,7 +98,7 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 **Cross-links:** [`apps/compass/README.md`](../apps/compass/README.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`persistence.ts`](../apps/compass/src/services/persistence.ts)
 
-### Compass — full nav + GE API (`ea832ac`; persistence pending)
+### Compass — full nav + memory API (`ea832ac`; persistence pending)
 
 - +# Brent: **not mock — fully functioning product** — shipped all sidebar routes + Phase 2–8 UI (`routeRegistry` · task cards · queues · prompts · auditor · progress · memory · loop · reports)
 - +# **`compassApi.ts`** + **`server/compassApiPlugin`** — registry + project snapshot from `nightraven-projects.conf` · handoff/overlay parse (`npm run dev`)
@@ -126,19 +126,19 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - +# **Bible §2.8** — last-turn law + anti-pattern row for mid-session Touch 3
 - +# Shipped autosync `1fd1c3f` (hooks + memory + Compass mock consolidation)
 
-**Cross-links:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.8 · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`AGENTS.md`](../AGENTS.md)
+**Cross-links:** [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §2.8 · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`AGENTS.md`](../AGENTS.md)
 
-### Compass — Complete Build Packet (Phase 1 MVP + GE file API)
+### Compass — Complete Build Packet (Phase 1 MVP + memory file API)
 
 - +# Brent supplied **NightRaven Compass Complete Build Packet** and asked **in parallel** — worker implemented Phase 1 in `apps/compass/`
 - +# **Phase 1 UI** — `project.ts` types · `mockProject.ts` · routing/progress/scopeWarnings/promptGenerator utils · AppShell · Sidebar · Dashboard cards (status · phase · next action · progress · blocker · decision · Not Now · prompt)
-- +# **GE file wire (partial)** — Vite dev middleware (`compassApiPlugin.ts` · `buildSnapshot.ts` · `parseHandoff.ts`) reads `scripts/nightraven-projects.conf` · per-project `docs/14_SESSION_HANDOFF.md` · `docs/GODS_EYE_REPO_OVERLAY.md`; monorepo root auto-registered
+- +# **memory file wire (partial)** — Vite dev middleware (`compassApiPlugin.ts` · `buildSnapshot.ts` · `parseHandoff.ts`) reads `scripts/nightraven-projects.conf` · per-project `docs/14_SESSION_HANDOFF.md` · `docs/NIGHTRAVEN_REPO_OVERLAY.md`; monorepo root auto-registered
 - +# **Phase 2 pages** — Roadmap · Priority Board · Task Queue · Next Prompt · Blockers · Decisions · Not Now · Progress · Memory Feed · Loop Detector · Settings (mock task data + live memory feed)
 - +# Verified path: `cd apps/compass && npm run build && npm run lint`; live data requires `npm run dev`
 - +# Autosync shipped `e6d44d6` (server/API) + `dac3313` (UI) · `origin/main` @ `dac3313`
 - +# **Out of scope** — cloud sync · AI automation · repo auto-edit · database
 
-**Cross-links:** [`apps/compass/README.md`](../apps/compass/README.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md)
+**Cross-links:** [`apps/compass/README.md`](../apps/compass/README.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md)
 
 ### HimFler — iOS 26 product scope (consumer repo)
 
@@ -157,7 +157,7 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - +# **`AuditorQueuePage`** — pre-build scope gate · creep signals · pass/hold
 - +# **Dashboard** — `ScopeMonitorCard` + link to Scope Map; nav **Phase 1** for scope-map · auditor-queue
 - +# Verified `npm run build` + `eslint`; shipped `origin/main` @ `b3a2583`
-- +# **Still mock** — no God's Eye handoff or git integration yet
+- +# **Still mock** — no NightRaven handoff or git integration yet
 
 **Cross-links:** [`apps/compass/README.md`](../apps/compass/README.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
 
@@ -165,7 +165,7 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 - +# Brent asked to **put ready for use** new project **HimFLer**
 - +# Shipped `scripts/bootstrap-nightraven-project.sh` — wraps `install-nightraven-framework.sh` + seeds overlay · handoff · README · `docs/PROJECT_QUICKSTART.md` · `.gitignore`
-- +# Created `E:\NightRaven\HimFLer` — git init · full God's Eye + NightRaven Core stack
+- +# Created `E:\NightRaven\HimFLer` — git init · full NightRaven + NightRaven Core stack
 - +# Registry: `scripts/nightraven-projects.conf` · CURSOR_INSTALL · README · `NIGHTRAVEN_UNIFIED_PRODUCT.md`
 - +# Autosync: extended safe paths to `apps/*` in hook libs
 - +# Touch 3 AFTER: stop-hook shipped `origin/main` @ `044928a`; `.gitignore` app ignores committed in follow-up close
@@ -174,10 +174,10 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ### NightRaven monorepo — Compass merge
 
-- +# Brent **merge all into NightRaven** — umbrella brand at public README; **God's Eye** remains portable memory framework (vocabulary layers preserved)
+- +# Brent **merge all into NightRaven** — umbrella brand at public README; **NightRaven** remains portable memory framework (vocabulary layers preserved)
 - +# **Compass merged** — `git subtree add --prefix=apps/compass` from sibling `nightraven-compass` @ `c91a315` (squash)
 - +# **Docs** — [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md) (layout · merge status · memory isolation); unified stack §13; overlay §1; [`apps/README.md`](../apps/README.md)
-- +# **Deferred** — NightRaven iOS app into `apps/ios/` (repo not on machine); GitHub `gods-eye` → `NightRaven` rename; archive sibling `E:\NightRaven\nightraven-compass`
+- +# **Deferred** — NightRaven iOS app into `apps/ios/` (repo not on machine); GitHub `nightraven` → `NightRaven` rename; archive sibling `E:\NightRaven\nightraven-compass`
 - +# **Shipped** `origin/main` @ `a6a9ded` — subtree `213eaba` + wire/memory autosync; **local stragglers:** `.gitignore`, `apps/README.md`, `apps/compass/README.md` (outside autosync safe paths)
 
 **Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
@@ -185,11 +185,11 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 ### Hooks review + parallel gap-fill (post-review)
 
 - +# Brent **REVIEW addition** — read-only review of Phase 2 hooks: after-file-edit fast path, session sync fast path, autosync conventional commit messages, bash/PS parity gaps
-- +# Brent **in parallel** — executed review fixes without serial blocking: fail-open `session-stop.sh` (no `set -e`; defer append `|| true`; `gods_eye_append_push_defer` awk/mv fail-open)
+- +# Brent **in parallel** — executed review fixes without serial blocking: fail-open `session-stop.sh` (no `set -e`; defer append `|| true`; `nightraven_append_push_defer` awk/mv fail-open)
 - +# **Unix project install** — `templates/hooks.project.unix.json` (`run-hook.sh` dispatchers); `install.sh` `hooks_os_is_windows()` picks PowerShell vs Unix manifest on project install
 - +# **HOOKS_SETUP** — autosync safe-path commit on stop vs in-session "commit when asked" boundary documented
 - +# **lib.sh parity** — per-file `git add` fallback when batch add fails (matches `lib.ps1`)
-- +# **Copy** — `God's Eye` branding aligned in `after-file-edit` bash/PS
+- +# **Copy** — `NightRaven` branding aligned in `after-file-edit` bash/PS
 - +# Code shipped `e2094ec`; memory append this Touch 3 pass
 
 **Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`install.sh`](../install.sh) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
@@ -209,7 +209,7 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 - +# Brent **make a backup** — synced `origin/main`; committed pending memory (Compass RAR Q&A) + this receipt
 - +# **Cloud:** annotated tag `backup/20260611-132907` pushed to `origin`
-- +# **Local:** `E:\NightRaven\gods-eye-1-backup-20260611-132907.zip` (`git archive`, tracked source only) + `E:\NightRaven\gods-eye-1-backup-20260611-132907.bundle` (full git history)
+- +# **Local:** `E:\NightRaven\nightraven-1-backup-20260611-132907.zip` (`git archive`, tracked source only) + `E:\NightRaven\nightraven-1-backup-20260611-132907.bundle` (full git history)
 - +# Scope — operational backup only; no product/law behavior changes
 
 **Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
@@ -224,7 +224,7 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 ### Polish + gap-fill — hooks, install, orchestration wire
 
 - +# **Install parity** — `install.sh` copies `*.ps1` + `lib.ps1` alongside `*.sh`/`lib.sh` for project + `~/.cursor/hooks/nightraven/` user install
-- +# **Session-start pull skip** — skip redundant pull when `.cursor/.autosync-session` recent + OK; `gods_eye_should_skip_recent_pull` alias in `lib.sh`
+- +# **Session-start pull skip** — skip redundant pull when `.cursor/.autosync-session` recent + OK; `nightraven_should_skip_recent_pull` alias in `lib.sh`
 - +# **Tier 0–1 cold start** — lean-read line in always-on rule + AGENTS **Tasking fast paths** table (non-/nightraven)
 - +# **Multitask gate** — checklist polish in `templates/model-delegation-efficiency.user.mdc`
 - +# **Division orchestration execute** — overlay §1 combos · NightRaven skill (pre-coding gate, Design Division, combo matrix, risk map, Final Report, fix-back loop) · Bible §9 runtime pointer; no new template scaffold
@@ -236,17 +236,17 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ### Division orchestration wire — plan (memory only)
 
-- +# Brent supplied execution protocol — pre-coding gate (correct → intent → domains → division combos), Builder/Auditor/Design contracts, Core fix-back loop, adaptive combos, **God's Eye Final Report**
+- +# Brent supplied execution protocol — pre-coding gate (correct → intent → domains → division combos), Builder/Auditor/Design contracts, Core fix-back loop, adaptive combos, **NightRaven Final Report**
 - +# Gap map — NightRaven has Builder/Auditor (+ UI auditor in `/audit`); missing Design Division, structured Builder/Auditor/Design reports, PASS/FAIL verdicts, test/typecheck gates, Final Report close
 - +# Plan — phased wire: overlay §1 taxonomy + combos · Bible §9.x pointer · extend `nightraven` skill · new `design` skill · no new `templates/` scaffold; reconcile 4-combo table with TRIVIAL→CRITICAL matrix
 - +# Execution deferred — plan mode; Brent says **code it** to ship
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.claude/skills/nightraven/SKILL.md`](../.claude/skills/nightraven/SKILL.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §9 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.claude/skills/nightraven/SKILL.md`](../.claude/skills/nightraven/SKILL.md) · [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §9 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
 
 ### Tasking speed — hook + orchestration fast paths (`0e5c51e` partial)
 
 - +# **Tasking** = agent work cycle (Cursor hooks Touch 1/3 + autosync, NightRaven Phase 0, §2.8 subagent discipline) — not a task queue
-- +# Hook fast paths — `after-file-edit` early `{}` for non-memory paths; `session-stop` skip pull when session-start recent + clean tree; Touch3 cache; Tier 0–1 lean-read nudge in session-start; session marker + `GODS_EYE_AUTOSYNC_SKIP_STOP_PULL_SEC` in `lib.ps1`/`lib.sh`
+- +# Hook fast paths — `after-file-edit` early `{}` for non-memory paths; `session-stop` skip pull when session-start recent + clean tree; Touch3 cache; Tier 0–1 lean-read nudge in session-start; session marker + `NIGHTRAVEN_AUTOSYNC_SKIP_STOP_PULL_SEC` in `lib.ps1`/`lib.sh`
 - +# NightRaven skill — **Tasking fast paths** table (subagents inherit assessment; TRIVIAL/LOW condensed paths)
 - +# Docs — [`HOOKS_SETUP.md`](HOOKS_SETUP.md) troubleshooting; `.gitignore` hook markers (`.cursor/.autosync-session`, `.cursor/.touch3-cache`)
 - +# Verification — clean stop ~1.7s vs ~3.8s; hook test autosync committed+pushed hook batch (`0e5c51e`); **remaining uncommitted:** `.gitignore`, `.claude/skills/nightraven/SKILL.md`, handoff
@@ -258,7 +258,7 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 ### Autosync conventional commit messages (session-stop)
 
 - +# Brent asked descriptive autosync commits — replace generic `chore(sync): session autosync [cursor hook]` with path-aware conventional subjects (`docs` / `fix(hooks)` / `chore: session sync - …`) + optional file body
-- +# `lib.ps1` — `Get-GodsEyeAutosyncCommitMessage`; `lib.sh` — `gods_eye_autosync_commit_message`; wired into `Invoke-GitSessionCommit` / `gods_eye_git_session_commit`
+- +# `lib.ps1` — `Get-NightRavenAutosyncCommitMessage`; `lib.sh` — `nightraven_autosync_commit_message`; wired into `Invoke-GitSessionCommit` / `nightraven_git_session_commit`
 - +# Docs — [`HOOKS_SETUP.md`](HOOKS_SETUP.md) stop hook + troubleshooting; fast path unchanged when nothing to sync
 
 **Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md)
@@ -270,7 +270,7 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 **Cross-links:** [`02_ENGINEERING_CHANGELOG.md`](02_ENGINEERING_CHANGELOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
 
-### Touch 3 AFTER — combined God's Eye + NightRaven installer (`276fe5e`)
+### Touch 3 AFTER — combined NightRaven + NightRaven installer (`276fe5e`)
 
 - +# Shipped [`scripts/install-nightraven-framework.sh`](../scripts/install-nightraven-framework.sh) — wraps `install.sh`, adds NightRaven skill + ledgers + overlay/AGENTS cross-links
 - +# Recommendation — stack both on app projects; `install.sh` only for generic repos
@@ -280,28 +280,28 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ### Touch 3 AFTER — hook close (merge-to-one Q&A)
 
-- +# Brent asked what if **NightRaven** and **God's Eye** become only one
-- +# Core answered merge types (repo/brand/orchestrator/product), gains/losses, sane shapes (monorepo two boundaries, brand-only, absorption); recommended NightRaven-scoped runtime + portable standard **or** monorepo with `packages/gods-eye` + `apps/ios`
+- +# Brent asked what if **NightRaven** and **NightRaven** become only one
+- +# Core answered merge types (repo/brand/orchestrator/product), gains/losses, sane shapes (monorepo two boundaries, brand-only, absorption); recommended NightRaven-scoped runtime + portable standard **or** monorepo with `packages/nightraven` + `apps/ios`
 - +# Do not collapse vocabulary layers; **Critical** governance if true product merge
 - +# Hook stop — pull OK · no safe dirty · push skipped (not ahead); Q&A only; no code
 
 **Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`36_PROJECT_ISOLATION.md`](36_PROJECT_ISOLATION.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
 
-### Touch 3 AFTER — hook close (NightRaven vs God's Eye Q&A)
+### Touch 3 AFTER — hook close (NightRaven vs NightRaven Q&A)
 
-- +# Brent asked relationship between **NightRaven** and **God's Eye**
-- +# Core clarified — God's Eye = memory/oversight **framework repo** (Bible, adoption, `+#` chain); NightRaven = **consumer app** + NightRaven Core orchestration in separate repo (§2.6); three division maps remain vocabulary layers; portable vs NightRaven-scoped taxonomy **TBD** unchanged
+- +# Brent asked relationship between **NightRaven** and **NightRaven**
+- +# Core clarified — NightRaven = memory/oversight **framework repo** (Bible, adoption, `+#` chain); NightRaven = **consumer app** + NightRaven Core orchestration in separate repo (§2.6); three division maps remain vocabulary layers; portable vs NightRaven-scoped taxonomy **TBD** unchanged
 - +# Hook stop — pull OK · no safe dirty · push skipped (not ahead); Q&A only; no code
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`36_PROJECT_ISOLATION.md`](36_PROJECT_ISOLATION.md) · [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md)
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`36_PROJECT_ISOLATION.md`](36_PROJECT_ISOLATION.md) · [`NIGHTRAVEN_PROJECT_INVENTORY.md`](NIGHTRAVEN_PROJECT_INVENTORY.md)
 
 ### Touch 3 AFTER — hook close (Q&A division scope + clean tree)
 
 - +# Brent asked whether portable standard vs NightRaven-scoped division maps and background subagent batches are "different versions"
-- +# Core clarified — three division maps are **vocabulary layers** (GE proposal · NightRaven runtime · Bible §9 virtual teams), not product forks; portable vs NightRaven-scoped is a **scope slot** (overlay §1 TBD), not a version split; sequential subagent commits are timeline, not competing versions
+- +# Core clarified — three division maps are **vocabulary layers** (NightRaven proposal · NightRaven runtime · Bible §9 virtual teams), not product forks; portable vs NightRaven-scoped is a **scope slot** (overlay §1 TBD), not a version split; sequential subagent commits are timeline, not competing versions
 - +# Hook stop — pull OK · commit skipped (no safe dirty) · push skipped (not ahead); Q&A only; no code
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md)
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md)
 
 ### Touch 3 AFTER — strategic Q&A recommendations batch (execute all lanes)
 
@@ -312,14 +312,14 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - +# **Composer Brief §4** — refreshed current state (MCP shipped, autosync, pre-coding plan, division taxonomy memory)
 - +# **Windows autosync fix** — `lib.ps1` `Invoke-GitSessionCommit` uses `Invoke-GitInRoot` batch add + per-file fallback; quoted path strip in `Get-SafeDirtyFiles`; `HOOKS_SETUP.md` troubleshooting (+#)
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`CLAUDE_ADOPTION.md`](CLAUDE_ADOPTION.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) · [`CLAUDE_ADOPTION.md`](CLAUDE_ADOPTION.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
 
 ### Touch 3 AFTER — strategic Q&A session close (guidance only)
 
-- +# Brent asked what's next for God's Eye — Core answered five priority lanes: #15 Claude adoption kit · Architect Division memory wire · repeated intentions → overlay · autosync Windows hardening · fresh thread at ~80%
+- +# Brent asked what's next for NightRaven — Core answered five priority lanes: #15 Claude adoption kit · Architect Division memory wire · repeated intentions → overlay · autosync Windows hardening · fresh thread at ~80%
 - +# Ask mode — guidance only; execution deferred to follow-up agent run (`+#` only)
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`GODS_EYE_CURSOR_COMPOSER_BRIEF.md`](GODS_EYE_CURSOR_COMPOSER_BRIEF.md) §4
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`NIGHTRAVEN_CURSOR_COMPOSER_BRIEF.md`](NIGHTRAVEN_CURSOR_COMPOSER_BRIEF.md) §4
 
 ### Touch 3 AFTER — hook close (recommendations batch flush)
 
@@ -327,11 +327,11 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - +# **Unexpected** — prior background agent left safe-path batch uncommitted: `CLAUDE_ADOPTION.md`, Architect Division (Bible §9 pointer + overlay), repeated intentions overlay, composer brief, `lib.ps1` quoted-path fix, install/README cross-links
 - +# On origin already — repeated intentions memory (`a5a9d1f`), autosync bash parity (`7aa4df3`), composer brief base (`cf5b3db`); Touch 3 agent flush commit+push this pass
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`CLAUDE_ADOPTION.md`](CLAUDE_ADOPTION.md) · [`GODS_EYE_CURSOR_COMPOSER_BRIEF.md`](GODS_EYE_CURSOR_COMPOSER_BRIEF.md)
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`CLAUDE_ADOPTION.md`](CLAUDE_ADOPTION.md) · [`NIGHTRAVEN_CURSOR_COMPOSER_BRIEF.md`](NIGHTRAVEN_CURSOR_COMPOSER_BRIEF.md)
 
 ### Touch 3 AFTER — session close (Final Report + autosync push `a5a9d1f`)
 
-- +# Session exit — pre-coding God's Eye Final Report re-delivered; no implementation
+- +# Session exit — pre-coding NightRaven Final Report re-delivered; no implementation
 - +# Autosync on stop succeeded — pull OK · commit 3 memory files · push `origin/main` (`a5a9d1f`)
 - +# **Supersedes** changelog line below re push-skipped — memory batch now on origin
 
@@ -343,15 +343,15 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - +# Plan stored — `.cursor/plans/pre-coding_orchestration_report_830f7a0e.plan.md`; no code; next task awaits ship signal
 - +# Autosync hook on stop — pull OK; commit skipped (`git add failed` fail-open); push skipped (not ahead)
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §3 · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §3 · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
 
 ### Touch 3 AFTER — division taxonomy plan (memory only)
 
-- +# Brent proposed **11-division** God's Eye structure — Product, Research, Architect, Builder, Design, QA, Security, Auditor, Documentation, DevOps + Core
+- +# Brent proposed **11-division** NightRaven structure — Product, Research, Architect, Builder, Design, QA, Security, Auditor, Documentation, DevOps + Core
 - +# Gap map documented — NightRaven has 4 runtime divisions; Bible §9 has 6 virtual teams; **Architect Division** is top gap
 - +# Phase 0 scope — overlay §1 + Bible §9.x memory wiring only; no code; open question: portable standard vs NightRaven-scoped
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §9 · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md)
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §9 · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md)
 
 ### Touch 3 AFTER — session close (division + autosync + settings check)
 
@@ -362,7 +362,7 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ### Cursor/VS Code workspace editor settings (`4f7d808`)
 
-- +# **User vs workspace split** — global Cursor user `settings.json` for cross-project prefs; repo `.vscode/settings.json` for God's Eye docs/memory workflow
+- +# **User vs workspace split** — global Cursor user `settings.json` for cross-project prefs; repo `.vscode/settings.json` for NightRaven docs/memory workflow
 - +# Workspace choices — `docs/` searchable; `mcp-server` build + secrets excluded; markdown no format-on-save (`+#` law); `.mdc` as markdown; PowerShell default terminal (matches Windows hooks); `git.autofetch` complements hook pull/push
 - +# Added `.vscode/settings.json`, `extensions.json`, [`.vscode/README.md`](../.vscode/README.md); `HOOKS_SETUP.md` ↔ workspace settings cross-link
 
@@ -381,26 +381,26 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ### Bible §2.9 — Always Sync + Governed Bypass + Local vs Cloud
 
-- +# Added **§2.9** to `37_GODS_EYE_BIBLE.md` as a new portable law section covering Always Sync, Governed Bypass protocol, and Local vs Cloud execution modes
+- +# Added **§2.9** to `37_NIGHTRAVEN.md` as a new portable law section covering Always Sync, Governed Bypass protocol, and Local vs Cloud execution modes
 - +# Updated ToC + §0 sixty-second glance table in Bible to reference §2.9
 - +# Merged §2.9 laws into `AGENTS.md` Core Laws, Common Mistakes, and Reference
-- +# Merged into `GODS_EYE_UNIFIED_STACK.md` §1 cross-layer laws table + §10 Risks + Quick Ref card
+- +# Merged into `NIGHTRAVEN_UNIFIED_STACK.md` §1 cross-layer laws table + §10 Risks + Quick Ref card
 
-**Cross-links:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) · [`AGENTS.md`](../AGENTS.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md)
+**Cross-links:** [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) · [`AGENTS.md`](../AGENTS.md) · [`NIGHTRAVEN_UNIFIED_STACK.md`](NIGHTRAVEN_UNIFIED_STACK.md)
 
 ### Composer audit wiring pass (2026-06-11)
 
-- +# `37_GODS_EYE_BIBLE.md` §6 — appended three anti-pattern rows: Forgotten sync, Silent bypass, Local-mode subagents; updated ToC blurb
-- +# `GODS_EYE_LAYERED_SPEC_ROUTER.md` — added Execution mode row to layer table; `git pull`/`git push` to Before/After agent card rows; Execution mode blurb with link to LOCAL_VS_CLOUD
-- +# `GODS_EYE_SESSION_SPEC_TREES.md` — Always Sync wired into All-tiers law and Record Everything header
-- +# `GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md` — Always Sync added to Laws; local vs cloud execution mode paragraph added
+- +# `37_NIGHTRAVEN.md` §6 — appended three anti-pattern rows: Forgotten sync, Silent bypass, Local-mode subagents; updated ToC blurb
+- +# `NIGHTRAVEN_LAYERED_SPEC_ROUTER.md` — added Execution mode row to layer table; `git pull`/`git push` to Before/After agent card rows; Execution mode blurb with link to LOCAL_VS_CLOUD
+- +# `NIGHTRAVEN_SESSION_SPEC_TREES.md` — Always Sync wired into All-tiers law and Record Everything header
+- +# `NIGHTRAVEN_IMPROVEMENT_LOOP_CYCLE_PROMPT.md` — Always Sync added to Laws; local vs cloud execution mode paragraph added
 - +# `CURSOR_INSTALL.md` — Portable Bible row updated with §2.9 scope; Local vs Cloud clarification (framework-only; consumers get via vendored Bible)
 - +# `MCP_SETUP.md` — Mode-agnostic operating rule + LOCAL_VS_CLOUD added to Related
 - +# `HOOKS_SETUP.md` — `session-stop.sh` push nudge documented; Always Sync step added to bootstrap checklist; §2.9 citation
 - +# `templates/nightraven-context-intent.user.mdc` — Always Sync, Governed Bypass, Local vs Cloud lines added
-- +# `templates/docs/GODS_EYE_REPO_OVERLAY.md` — starter vocabulary rows for four new terms
+- +# `templates/docs/NIGHTRAVEN_REPO_OVERLAY.md` — starter vocabulary rows for four new terms
 - +# `docs/04_LEARNING_LOG.md` — Governed Bypass pattern entry
-- +# `docs/GODS_EYE_CURSOR_COMPOSER_BRIEF.md` — self-contained Composer onboarding brief created
+- +# `docs/NIGHTRAVEN_CURSOR_COMPOSER_BRIEF.md` — self-contained Composer onboarding brief created
 
 **Deferred:** `docs/35_FAST_START.md` and `docs/36_PROJECT_ISOLATION.md` are phantom docs (referenced in Bible but not yet created); creation deferred — larger scope.
 
@@ -416,25 +416,25 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 ### Design local vs cloud execution modes
 
 
-- +# Authored local vs cloud execution design spec ([`GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md`](GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md))
+- +# Authored local vs cloud execution design spec ([`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md))
 - +# Detailed hardware, context window, and concurrency constraints for LM Studio local sessions
 - +# Documented parallel subagent loops, long-context continuity, and token-cost discipline for Cloud execution
 
-**Cross-links:** [`GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md`](GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+**Cross-links:** [`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
 
 ### Always Sync changes workflow
 
 
-- +# Added **Always Sync** rule to overlay vocabulary (`GODS_EYE_REPO_OVERLAY.md`) and rule files (`nightraven-context-intent.mdc`)
+- +# Added **Always Sync** rule to overlay vocabulary (`NIGHTRAVEN_REPO_OVERLAY.md`) and rule files (`nightraven-context-intent.mdc`)
 - +# Configured workflow to run `git pull` followed by git add/commit/push on every change
 
-**Cross-links:** [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+**Cross-links:** [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
 
 ### README gap-fill follow-up
 
 
 - +# Saved follow-up backup branch `backup/pre-gap-fill-20260611-184524` at `2251fdf9a9859b6e8a1bed717eaa298acb018412` before edits
-- +# Filled README decision gaps after polish feedback — added **Fit check** and **Normal agent session** sections so new readers can decide when to use God's Eye and see the concrete session loop before install
+- +# Filled README decision gaps after polish feedback — added **Fit check** and **Normal agent session** sections so new readers can decide when to use NightRaven and see the concrete session loop before install
 - +# Scope stayed public README + append-only memory; no law rewrite, no new templates, no implementation files
 
 **Cross-links:** [`README.md`](../README.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
@@ -449,44 +449,44 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ### External candidate shortlist — adjacent "god-tier" coders
 
-- +# Local registry remains limited to `gods-eye`, `UAIPOS`, `NightRaven`, and `~/.cursor`; no new adopters found in-repo
+- +# Local registry remains limited to `nightraven`, `UAIPOS`, `NightRaven`, and `~/.cursor`; no new adopters found in-repo
 - +# External shortlist for further hunting: memory layers (`Mem0`, `Letta`, `Memori`, `OpenViking`), git-native repo memory (`GitAgent`, `Agents Remember`, `AGENTS.md`), and coding agents (`OpenCode`, `Goose`, `Plandex`, `PR-Agent`)
 - +# Use these as comparison points for the research map or future inventory expansion, not as local app memory
 - +# NightRaven practical lane narrowed by Brent: **PR-Agent** for PR review automation; **Plandex / Goose** for coding-session execution workflows; defer memory-layer candidates
 
-**Cross-links:** [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md)
+**Cross-links:** [`NIGHTRAVEN_PROJECT_INVENTORY.md`](NIGHTRAVEN_PROJECT_INVENTORY.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md)
 
 ## 2026-06-10
 
 ### Touch 3 — NightRaven adoption batch session close
 
-- +# Session arc — inventory ship name → app oversight rebrand → repo folder + GitHub rename; gods-eye orchestration only for path/registry (§2.6); app overlay/handoff in NightRaven repo
+- +# Session arc — inventory ship name → app oversight rebrand → repo folder + GitHub rename; nightraven orchestration only for path/registry (§2.6); app overlay/handoff in NightRaven repo
 - +# **Shipped on origin:** `d4d47c5` · `f03a39a` · `53cd9f1` · `b654b68` — noreply author+committer; push-latency §2.8 satisfied
 - +# **Open:** NightRaven app memory docs uncommitted locally; Xcode target rename until **code it**
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) §3 · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §12 · [`AGENTS.md`](../AGENTS.md) · [`scripts/nightraven-projects.conf`](../scripts/nightraven-projects.conf)
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`NIGHTRAVEN_PROJECT_INVENTORY.md`](NIGHTRAVEN_PROJECT_INVENTORY.md) §3 · [`NIGHTRAVEN_UNIFIED_STACK.md`](NIGHTRAVEN_UNIFIED_STACK.md) §12 · [`AGENTS.md`](../AGENTS.md) · [`scripts/nightraven-projects.conf`](../scripts/nightraven-projects.conf)
 
 ### NightRaven — repo folder + GitHub rename
 
 - +# Brent — rename consumer app repo **BankrollCalendar → NightRaven** — local path `~/Developer/NightRaven`; GitHub `brennin0820/NightRaven` (private); `nightraven-projects.conf` + inventory §3 + unified stack §12 updated
 - +# Xcode target **OneDayMillionaire** unchanged; historical handoff/changelog lines referencing BankrollCalendar kept (`+#` only)
 
-**Cross-links:** [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) §3 · [`scripts/nightraven-projects.conf`](../scripts/nightraven-projects.conf)
+**Cross-links:** [`NIGHTRAVEN_PROJECT_INVENTORY.md`](NIGHTRAVEN_PROJECT_INVENTORY.md) §3 · [`scripts/nightraven-projects.conf`](../scripts/nightraven-projects.conf)
 
 ### NightRaven — app repo local rebrand (orchestration)
 
-- +# Brent — replace active **God'sEye / God's Eye** labels with **NightRaven** in BankrollCalendar agent chain; ship name + local oversight unified under NightRaven
-- +# **Not in scope:** gods-eye framework repo rename; Xcode target OneDayMillionaire; framework file paths (`GODS_EYE_*`, `nightraven-context-intent.mdc`)
-- +# Inventory §3 oversight row — NightRaven (was God'sEye in app repo)
+- +# Brent — replace active **NightRaven / NightRaven** labels with **NightRaven** in BankrollCalendar agent chain; ship name + local oversight unified under NightRaven
+- +# **Not in scope:** nightraven framework repo rename; Xcode target OneDayMillionaire; framework file paths (`NIGHTRAVEN_*`, `nightraven-context-intent.mdc`)
+- +# Inventory §3 oversight row — NightRaven (was NightRaven in app repo)
 
-**Cross-links:** [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) §3 · NightRaven `docs/GODS_EYE_REPO_OVERLAY.md`
+**Cross-links:** [`NIGHTRAVEN_PROJECT_INVENTORY.md`](NIGHTRAVEN_PROJECT_INVENTORY.md) §3 · NightRaven `docs/NIGHTRAVEN_REPO_OVERLAY.md`
 
 ### NightRaven — consumer app ship name (inventory metadata)
 
 - +# Brent updating product identity to **NightRaven** (BankrollCalendar adopter) — NGIA platform naming aligns with ship name; **Xcode target/scheme still OneDayMillionaire** until explicit app-repo rename
-- +# Framework repo wired — `scripts/nightraven-projects.conf` label, `GODS_EYE_PROJECT_INVENTORY.md` summary + §3 vocabulary layers; app overlay/handoff/changelog remain in BankrollCalendar (§2.6)
+- +# Framework repo wired — `scripts/nightraven-projects.conf` label, `NIGHTRAVEN_PROJECT_INVENTORY.md` summary + §3 vocabulary layers; app overlay/handoff/changelog remain in BankrollCalendar (§2.6)
 
-**Cross-links:** [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §12 · [`scripts/nightraven-projects.conf`](../scripts/nightraven-projects.conf) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`AGENTS.md`](../AGENTS.md)
+**Cross-links:** [`NIGHTRAVEN_PROJECT_INVENTORY.md`](NIGHTRAVEN_PROJECT_INVENTORY.md) · [`NIGHTRAVEN_UNIFIED_STACK.md`](NIGHTRAVEN_UNIFIED_STACK.md) §12 · [`scripts/nightraven-projects.conf`](../scripts/nightraven-projects.conf) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`AGENTS.md`](../AGENTS.md)
 
 ### agent-skills plan — status Q&A session close
 
@@ -496,13 +496,13 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ### agent-skills merge evaluation — reject core, optional L4
 
-- +# Brent asked merge [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) — 23 lifecycle skills (spec/build/test/review/ship) vs God's Eye oversight stack
-- +# Verdict — **reject** git vendor/subtree into gods-eye core; **Adapt (optional L4)** for consumer app repos **after** ship signal (`code it` / `implement` / `build`); GE owns intent + memory (L0–L3), agent-skills owns implementation discipline when shipping
-- +# Conflicts documented — agent-skills defaults spec/build-first vs Bible §2.8 intent ladder; `context-engineering` skill vocabulary collision with GE §3; framework bloat vs Phase 1 lean bootstrap
+- +# Brent asked merge [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) — 23 lifecycle skills (spec/build/test/review/ship) vs NightRaven oversight stack
+- +# Verdict — **reject** git vendor/subtree into nightraven core; **Adapt (optional L4)** for consumer app repos **after** ship signal (`code it` / `implement` / `build`); NightRaven owns intent + memory (L0–L3), agent-skills owns implementation discipline when shipping
+- +# Conflicts documented — agent-skills defaults spec/build-first vs Bible §2.8 intent ladder; `context-engineering` skill vocabulary collision with NightRaven §3; framework bloat vs Phase 1 lean bootstrap
 - Plan artifact: `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md`; unified stack §2 row + CURSOR_INSTALL pointer **deferred** until Brent says execute plan
 - +# **Supersedes (wire complete):** Plan executed — unified stack §2 **Adapt (optional L4)** row + §6 implementation-skills blurb; `CURSOR_INSTALL.md` optional section (upstream [cursor-setup.md](https://github.com/addyosmani/agent-skills/blob/main/docs/cursor-setup.md), not vendored; no `install.sh --with-engineering-skills` yet); overlay + AGENTS.md Reference cross-links verified
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §2 · §6 · [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.8 · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc)
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`NIGHTRAVEN_UNIFIED_STACK.md`](NIGHTRAVEN_UNIFIED_STACK.md) §2 · §6 · [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) · [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §2.8 · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc)
 
 ### GH007 — push blocked by GitHub private-email protection
 
@@ -513,42 +513,42 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - +# **GH007 resolved** — rebase `origin/main..HEAD` with noreply author **and** `GIT_COMMITTER_EMAIL` on amend; pushed `614ff27` · `4bd993a` · `20adc26` to `origin/main`; author-only amend insufficient (committer still exposed Gmail)
 - +# Follow-up — `origin/main` clean but `git config user.email` still private Gmail; agents must set noreply on commit (env or repo config) or GH007 returns on next push
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.8 · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc)
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §2.8 · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc)
 
 ### NightRaven NGIA — cross-repo R&D orchestration (plan + adopter pilot)
 
-- +# Brent **NightRaven Global Interaction Architecture (NGIA)** — platform-wide editable-component interaction framework; R&D plan authored in gods-eye workspace (`.cursor/plans/nightraven_ngia_r&d_283a8de5.plan.md`)
-- +# **Implementation isolated to BankrollCalendar pilot** — `docs/NGIA/` (standards, gap matrix, HIG/Material/Fluent research, architecture, POC doc) + `OneDayMillionaire/NGIA/` (InteractionEngine, EditableContainer, NightRavenPlatformRoot); `EntryListItem` migrated; build + 38 tests pass — **not** gods-eye framework code (§2.6 app memory)
+- +# Brent **NightRaven Global Interaction Architecture (NGIA)** — platform-wide editable-component interaction framework; R&D plan authored in nightraven workspace (`.cursor/plans/nightraven_ngia_r&d_283a8de5.plan.md`)
+- +# **Implementation isolated to BankrollCalendar pilot** — `docs/NGIA/` (standards, gap matrix, HIG/Material/Fluent research, architecture, POC doc) + `OneDayMillionaire/NGIA/` (InteractionEngine, EditableContainer, NightRavenPlatformRoot); `EntryListItem` migrated; build + 38 tests pass — **not** nightraven framework code (§2.6 app memory)
 - +# §2.7 defer — NGIA vocabulary stays adopter-local until 2+ apps prove universal; no overlay slot in this repo
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) §2 · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.6 · §2.7 · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc)
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) §2 · [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §2.6 · §2.7 · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc)
 
-### External research map — God's Eye positioning vs adjacent fields
+### External research map — NightRaven positioning vs adjacent fields
 
-- +# Online synthesis — no single paper/product matches God's Eye; closest partial overlaps: Intent Engineering, Intent Signal Theory (arXiv:2605.25058), Continuum Memory Architecture (arXiv:2601.09913), STITCH/MemGuide/MemFlow (intent-aware retrieval), RECAP (conversation→goal rewrite), Reflexion/MPR/Memento 2 (reflective compounding), git-native agent memory (AGENTS.md, agentsge, agent-memory)
-- +# Distinctive GE stack confirmed: interpretation engine (Bible §3) + compounding loop (§1) + intent ladder + `+#` epistemology + project isolation (§2.6) + git L0 truth — **project-evolution oversight**, not session-only agent memory
-- Plan artifact: `.cursor/plans/god's_eye_research_map_b4b6f06f.plan.md`; optional wire to overlay/unified stack §2 deferred
+- +# Online synthesis — no single paper/product matches NightRaven; closest partial overlaps: Intent Engineering, Intent Signal Theory (arXiv:2605.25058), Continuum Memory Architecture (arXiv:2601.09913), STITCH/MemGuide/MemFlow (intent-aware retrieval), RECAP (conversation→goal rewrite), Reflexion/MPR/Memento 2 (reflective compounding), git-native agent memory (AGENTS.md, agentsge, agent-memory)
+- +# Distinctive NightRaven stack confirmed: interpretation engine (Bible §3) + compounding loop (§1) + intent ladder + `+#` epistemology + project isolation (§2.6) + git L0 truth — **project-evolution oversight**, not session-only agent memory
+- Plan artifact: `.cursor/plans/nightraven_research_map_b4b6f06f.plan.md`; optional wire to overlay/unified stack §2 deferred
 - +# Second-pass validation (continuation thread) — independent web search affirmed composed architecture; expanded citations (Goal-Mem, PRISM, GCC); proposed **GIRMA** (Governed Intent-Reconstruction Memory Architecture); overlay §1 vocabulary wired
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §1 · §3 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §2 · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc)
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §1 · §3 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`NIGHTRAVEN_UNIFIED_STACK.md`](NIGHTRAVEN_UNIFIED_STACK.md) §2 · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc)
 
 ### Phase 2 MCP — memory-chain tools (stdio)
 
-- +# `mcp-server/` — TypeScript stdio MCP: `gods_eye_list_memory_slots`, `gods_eye_get_read_order`, `gods_eye_read_memory`, `gods_eye_search_memory`, `gods_eye_append_recent_session` (+# only on handoff)
+- +# `mcp-server/` — TypeScript stdio MCP: `nightraven_list_memory_slots`, `nightraven_get_read_order`, `nightraven_read_memory`, `nightraven_search_memory`, `nightraven_append_recent_session` (+# only on handoff)
 - +# `.cursor/mcp.json` + `.cursor/mcp/run-memory-chain-mcp.sh` — Cursor registration; `install.sh` installs per project (`--no-mcp` to skip)
-- +# `docs/MCP_SETUP.md` — build, enable, path resolution (`GODS_EYE_PROJECT_ROOT`, `GODS_EYE_INSTALL_ROOT`); git authoritative over any external index
+- +# `docs/MCP_SETUP.md` — build, enable, path resolution (`NIGHTRAVEN_PROJECT_ROOT`, `NIGHTRAVEN_INSTALL_ROOT`); git authoritative over any external index
 - README layout + `docs/CURSOR_INSTALL.md` MCP verification step wired
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`MCP_SETUP.md`](MCP_SETUP.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §9 Phase 2 · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · `mcp-server/` · `install.sh`
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`MCP_SETUP.md`](MCP_SETUP.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`NIGHTRAVEN_UNIFIED_STACK.md`](NIGHTRAVEN_UNIFIED_STACK.md) §9 Phase 2 · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) · `mcp-server/` · `install.sh`
 
 ### Update god's eye — lint green + UAIPOS §1/§3 vendor
 
-- +# Handoff **Recent sessions** date-order fixed (#4) — newest-first; `gods-eye-lint handoff` passes
-- +# UAIPOS master `docs/37_GODS_EYE_BIBLE.md` — cherry-pick §1 Identity + Continuous learning, §2.8 Task worthiness, §3 five-step / Understand before respond / Interpretation framework from published gods-eye
+- +# Handoff **Recent sessions** date-order fixed (#4) — newest-first; `nightraven-lint handoff` passes
+- +# UAIPOS master `docs/37_NIGHTRAVEN.md` — cherry-pick §1 Identity + Continuous learning, §2.8 Task worthiness, §3 five-step / Understand before respond / Interpretation framework from published nightraven
 - Snapshot sync verified; handoff Current state → `0258e44`
 - Touch 3 AFTER: global rule refresh via `install.sh --user --force-rule`; lint all green; push deferred (GH007 private-email on origin)
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §1 · §2.8 · §3 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · `scripts/lint-framework-memory.sh`
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §1 · §2.8 · §3 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) · `scripts/lint-framework-memory.sh`
 
 ## 2026-06-09
 
@@ -556,29 +556,29 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 - Session exit: `ef017d9` pushed; push-latency §2.8 satisfied; snapshot lint OK; handoff #4 date-order deferred
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.8
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §2.8
 
 ## 2026-06-09
 
 ### BACKLOG #1 #8 #2 #5 — push-latency, canonical scope, snapshot lint
 
 - +# Bible §2.8 **push-latency law** — push before Touch 3 exit or explicit defer in Recent sessions
-- +# `GODS_EYE_PROJECT_INVENTORY.md` **Canonical Bible scope (#8)** — published gods-eye canonical; UAIPOS upstream; snapshot not authoritative
+- +# `NIGHTRAVEN_PROJECT_INVENTORY.md` **Canonical Bible scope (#8)** — published nightraven canonical; UAIPOS upstream; snapshot not authoritative
 - +# `scripts/sync-snapshot.sh` (LOOP step 7) + `scripts/lint-framework-memory.sh` (snapshot drift, handoff date-order heuristic)
 - Touch 3 re-enabled — removed `.cursor/touch3.disabled` markers; `session-stop.sh` push reminder
 - Loop workspace `README.md` + `LOOP_MODE.md` live-sources / authority pointers updated (outside repo)
 
-**Cross-links:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.8 · [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+**Cross-links:** [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §2.8 · [`NIGHTRAVEN_PROJECT_INVENTORY.md`](NIGHTRAVEN_PROJECT_INVENTORY.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
 
 ## 2026-06-09
 
 ### Post-merge audit + safe polish
 
-- Parallel audit: snapshot Bible/overlay/rule match live (680 lines); Bible §0 cherry-picks + §2.6 upstream pointer VERIFIED; hooks + `gods-eye-flow.png` OK
+- Parallel audit: snapshot Bible/overlay/rule match live (680 lines); Bible §0 cherry-picks + §2.6 upstream pointer VERIFIED; hooks + `nightraven-flow.png` OK
 - **Fix:** stale overlay/rule/handoff lines claimed stop hook removed — corrected to marker-only pause (post `e2c4885`)
 - README identity paragraph → pointer-only (#11); inventory scan row refreshed
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md)
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) · [`NIGHTRAVEN_PROJECT_INVENTORY.md`](NIGHTRAVEN_PROJECT_INVENTORY.md)
 
 ## 2026-06-09
 
@@ -587,31 +587,31 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - Shipped uncommitted §1 Identity + Continuous learning & compounding; §3 Understand before respond + Interpretation framework
 - Cherry-picked UAIPOS §0: loop cycle types glance row + canonical-card scope paragraph
 - +# §2.6 master upstream pointer (UAIPOS §2.7 Upstream); kept published §2.7 promote-to-standard as canonical
-- Restored default `stop` hook with `touch3.disabled` pause path; `.gitignore` local marker; README flow diagram at `docs/assets/gods-eye-flow.png`
+- Restored default `stop` hook with `touch3.disabled` pause path; `.gitignore` local marker; README flow diagram at `docs/assets/nightraven-flow.png`
 - Loop workspace snapshot sync (step 7) after push
 
-**Cross-links:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §0 · §1 · §2.6 · §3 · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`README.md`](../README.md)
+**Cross-links:** [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §0 · §1 · §2.6 · §3 · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`README.md`](../README.md)
 
-### GE ecosystem benchmark — adopt/adapt/reject map (Q&A)
+### NightRaven ecosystem benchmark — adopt/adapt/reject map (Q&A)
 
-- Mapped GE-adjacent repos (gods-eye, UAIPOS, BankrollCalendar, Memory Bank variants, hooks/MCP tooling) against unified stack §2 layers
+- Mapped NightRaven-adjacent repos (nightraven, UAIPOS, BankrollCalendar, Memory Bank variants, hooks/MCP tooling) against unified stack §2 layers
 - **Adopt:** git-native memory chain, `+#` only, install.sh, optional hooks, project inventory metadata
 - **Adapt:** per-repo overlay, consumer-app §2.8 task-worthiness, loop workspace snapshot (reference-only)
 - **Reject:** cross-repo handoff bleed, surveillance framing, template spam per cycle, third canonical Agent card copies
 - **Positioning:** confirms **git-native fourth camp** — durable repo memory vs chat-only, vs IDE rules-only, vs external KB SaaS
 
-**Cross-links:** [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §2 · [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+**Cross-links:** [`NIGHTRAVEN_UNIFIED_STACK.md`](NIGHTRAVEN_UNIFIED_STACK.md) §2 · [`NIGHTRAVEN_PROJECT_INVENTORY.md`](NIGHTRAVEN_PROJECT_INVENTORY.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
 
 ## 2026-06-09
 
 ### Loop workspace audit — three-Bible drift + backlog prioritization (plan only)
 
-- Read `~/God's Eye/LOOP_MODE.md`, `BACKLOG.md`, `GodsEye-Docs-extracted/` snapshot vs live `gods-eye` chain
-- **Finding:** snapshot frozen pre-§2.7/§2.8/§3 doctrine (509 lines); published `gods-eye` Bible 675 lines (471 uncommitted); UAIPOS master 566 lines — §2.7 semantics differ (upstream vs promote-to-standard); loop workspace live-sources table omits published repo
+- Read `~/NightRaven/LOOP_MODE.md`, `BACKLOG.md`, `NightRaven-Docs-extracted/` snapshot vs live `nightraven` chain
+- **Finding:** snapshot frozen pre-§2.7/§2.8/§3 doctrine (509 lines); published `nightraven` Bible 675 lines (471 uncommitted); UAIPOS master 566 lines — §2.7 semantics differ (upstream vs promote-to-standard); loop workspace live-sources table omits published repo
 - Prioritized 13 Brent-queued backlog items; suggested cycle order: ship batch → push-latency (#1) → date-order (#4) → single-source (#8) → lint cluster (#5+#2)
 - **Blocked on:** Brent canonical-scope decision for #8 before sync/lint/version stamp
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §8 Phase 3 · `~/God's Eye/BACKLOG.md`
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`NIGHTRAVEN_PROJECT_INVENTORY.md`](NIGHTRAVEN_PROJECT_INVENTORY.md) · [`NIGHTRAVEN_UNIFIED_STACK.md`](NIGHTRAVEN_UNIFIED_STACK.md) §8 Phase 3 · `~/NightRaven/BACKLOG.md`
 
 ## 2026-06-09
 
@@ -621,17 +621,17 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - +# §3 **Interpretation framework** — 4 layers, pipeline, continuity, ambiguity resolver, usage protection, auto-prompt builder; links §1 compounding
 - Wired rule, overlay, `AGENTS.md`; learning log + handoff
 
-**Cross-links:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §3 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md)
+**Cross-links:** [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §3 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md)
 
 ## 2026-06-09
 
 ### Bible §3 — Understand before respond (mental model)
 
 - Brent context: understand concept/context/idea before suggestions — learn why not just what
-- +# §3 **Understand before respond** — vocabulary table, short commands, GE agent card; default meaning table row
+- +# §3 **Understand before respond** — vocabulary table, short commands, NightRaven agent card; default meaning table row
 - Wired rule, `AGENTS.md`; learning log + handoff
 
-**Cross-links:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §3 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`AGENTS.md`](../AGENTS.md)
+**Cross-links:** [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §3 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`AGENTS.md`](../AGENTS.md)
 
 ## 2026-06-09
 
@@ -641,7 +641,7 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - +# §1: beyond storage (memory vs learning system loops), curious-human reflection prompts, "nothing static"; one-liner adds communicate
 - Learning log pattern appended
 
-**Cross-links:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §1 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+**Cross-links:** [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §1 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
 
 ## 2026-06-09
 
@@ -651,7 +651,7 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - Canonical close consolidated in handoff **Recent sessions**; redundant stacked lines marked **Supersedes**
 - Learning log pattern appended; one AFTER for this fix pass
 
-**Cross-links:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.8 · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+**Cross-links:** [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §2.8 · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
 
 ## 2026-06-09
 
@@ -663,48 +663,48 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - Overlay pointer added for Bible §1 **Continuous learning & compounding**
 - 7 files on working tree; `+#` only; uncommitted
 
-**Cross-links:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §1 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md) · [`README.md`](../README.md)
+**Cross-links:** [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §1 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md) · [`README.md`](../README.md)
 
 ## 2026-06-09
 
 ### Bible §1 — Continuous learning & compounding doctrine
 
-- Brent context: God'sEye learns continuously from actions, outcomes, and decisions — memory is mechanism, compounding learning is goal
-- Added `37_GODS_EYE_BIBLE.md` §1 **Continuous learning & compounding** — core principle, compounding loop, co-evolution, learning laws
+- Brent context: NightRaven learns continuously from actions, outcomes, and decisions — memory is mechanism, compounding learning is goal
+- Added `37_NIGHTRAVEN.md` §1 **Continuous learning & compounding** — core principle, compounding loop, co-evolution, learning laws
 - Wired cross-links: rule, `AGENTS.md`, README; learning log + handoff
 - Touch 3 AFTER — `+#` only; uncommitted
 
-**Cross-links:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §1 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`AGENTS.md`](../AGENTS.md)
+**Cross-links:** [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §1 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`AGENTS.md`](../AGENTS.md)
 
 ## 2026-06-09
 
-### Touch 3 AFTER — GE identity dedup verify
+### Touch 3 AFTER — NightRaven identity dedup verify
 
 - Verified prior pass: Bible §1 Identity, rule, overlay, `AGENTS.md`, README, changelog, learning log wired
-- Marked duplicate learning log GE identity block **Supersedes** (append-only dedup)
+- Marked duplicate learning log NightRaven identity block **Supersedes** (append-only dedup)
 - Cross-links intact; push pending
 
-**Cross-links:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §1 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md)
+**Cross-links:** [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §1 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md)
 
 ## 2026-06-09
 
-### Bible §1 — God'sEye identity (collective legendary mastery)
+### Bible §1 — NightRaven identity (collective legendary mastery)
 
-- Brent context: God'sEye identity — embodiment of legendary coders; collective mastery transcending individual identities; symbol of coding excellence
-- Added `37_GODS_EYE_BIBLE.md` §1 **Identity** subsection; operational expression → §10 Tier C (no §10 duplication)
+- Brent context: NightRaven identity — embodiment of legendary coders; collective mastery transcending individual identities; symbol of coding excellence
+- Added `37_NIGHTRAVEN.md` §1 **Identity** subsection; operational expression → §10 Tier C (no §10 duplication)
 - Wired cross-links: rule, `AGENTS.md`, README, overlay; learning log + handoff
 - Touch 3 AFTER session close — 8 files on working tree; `+#` only; uncommitted
 
-**Cross-links:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §1 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md)
+**Cross-links:** [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §1 · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md)
 
 ## 2026-06-09
 
 ### Public README — follower-worthy positioning
 
 - Brent: rewrite public pitch for strangers (10-second comprehension); keep Bible/BAIC/Tier C internal
-- README hero: tagline *AI agents forget. God's Eye makes your repo remember.*; badges; Before/After; copy-paste starter prompt; flow diagram
+- README hero: tagline *AI agents forget. NightRaven makes your repo remember.*; badges; Before/After; copy-paste starter prompt; flow diagram
 - Public motto: *Remember the work. Protect the context. Prevent wasted effort.* — replaces surveillance-sounding front-page copy
-- Added `docs/assets/gods-eye-flow.png`; `AGENTS.md` one-line public pitch pointer
+- Added `docs/assets/nightraven-flow.png`; `AGENTS.md` one-line public pitch pointer
 - GitHub metadata: description + topics via `gh repo edit`
 
 **Cross-links:** [`README.md`](../README.md) · [`AGENTS.md`](../AGENTS.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
@@ -724,87 +724,87 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ### Bible §2.8 — Task worthiness (promoted from BankrollCalendar)
 
-- Brent: sync OneDayMillionaire God's Eye learnings → published standard
-- Added `37_GODS_EYE_BIBLE.md` §2.8 — plan until **code it**; one Touch 3 AFTER; fresh thread when heavy; subagents for substantial work only
+- Brent: sync OneDayMillionaire NightRaven learnings → published standard
+- Added `37_NIGHTRAVEN.md` §2.8 — plan until **code it**; one Touch 3 AFTER; fresh thread when heavy; subagents for substantial work only
 - §0 glance + Agent quick start mistakes + §3 default-meaning rows + §6 anti-patterns
 - Wired rule, template rule, router Agent card, overlay §4 pitfalls, `AGENTS.md`, optional `templates/model-delegation-efficiency.user.mdc`
 - Learning log: task-worthiness + monolith PR split pattern
 
-**Cross-links:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.8 · [`GODS_EYE_LAYERED_SPEC_ROUTER.md`](GODS_EYE_LAYERED_SPEC_ROUTER.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) §4 · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+**Cross-links:** [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §2.8 · [`NIGHTRAVEN_LAYERED_SPEC_ROUTER.md`](NIGHTRAVEN_LAYERED_SPEC_ROUTER.md) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) §4 · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
 
 ## 2026-06-10
 
 ### Bible §3 — Unclear messages (honor intent)
 
 - Brent context: when message unclear — rewrite in clear English, infer meaning, list 2–3 interpretations if tied, explain ambiguity; never assume Brent is wrong
-- Added `37_GODS_EYE_BIBLE.md` §3 subsection + §0 Before/common mistake/anti-pattern rows; wired rule, `AGENTS.md`, overlay, learning log
+- Added `37_NIGHTRAVEN.md` §3 subsection + §0 Before/common mistake/anti-pattern rows; wired rule, `AGENTS.md`, overlay, learning log
 
-**Cross-links:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §3 · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`AGENTS.md`](../AGENTS.md)
+**Cross-links:** [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §3 · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`AGENTS.md`](../AGENTS.md)
 
 ### Bible §3 — Unclear coding ideas (clarify before code)
 
 - Brent context: unclear coding idea → rewrite, identify goal/module/concept, likely + 1–2 alternatives, plain-term glossary; no code unless asked (§2.8)
-- Added `37_GODS_EYE_BIBLE.md` §3 subsection + anti-pattern; wired rule, `AGENTS.md`, overlay, learning log
+- Added `37_NIGHTRAVEN.md` §3 subsection + anti-pattern; wired rule, `AGENTS.md`, overlay, learning log
 
-**Cross-links:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §3 · [`GODS_EYE_LAYERED_SPEC_ROUTER.md`](GODS_EYE_LAYERED_SPEC_ROUTER.md)
+**Cross-links:** [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §3 · [`NIGHTRAVEN_LAYERED_SPEC_ROUTER.md`](NIGHTRAVEN_LAYERED_SPEC_ROUTER.md)
 
 ### Bible §3 — Five-step unclear input (canonical)
 
 - Brent context: (1) fix English (2) understand intent (3) technical translate (4) explain concept (5) ask only if truly unclear; merged prior §3 subsections
 - Wired rule, `AGENTS.md`, overlay, learning log, router
 
-**Cross-links:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §3 · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc)
+**Cross-links:** [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §3 · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc)
 
-**Touch 3 wired:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md) · [`GODS_EYE_LAYERED_SPEC_ROUTER.md`](GODS_EYE_LAYERED_SPEC_ROUTER.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+**Touch 3 wired:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) · [`AGENTS.md`](../AGENTS.md) · [`NIGHTRAVEN_LAYERED_SPEC_ROUTER.md`](NIGHTRAVEN_LAYERED_SPEC_ROUTER.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
 
 ### Shipped on `main` — `60b26b8`
 
 - Commit: Bible §3 five-step unclear input — fix English, intent, technical translate, explain, ask if truly unclear; no code until ship signal
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §3 · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`AGENTS.md`](../AGENTS.md)
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §3 · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`AGENTS.md`](../AGENTS.md)
 
 ---
 
 ### Bible §2.7 — Promote universal to standard
 
 - Brent context: cross-app docs/code → **published standard**; stop re-instructing "add X" every session
-- Added `37_GODS_EYE_BIBLE.md` §2.7, §6 anti-pattern, §3 default-meaning row, §0 glance row
+- Added `37_NIGHTRAVEN.md` §2.7, §6 anti-pattern, §3 default-meaning row, §0 glance row
 - Wired overlay vocabulary, rule law line, learning log, unified stack adopt/reject, handoff **Recent sessions**
 
-**Cross-links:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.7 · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) §1–2
+**Cross-links:** [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §2.7 · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) §1–2
 
-**Touch 3 wired:** [`GODS_EYE_LAYERED_SPEC_ROUTER.md`](GODS_EYE_LAYERED_SPEC_ROUTER.md) portable §2.7 note · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+**Touch 3 wired:** [`NIGHTRAVEN_LAYERED_SPEC_ROUTER.md`](NIGHTRAVEN_LAYERED_SPEC_ROUTER.md) portable §2.7 note · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`NIGHTRAVEN_UNIFIED_STACK.md`](NIGHTRAVEN_UNIFIED_STACK.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
 
 ### §2.7 prose simplified (Tier C pass)
 
 - Condensed Bible §2.7 from multi-table spec to one rule + one table; same law
 - Shortened overlay, rule, `AGENTS.md`, learning log, unified stack, handoff guardrail lines
 
-**Touch 3 wired:** [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.7 · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`GODS_EYE_LAYERED_SPEC_ROUTER.md`](GODS_EYE_LAYERED_SPEC_ROUTER.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+**Touch 3 wired:** [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §2.7 · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) · [`NIGHTRAVEN_LAYERED_SPEC_ROUTER.md`](NIGHTRAVEN_LAYERED_SPEC_ROUTER.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
 
 ### Shipped on `main` — `1efbdba`
 
 - Commit: Bible §2.7 cross-app standard law + simplified chain pointers (rule, overlay, `AGENTS.md`, handoff, unified stack)
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.7 · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc)
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §2.7 · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc)
 
 ### Shipped on `main` — `40a88fe`
 
 - Touch 3 memory: handoff **Recent sessions** + ship note after `1efbdba` push
 
-**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`AGENTS.md`](../AGENTS.md) · [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) §2.7
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`AGENTS.md`](../AGENTS.md) · [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) §2.7
 
 ---
 
-### Project inventory — cross-repo God's Eye scan
+### Project inventory — cross-repo NightRaven scan
 
-- Added `docs/GODS_EYE_PROJECT_INVENTORY.md` — gods-eye, UAIPOS, BankrollCalendar, `~/.cursor` metadata (no app-memory bleed)
+- Added `docs/NIGHTRAVEN_PROJECT_INVENTORY.md` — nightraven, UAIPOS, BankrollCalendar, `~/.cursor` metadata (no app-memory bleed)
 - Added `scripts/scan-nightraven-projects.sh` + `scripts/nightraven-projects.conf` — refreshable artifact/phase report
-- Wired `GODS_EYE_UNIFIED_STACK.md` §12, README artifact table + layout
+- Wired `NIGHTRAVEN_UNIFIED_STACK.md` §12, README artifact table + layout
 
-**Cross-links:** [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §12
+**Cross-links:** [`NIGHTRAVEN_PROJECT_INVENTORY.md`](NIGHTRAVEN_PROJECT_INVENTORY.md) · [`NIGHTRAVEN_UNIFIED_STACK.md`](NIGHTRAVEN_UNIFIED_STACK.md) §12
 
-**Touch 3 wired:** [`GODS_EYE_LAYERED_SPEC_ROUTER.md`](GODS_EYE_LAYERED_SPEC_ROUTER.md) inventory row · [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) §3 · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc)
+**Touch 3 wired:** [`NIGHTRAVEN_LAYERED_SPEC_ROUTER.md`](NIGHTRAVEN_LAYERED_SPEC_ROUTER.md) inventory row · [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) §3 · [`AGENTS.md`](../AGENTS.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc)
 
 ---
 
@@ -814,9 +814,9 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 - Added `install.sh` — project bootstrap (rule, vendored Bible, L3 docs, hooks) and `--user` global install
 - Added `CURSOR_INSTALL.md` — verification steps (Settings → Rules, Hooks, test session)
-- Hooks: `lib.sh` resolves `workspace_roots` + sets `GODS_EYE_PROJECT_ROOT` / `GODS_EYE_ROOT` at `sessionStart`
+- Hooks: `lib.sh` resolves `workspace_roots` + sets `NIGHTRAVEN_PROJECT_ROOT` / `NIGHTRAVEN_ROOT` at `sessionStart`
 - Templates under `templates/` for handoff, changelog, learning log, overlay, `AGENTS.md`, user rule, `hooks.user.json`
-- Lean `nightraven-context-intent.mdc` START HERE table (Bible fallback via `GODS_EYE_ROOT`)
+- Lean `nightraven-context-intent.mdc` START HERE table (Bible fallback via `NIGHTRAVEN_ROOT`)
 
 **Cross-links:** [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) · [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`README.md`](../README.md)
 
@@ -830,4 +830,4 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 - Wired README: artifact table, quick-start step 6, repository layout
 - **Fix:** bash 3.2 (macOS) misparses `God's` inside `"$(cat <<EOF …)"` heredocs — use `message+=` concatenation or unquoted heredoc with variable substitution outside the apostrophe token
 
-**Cross-links:** [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §8 · [`GODS_EYE_SESSION_SPEC_TREES.md`](GODS_EYE_SESSION_SPEC_TREES.md) §3
+**Cross-links:** [`HOOKS_SETUP.md`](HOOKS_SETUP.md) · [`NIGHTRAVEN_UNIFIED_STACK.md`](NIGHTRAVEN_UNIFIED_STACK.md) §8 · [`NIGHTRAVEN_SESSION_SPEC_TREES.md`](NIGHTRAVEN_SESSION_SPEC_TREES.md) §3

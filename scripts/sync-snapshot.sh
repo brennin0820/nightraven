@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# sync-snapshot.sh — Copy published gods-eye chain files to loop workspace snapshot (LOOP step 7).
+# sync-snapshot.sh — Copy published nightraven chain files to loop workspace snapshot (LOOP step 7).
 #
 # Usage:
 #   ./scripts/sync-snapshot.sh              # sync + verify diff clean
@@ -8,20 +8,20 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-GODS_EYE_ROOT="${GODS_EYE_ROOT:-$ROOT}"
-SNAPSHOT="${GODS_EYE_SNAPSHOT:-"${HOME}/God's Eye/GodsEye-Docs-extracted"}"
+NIGHTRAVEN_ROOT="${NIGHTRAVEN_ROOT:-$ROOT}"
+SNAPSHOT="${NIGHTRAVEN_SNAPSHOT:-"${HOME}/NightRaven/NightRaven-Docs-extracted"}"
 MODE="${1:-}"
 
 SYNC_FILES=(
-  "docs/37_GODS_EYE_BIBLE.md"
-  "docs/GODS_EYE_REPO_OVERLAY.md"
+  "docs/37_NIGHTRAVEN.md"
+  "docs/NIGHTRAVEN_REPO_OVERLAY.md"
   ".cursor/rules/nightraven-context-intent.mdc"
 )
 
 if [[ ! -d "$SNAPSHOT" ]]; then
-  if [[ "$MODE" == "--check-only" && "${GODS_EYE_SNAPSHOT_REQUIRED:-0}" != "1" ]]; then
+  if [[ "$MODE" == "--check-only" && "${NIGHTRAVEN_SNAPSHOT_REQUIRED:-0}" != "1" ]]; then
     echo "Snapshot check skipped (directory missing): $SNAPSHOT"
-    echo "Set GODS_EYE_SNAPSHOT or GODS_EYE_SNAPSHOT_REQUIRED=1 to enforce this check."
+    echo "Set NIGHTRAVEN_SNAPSHOT or NIGHTRAVEN_SNAPSHOT_REQUIRED=1 to enforce this check."
     exit 0
   fi
   echo "Snapshot directory missing: $SNAPSHOT" >&2
@@ -30,11 +30,11 @@ fi
 
 fail=0
 for rel in "${SYNC_FILES[@]}"; do
-  src="${GODS_EYE_ROOT}/${rel}"
+  src="${NIGHTRAVEN_ROOT}/${rel}"
   dest="${SNAPSHOT}/${rel##*/}"
   case "$rel" in
-    docs/37_GODS_EYE_BIBLE.md) dest="${SNAPSHOT}/37_GODS_EYE_BIBLE.md" ;;
-    docs/GODS_EYE_REPO_OVERLAY.md) dest="${SNAPSHOT}/GODS_EYE_REPO_OVERLAY.md" ;;
+    docs/37_NIGHTRAVEN.md) dest="${SNAPSHOT}/37_NIGHTRAVEN.md" ;;
+    docs/NIGHTRAVEN_REPO_OVERLAY.md) dest="${SNAPSHOT}/NIGHTRAVEN_REPO_OVERLAY.md" ;;
     .cursor/rules/*) dest="${SNAPSHOT}/nightraven-context-intent.mdc" ;;
   esac
   if [[ ! -f "$src" ]]; then

@@ -2,7 +2,7 @@ import { AppFoundationFlow } from './flows/AppFoundationFlow.js'
 import type { AppSpec } from './types/agent.js'
 import { logger } from './utils/logger.js'
 
-// Example spec — replace with real input or wire to God's Eye handoff
+// Example spec — replace with real input or wire to NightRaven handoff
 const spec: AppSpec = {
   name: 'NightRaven App',
   intent: 'Agent-native project guidance and memory platform for non-coder builders',

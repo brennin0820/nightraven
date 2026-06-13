@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Bootstrap a new NightRaven consumer project — God's Eye memory + NightRaven Core.
+# Bootstrap a new NightRaven consumer project — NightRaven memory + NightRaven Core.
 #
 # Usage:
 #   ./scripts/bootstrap-nightraven-project.sh PROJECT_NAME [TARGET_DIR]
@@ -13,20 +13,20 @@
 
 set -euo pipefail
 
-GODS_EYE_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+NIGHTRAVEN_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PROJECT_NAME="${1:-}"
 TARGET="${2:-}"
 
 usage() {
   cat <<EOF
-Bootstrap a new NightRaven project (God's Eye + Core)
+Bootstrap a new NightRaven project (NightRaven + Core)
 
 Usage: $(basename "$0") PROJECT_NAME [TARGET_DIR]
 
   PROJECT_NAME   Display name (e.g. HimFLer) — used in overlay and README
   TARGET_DIR     Optional absolute path (default: ../PROJECT_NAME next to framework)
 
-Framework: ${GODS_EYE_ROOT}
+Framework: ${NIGHTRAVEN_ROOT}
 EOF
 }
 
@@ -39,7 +39,7 @@ if [[ -z "$PROJECT_NAME" ]]; then
 fi
 
 if [[ -z "$TARGET" ]]; then
-  TARGET="$(cd "${GODS_EYE_ROOT}/.." && pwd)/${PROJECT_NAME}"
+  TARGET="$(cd "${NIGHTRAVEN_ROOT}/.." && pwd)/${PROJECT_NAME}"
 fi
 
 TARGET="$(mkdir -p "$TARGET" && cd "$TARGET" && pwd)"
@@ -49,25 +49,25 @@ if [[ ! -d "${TARGET}/.git" ]]; then
   git -C "$TARGET" init -b main
 fi
 
-log "Installing God's Eye + NightRaven Core → ${TARGET}"
-"${GODS_EYE_ROOT}/scripts/install-nightraven-framework.sh" --no-mcp "$TARGET"
+log "Installing NightRaven + NightRaven Core → ${TARGET}"
+"${NIGHTRAVEN_ROOT}/scripts/install-nightraven-framework.sh" --no-mcp "$TARGET"
 
 TODAY="$(date +%Y-%m-%d)"
-FRAMEWORK_REF="${GODS_EYE_ROOT}"
+FRAMEWORK_REF="${NIGHTRAVEN_ROOT}"
 
 # --- Overlay (product boundary + vocabulary) ---
-OVERLAY="${TARGET}/docs/GODS_EYE_REPO_OVERLAY.md"
+OVERLAY="${TARGET}/docs/NIGHTRAVEN_REPO_OVERLAY.md"
 if [[ -f "$OVERLAY" ]]; then
   cat > "$OVERLAY" <<EOF
-# God's Eye repo overlay — ${PROJECT_NAME}
+# NightRaven repo overlay — ${PROJECT_NAME}
 
-**Local layer only.** Portable laws live in **\`docs/37_GODS_EYE_BIBLE.md\`** (vendored or at \`\$GODS_EYE_ROOT\`).
+**Local layer only.** Portable laws live in **\`docs/37_NIGHTRAVEN.md\`** (vendored or at \`\$NIGHTRAVEN_ROOT\`).
 
-**Router:** \`docs/GODS_EYE_LAYERED_SPEC_ROUTER.md\` (if present)
+**Router:** \`docs/NIGHTRAVEN_LAYERED_SPEC_ROUTER.md\` (if present)
 
 **Default posture:** **Tier C — Creator-Innovator** (Bible §10).
 
-**NightRaven stack:** God's Eye remembers · NightRaven Core orchestrates (\`/nightraven\`). Framework installed from \`${FRAMEWORK_REF}\`.
+**NightRaven stack:** NightRaven remembers · NightRaven Core orchestrates (\`/nightraven\`). Framework installed from \`${FRAMEWORK_REF}\`.
 
 ---
 
@@ -76,7 +76,7 @@ if [[ -f "$OVERLAY" ]]; then
 | Term | Meaning |
 |------|---------|
 | **${PROJECT_NAME}** | This product / app — ship name and repo folder |
-| **God's Eye** | Agent memory chain — handoff, overlay, hooks, Bible (installed) |
+| **NightRaven** | Agent memory chain — handoff, overlay, hooks, Bible (installed) |
 | **NightRaven Core** | Orchestration — \`.claude/skills/nightraven/SKILL.md\` |
 | **Brent's context** | Agent memory intent — not code \`*Context*\` types unless this app defines them |
 | **Always Sync** | Pull before work; commit+push after changes when remote configured (Bible §2.9) |
@@ -87,7 +87,7 @@ if [[ -f "$OVERLAY" ]]; then
 
 - **${PROJECT_NAME}** — greenfield project bootstrapped ${TODAY}; product scope TBD with Brent.
 - Agents **plan until code it** — memory + wire default; no feature code until Brent says **code it** / **implement** / **build**.
-- **This repo only** — no handoff bleed from gods-eye framework repo or other apps (§2.6).
+- **This repo only** — no handoff bleed from nightraven framework repo or other apps (§2.6).
 
 ---
 
@@ -96,7 +96,7 @@ if [[ -f "$OVERLAY" ]]; then
 | Layer | Path |
 |-------|------|
 | Rule | \`.cursor/rules/nightraven-context-intent.mdc\` |
-| Bible | \`docs/37_GODS_EYE_BIBLE.md\` |
+| Bible | \`docs/37_NIGHTRAVEN.md\` |
 | Overlay | this file |
 | Handoff | \`docs/14_SESSION_HANDOFF.md\` |
 | Entry | \`AGENTS.md\` |
@@ -105,7 +105,7 @@ if [[ -f "$OVERLAY" ]]; then
 | Quickstart | \`docs/PROJECT_QUICKSTART.md\` |
 
 EOF
-  log "wrote overlay → docs/GODS_EYE_REPO_OVERLAY.md"
+  log "wrote overlay → docs/NIGHTRAVEN_REPO_OVERLAY.md"
 fi
 
 # --- Handoff ---
@@ -114,19 +114,19 @@ if [[ -f "$HANDOFF" ]]; then
   cat > "$HANDOFF" <<EOF
 # Session handoff — ${PROJECT_NAME}
 
-**Scope:** App memory for **this repository only**. Portable law: \`docs/37_GODS_EYE_BIBLE.md\`.
+**Scope:** App memory for **this repository only**. Portable law: \`docs/37_NIGHTRAVEN.md\`.
 
 ---
 
 ## Current state / focus
 
-**${PROJECT_NAME}** — greenfield NightRaven project bootstrapped ${TODAY} via \`bootstrap-nightraven-project.sh\` from God's Eye framework (\`${FRAMEWORK_REF}\`). Stack: God's Eye memory + NightRaven Core. **Next:** Brent defines product scope · initial codebase · remote when ready.
+**${PROJECT_NAME}** — greenfield NightRaven project bootstrapped ${TODAY} via \`bootstrap-nightraven-project.sh\` from NightRaven framework (\`${FRAMEWORK_REF}\`). Stack: NightRaven memory + NightRaven Core. **Next:** Brent defines product scope · initial codebase · remote when ready.
 
 ---
 
 ## Already done
 
-- +# **Bootstrap** (${TODAY}) — God's Eye + NightRaven Core installed; overlay · handoff · ledgers · hooks · \`PROJECT_QUICKSTART.md\`
+- +# **Bootstrap** (${TODAY}) — NightRaven + NightRaven Core installed; overlay · handoff · ledgers · hooks · \`PROJECT_QUICKSTART.md\`
 
 ---
 
@@ -151,11 +151,11 @@ QUICK="${TARGET}/docs/PROJECT_QUICKSTART.md"
 cat > "$QUICK" <<EOF
 # ${PROJECT_NAME} — project quickstart
 
-Bootstrapped ${TODAY} with **God's Eye** + **NightRaven Core**.
+Bootstrapped ${TODAY} with **NightRaven** + **NightRaven Core**.
 
 ## First session (agent)
 
-1. Parallel-read: rule → \`docs/37_GODS_EYE_BIBLE.md\` §0 → overlay → handoff → \`AGENTS.md\`
+1. Parallel-read: rule → \`docs/37_NIGHTRAVEN.md\` §0 → overlay → handoff → \`AGENTS.md\`
 2. Ask Brent for product scope if unclear
 3. Complex work: \`/nightraven <task>\` after Phase 0 assessment
 
@@ -164,7 +164,7 @@ Bootstrapped ${TODAY} with **God's Eye** + **NightRaven Core**.
 \`\`\`bash
 cd "${TARGET}"
 git add -A
-git commit -m "chore: bootstrap ${PROJECT_NAME} with God's Eye + NightRaven Core"
+git commit -m "chore: bootstrap ${PROJECT_NAME} with NightRaven + NightRaven Core"
 # git remote add origin <url> && git push -u origin main
 \`\`\`
 
@@ -181,16 +181,16 @@ README="${TARGET}/README.md"
 cat > "$README" <<EOF
 # ${PROJECT_NAME}
 
-NightRaven consumer project — **God's Eye** memory + **NightRaven Core** orchestration.
+NightRaven consumer project — **NightRaven** memory + **NightRaven Core** orchestration.
 
 | Layer | Purpose |
 |-------|---------|
-| God's Eye | Durable agent memory (handoff, overlay, hooks) |
+| NightRaven | Durable agent memory (handoff, overlay, hooks) |
 | NightRaven Core | \`/nightraven\` adaptive Builder/Auditor orchestration |
 
 **Quickstart:** [docs/PROJECT_QUICKSTART.md](docs/PROJECT_QUICKSTART.md)
 
-Bootstrapped ${TODAY} from [God's Eye / NightRaven platform](${FRAMEWORK_REF}).
+Bootstrapped ${TODAY} from [NightRaven / NightRaven platform](${FRAMEWORK_REF}).
 EOF
 log "wrote README.md"
 

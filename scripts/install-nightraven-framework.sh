@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Install God's Eye (memory chain) + NightRaven Core (orchestration) into a project.
+# Install NightRaven (memory chain) + NightRaven Core (orchestration) into a project.
 #
 # Usage:
 #   ./scripts/install-nightraven-framework.sh [INSTALL.SH OPTIONS] TARGET_DIR
@@ -8,19 +8,19 @@
 #   ./scripts/install-nightraven-framework.sh ~/Developer/NightRaven
 #   ./scripts/install-nightraven-framework.sh --user --no-mcp ~/Projects/my-app
 #
-# Recommendation: God's Eye = durable memory (handoff, hooks, Bible).
+# Recommendation: NightRaven = durable memory (handoff, hooks, Bible).
 # NightRaven Core = adaptive orchestration (Builder/Auditor, ledgers, /nightraven).
 # Keep both layers; do not collapse repos or memory chains.
 
 set -euo pipefail
 
-GODS_EYE_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+NIGHTRAVEN_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 INSTALL_ARGS=()
 TARGET=""
 
 usage() {
   cat <<EOF
-God's Eye + NightRaven Core — combined project installer
+NightRaven + NightRaven Core — combined project installer
 
 Usage: $(basename "$0") [INSTALL.SH OPTIONS] TARGET_DIR
 
@@ -36,13 +36,13 @@ Examples:
   $0 ~/Developer/NightRaven
   $0 --user ~/Projects/my-app
 
-Framework root: ${GODS_EYE_ROOT}
+Framework root: ${NIGHTRAVEN_ROOT}
 See: docs/CURSOR_INSTALL.md · docs/CLAUDE_ADOPTION.md
 EOF
 }
 
-log() { printf '==> [gods-eye+nightraven] %s\n' "$*"; }
-warn() { printf '!!> [gods-eye+nightraven] %s\n' "$*" >&2; }
+log() { printf '==> [nightraven+nightraven] %s\n' "$*"; }
+warn() { printf '!!> [nightraven+nightraven] %s\n' "$*" >&2; }
 
 append_if_missing() {
   local file="$1" marker="$2" content="$3"
@@ -97,12 +97,12 @@ fi
 
 TARGET="$(cd "$TARGET" && pwd)"
 
-log "Running God's Eye install → ${TARGET}"
-"${GODS_EYE_ROOT}/install.sh" "${INSTALL_ARGS[@]}" "$TARGET"
+log "Running NightRaven install → ${TARGET}"
+"${NIGHTRAVEN_ROOT}/install.sh" "${INSTALL_ARGS[@]}" "$TARGET"
 
 log "Installing NightRaven Core skill"
 mkdir -p "${TARGET}/.claude/skills/nightraven"
-cp "${GODS_EYE_ROOT}/.claude/skills/nightraven/SKILL.md" \
+cp "${NIGHTRAVEN_ROOT}/.claude/skills/nightraven/SKILL.md" \
   "${TARGET}/.claude/skills/nightraven/SKILL.md"
 
 log "Installing NightRaven ledgers (append-only)"
@@ -112,23 +112,23 @@ for ledger in BUILD_LEDGER.md AUDIT_LEDGER.md; do
   if [[ -f "$dest" ]]; then
     warn "exists (skip): docs/ledgers/${ledger}"
   else
-    cp "${GODS_EYE_ROOT}/docs/ledgers/${ledger}" "$dest"
+    cp "${NIGHTRAVEN_ROOT}/docs/ledgers/${ledger}" "$dest"
     log "created: docs/ledgers/${ledger}"
   fi
 done
 
-OVERLAY="${TARGET}/docs/GODS_EYE_REPO_OVERLAY.md"
+OVERLAY="${TARGET}/docs/NIGHTRAVEN_REPO_OVERLAY.md"
 append_if_missing "$OVERLAY" "**NightRaven Core**" "$(cat <<'OVERLAY_BLOCK'
 
 ---
 
-## NightRaven stack (God's Eye + Core)
+## NightRaven stack (NightRaven + Core)
 
 | Term | Meaning |
 |------|---------|
-| **God's Eye** | Portable agent memory — Bible, handoff, hooks, +# chain (this install) |
+| **NightRaven** | Portable agent memory — Bible, handoff, hooks, +# chain (this install) |
 | **NightRaven Core** | Adaptive orchestration — `.claude/skills/nightraven/SKILL.md`; invoke with `/nightraven <task>` |
-| **Stack rule** | God's Eye remembers; NightRaven Core coordinates execution. Do not collapse memory chains. |
+| **Stack rule** | NightRaven remembers; NightRaven Core coordinates execution. Do not collapse memory chains. |
 OVERLAY_BLOCK
 )"
 
@@ -140,21 +140,21 @@ append_if_missing "$AGENTS" "NightRaven Core" "$(cat <<'AGENTS_BLOCK'
 - **Skill:** `.claude/skills/nightraven/SKILL.md` — adaptive Builder/Auditor orchestration
 - **Ledgers:** `docs/ledgers/BUILD_LEDGER.md` · `docs/ledgers/AUDIT_LEDGER.md` (append-only)
 - **When:** Complex or multi-step work — run Phase 0 Task Assessment before mutating files
-- **Law:** God's Eye memory chain still authoritative; NightRaven Core does not replace handoff or Bible §2.8 ship signal
+- **Law:** NightRaven memory chain still authoritative; NightRaven Core does not replace handoff or Bible §2.8 ship signal
 AGENTS_BLOCK
 )"
 
 cat <<EOF
 
-God's Eye + NightRaven Core install complete: ${TARGET}
+NightRaven + NightRaven Core install complete: ${TARGET}
 
 Verify:
-  • God's Eye: Cursor Settings → Rules + Hooks (see docs/CURSOR_INSTALL.md)
+  • NightRaven: Cursor Settings → Rules + Hooks (see docs/CURSOR_INSTALL.md)
   • NightRaven: .claude/skills/nightraven/SKILL.md present
   • Ledgers: docs/ledgers/BUILD_LEDGER.md + AUDIT_LEDGER.md
 
 First session:
-  1. Edit docs/GODS_EYE_REPO_OVERLAY.md — product boundary + local vocabulary
+  1. Edit docs/NIGHTRAVEN_REPO_OVERLAY.md — product boundary + local vocabulary
   2. Fill docs/14_SESSION_HANDOFF.md — Current state / Already done
   3. Agent chat: "Read AGENTS.md and handoff, then /nightraven <your task>"
 

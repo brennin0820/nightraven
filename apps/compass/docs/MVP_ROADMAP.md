@@ -22,7 +22,7 @@ Show build order, lanes, task cards, and phase state.
 
 ## Phase 3 - Next Prompt Generator
 
-Generate prompts for God's Eye, NightRaven Builder, Auditor, and Research.
+Generate prompts for NightRaven, NightRaven Builder, Auditor, and Research.
 
 ## Phase 4 - Decisions And Blockers
 

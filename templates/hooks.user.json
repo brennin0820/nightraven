@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "_comment": "God's Eye user-level hooks — merged by install.sh. Pause Touch 3 via touch3.disabled marker (session-stop.sh no-ops); keep stop hook. Paths relative to ~/.cursor/",
+  "_comment": "NightRaven user-level hooks — merged by install.sh. Pause Touch 3 via touch3.disabled marker (session-stop.sh no-ops); keep stop hook. Paths relative to ~/.cursor/",
   "hooks": {
     "sessionStart": [
       {

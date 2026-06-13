@@ -6,7 +6,7 @@ type PromptCardProps = {
 }
 
 const targetLabels: Record<PromptCardData['target'], string> = {
-  gods_eye: "God's Eye",
+  nightraven: "NightRaven",
   nightraven_builder: 'NightRaven Builder',
   nightraven_auditor: 'Auditor',
   research: 'Research',

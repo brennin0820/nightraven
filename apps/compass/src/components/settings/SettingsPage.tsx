@@ -48,7 +48,7 @@ export function SettingsPage() {
                   })
                 }
               >
-                <option value="registry">Registry (live GE files)</option>
+                <option value="registry">Registry (live memory files)</option>
                 <option value="local">Local seed + overrides</option>
                 <option value="mock">Mock seed only</option>
               </select>

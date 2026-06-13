@@ -1,15 +1,15 @@
 > **Example repo overlay (illustrative only)**  
-> This file shows how to add **local** vocabulary, product boundaries, and disambiguation on top of the portable [God's Eye Bible](../../docs/37_GODS_EYE_BIBLE.md). Copy and adapt into your own repo as `docs/GODS_EYE_REPO_OVERLAY.md` — do not treat gambling-tracker names as universal law.
+> This file shows how to add **local** vocabulary, product boundaries, and disambiguation on top of the portable [NightRaven Bible](../../docs/37_NIGHTRAVEN.md). Copy and adapt into your own repo as `docs/NIGHTRAVEN_REPO_OVERLAY.md` — do not treat gambling-tracker names as universal law.
 
-# God'sEye Repo Overlay — OneDayMillionaire
+# NightRaven Repo Overlay — OneDayMillionaire
 
-**Local layer only.** Portable God'sEye laws, intent ladder, and anti-patterns live in master BAIC **God's Eye Bible**:
+**Local layer only.** Portable NightRaven laws, intent ladder, and anti-patterns live in master BAIC **NightRaven Bible**:
 
-`docs/37_GODS_EYE_BIBLE.md (this repository, or your vendored copy)`
+`docs/37_NIGHTRAVEN.md (this repository, or your vendored copy)`
 
-This overlay holds **OneDayMillionaire / Gambling Tracker** vocabulary, Swift disambiguation, product boundary, and this repo's connected chain. Do not duplicate portable content here — cross-link **God's Eye Bible** (doc 37).
+This overlay holds **OneDayMillionaire / Gambling Tracker** vocabulary, Swift disambiguation, product boundary, and this repo's connected chain. Do not duplicate portable content here — cross-link **NightRaven Bible** (doc 37).
 
-**Router:** `docs/GODS_EYE_LAYERED_SPEC_ROUTER.md` — canonical read order (do not duplicate here).
+**Router:** `docs/NIGHTRAVEN_LAYERED_SPEC_ROUTER.md` — canonical read order (do not duplicate here).
 
 **Default posture:** **Tier C — Creator-Innovator** (master doc 37 §10). Tracking-only boundary unchanged — Product/QA override on odds, casino glam, loss-chasing (`PLAN.md`).
 
@@ -34,8 +34,8 @@ When Brent says "add context," assume **Brent's context** unless he points at a 
 | Brand / Xcode target | **OneDayMillionaire** | Xcode, AGENTS, handoff |
 | Repo folder (artifact) | **`BankrollCalendar`** | Paths only — not user-facing |
 | Code domain | **`bankroll`** — `TrackingMode.bankroll`, `CategoryKind.bankroll`, default "Gambling *" categories | Swift enums — keep after product rename |
-| Oversight (this repo) | **God'sEye** | Master doc 37, overlay (this file), `nightraven-context-intent.mdc`, protocol, learning log |
-| BAIC global nickname | **BigBrother** | Master framework — same role as God'sEye |
+| Oversight (this repo) | **NightRaven** | Master doc 37, overlay (this file), `nightraven-context-intent.mdc`, protocol, learning log |
+| BAIC global nickname | **BigBrother** | Master framework — same role as NightRaven |
 
 Adding context at one layer must **not** silently rename another (e.g. category label ≠ rename enum to `gambling`).
 
@@ -61,7 +61,7 @@ Context additions must preserve: **tracking and financial awareness only** — n
 
 ## 5. Connected read order (this repo)
 
-**Canonical list:** `docs/GODS_EYE_LAYERED_SPEC_ROUTER.md` § Sixty-second session start — do not maintain a second copy here.
+**Canonical list:** `docs/NIGHTRAVEN_LAYERED_SPEC_ROUTER.md` § Sixty-second session start — do not maintain a second copy here.
 
 ### Required chain when adding context
 
@@ -86,9 +86,9 @@ Context additions must preserve: **tracking and financial awareness only** — n
 
 | Document | Role |
 |----------|------|
-| Master `docs/37_GODS_EYE_BIBLE.md` | **God's Eye Bible** — portable laws, ladder, chain pattern, anti-patterns |
-| **`docs/GODS_EYE_REPO_OVERLAY.md`** | **Local** — vocabulary, Swift disambiguation, boundary, **§10 agent pitfalls** |
-| `docs/GODS_EYE_LAYERED_SPEC_ROUTER.md` | Router — **Agent card** (canonical), session start pointers |
+| Master `docs/37_NIGHTRAVEN.md` | **NightRaven Bible** — portable laws, ladder, chain pattern, anti-patterns |
+| **`docs/NIGHTRAVEN_REPO_OVERLAY.md`** | **Local** — vocabulary, Swift disambiguation, boundary, **§10 agent pitfalls** |
+| `docs/NIGHTRAVEN_LAYERED_SPEC_ROUTER.md` | Router — **Agent card** (canonical), session start pointers |
 | `.cursor/rules/nightraven-context-intent.mdc` | Always-on **START HERE** → §0 + overlay |
 | `.cursor/rules/gambling-tracker.mdc` | Product vocabulary + tracking boundary |
 | `docs/USER_CONTEXT_PROTOCOL.md` | Worked examples, checklist |
@@ -102,9 +102,9 @@ Context additions must preserve: **tracking and financial awareness only** — n
 
 ---
 
-## 8. God'sEye Improvement Loop (this repo)
+## 8. NightRaven Improvement Loop (this repo)
 
-**Pointer only:** `.cursor/IMPROVEMENT_LOOP_CYCLE_PROMPT.md` + **God's Eye Bible** doc 37 **§9–§10** (direct execution; template optional). **Parallel by default** — parallel reads and read-only audits; one `+#` write after synthesis (doc 37 §2.4; master doc 19). Repo cycles append `+#` to local chain files; portable changes go to master doc 37.
+**Pointer only:** `.cursor/IMPROVEMENT_LOOP_CYCLE_PROMPT.md` + **NightRaven Bible** doc 37 **§9–§10** (direct execution; template optional). **Parallel by default** — parallel reads and read-only audits; one `+#` write after synthesis (doc 37 §2.4; master doc 19). Repo cycles append `+#` to local chain files; portable changes go to master doc 37.
 
 ---
 
@@ -116,7 +116,7 @@ Context additions must preserve: **tracking and financial awareness only** — n
 
 ## 10. Agent pitfalls (quick scan)
 
-Read after master doc 37 **§0 Agent quick start**. **Agent card:** `docs/GODS_EYE_LAYERED_SPEC_ROUTER.md` § Agent card (canonical — do not copy).
+Read after master doc 37 **§0 Agent quick start**. **Agent card:** `docs/NIGHTRAVEN_LAYERED_SPEC_ROUTER.md` § Agent card (canonical — do not copy).
 
 | Pitfall | Remember |
 |---------|----------|

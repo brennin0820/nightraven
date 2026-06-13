@@ -21,7 +21,7 @@ export function NextPromptPage() {
           </div>
         </div>
         <p className="card-copy">
-          GE, NR Builder, Auditor, and Research — generated via{' '}
+          NightRaven Builder, Auditor, and Research — generated via{' '}
           <code>promptGenerator.ts</code> for <strong>{nextTask.title}</strong> in{' '}
           <strong>{currentPhase.name}</strong>.
         </p>

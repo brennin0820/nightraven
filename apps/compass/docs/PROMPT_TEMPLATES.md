@@ -1,6 +1,6 @@
 # Prompt Templates
 
-## God's Eye Review
+## NightRaven Review
 
 ```text
 Review the NightRaven Compass build packet.

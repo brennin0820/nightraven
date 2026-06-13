@@ -39,14 +39,14 @@ export const MEMORY_SLOTS: MemorySlot[] = [
   {
     id: "overlay",
     label: "Repo overlay",
-    relativePath: "docs/GODS_EYE_REPO_OVERLAY.md",
+    relativePath: "docs/NIGHTRAVEN_REPO_OVERLAY.md",
     layer: "L3",
     readOnlyDefault: false,
   },
   {
     id: "bible",
     label: "Portable Bible",
-    relativePath: "docs/37_GODS_EYE_BIBLE.md",
+    relativePath: "docs/37_NIGHTRAVEN.md",
     layer: "L2",
     readOnlyDefault: true,
   },
@@ -60,14 +60,14 @@ export const MEMORY_SLOTS: MemorySlot[] = [
   {
     id: "router",
     label: "Grand spec router",
-    relativePath: "docs/GODS_EYE_LAYERED_SPEC_ROUTER.md",
+    relativePath: "docs/NIGHTRAVEN_LAYERED_SPEC_ROUTER.md",
     layer: "L1",
     readOnlyDefault: true,
   },
   {
     id: "session_tree",
     label: "Session tree",
-    relativePath: "docs/GODS_EYE_SESSION_SPEC_TREES.md",
+    relativePath: "docs/NIGHTRAVEN_SESSION_SPEC_TREES.md",
     layer: "L2",
     readOnlyDefault: true,
   },
@@ -75,20 +75,20 @@ export const MEMORY_SLOTS: MemorySlot[] = [
 
 export const READ_ORDER = [
   ".cursor/rules/nightraven-context-intent.mdc",
-  "docs/37_GODS_EYE_BIBLE.md (§0 — or $GODS_EYE_ROOT when not vendored)",
-  "docs/GODS_EYE_REPO_OVERLAY.md (if present)",
-  "docs/GODS_EYE_LAYERED_SPEC_ROUTER.md (router — if present)",
+  "docs/37_NIGHTRAVEN.md (§0 — or $NIGHTRAVEN_ROOT when not vendored)",
+  "docs/NIGHTRAVEN_REPO_OVERLAY.md (if present)",
+  "docs/NIGHTRAVEN_LAYERED_SPEC_ROUTER.md (router — if present)",
   "docs/14_SESSION_HANDOFF.md → AGENTS.md",
 ];
 
 export interface ProjectPaths {
   projectRoot: string;
-  godsEyeRoot: string;
+  nightravenRoot: string;
 }
 
 export function resolveProjectRoot(): string {
   const candidates = [
-    process.env.GODS_EYE_PROJECT_ROOT,
+    process.env.NIGHTRAVEN_PROJECT_ROOT,
     process.env.CURSOR_PROJECT_DIR,
     process.env.CLAUDE_PROJECT_DIR,
     process.cwd(),
@@ -103,25 +103,25 @@ export function resolveProjectRoot(): string {
   return process.cwd();
 }
 
-export async function resolveGodsEyeRoot(projectRoot: string): Promise<string> {
-  const envRoot = process.env.GODS_EYE_ROOT ?? process.env.GODS_EYE_INSTALL_ROOT;
-  const vendoredBible = path.join(projectRoot, "docs/37_GODS_EYE_BIBLE.md");
+export async function resolveNightRavenRoot(projectRoot: string): Promise<string> {
+  const envRoot = process.env.NIGHTRAVEN_ROOT ?? process.env.NIGHTRAVEN_INSTALL_ROOT;
+  const vendoredBible = path.join(projectRoot, "docs/37_NIGHTRAVEN.md");
 
   if (await fileExists(vendoredBible)) {
     return projectRoot;
   }
 
-  if (envRoot && (await fileExists(path.join(envRoot, "docs/37_GODS_EYE_BIBLE.md")))) {
+  if (envRoot && (await fileExists(path.join(envRoot, "docs/37_NIGHTRAVEN.md")))) {
     return path.resolve(envRoot);
   }
 
   const defaultCandidates = [
     path.join(process.env.HOME ?? "", "Developer/NightRaven/nightraven"),
     path.join(process.env.HOME ?? "", "Projects/nightraven"),
-    path.join(process.env.HOME ?? "", "Projects/gods-eye"),
+    path.join(process.env.HOME ?? "", "Projects/nightraven"),
   ];
   for (const defaultRoot of defaultCandidates) {
-    if (await fileExists(path.join(defaultRoot, "docs/37_GODS_EYE_BIBLE.md"))) {
+    if (await fileExists(path.join(defaultRoot, "docs/37_NIGHTRAVEN.md"))) {
       return defaultRoot;
     }
   }
@@ -131,8 +131,8 @@ export async function resolveGodsEyeRoot(projectRoot: string): Promise<string> {
 
 export async function getProjectPaths(): Promise<ProjectPaths> {
   const projectRoot = resolveProjectRoot();
-  const godsEyeRoot = await resolveGodsEyeRoot(projectRoot);
-  return { projectRoot, godsEyeRoot };
+  const nightravenRoot = await resolveNightRavenRoot(projectRoot);
+  return { projectRoot, nightravenRoot };
 }
 
 export function getSlot(slotId: string): MemorySlot | undefined {
@@ -149,7 +149,7 @@ export async function resolveSlotPath(
   }
 
   if (slot.id === "bible" || slot.id === "router" || slot.id === "session_tree") {
-    const rootCandidate = path.join(paths.godsEyeRoot, slot.relativePath);
+    const rootCandidate = path.join(paths.nightravenRoot, slot.relativePath);
     if (await fileExists(rootCandidate)) {
       return { absolutePath: rootCandidate, exists: true };
     }
@@ -164,7 +164,7 @@ export async function readMemoryDoc(
 ): Promise<{ slot: MemorySlot; path: string; content: string; exists: boolean }> {
   const slot = getSlot(slotId);
   if (!slot) {
-    throw new Error(`Unknown memory slot "${slotId}". Use gods_eye_list_memory_slots.`);
+    throw new Error(`Unknown memory slot "${slotId}". Use nightraven_list_memory_slots.`);
   }
 
   const resolved = await resolveSlotPath(slot, paths);

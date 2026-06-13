@@ -1,8 +1,8 @@
-# GE / NR Workflow
+# NightRaven Workflow
 
 ## Roles
 
-- God's Eye thinks: scope, intent, risk, phase order, and memory.
+- NightRaven thinks: scope, intent, risk, phase order, and memory.
 - NightRaven Builder builds: scoped implementation only.
 - Auditor verifies: acceptance criteria, scope creep, and readiness.
 - Compass points: next action, blocker, prompt, and Not Now boundary.

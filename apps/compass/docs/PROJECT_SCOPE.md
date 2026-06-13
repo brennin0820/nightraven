@@ -1,6 +1,6 @@
 # Project Scope
 
-NightRaven Compass is a visual project-guidance app for a non-coder builder using God's Eye and NightRaven.
+NightRaven Compass is a visual project-guidance app for a non-coder builder using NightRaven and NightRaven.
 
 The app must answer one question first:
 

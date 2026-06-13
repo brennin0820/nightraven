@@ -1,14 +1,14 @@
-# God's Eye Architecture: Local (LM Studio) vs. Cloud Execution
+# NightRaven Architecture: Local (LM Studio) vs. Cloud Execution
 
-This document defines the execution modes, optimization strategies, and agent behavioral rules for running God's Eye **with** a local LLM server (LM Studio) versus **without** one (cloud frontier models like Claude, Gemini, or GPT-4o).
+This document defines the execution modes, optimization strategies, and agent behavioral rules for running NightRaven **with** a local LLM server (LM Studio) versus **without** one (cloud frontier models like Claude, Gemini, or GPT-4o).
 
-**Cross-links:** [`GODS_EYE_REPO_OVERLAY.md`](GODS_EYE_REPO_OVERLAY.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`MCP_SETUP.md`](MCP_SETUP.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
+**Cross-links:** [`NIGHTRAVEN_REPO_OVERLAY.md`](NIGHTRAVEN_REPO_OVERLAY.md) · [`.cursor/rules/nightraven-context-intent.mdc`](../.cursor/rules/nightraven-context-intent.mdc) · [`MCP_SETUP.md`](MCP_SETUP.md) · [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md)
 
 ---
 
 ## Architectural Overview
 
-God's Eye is git-native and **environment-agnostic** by design. The rules, overlay, handoff, and MCP server all operate identically regardless of provider. What changes is the **agent's behavioral discipline** — how aggressively it reads context, whether it spawns subagents, and how tightly it manages token budget.
+NightRaven is git-native and **environment-agnostic** by design. The rules, overlay, handoff, and MCP server all operate identically regardless of provider. What changes is the **agent's behavioral discipline** — how aggressively it reads context, whether it spawns subagents, and how tightly it manages token budget.
 
 ```mermaid
 graph TD
@@ -25,7 +25,7 @@ graph TD
     CloudEnv --> Subagents[Parallel Subagents and Loops]
     CloudEnv --> CloudLLM[Frontier Cloud Model]
 
-    LocalLLM --> MCP["God's Eye MCP Server"]
+    LocalLLM --> MCP["NightRaven MCP Server"]
     CloudLLM --> MCP
     MCP --> GitTruth[(Git Repository Memory)]
 ```
@@ -53,12 +53,12 @@ The agent operates under hardware constraints. The following design principles e
 
 ### A. Strict Context Pruning and Read Tiers (§2.5)
 
-**Problem:** Loading the full Bible (`37_GODS_EYE_BIBLE.md`, 50KB+), overlay, handoff, and rules instantly saturates a local model's context window, causing hallucination and speed drops.
+**Problem:** Loading the full Bible (`37_NIGHTRAVEN.md`, 50KB+), overlay, handoff, and rules instantly saturates a local model's context window, causing hallucination and speed drops.
 
 **Design:**
 - For Tier 0–1 tasks: read **only** `.cursor/rules/nightraven-context-intent.mdc` (kept under 3K characters).
 - For Tier 2 tasks: add the overlay and the active **Recent sessions** section of the handoff only — not the full file.
-- Use the MCP `gods_eye_search_memory` tool to pull targeted snippets instead of loading full docs.
+- Use the MCP `nightraven_search_memory` tool to pull targeted snippets instead of loading full docs.
 - **Never** batch-read Bible + overlay + handoff + changelog in one turn on a local model.
 
 ### B. High-Density Handoff Compaction
@@ -88,14 +88,14 @@ The agent operates under hardware constraints. The following design principles e
 
 ## 3. Cloud Mode (Without LM Studio)
 
-Cloud frontier models unlock the full God's Eye capability stack. The design focuses on maximizing depth, parallelization, and cost control.
+Cloud frontier models unlock the full NightRaven capability stack. The design focuses on maximizing depth, parallelization, and cost control.
 
 ### A. Multi-Agent Audits — Six-Team Loop (§9)
 
 **Design:**
 - Spawn parallel subagents across Architecture, Engineering, Design/UX, QA, Product, and Tier C lenses simultaneously.
 - Synthesize results in a single coordinator pass before writing the `+#` memory step.
-- Use `gods_eye_search_memory` for dedup before writing to the chain.
+- Use `nightraven_search_memory` for dedup before writing to the chain.
 
 ### B. Long-Context Continuity
 
@@ -109,7 +109,7 @@ Cloud frontier models unlock the full God's Eye capability stack. The design foc
 **Design:**
 - Enforce the **Fresh Thread Law (§2.8)** strictly: at ~80% context capacity, stop, write a handoff entry, and request a fresh thread.
 - Batch all `+#` memory writes into a single Touch 3 AFTER pass — never scatter writes across turns.
-- Use MCP `gods_eye_append_recent_session` rather than manual file edits to reduce back-and-forth read cycles.
+- Use MCP `nightraven_append_recent_session` rather than manual file edits to reduce back-and-forth read cycles.
 
 ---
 
@@ -121,7 +121,7 @@ These rules are active in `.cursor/rules/nightraven-context-intent.mdc` and appl
 1. Read ONLY the rules file + overlay vocabulary; do not load full Bible unless task is Tier 3.
 2. No subagent spawning. All audits run serially.
 3. Keep handoff Recent sessions to 5 items max; compact older entries to changelog first.
-4. Use MCP `gods_eye_search_memory` for targeted snippet retrieval instead of full doc reads.
+4. Use MCP `nightraven_search_memory` for targeted snippet retrieval instead of full doc reads.
 5. Defer loop cycles and six-team audits unless Brent explicitly invokes `/loop`.
 
 **Cloud Mode (Anthropic / Google / OpenAI endpoint):**
@@ -139,6 +139,6 @@ These rules are active in `.cursor/rules/nightraven-context-intent.mdc` and appl
 3. Open Cursor **Settings → Models → Override Base URL**: set to `http://localhost:1234/v1`.
 4. Add a dummy API key (e.g., `lm-studio`).
 5. Set the model name to match what is loaded in LM Studio (e.g., `qwen2.5-coder-32b-instruct`).
-6. Open a new Agent chat — God's Eye rules load automatically via `.cursor/rules/nightraven-context-intent.mdc`.
+6. Open a new Agent chat — NightRaven rules load automatically via `.cursor/rules/nightraven-context-intent.mdc`.
 
 The MCP server, handoff files, and all memory chain docs work identically in both modes. The only difference is the agent's read discipline and parallelization strategy as defined in §4 above.

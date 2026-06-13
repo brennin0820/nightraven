@@ -53,7 +53,7 @@ export const mockExtraTasks: Task[] = [
     priority: 'P1',
     lane: 'next',
     state: 'think',
-    owner: 'gods_eye',
+    owner: 'nightraven',
     dependencies: ['task-dashboard'],
     acceptanceCriteria: ['Handoff parser stub exists', 'Mock feed shows session kind'],
     allowedAreas: ['src/data', 'src/components/memory'],
@@ -221,7 +221,7 @@ export const mockMemoryFeed: MemoryFeedItem[] = [
     kind: 'task',
     title: 'Handoff memory feed wire',
     source: 'task-ge-handoff-wire',
-    text: "GE task: append-only handoff parser stub — memory feed should show tasks, decisions, audits, blockers.",
+    text: "NightRaven task: append-only handoff parser stub — memory feed should show tasks, decisions, audits, blockers.",
   },
   {
     id: 'mem-decision-router',
@@ -237,7 +237,7 @@ export const mockMemoryFeed: MemoryFeedItem[] = [
     kind: 'session',
     title: 'Scope foundation locked',
     source: 'docs/14_SESSION_HANDOFF.md',
-    text: 'Phase 0 complete — MVP boundaries, Not Now list, GE/NR roles documented. Scope locked before code.',
+    text: 'Phase 0 complete — MVP boundaries, Not Now list, NightRaven roles documented. Scope locked before code.',
   },
 ]
 

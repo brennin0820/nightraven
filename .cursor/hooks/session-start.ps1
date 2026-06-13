@@ -1,4 +1,4 @@
-# God's Eye Phase 2 - sessionStart (Touch 1 Before) + Always Sync pull
+# NightRaven Phase 2 - sessionStart (Touch 1 Before) + Always Sync pull
 # Fail-open: git errors never block Cursor.
 
 $ErrorActionPreference = 'Continue'
@@ -6,25 +6,25 @@ $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 . (Join-Path $ScriptDir 'lib.ps1')
 
 $inputJson = Read-HookInput
-$projectRoot = Get-GodsEyeProjectRoot $inputJson
-$godsEyeRoot = Resolve-GodsEyeRoot $projectRoot
-$handoffHint = Get-GodsEyeRelPath $projectRoot "docs/14_SESSION_HANDOFF.md"
-$bibleHint = "docs/37_GODS_EYE_BIBLE.md"
+$projectRoot = Get-NightRavenProjectRoot $inputJson
+$nightravenRoot = Resolve-NightRavenRoot $projectRoot
+$handoffHint = Get-NightRavenRelPath $projectRoot "docs/14_SESSION_HANDOFF.md"
+$bibleHint = "docs/37_NIGHTRAVEN.md"
 if (-not (Test-Path -LiteralPath (Join-Path $projectRoot $bibleHint))) {
-    $bibleHint = Join-Path $godsEyeRoot "docs/37_GODS_EYE_BIBLE.md"
+    $bibleHint = Join-Path $nightravenRoot "docs/37_NIGHTRAVEN.md"
 }
 
-if (Test-GodsEyeShouldSkipStopPull $projectRoot) {
+if (Test-NightRavenShouldSkipStopPull $projectRoot) {
     $pullMessage = "Autosync pull skipped - session recent (see .cursor/.autosync-session)."
 } else {
     $pullResult = Invoke-GitPullFfOnly $projectRoot
-    Set-GodsEyeSessionPulled $projectRoot $pullResult.Ok
+    Set-NightRavenSessionPulled $projectRoot $pullResult.Ok
     $pullMessage = $pullResult.Message
 }
-Update-GodsEyeTouch3Cache $projectRoot
+Update-NightRavenTouch3Cache $projectRoot
 
 $message = @"
-God's Eye - Touch 1 - BEFORE (soft reminder, not a hard block)
+NightRaven - Touch 1 - BEFORE (soft reminder, not a hard block)
 
 Always Sync - session start: $pullMessage
 
@@ -39,14 +39,14 @@ Before substantive edits:
 During: guard scope, +# only on memory docs, parallel independent workstreams
 "@
 
-if (Test-GodsEyeTouch3Disabled $projectRoot) {
+if (Test-NightRavenTouch3Disabled $projectRoot) {
     $message += "`nTouch 3 AFTER: paused (.cursor/touch3.disabled or ~/.cursor/touch3.disabled) - skip session-close follow-up batch"
 } else {
     $message += "`nAfter (Touch 3): **last turn only** - session-stop hook batches handoff + changelog + learning; never mid-session or while subagents run"
 }
 
-$message += "`n`nPortable law: $bibleHint - Session tree: docs/GODS_EYE_SESSION_SPEC_TREES.md (or GODS_EYE_ROOT)"
-$message += "`nGODS_EYE_ROOT=$godsEyeRoot"
+$message += "`n`nPortable law: $bibleHint - Session tree: docs/NIGHTRAVEN_SESSION_SPEC_TREES.md (or NIGHTRAVEN_ROOT)"
+$message += "`nNIGHTRAVEN_ROOT=$nightravenRoot"
 
-Emit-SessionStart $message $godsEyeRoot
+Emit-SessionStart $message $nightravenRoot
 exit 0

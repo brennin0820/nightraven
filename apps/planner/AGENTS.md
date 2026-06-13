@@ -1,14 +1,14 @@
 # AGENTS.md — NightRaven Planner (coding agent entry)
 
-**Read root [`AGENTS.md`](../../AGENTS.md) first** for God's Eye framework law.
+**Read root [`AGENTS.md`](../../AGENTS.md) first** for NightRaven framework law.
 
 ---
 
 ## What Planner is
 
-**NightRaven Planner** is the multi-agent orchestration layer that decomposes an app spec into a foundation layout and hands it off to specialist agents. It sits between God's Eye memory (framework) and Compass (guidance UI).
+**NightRaven Planner** is the multi-agent orchestration layer that decomposes an app spec into a foundation layout and hands it off to specialist agents. It sits between NightRaven memory (framework) and Compass (guidance UI).
 
-**Motto chain position:** God's Eye thinks · **NightRaven Planner plans** · NightRaven builds · Auditor verifies · Compass points.
+**Motto chain position:** NightRaven thinks · **NightRaven Planner plans** · NightRaven builds · Auditor verifies · Compass points.
 
 ---
 

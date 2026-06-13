@@ -10,28 +10,28 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "${SCRIPT_DIR}/lib.sh"
 
 input="$(cat || true)"
-project_root="$(gods_eye_project_root "$input")"
+project_root="$(nightraven_project_root "$input")"
 
 loop_count="$(json_number_field "$input" "loop_count")"
 loop_count="${loop_count:-0}"
 
 sync_lines=()
-fast_path="$(gods_eye_session_sync_fast_path "$project_root" || true)"
+fast_path="$(nightraven_session_sync_fast_path "$project_root" || true)"
 if [[ -n "$fast_path" ]]; then
   sync_lines+=("$fast_path")
 else
-  if gods_eye_should_skip_stop_pull "$project_root"; then
+  if nightraven_should_skip_stop_pull "$project_root"; then
     sync_lines+=("Autosync pull skipped — session-start recent (see .cursor/.autosync-session).")
   else
-    sync_lines+=("$(gods_eye_git_pull_ff_only "$project_root")")
+    sync_lines+=("$(nightraven_git_pull_ff_only "$project_root")")
   fi
-  sync_lines+=("$(gods_eye_git_session_commit "$project_root")")
-  push_msg="$(gods_eye_git_push_if_ahead "$project_root")"
+  sync_lines+=("$(nightraven_git_session_commit "$project_root")")
+  push_msg="$(nightraven_git_push_if_ahead "$project_root")"
   sync_lines+=("$push_msg")
 
   if [[ "$push_msg" == Autosync\ push\ failed* ]]; then
     reason="${push_msg#Autosync push failed (fail-open): }"
-    gods_eye_append_push_defer "$project_root" "$reason" || true
+    nightraven_append_push_defer "$project_root" "$reason" || true
     sync_lines+=("Push defer recorded in docs/14_SESSION_HANDOFF.md Recent sessions (+# only).")
   fi
 fi
@@ -39,23 +39,23 @@ fi
 sync_block="$(printf '%s\n' "${sync_lines[@]}")"
 
 if [[ "${loop_count}" -gt 0 ]]; then
-  message="God's Eye · Always Sync [cursor hook]"
+  message="NightRaven · Always Sync [cursor hook]"
   message+=$'\n\n'"${sync_block}"
   emit_followup_message "$message"
   exit 0
 fi
 
-if gods_eye_touch3_disabled "$project_root"; then
-  message="God's Eye · Always Sync [cursor hook]"
+if nightraven_touch3_disabled "$project_root"; then
+  message="NightRaven · Always Sync [cursor hook]"
   message+=$'\n\n'"${sync_block}"
   message+=$'\n\n'"Touch 3 AFTER paused — no mandatory handoff batch."
   emit_followup_message "$message"
   exit 0
 fi
 
-handoff_path="$(gods_eye_rel_path "$project_root" "docs/14_SESSION_HANDOFF.md")"
+handoff_path="$(nightraven_rel_path "$project_root" "docs/14_SESSION_HANDOFF.md")"
 
-message="God's Eye · Touch 3 · AFTER — **last turn only**"
+message="NightRaven · Touch 3 · AFTER — **last turn only**"
 message+=$'\n\n'
 message+="This follow-up is your **final turn**. All implementation and subagents must be **done** before Touch 3. "
 message+="Do not start new work, spawn agents, or defer this batch to a later turn."

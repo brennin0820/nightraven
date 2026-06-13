@@ -1,12 +1,12 @@
-# God's Eye — Unified Stack
+# NightRaven — Unified Stack
 
-**Purpose:** One map for adopting God's Eye alongside common agent-memory patterns — without duplicating portable law or inventing parallel folder trees.
+**Purpose:** One map for adopting NightRaven alongside common agent-memory patterns — without duplicating portable law or inventing parallel folder trees.
 
-**Authority split (unchanged):** Portable laws live in [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) (God's Eye Bible). This document **routes and composes**; it does not replace the Bible.
+**Authority split (unchanged):** Portable laws live in [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) (NightRaven Bible). This document **routes and composes**; it does not replace the Bible.
 
 **Motto:** *Always watches.* Watch the work. Learn from it. Waste nothing. **Forget nothing.**
 
-Related: [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) · [`GODS_EYE_LAYERED_SPEC_ROUTER.md`](GODS_EYE_LAYERED_SPEC_ROUTER.md) · [`GODS_EYE_SESSION_SPEC_TREES.md`](GODS_EYE_SESSION_SPEC_TREES.md) · [`README.md`](../README.md)
+Related: [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) · [`NIGHTRAVEN_LAYERED_SPEC_ROUTER.md`](NIGHTRAVEN_LAYERED_SPEC_ROUTER.md) · [`NIGHTRAVEN_SESSION_SPEC_TREES.md`](NIGHTRAVEN_SESSION_SPEC_TREES.md) · [`README.md`](../README.md)
 
 ---
 
@@ -26,7 +26,7 @@ Related: [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) · [`GODS_EYE_LAYERED_SP
 | **Phased roadmap** | **9** | Phase 1 doc · Phase 2 hooks+MCP · Phase 3 gates |
 | **Risks** | **10** | Drift, bleed, shadow truth, gate fatigue |
 | **Mermaid — unified stack** | **11** | Visual layer map |
-| **Project inventory** | **12** | All workspaces with God's Eye — scan + registry |
+| **Project inventory** | **12** | All workspaces with NightRaven — scan + registry |
 | **NightRaven monorepo** | **13** | Umbrella brand · `apps/compass` · merge status |
 
 ---
@@ -35,11 +35,11 @@ Related: [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) · [`GODS_EYE_LAYERED_SP
 
 | Question | Answer |
 |----------|--------|
-| **What is the unified stack?** | God's Eye core + connected chain + optional semantic index and hooks — **git is authoritative** |
+| **What is the unified stack?** | NightRaven core + connected chain + optional semantic index and hooks — **git is authoritative** |
 | **Do I need Mem0/Zep?** | No — optional L4 accelerators for recall/search; never replace handoff or Bible |
 | **Do I need `memory-bank/`?** | **No** — map Memory Bank roles to the existing connected chain (§3) |
 | **Where do agents start?** | Rule → Bible §0 → overlay → handoff → `AGENTS.md` (parallel batch) |
-| **Three-touch?** | Before → During → After on every real task — see [`GODS_EYE_SESSION_SPEC_TREES.md`](GODS_EYE_SESSION_SPEC_TREES.md) |
+| **Three-touch?** | Before → During → After on every real task — see [`NIGHTRAVEN_SESSION_SPEC_TREES.md`](NIGHTRAVEN_SESSION_SPEC_TREES.md) |
 | **Plan Mode?** | Use for Touch 1 — classify tier, ladder, dedup before edits |
 | **First phase?** | **Phase 1 doc-only** — Bible, overlay, handoff, `AGENTS.md`; no hooks required |
 
@@ -52,7 +52,7 @@ The stack builds upward. Lower layers are **required** for a bootstrapped repo; 
 ```text
 L4  Optional accelerators     Mem0/Zep index · Cursor hooks · constitution gates
 L3  Connected chain           Handoff · changelog · learning log · protocol · overlay
-L2  God's Eye core            Bible · +# · intent ladder · three-touch · tiers · Tier C
+L2  NightRaven core            Bible · +# · intent ladder · three-touch · tiers · Tier C
 L1  Standard entry            Always-on rule · AGENTS.md · router (optional)
 L0  Git truth (authoritative) Versioned repo docs — reviewable, append-only memory
 ```
@@ -62,8 +62,8 @@ L0  Git truth (authoritative) Versioned repo docs — reviewable, append-only me
 | Layer | Name | Holds | Required? |
 |-------|------|-------|-----------|
 | **L0** | **Git truth** | All durable memory in repo paths under version control; PRs and blame apply | **Yes** — source of record |
-| **L1** | **Standard entry** | `.cursor/rules/nightraven-context-intent.mdc` (or equivalent), `AGENTS.md`, optional `GODS_EYE_LAYERED_SPEC_ROUTER.md` router | **Yes** for bootstrapped repos |
-| **L2** | **God's Eye core** | [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) — `+#` only, intent ladder, read tiers 0–3, three-touch, overlay pattern, Tier C default | **Yes** — portable law |
+| **L1** | **Standard entry** | `.cursor/rules/nightraven-context-intent.mdc` (or equivalent), `AGENTS.md`, optional `NIGHTRAVEN_LAYERED_SPEC_ROUTER.md` router | **Yes** for bootstrapped repos |
+| **L2** | **NightRaven core** | [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) — `+#` only, intent ladder, read tiers 0–3, three-touch, overlay pattern, Tier C default | **Yes** — portable law |
 | **L3** | **Connected chain** | App memory for **this repo only**: overlay, handoff, changelog, learning log, user-context protocol, domain rules | **Yes** when bootstrapped |
 | **L4** | **Optional accelerators** | Mem0/Zep semantic recall; implementation skills pack (e.g. agent-skills, post ship-signal); Cursor hooks (`sessionStart`, `stop`, `beforeSubmitPrompt`); BAIC/CORE constitution soft/hard gates | **No** — adopt when recall or enforcement needs justify cost |
 
@@ -93,15 +93,15 @@ If L4 recall disagrees with git, **git wins**. Re-index or append a `+#` correct
 
 ## 2. Adopt / adapt / reject
 
-Patterns from the broader agent-memory ecosystem — how God's Eye treats each.
+Patterns from the broader agent-memory ecosystem — how NightRaven treats each.
 
-| Pattern | Verdict | God's Eye mapping |
+| Pattern | Verdict | NightRaven mapping |
 |---------|---------|-------------------|
-| **God's Eye Bible** (`37_GODS_EYE_BIBLE.md`) | **Adopt** | L2 portable law — start at §0 |
+| **NightRaven Bible** (`37_NIGHTRAVEN.md`) | **Adopt** | L2 portable law — start at §0 |
 | **Repo overlay** | **Adopt** | L3 local vocabulary + boundaries — see `examples/overlay/` |
 | **`AGENTS.md`** | **Adopt** | L1 agent conventions, build/test, verify policy |
 | **Session handoff** (`docs/14_SESSION_HANDOFF.md`) | **Adopt** | L3 current state, **Already done**, **Recent sessions** |
-| **Three-touch (Before/During/After)** | **Adopt** | L2 session discipline — [`GODS_EYE_SESSION_SPEC_TREES.md`](GODS_EYE_SESSION_SPEC_TREES.md) |
+| **Three-touch (Before/During/After)** | **Adopt** | L2 session discipline — [`NIGHTRAVEN_SESSION_SPEC_TREES.md`](NIGHTRAVEN_SESSION_SPEC_TREES.md) |
 | **Read tiers 0–3** | **Adopt** | L2 ceremony matched to task size (Bible §2.5) |
 | **Memory Bank folder tree** (`memory-bank/`) | **Reject duplicate** | **Adapt** roles into connected chain (§3) — one canonical path per concept |
 | **Mem0 / Zep** | **Adapt (optional)** | L4 semantic index **on top of** git — never authoritative |
@@ -110,7 +110,7 @@ Patterns from the broader agent-memory ecosystem — how God's Eye treats each.
 | **Cursor hooks** | **Adapt (Phase 2+)** | L4 automation — session reminders, append nudges, optional gates (§8) |
 | **BAIC / CORE constitution hooks** | **Adapt (Phase 3)** | L4 soft/hard gates — optional; must not block trivial fixes by default |
 | **Chat-only context** | **Reject** | Wire into L3 or it did not happen |
-| **Cross-app pattern re-instructed every session** | **Reject** | Ship in `gods-eye` + install (§2.7) |
+| **Cross-app pattern re-instructed every session** | **Reject** | Ship in `nightraven` + install (§2.7) |
 | **Transcript as memory** | **Reject** | L0 git docs only; transcripts are debug, not chain |
 | **Cross-repo handoff import** | **Reject** | L3 app memory is **this repo only** |
 | **`-#` cleanup on logs** | **Reject** | Append **Supersedes** — Bible §2.3 |
@@ -120,11 +120,11 @@ Patterns from the broader agent-memory ecosystem — how God's Eye treats each.
 
 ## 3. Memory Bank → connected chain (no `memory-bank/`)
 
-Many projects use a **Memory Bank** layout (`memory-bank/projectbrief.md`, `activeContext.md`, etc.). God's Eye **does not add a parallel `memory-bank/` tree**. Map each Memory Bank role to an **existing** connected-chain slot so agents have one read path.
+Many projects use a **Memory Bank** layout (`memory-bank/projectbrief.md`, `activeContext.md`, etc.). NightRaven **does not add a parallel `memory-bank/` tree**. Map each Memory Bank role to an **existing** connected-chain slot so agents have one read path.
 
-| Memory Bank role (typical) | God's Eye connected-chain slot | Notes |
+| Memory Bank role (typical) | NightRaven connected-chain slot | Notes |
 |----------------------------|--------------------------------|-------|
-| `projectbrief.md` | `docs/GODS_EYE_REPO_OVERLAY.md` + `README.md` | Product vocabulary + user-facing summary |
+| `projectbrief.md` | `docs/NIGHTRAVEN_REPO_OVERLAY.md` + `README.md` | Product vocabulary + user-facing summary |
 | `productContext.md` | Overlay § boundary + `docs/USER_CONTEXT_PROTOCOL.md` | Positioning, worked examples |
 | `activeContext.md` | `docs/14_SESSION_HANDOFF.md` — **current focus** section | Ephemeral focus lives in handoff, not a second tree |
 | `systemPatterns.md` | `AGENTS.md` + domain `.cursor/rules/*.mdc` | Conventions, architecture notes for agents |
@@ -161,7 +161,7 @@ Handoff is L3 **app memory** — the fastest way for the next agent to see where
 
 ### After doc matrix (three-touch · Touch 3)
 
-From [`GODS_EYE_SESSION_SPEC_TREES.md`](GODS_EYE_SESSION_SPEC_TREES.md) §3 — decision order:
+From [`NIGHTRAVEN_SESSION_SPEC_TREES.md`](NIGHTRAVEN_SESSION_SPEC_TREES.md) §3 — decision order:
 
 | If… | Write (`+#`) |
 |-----|--------------|
@@ -186,22 +186,22 @@ From [`GODS_EYE_SESSION_SPEC_TREES.md`](GODS_EYE_SESSION_SPEC_TREES.md) §3 — 
 | Build / test / lint commands | Portable laws → Bible |
 | Verify-before-done checklist | Product vocabulary → overlay |
 | Repo layout for agents | Session state → handoff |
-| Pointer to God's Eye read order | Intent ladder → Bible §3 |
+| Pointer to NightRaven read order | Intent ladder → Bible §3 |
 | Coding conventions | Changelog narrative → `docs/02` |
 
 ### Recommended read order (parallel batch)
 
 ```text
 1. .cursor/rules/nightraven-context-intent.mdc   (START HERE)
-2. docs/37_GODS_EYE_BIBLE.md §0                       (Agent quick start)
-3. docs/GODS_EYE_REPO_OVERLAY.md                (if present)
-4. docs/GODS_EYE_LAYERED_SPEC_ROUTER.md                  (router — if present)
+2. docs/37_NIGHTRAVEN.md §0                       (Agent quick start)
+3. docs/NIGHTRAVEN_REPO_OVERLAY.md                (if present)
+4. docs/NIGHTRAVEN_LAYERED_SPEC_ROUTER.md                  (router — if present)
 5. Domain rules → USER_CONTEXT_PROTOCOL → handoff → AGENTS.md
 ```
 
 `AGENTS.md` appears **last** in the batch so conventions sit after product context and current state.
 
-### God's Eye repo note
+### NightRaven repo note
 
 This published repository is **portable law + examples** — it may not ship a full bootstrapped `AGENTS.md` or `docs/14`. Consumer repos add those at L1/L3 per [`README.md`](../README.md) quick start.
 
@@ -248,15 +248,15 @@ This published repository is **portable law + examples** — it may not ship a f
 
 ### Implementation skills pack (optional L4)
 
-**addyosmani/agent-skills** and similar lifecycle skill packs sit in the same L4 bucket as Mem0/Zep — **optional**, never authoritative over L0–L3 git chain. God's Eye decides *what the project means and remembers*; implementation skills decide *how to build safely once you say ship*. Same rules as §6: git wins; no vendor into framework repo; consumer app repos only after ship signal. Install pointer: [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) · plan `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md`.
+**addyosmani/agent-skills** and similar lifecycle skill packs sit in the same L4 bucket as Mem0/Zep — **optional**, never authoritative over L0–L3 git chain. NightRaven decides *what the project means and remembers*; implementation skills decide *how to build safely once you say ship*. Same rules as §6: git wins; no vendor into framework repo; consumer app repos only after ship signal. Install pointer: [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) · plan `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md`.
 
 ---
 
 ## 7. Cursor Plan Mode — Touch 1 · Before
 
-**Plan Mode** aligns with God's Eye **Touch 1 (Before)** — classify intent, choose read tier, dedup, and agree scope **before** edits.
+**Plan Mode** aligns with NightRaven **Touch 1 (Before)** — classify intent, choose read tier, dedup, and agree scope **before** edits.
 
-| Plan Mode phase | God's Eye touch | Actions |
+| Plan Mode phase | NightRaven touch | Actions |
 |-----------------|-----------------|---------|
 | Understand + plan | **Touch 1 · Before** | Tier classify · intent ladder · MEMORY CHECK · parallel-read chain |
 | Execute plan | **Touch 2 · During** | Scope guard · `+#` only on memory · parallel workstreams |
@@ -316,11 +316,11 @@ Adopt the stack incrementally. Each phase assumes the prior phase is stable.
 
 | Deliverable | Layer |
 |-------------|-------|
-| Vendor or copy [`37_GODS_EYE_BIBLE.md`](37_GODS_EYE_BIBLE.md) | L2 |
+| Vendor or copy [`37_NIGHTRAVEN.md`](37_NIGHTRAVEN.md) | L2 |
 | Add `.cursor/rules/nightraven-context-intent.mdc` | L1 |
-| Create `docs/GODS_EYE_REPO_OVERLAY.md` | L3 |
+| Create `docs/NIGHTRAVEN_REPO_OVERLAY.md` | L3 |
 | Bootstrap `docs/14_SESSION_HANDOFF.md`, `AGENTS.md` | L3 / L1 |
-| Optional router `GODS_EYE_LAYERED_SPEC_ROUTER.md` | L1 |
+| Optional router `NIGHTRAVEN_LAYERED_SPEC_ROUTER.md` | L1 |
 | Wire README + changelog + learning log | L3 |
 
 **Exit criteria:** Agent can run three-touch on tier 2 work; **Recent sessions** appends on exit; no `memory-bank/` duplicate.
@@ -333,7 +333,7 @@ Adopt the stack incrementally. Each phase assumes the prior phase is stable.
 |-------------|-------|
 | `sessionStart` soft hook — read-order reminder | L4 |
 | `stop` soft hook — "append Recent sessions?" nudge | L4 |
-| **God's Eye MCP** — read/search/append memory chain (`mcp-server/`) — see [`MCP_SETUP.md`](MCP_SETUP.md) | L4 |
+| **NightRaven MCP** — read/search/append memory chain (`mcp-server/`) — see [`MCP_SETUP.md`](MCP_SETUP.md) | L4 |
 | Optional Mem0/Zep MCP — ingest from handoff + overlay + logs | L4 |
 | Re-ingest script on `+#` commits (CI or manual) | L4 |
 
@@ -375,7 +375,7 @@ Phase 1 ──► Phase 2 ──► Phase 3
 | **Hook law fork** | Hook prose duplicates Bible | Hooks enforce pointers to §0 — don't rewrite law |
 | **Forgotten sync** | Changes committed but not pushed; next agent reads stale state | Always Sync law — pull + push every change |
 | **Silent bypass** | Agent skips `+#` rule without asking | Governed Bypass requires explicit approval first |
-| **Local-mode subagents** | Spawning parallel agents under LM Studio; VRAM contention, hangs | Serial only in local mode — `docs/GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md` §4 |
+| **Local-mode subagents** | Spawning parallel agents under LM Studio; VRAM contention, hangs | Serial only in local mode — `docs/NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md` §4 |
 
 ---
 
@@ -399,8 +399,8 @@ flowchart TB
         UC["User context protocol"]
     end
 
-    subgraph L2["L2 · God's Eye core"]
-        BB["37_GODS_EYE_BIBLE.md · Bible"]
+    subgraph L2["L2 · NightRaven core"]
+        BB["37_NIGHTRAVEN.md · Bible"]
         LAD["Intent ladder"]
         TT["Three-touch"]
         TIER["Read tiers 0–3"]
@@ -453,16 +453,16 @@ flowchart LR
 
 ---
 
-## 12. Project inventory (all God's Eye workspaces)
+## 12. Project inventory (all NightRaven workspaces)
 
-Brent runs God's Eye across **multiple repos** plus a **user-global** Cursor install. Aggregate **metadata** lives in [`GODS_EYE_PROJECT_INVENTORY.md`](GODS_EYE_PROJECT_INVENTORY.md) — not a second memory tree.
+Brent runs NightRaven across **multiple repos** plus a **user-global** Cursor install. Aggregate **metadata** lives in [`NIGHTRAVEN_PROJECT_INVENTORY.md`](NIGHTRAVEN_PROJECT_INVENTORY.md) — not a second memory tree.
 
 | Workspace | Role | Phase | Bible |
 |-----------|------|-------|-------|
-| `Projects/gods-eye` | Published framework | 2 (hooks + installer) | Vendored |
+| `Projects/nightraven` | Published framework | 2 (hooks + installer) | Vendored |
 | `Projects/Universal_AI_Project_Operating_System` | Master BAIC | 2 | Canonical source |
 | `Developer/NightRaven` | NightRaven app (Xcode: OneDayMillionaire until rename) | 1 | Pointer → UAIPOS |
-| `~/.cursor` | User-global rule + hooks | 2 | Pointer → gods-eye |
+| `~/.cursor` | User-global rule + hooks | 2 | Pointer → nightraven |
 
 **Refresh:**
 
@@ -491,18 +491,18 @@ Registry file: `scripts/nightraven-projects.conf` — add a line per new bootstr
 
 **Index disagreement:** git wins · append Supersedes · re-ingest
 
-**Local vs cloud:** `docs/GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md` — LM Studio = serial + strict pruning; cloud = parallel + subagents + 80% fresh-thread rule
+**Local vs cloud:** `docs/NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md` — LM Studio = serial + strict pruning; cloud = parallel + subagents + 80% fresh-thread rule
 
 ---
 
 ## 13. NightRaven monorepo (umbrella brand)
 
-**NightRaven** is Brent's unified product name. **God's Eye** remains the portable **memory framework** name (L2) — do not rename Bible or `+#` chain to "NightRaven memory."
+**NightRaven** is Brent's unified product name. **NightRaven** remains the portable **memory framework** name (L2) — do not rename Bible or `+#` chain to "NightRaven memory."
 
 | Component | Layer | Path |
 |-----------|-------|------|
 | NightRaven (umbrella) | Brand | [`NIGHTRAVEN_UNIFIED_PRODUCT.md`](NIGHTRAVEN_UNIFIED_PRODUCT.md) |
-| God's Eye | L2 framework | Repo root · `docs/37` |
+| NightRaven | L2 framework | Repo root · `docs/37` |
 | NightRaven Core | Orchestration | `.claude/skills/nightraven/` |
 | NightRaven Compass | App (guidance UI) | `apps/compass/` |
 | NightRaven iOS | App (consumer) | External — merge to `apps/ios/` pending |
@@ -513,4 +513,4 @@ Registry file: `scripts/nightraven-projects.conf` — add a line per new bootstr
 
 ---
 
-*Established 2026-06-09. Unified stack maps Memory Bank, Mem0/Zep, Plan Mode, and constitution hooks onto God's Eye without duplicating portable law or `memory-bank/` trees. God's Eye always watches.*
+*Established 2026-06-09. Unified stack maps Memory Bank, Mem0/Zep, Plan Mode, and constitution hooks onto NightRaven without duplicating portable law or `memory-bank/` trees. NightRaven always watches.*

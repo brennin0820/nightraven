@@ -1,8 +1,8 @@
-# God's Eye MCP setup (Phase 2)
+# NightRaven MCP setup (Phase 2)
 
 Optional **Model Context Protocol** tools expose the git-backed memory chain to Cursor agents without replacing handoff, changelog, or overlay as source of truth.
 
-**Git wins:** MCP reads and appends (+# only) to L3 docs. Any external index (Mem0/Zep) remains optional L4 — see [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) §6.
+**Git wins:** MCP reads and appends (+# only) to L3 docs. Any external index (Mem0/Zep) remains optional L4 — see [`NIGHTRAVEN_UNIFIED_STACK.md`](NIGHTRAVEN_UNIFIED_STACK.md) §6.
 
 ---
 
@@ -10,17 +10,17 @@ Optional **Model Context Protocol** tools expose the git-backed memory chain to 
 
 | Tool | Purpose |
 |------|---------|
-| `gods_eye_list_memory_slots` | List handoff, changelog, overlay, Bible, etc. with paths |
-| `gods_eye_get_read_order` | Return Touch 1 parallel read batch |
-| `gods_eye_read_memory` | Read one memory doc by slot id |
-| `gods_eye_search_memory` | Substring search across memory docs (dedup) |
-| `gods_eye_append_recent_session` | Append one **Recent sessions** line (+# only) |
+| `nightraven_list_memory_slots` | List handoff, changelog, overlay, Bible, etc. with paths |
+| `nightraven_get_read_order` | Return Touch 1 parallel read batch |
+| `nightraven_read_memory` | Read one memory doc by slot id |
+| `nightraven_search_memory` | Substring search across memory docs (dedup) |
+| `nightraven_append_recent_session` | Append one **Recent sessions** line (+# only) |
 
 ---
 
 ## One-time build
 
-From the God's Eye install root (this repo or `$GODS_EYE_INSTALL_ROOT`):
+From the NightRaven install root (this repo or `$NIGHTRAVEN_INSTALL_ROOT`):
 
 ```bash
 cd mcp-server
@@ -49,7 +49,7 @@ When you run `./install.sh` on a bootstrapped project, it copies:
 
 1. **Cursor Settings → MCP** — confirm `nightraven-memory-chain` appears (green).
 2. Open a new Agent chat in the bootstrapped project.
-3. Ask the agent to call `gods_eye_list_memory_slots` or `gods_eye_read_memory` with `slot: handoff`.
+3. Ask the agent to call `nightraven_list_memory_slots` or `nightraven_read_memory` with `slot: handoff`.
 
 If the server fails to start, build `mcp-server/` as above. The launcher prints the exact path it expects.
 
@@ -68,7 +68,7 @@ If the server fails to start, build `mcp-server/` as above. The launcher prints 
 }
 ```
 
-Set `GODS_EYE_INSTALL_ROOT` in the MCP env block if the portable Bible lives outside the project:
+Set `NIGHTRAVEN_INSTALL_ROOT` in the MCP env block if the portable Bible lives outside the project:
 
 ```json
 {
@@ -77,8 +77,8 @@ Set `GODS_EYE_INSTALL_ROOT` in the MCP env block if the portable Bible lives out
       "command": "node",
       "args": [".cursor/mcp/run-memory-chain-mcp.js"],
       "env": {
-        "GODS_EYE_INSTALL_ROOT": "/path/to/nightraven-monorepo",
-        "GODS_EYE_PROJECT_ROOT": "/path/to/your-app"
+        "NIGHTRAVEN_INSTALL_ROOT": "/path/to/nightraven-monorepo",
+        "NIGHTRAVEN_PROJECT_ROOT": "/path/to/your-app"
       }
     }
   }
@@ -93,21 +93,21 @@ The server resolves paths in this order:
 
 | Variable | Role |
 |----------|------|
-| `GODS_EYE_PROJECT_ROOT` | App repo (handoff, overlay, changelog) |
+| `NIGHTRAVEN_PROJECT_ROOT` | App repo (handoff, overlay, changelog) |
 | `CURSOR_PROJECT_DIR` | Cursor workspace fallback |
-| `GODS_EYE_ROOT` / `GODS_EYE_INSTALL_ROOT` | Portable Bible when not vendored in project |
+| `NIGHTRAVEN_ROOT` / `NIGHTRAVEN_INSTALL_ROOT` | Portable Bible when not vendored in project |
 
-Portable L2 docs (`bible`, `router`, `session_tree`) fall back to `$GODS_EYE_ROOT` when missing in the project tree.
+Portable L2 docs (`bible`, `router`, `session_tree`) fall back to `$NIGHTRAVEN_ROOT` when missing in the project tree.
 
 ---
 
 ## Operating rules
 
-- **`+#` only** — `gods_eye_append_recent_session` inserts under **Recent sessions**; it refuses shrink/delete.
+- **`+#` only** — `nightraven_append_recent_session` inserts under **Recent sessions**; it refuses shrink/delete.
 - **This repo only** — no cross-repo handoff bleed; one MCP instance per workspace.
 - **Tier 0–1** — optional; parallel doc reads remain sufficient for small tasks.
 - **Mem0/Zep** — separate optional L4; ingest from git, never shadow writes.
-- **Mode-agnostic** — MCP tools work identically in local (LM Studio) and cloud mode. Execution mode governs agent parallelism and context discipline, not the MCP API itself — see [`GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md`](GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md) §4.
+- **Mode-agnostic** — MCP tools work identically in local (LM Studio) and cloud mode. Execution mode governs agent parallelism and context discipline, not the MCP API itself — see [`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md) §4.
 
 ---
 
@@ -115,5 +115,5 @@ Portable L2 docs (`bible`, `router`, `session_tree`) fall back to `$GODS_EYE_ROO
 
 - [`HOOKS_SETUP.md`](HOOKS_SETUP.md) — Phase 2 soft hooks
 - [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) — full install flow
-- [`GODS_EYE_UNIFIED_STACK.md`](GODS_EYE_UNIFIED_STACK.md) — Phase 2 hooks + MCP roadmap
-- [`GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md`](GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md) — local vs cloud agent discipline (§4 governs parallelism, not MCP API)
+- [`NIGHTRAVEN_UNIFIED_STACK.md`](NIGHTRAVEN_UNIFIED_STACK.md) — Phase 2 hooks + MCP roadmap
+- [`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md) — local vs cloud agent discipline (§4 governs parallelism, not MCP API)

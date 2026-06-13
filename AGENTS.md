@@ -1,6 +1,6 @@
 # AGENTS.md — coding agent instructions
 
-**Public pitch:** [README.md](README.md) — **NightRaven** ecosystem · God's Eye memory at repo root.
+**Public pitch:** [README.md](README.md) — **NightRaven** ecosystem · NightRaven memory at repo root.
 
 **NightRaven monorepo map:** [`docs/NIGHTRAVEN_UNIFIED_PRODUCT.md`](docs/NIGHTRAVEN_UNIFIED_PRODUCT.md) · Compass app: [`apps/compass/`](apps/compass/)
 
@@ -8,19 +8,19 @@
 
 ---
 
-## God's Eye Framework (always-on)
+## NightRaven Framework (always-on)
 
-**God's Eye** = benevolent **project oversight** for Cursor agents — durable memory, not user surveillance. **Motto:** Always watches · learn · waste nothing.
+**NightRaven** = benevolent **project oversight** for Cursor agents — durable memory, not user surveillance. **Motto:** Always watches · learn · waste nothing.
 
 ### START HERE — Read in parallel
 
 | # | Read |
 |---|------|
 | 1 | `.cursor/rules/nightraven-context-intent.mdc` (lean rule summary) |
-| 2 | `docs/37_GODS_EYE_BIBLE.md` — **portable law** (or `$GODS_EYE_ROOT/docs/37_GODS_EYE_BIBLE.md` if vendored) |
-| 3 | `docs/GODS_EYE_REPO_OVERLAY.md` — local vocabulary (if present) |
-| 4 | `docs/GODS_EYE_LAYERED_SPEC_ROUTER.md` — router (if present) |
-| 5 | `docs/GODS_EYE_PROJECT_INVENTORY.md` — cross-repo adoption (framework maintenance) |
+| 2 | `docs/37_NIGHTRAVEN.md` — **portable law** (or `$NIGHTRAVEN_ROOT/docs/37_NIGHTRAVEN.md` if vendored) |
+| 3 | `docs/NIGHTRAVEN_REPO_OVERLAY.md` — local vocabulary (if present) |
+| 4 | `docs/NIGHTRAVEN_LAYERED_SPEC_ROUTER.md` — router (if present) |
+| 5 | `docs/NIGHTRAVEN_PROJECT_INVENTORY.md` — cross-repo adoption (framework maintenance) |
 | 6 | `docs/14_SESSION_HANDOFF.md` — current state & guardrails (this repo only) |
 | 7 | `docs/NIGHTRAVEN_UNIFIED_PRODUCT.md` — umbrella brand · monorepo · app boundaries (when working across `apps/`) |
 
@@ -105,10 +105,10 @@ Every addition at one layer must **not** silently rename another.
 | Layer | Purpose | Example |
 |-------|---------|---------|
 | **Product / category** | User-facing category | "AI agent memory framework" |
-| **Brand / target** | Ship name, app, package | "God's Eye" |
+| **Brand / target** | Ship name, app, package | "NightRaven" |
 | **Repo folder** | Path on disk | `.cursor/rules/`, `docs/` |
 | **Code domain** | Enums, modules, persistence | Database tables, API names |
-| **Oversight (local)** | God's Eye — rules, protocol, learning | This file, doc 37, overlay |
+| **Oversight (local)** | NightRaven — rules, protocol, learning | This file, doc 37, overlay |
 | **BAIC global** | BigBrother — master framework | Same role, different scope |
 
 ---
@@ -132,13 +132,13 @@ Every addition at one layer must **not** silently rename another.
 | **Unlearning** | No delete, trim, or rewrite of history — **Supersedes** for corrections |
 | **Forgetting to sync** | Always pull before work; always push after commit — no silent local-only state |
 | **Silent rule bypass** | Governed Bypass requires explicit Brent approval *first* — never assume implicit permission |
-| **Local-mode parallelization** | Serial only on LM Studio — no subagents; see `docs/GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md` §4 |
+| **Local-mode parallelization** | Serial only on LM Studio — no subagents; see `docs/NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md` §4 |
 
 ---
 
 ## Task-Scoped Rules (match depth to task size)
 
-| Tier | When | God's Eye scope |
+| Tier | When | NightRaven scope |
 |------|------|-----------------|
 | **0 — Experience** | New repo, empty, first message | Global rule + `docs/35` + `docs/36`; §0 only if Brent adds context |
 | **1 — Minimal** | Trivial, single-file, low risk | Always-on rule → §0; overlay pitfalls only if product work; handoff scan if present |
@@ -154,7 +154,7 @@ Mirror [NightRaven skill](.claude/skills/nightraven/SKILL.md) **Tasking fast pat
 | Situation | Fast path |
 |---|---|
 | **Subagent / Task worker** | Inherit parent scope — no duplicate assessment or full Bible chain |
-| **TRIVIAL + explicit code it** | One-line intent · tier · scope — proceed under God's Eye Tier 1 |
+| **TRIVIAL + explicit code it** | One-line intent · tier · scope — proceed under NightRaven Tier 1 |
 | **LOW + ≤2 files + code it** | Condensed read: rule → handoff → affected files only |
 | **Read-only Q&A / audit** | Memory/wire layer only — no code until **code it** / **implement** / **build** |
 
@@ -164,9 +164,9 @@ Mirror [NightRaven skill](.claude/skills/nightraven/SKILL.md) **Tasking fast pat
 
 ## Project Isolation (no cross-repo bleed)
 
-God's Eye compounds **experience** across projects but never leaks **app memory** into another repo.
+NightRaven compounds **experience** across projects but never leaks **app memory** into another repo.
 
-| Memory class | Scope | God's Eye use |
+| Memory class | Scope | NightRaven use |
 |--------------|-------|---|
 | **Experience** | Portable — master framework, global rules, doc 37 principles | How to ladder, `+#` only, dedup, parallel reads, Tier C craft |
 | **App** | **Current repo only** | Handoff, changelog, learning log, overlay vocabulary, locks, feature state |
@@ -177,7 +177,7 @@ God's Eye compounds **experience** across projects but never leaks **app memory*
 
 ## Tier C — Creator-Innovator (default posture)
 
-God's Eye's **primary lens** — every session, every improvement loop, every read of Brent's context.
+NightRaven's **primary lens** — every session, every improvement loop, every read of Brent's context.
 
 **Principle:** Pursue **craft, coherence, and elegance** in memory shape, naming, and chain wiring. Bar is **creation done well**, not volume or theoretical AI abstractions.
 
@@ -211,18 +211,18 @@ When Brent gives a **concept, context, or idea** (even telegraphic) — infer: *
 
 ## Reference
 
-- **Portable spec:** `docs/37_GODS_EYE_BIBLE.md` — Bible § index, full laws, connected chain, anti-patterns, loop mode, Tier C details
+- **Portable spec:** `docs/37_NIGHTRAVEN.md` — Bible § index, full laws, connected chain, anti-patterns, loop mode, Tier C details
 - **Fast start:** `docs/35_FAST_START.md` — Tier 0 cold-start for new/empty repos
 - **Project isolation:** `docs/36_PROJECT_ISOLATION.md` — experience vs app memory, cross-repo rules
 - **Session handoff:** `docs/14_SESSION_HANDOFF.md` — current state, guardrails, already-done, recent sessions
 - **MCP (Phase 2, optional):** `docs/MCP_SETUP.md` — memory-chain tools (read, search, append Recent sessions); git authoritative
-- **Local vs Cloud execution:** `docs/GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md` — LM Studio vs cloud frontier modes; model recommendations; agent rules by provider; LM Studio quickstart
-- **Research map (plan):** `.cursor/plans/god's_eye_research_map_b4b6f06f.plan.md` — external field overlaps vs GE differentiators; overlay §1 **Composed architecture** · **GIRMA**
-- **agent-skills merge (plan):** `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md` — reject core vendor; optional L4 implementation skills after ship signal; overlay §1 **Implementation skills pack (optional)** · [`CURSOR_INSTALL.md`](docs/CURSOR_INSTALL.md) optional post-install pointer · [`GODS_EYE_UNIFIED_STACK.md`](docs/GODS_EYE_UNIFIED_STACK.md) §2
-- **Improvement loop:** `templates/GODS_EYE_IMPROVEMENT_LOOP_CYCLE_PROMPT.md` — cycle prompt, virtual teams, logging rules
+- **Local vs Cloud execution:** `docs/NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md` — LM Studio vs cloud frontier modes; model recommendations; agent rules by provider; LM Studio quickstart
+- **Research map (plan):** `.cursor/plans/nightraven_research_map_b4b6f06f.plan.md` — external field overlaps vs NightRaven differentiators; overlay §1 **Composed architecture** · **GIRMA**
+- **agent-skills merge (plan):** `.cursor/plans/agent-skills_merge_decision_7be1bdd7.plan.md` — reject core vendor; optional L4 implementation skills after ship signal; overlay §1 **Implementation skills pack (optional)** · [`CURSOR_INSTALL.md`](docs/CURSOR_INSTALL.md) optional post-install pointer · [`NIGHTRAVEN_UNIFIED_STACK.md`](docs/NIGHTRAVEN_UNIFIED_STACK.md) §2
+- **Improvement loop:** `templates/NIGHTRAVEN_IMPROVEMENT_LOOP_CYCLE_PROMPT.md` — cycle prompt, virtual teams, logging rules
 - **Division registry:** `docs/DIVISION_REGISTRY.md` — canonical division list, tool belts, SKILL.md paths, pipeline flow, known gaps
 - **BigBrother relationship:** `docs/32_BIGBROTHER_OVERSIGHT.md` — complementary BAIC oversight checklist
-- **Repo overlay:** `docs/GODS_EYE_REPO_OVERLAY.md` — local vocabulary, code disambiguation, product boundary (if present)
+- **Repo overlay:** `docs/NIGHTRAVEN_REPO_OVERLAY.md` — local vocabulary, code disambiguation, product boundary (if present)
 - **Architect Division (Phase 0 memory):** overlay §1 **Architect Division** · Bible §9 pointer — structural gap between 11-division proposal, NightRaven runtime, §9 virtual teams; not a renamed virtual team
 - **Claude adoption (#15):** [`docs/CLAUDE_ADOPTION.md`](docs/CLAUDE_ADOPTION.md) — Claude Code install, vendor list, noreply author, hooks parity
 
@@ -230,4 +230,4 @@ When Brent gives a **concept, context, or idea** (even telegraphic) — infer: *
 
 **After meaningful work:** append handoff **Recent sessions**; Tier 2+ also changelog + learning log. One `+#` per session at most when updating memory.
 
-**Identity:** Bible §1 — God's Eye as collective legendary mastery; Tier C (§10) is operational expression.
+**Identity:** Bible §1 — NightRaven as collective legendary mastery; Tier C (§10) is operational expression.

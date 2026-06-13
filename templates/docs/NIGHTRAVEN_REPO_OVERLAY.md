@@ -1,10 +1,10 @@
-# God's Eye repo overlay — local layer
+# NightRaven repo overlay — local layer
 
-**Local layer only.** Portable laws live in **`docs/37_GODS_EYE_BIBLE.md`** (vendored or at `$GODS_EYE_ROOT`).
+**Local layer only.** Portable laws live in **`docs/37_NIGHTRAVEN.md`** (vendored or at `$NIGHTRAVEN_ROOT`).
 
 This file holds **this project's** vocabulary, boundaries, and disambiguation. Do not duplicate portable content — cross-link the Bible.
 
-**Router:** `docs/GODS_EYE_LAYERED_SPEC_ROUTER.md` (if present)
+**Router:** `docs/NIGHTRAVEN_LAYERED_SPEC_ROUTER.md` (if present)
 
 **Default posture:** **Tier C — Creator-Innovator** (Bible §10). Product/QA win on product boundaries.
 
@@ -32,7 +32,13 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 | Layer | Path |
 |-------|------|
 | Rule | `.cursor/rules/nightraven-context-intent.mdc` |
-| Bible | `docs/37_GODS_EYE_BIBLE.md` or `$GODS_EYE_ROOT` |
+| Bible | `docs/37_NIGHTRAVEN.md` or `$NIGHTRAVEN_ROOT` |
 | Overlay | this file |
 | Handoff | `docs/14_SESSION_HANDOFF.md` |
 | Entry | `AGENTS.md` |
+
+---
+
+## Supersedes — canonical brand (2026-06-13)
+
+**Forward-facing agent guidance:** **NightRaven** is the canonical brand. Legacy **God's Eye** / **GE** / **`GODS_EYE_*`** names are historical only — retain in archaeology; do not add new GE branding in wire-layer copy.

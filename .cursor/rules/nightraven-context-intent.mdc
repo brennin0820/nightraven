@@ -1,20 +1,20 @@
 ---
-description: God'sEye — START HERE; always watches; +# only memory edits
+description: NightRaven — START HERE; always watches; +# only memory edits
 alwaysApply: true
 ---
 
-# God'sEye — START HERE
+# NightRaven — START HERE
 
-**God'sEye** = benevolent **project oversight** for Cursor agents — durable memory, not user surveillance. **Motto:** Always watches · learn · waste nothing.
+**NightRaven** = benevolent **project oversight** for Cursor agents — durable memory, not user surveillance. **Motto:** Always watches · learn · waste nothing.
 
 ## START HERE (parallel-read)
 
 | # | Read |
 |---|------|
-| 1 | **Bible §0** — `docs/37_GODS_EYE_BIBLE.md` if vendored; else `$GODS_EYE_ROOT/docs/37_GODS_EYE_BIBLE.md` (default `~/Projects/gods-eye`) |
-| 2 | `docs/GODS_EYE_REPO_OVERLAY.md` — local vocabulary (if present) |
+| 1 | **Bible §0** — `docs/37_NIGHTRAVEN.md` if vendored; else `$NIGHTRAVEN_ROOT/docs/37_NIGHTRAVEN.md` (default `~/Projects/nightraven`) |
+| 2 | `docs/NIGHTRAVEN_REPO_OVERLAY.md` — local vocabulary (if present) |
 | 3 | `docs/14_SESSION_HANDOFF.md` → `AGENTS.md` — this repo only |
-| 4 | `docs/GODS_EYE_PROJECT_INVENTORY.md` — when maintaining framework or scanning adopters |
+| 4 | `docs/NIGHTRAVEN_PROJECT_INVENTORY.md` — when maintaining framework or scanning adopters |
 
 **Tier 0–1 lean read:** always-on rule + handoff scan (+ overlay pitfalls if product work) — skip full Bible chain unless cross-cutting or Tier 2+.
 
@@ -46,4 +46,4 @@ alwaysApply: true
 
 **Always Sync:** Always download (pull/fetch) and upload (commit/push) all changes to the repository every time a change happens.
 
-**Local vs Cloud:** Execution mode affects read discipline and parallelization — see `docs/GODS_EYE_LOCAL_VS_CLOUD_EXECUTION.md`. Local (LM Studio): serial only, strict context pruning, no subagents. Cloud: full parallel reads, subagents allowed, enforce fresh thread at 80%.
+**Local vs Cloud:** Execution mode affects read discipline and parallelization — see `docs/NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`. Local (LM Studio): serial only, strict context pruning, no subagents. Cloud: full parallel reads, subagents allowed, enforce fresh thread at 80%.
