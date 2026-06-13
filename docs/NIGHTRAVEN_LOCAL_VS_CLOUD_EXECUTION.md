@@ -142,3 +142,57 @@ These rules are active in `.cursor/rules/nightraven-context-intent.mdc` and appl
 6. Open a new Agent chat — NightRaven rules load automatically via `.cursor/rules/nightraven-context-intent.mdc`.
 
 The MCP server, handoff files, and all memory chain docs work identically in both modes. The only difference is the agent's read discipline and parallelization strategy as defined in §4 above.
+
+---
+
+## 6. LM Studio serial division improvement loop
+
+**Goal:** Improve **every** NightRaven division locally without cloud subagents or API cost — one division per LM Studio call.
+
+### When to use
+
+| Use local loop | Use cloud instead |
+|---|---|
+| Review/refine division SKILL.md contracts | Live `web_search` / `/hunt` (Researcher, Research) |
+| Gap analysis from `DIVISION_REGISTRY.md` | Builder implementation + test loops at scale |
+| Tier 2 memory/doc polish | Parallel six-team `/loop` audits |
+
+### Divisions covered (serial order)
+
+1. **planner** → **researcher** → **architect** → **auditor** → **builder** → **greenfield**  
+2. Runtime (from `nightraven/SKILL.md`): **planning** → **research** → **design**
+
+**Law:** **Never parallel** under LM Studio — wait for each review file before starting the next division.
+
+### Recommended model per division (local)
+
+| Division | Suggested model class | Notes |
+|---|---|---|
+| Planner, Architect | Qwen 2.5 Coder 32B or Llama 3.1 70B | Structure + reasoning |
+| Researcher, Research | Qwen 32B / Llama 70B | SKILL rubric only — no live web |
+| Builder | Qwen 2.5 Coder 32B / DeepSeek Coder V2 16B | Code-oriented |
+| Auditor, Design | Mistral 7B or Qwen 32B | Read-only critique |
+| Greenfield | Llama 70B | Synthesis after serial passes |
+
+Swap models in LM Studio between runs if VRAM is tight — script uses whichever model is loaded (`/v1/models`).
+
+### Run (CLI)
+
+```bash
+# LM Studio: Local Server → Start (http://localhost:1234/v1)
+./scripts/lmstudio-division-improve.sh --list
+./scripts/lmstudio-division-improve.sh --dry-run --division all
+./scripts/lmstudio-division-improve.sh --division all
+./scripts/lmstudio-division-improve.sh --division auditor --model qwen2.5-coder-32b-instruct
+```
+
+**Output:** `docs/lmstudio-reviews/<division>-<timestamp>.md` — review proposals only; apply with **`+#`** to SKILL/registry after Brent says **code it**.
+
+### After the loop
+
+1. Read reviews — pick one division improvement per session (Tier C bar).  
+2. Apply **`+#`** to the division `SKILL.md` or `DIVISION_REGISTRY.md` — never `-#`.  
+3. Append handoff **Recent sessions** once for the batch (not per division mid-flight — use `.cursor/.multiphase-in-flight` if orchestrating).  
+4. Ship code/agent fixes on **cloud** or Cursor when local review is done.
+
+**Cross-link:** [`DIVISION_REGISTRY.md`](DIVISION_REGISTRY.md) · [`scripts/lmstudio-division-improve.sh`](../scripts/lmstudio-division-improve.sh)

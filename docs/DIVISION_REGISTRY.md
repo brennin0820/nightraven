@@ -73,3 +73,16 @@ AppFoundationFlow
 - NightRaven product map: `docs/NIGHTRAVEN_UNIFIED_PRODUCT.md`
 - System skills (non-division): `.claude/skills/` root — `audit`, `bank-*`, `hunt`, `nightraven`
 - Bible: `docs/37_NIGHTRAVEN.md` §9 — virtual teams reference
+
+---
+
+## LM Studio division improvement (local)
+
+**Script:** [`scripts/lmstudio-division-improve.sh`](../scripts/lmstudio-division-improve.sh) — serial OpenAI-compatible calls to LM Studio; one division at a time; writes `docs/lmstudio-reviews/*.md`.
+
+| Division key | SKILL source | Local caveat |
+|---|---|---|
+| planner · researcher · architect · builder · auditor · greenfield | `.claude/skills/divisions/*/SKILL.md` | Researcher: offline rubric only (no web) |
+| planning · research · design | `.claude/skills/nightraven/SKILL.md` (section focus) | Research runtime: defer `/hunt` to cloud |
+
+**Doc:** [`NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md`](NIGHTRAVEN_LOCAL_VS_CLOUD_EXECUTION.md) §6 — order, models, after-loop law.
