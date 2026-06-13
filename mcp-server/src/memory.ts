@@ -1,4 +1,5 @@
-import { access, readFile, writeFile } from "node:fs/promises";
+import { constants as fsConstants } from "node:fs";
+import { access, lstat, open, readFile, realpath } from "node:fs/promises";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import path from "node:path";
@@ -265,7 +266,8 @@ export async function appendRecentSession(
     throw new Error("Refusing append: content would shrink (+# only).");
   }
 
-  await writeFile(handoff.path, nextContent, "utf8");
+  await assertSafeProjectDocsPath(handoff.path, paths.projectRoot);
+  await writeFileNoFollow(handoff.path, nextContent);
   return { path: handoff.path, appended: line.trim() };
 }
 
@@ -304,6 +306,35 @@ async function fileExists(filePath: string): Promise<boolean> {
     return true;
   } catch {
     return false;
+  }
+}
+
+async function assertSafeProjectDocsPath(filePath: string, projectRoot: string): Promise<void> {
+  const resolvedProjectRoot = await realpath(projectRoot).catch(() => path.resolve(projectRoot));
+  const docsRoot = path.join(resolvedProjectRoot, "docs");
+  const resolvedFilePath = path.resolve(filePath);
+  const fileStat = await lstat(resolvedFilePath);
+  if (fileStat.isSymbolicLink()) {
+    throw new Error(`Refusing append: handoff path is a symlink (${resolvedFilePath}).`);
+  }
+
+  const canonicalFilePath = await realpath(resolvedFilePath);
+  const relativeToDocs = path.relative(docsRoot, canonicalFilePath);
+  if (relativeToDocs.startsWith("..") || path.isAbsolute(relativeToDocs)) {
+    throw new Error(
+      `Refusing append: handoff path resolves outside project docs (${canonicalFilePath}).`
+    );
+  }
+}
+
+async function writeFileNoFollow(filePath: string, content: string): Promise<void> {
+  const noFollowFlag =
+    typeof fsConstants.O_NOFOLLOW === "number" ? fsConstants.O_NOFOLLOW : 0;
+  const fileHandle = await open(filePath, fsConstants.O_WRONLY | fsConstants.O_TRUNC | noFollowFlag);
+  try {
+    await fileHandle.writeFile(content, "utf8");
+  } finally {
+    await fileHandle.close();
   }
 }
 
