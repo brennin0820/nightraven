@@ -6,6 +6,13 @@ Append-only (`+#`). Corrections use **Supersedes** lines — never delete histor
 
 ## 2026-06-13
 
+### Touch 3 AFTER — push close memory shipped (`52de8e5`)
+
+- +# Brent **`commit` + `push`** — **`origin/main` @ `52de8e5`** records **`80b4e29`** push-landed batch in handoff · changelog · learning log
+- +# LM Studio doc arc session-close on origin · push-latency §2.8 satisfied
+
+**Cross-links:** [`14_SESSION_HANDOFF.md`](14_SESSION_HANDOFF.md) · [`04_LEARNING_LOG.md`](04_LEARNING_LOG.md)
+
 ### Session sync — push landed (`80b4e29`)
 
 - +# Brent **commit + push** — **`origin/main` @ `80b4e29`** · LM Studio §6 runbook + mis-doc guards + zsh recipe + Personal Network + remote roster memory
