@@ -41,8 +41,13 @@ if ([int]$loopCount -gt 0) {
     exit 0
 }
 
-if (Test-NightRavenTouch3Disabled $projectRoot) {
-    $syncOnly = "NightRaven - Always Sync [cursor hook]`n`n" + ($syncLines -join "`n") + "`n`nTouch 3 AFTER paused - no mandatory handoff batch."
+if (Test-NightRavenHandoffBatchDisabled $projectRoot) {
+    $syncOnly = "NightRaven - Always Sync [cursor hook]`n`n" + ($syncLines -join "`n")
+    if (Test-NightRavenMultiphaseInFlight $projectRoot) {
+        $syncOnly += "`n`nHandoff batch paused - multi-phase in flight (.cursor/.multiphase-in-flight). One Touch 3 AFTER when all phases complete; remove marker then."
+    } else {
+        $syncOnly += "`n`nTouch 3 AFTER paused - no mandatory handoff batch."
+    }
     Emit-FollowupMessage $syncOnly
     exit 0
 }

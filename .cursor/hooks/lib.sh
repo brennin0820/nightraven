@@ -138,6 +138,20 @@ nightraven_touch3_disabled() {
   return 1
 }
 
+# Multi-phase in-flight: defer handoff read/batch until parent completes all phases.
+nightraven_multiphase_in_flight() {
+  local project_root="${1:-}"
+  [[ -n "$project_root" && -f "${project_root}/.cursor/.multiphase-in-flight" ]] && return 0
+  return 1
+}
+
+# Handoff Touch 3 batch paused (touch3.disabled OR multi-phase marker).
+nightraven_handoff_batch_disabled() {
+  nightraven_touch3_disabled "$1" && return 0
+  nightraven_multiphase_in_flight "$1" && return 0
+  return 1
+}
+
 nightraven_touch3_disabled_cached() {
   local project_root="${1:-}"
   if nightraven_touch3_disabled "$project_root"; then

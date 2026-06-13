@@ -154,6 +154,20 @@ function Test-NightRavenTouch3Disabled {
     return $false
 }
 
+function Test-NightRavenMultiphaseInFlight {
+    param([string]$ProjectRoot = "")
+    if ([string]::IsNullOrWhiteSpace($ProjectRoot)) { return $false }
+    $marker = Join-Path $ProjectRoot ".cursor\.multiphase-in-flight"
+    return (Test-Path -LiteralPath $marker)
+}
+
+function Test-NightRavenHandoffBatchDisabled {
+    param([string]$ProjectRoot = "")
+    if (Test-NightRavenTouch3Disabled $ProjectRoot) { return $true }
+    if (Test-NightRavenMultiphaseInFlight $ProjectRoot) { return $true }
+    return $false
+}
+
 function Set-NightRavenTouch3Cache {
     param(
         [string]$ProjectRoot,

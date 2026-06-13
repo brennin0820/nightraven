@@ -39,6 +39,9 @@ Before substantive edits:
 During: guard scope, +# only on memory docs, parallel independent workstreams
 "@
 
+if (Test-NightRavenMultiphaseInFlight $projectRoot) {
+    $message += "`nMulti-phase in flight (.cursor/.multiphase-in-flight): **skip handoff read** in START HERE - use thread context; handoff batch deferred until parent removes marker."
+}
 if (Test-NightRavenTouch3Disabled $projectRoot) {
     $message += "`nTouch 3 AFTER: paused (.cursor/touch3.disabled or ~/.cursor/touch3.disabled) - skip session-close follow-up batch"
 } else {

@@ -85,6 +85,7 @@ Memory + wire  →  UI/copy  →  Code/feature
 ### After meaningful work (Touch 3 — last turn only)
 
 - **Defer** changelog + handoff **Recent sessions** + learning log to **session-close** — the `stop` hook follow-up is the **final turn**; do not batch memory mid-session or while build/subagents are in flight
+- **Multi-phase in flight** — create `.cursor/.multiphase-in-flight`; defer handoff read/append/Touch 3 until all phases done; remove marker before final Touch 3
 - Mid-session: wire cross-links only when asked; memory append when Brent explicitly requests
 - One **clarifying question max** (only if genuinely tied)
 - **One Touch 3 AFTER per session** — batch once on that last turn; do not stack multiple passes; **subagents/workers never Touch 3** (parent batches at close)

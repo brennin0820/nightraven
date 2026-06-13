@@ -324,6 +324,8 @@ App memory = what THIS project is and where it left off (local).
 
 **Anti-pattern:** Re-explaining, re-reading, or re-auditing work already in thread or handoff — §6.
 
++# **Multi-phase handoff gate (2026-06-13):** While **multi-phase instructions** are in flight (`/nightraven` orchestration · explicit multi-phase plan · subagents/Task workers running), **defer handoff** — no **Recent sessions** append, no full handoff read in START HERE, no Touch 3 batch per phase. Parent creates project marker `.cursor/.multiphase-in-flight` (gitignored); hooks pause handoff follow-up until marker removed; **one consolidated +#** when all phases complete. Subagents/workers: **never** handoff. Brent explicit mid-phase **+#** still allowed.
+
 ### 2.9 Always sync + Governed bypass + Local vs cloud
 
 **Always sync — pull before work; push after every change.**

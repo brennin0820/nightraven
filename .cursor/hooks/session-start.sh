@@ -46,6 +46,9 @@ During: guard scope · +# only on memory docs · parallel independent workstream
 EOF
 )"
 
+if nightraven_multiphase_in_flight "$project_root"; then
+  message+=$'\n'"Multi-phase in flight (.cursor/.multiphase-in-flight): **skip handoff read** in START HERE — use thread context; handoff batch deferred until parent removes marker."
+fi
 if nightraven_touch3_disabled "$project_root"; then
   message+=$'\n'"Touch 3 AFTER: **paused** (.cursor/touch3.disabled or ~/.cursor/touch3.disabled) — skip session-close follow-up batch"
 else

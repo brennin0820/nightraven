@@ -13,6 +13,7 @@ Hooks are **not** CORE hard blocks. They inject reminders, optional follow-up me
 | **Enabled (default in this repo)** | Keep `.cursor/hooks.json` — Cursor loads it automatically |
 | **Disabled** | Rename to `.cursor/hooks.json.disabled` or delete `.cursor/hooks.json` |
 | **Touch 3 only (paused)** | Create `.cursor/touch3.disabled` (project) and/or `~/.cursor/touch3.disabled` (global) — `session-stop.sh` no-ops; **keep** the `stop` hook in `hooks.json`. Re-enable: delete marker files only |
+| **Multi-phase in flight** | Parent creates `.cursor/.multiphase-in-flight` (gitignored) at multi-phase orchestration start — handoff Touch 3 batch **paused** until marker removed; autosync still runs. One consolidated handoff **+#** when all phases complete |
 | **Adopting in your app repo** | Run `./install.sh /path/to/app` or copy `.cursor/hooks.json` + `.cursor/hooks/` when handoff exists |
 | **Global (all projects)** | `./install.sh --user --no-project` → `~/.cursor/hooks.json` + `~/.cursor/hooks/nightraven/` — see [`CURSOR_INSTALL.md`](CURSOR_INSTALL.md) |
 
@@ -51,6 +52,8 @@ Does **not** force agent memory writes beyond autosync commit; Touch 3 follow-up
 **Autosync commit vs in-session commits:** On **stop**, hooks may auto-commit **safe paths only** (docs, `.cursor/`, memory chain, etc.) so session work is not left local-only — this is **Always Sync** at the session boundary. **During** a session, agents still follow the user/project rule: commit when Brent asks (or when explicitly instructed). Autosync never stages `.env`, credentials, keys, or paths outside the safe allowlist. If Brent says **do not commit** for in-flight work, that applies to the agent — the stop hook still runs fail-open autosync for already-saved safe files unless hooks are disabled.
 
 **Paused:** When `.cursor/touch3.disabled` or `~/.cursor/touch3.disabled` exists, Touch 3 follow-up batch is skipped — **autosync still runs**. Marker also adjusts `sessionStart` / `afterFileEdit` Touch 3 nudges. `.cursor/touch3.disabled` is gitignored locally.
+
+**Multi-phase:** When `.cursor/.multiphase-in-flight` exists, Touch 3 handoff batch is skipped (same as paused) — **autosync still runs**. Parent agent creates at multi-phase start, removes when all phases complete. `.cursor/.multiphase-in-flight` is gitignored locally.
 
 ### `afterFileEdit` → `.cursor/hooks/after-file-edit.ps1` (Windows) · `after-file-edit.sh` (Unix)
 

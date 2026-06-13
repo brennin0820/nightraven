@@ -46,6 +46,7 @@ This file holds **this project's** vocabulary, boundaries, and disambiguation. D
 | **Cross-platform task routing (Brent)** | Personal stack — Cursor ($60) · Codex CLI · ChatGPT Plus · Claude ($20, Code+Pro same sub) · **Gemini** · **Antigravity**; Gemini + Antigravity both active (research vs plan/audit); **strict:** greenfield build → **Codex CLI first**; user rule `~/.cursor/rules/multi-platform-task-routing.mdc` · complements `usage-budget.mdc` · **triage only on substantial new work**, not every prompt |
 | **Usage-friendly passive mode** | Default Cursor chat — **not** full NightRaven orchestration; no Phase 0 report · ledgers · division spawn · Core status dump per message; **`/nightraven` or "orchestrate"** activates full protocol; rule + AGENTS fast paths |
 | **Repeat task lane** | Before reads/explore: reuse thread context · scan handoff **Recent sessions** + **Already done** on fresh thread · named path only · **continue/again** inherits last outcome — Bible §2.8 · anti-pattern: repeat re-exploration §6 |
+| **Multi-phase handoff gate** | `.cursor/.multiphase-in-flight` marker — defer handoff read/append/Touch 3 until all phases complete; hooks honor marker; one consolidated +# at end; subagents never handoff |
 
 ---
 

@@ -45,10 +45,14 @@ if [[ "${loop_count}" -gt 0 ]]; then
   exit 0
 fi
 
-if nightraven_touch3_disabled "$project_root"; then
+if nightraven_handoff_batch_disabled "$project_root"; then
   message="NightRaven · Always Sync [cursor hook]"
   message+=$'\n\n'"${sync_block}"
-  message+=$'\n\n'"Touch 3 AFTER paused — no mandatory handoff batch."
+  if nightraven_multiphase_in_flight "$project_root"; then
+    message+=$'\n\n'"Handoff batch paused — multi-phase in flight (.cursor/.multiphase-in-flight). One Touch 3 AFTER when all phases complete; remove marker then."
+  else
+    message+=$'\n\n'"Touch 3 AFTER paused — no mandatory handoff batch."
+  fi
   emit_followup_message "$message"
   exit 0
 fi

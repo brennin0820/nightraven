@@ -40,6 +40,8 @@ alwaysApply: true
 
 **During work:** Do **not** run Touch 3 memory batch mid-session — defer handoff/changelog/learning to session-close (§2.8 last-turn law). Mid-session memory edits only when Brent explicitly asks.
 
+**Multi-phase handoff gate:** When running **multi-phase instructions** (`/nightraven` orchestration · explicit phase plan · parallel subagents/Task workers in flight) — parent creates `.cursor/.multiphase-in-flight` (gitignored); **no handoff read** · **no handoff append** · **no Touch 3 batch** until **all phases complete** and marker removed; subagents never handoff; one consolidated **+#** at end.
+
 **Touch 3 (§2.8):** **Last turn only** — one AFTER at **session-stop** hook follow-up; batch handoff + changelog + learning there; **push-latency** — push or explicit defer in Recent sessions; subagents/workers never Touch 3
 
 **Task worthiness (§2.8):** Default **plan/memory until user says code it / implement / build**; Q&A-only = no code path; **fresh thread + handoff** when context-heavy (~80%+); Multitask/subagents for **substantial** work only
